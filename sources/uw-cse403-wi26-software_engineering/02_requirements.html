@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CSE 403 project: Requirements &amp; plan</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="02_requirements_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02_requirements_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="02_requirements_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="02_requirements_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="02_requirements_files/libs/quarto-html/popper.min.js"></script>
+<script src="02_requirements_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="02_requirements_files/libs/quarto-html/anchor.min.js"></script>
+<link href="02_requirements_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02_requirements_files/libs/quarto-html/quarto-syntax-highlighting-095e6f6405c331e3b33229e03003579f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="02_requirements_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="02_requirements_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="02_requirements_files/libs/bootstrap/bootstrap-f54d4bec3d6caa657ab44767ed170762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CSE 403 project: Requirements &amp; plan</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Congratulations! Your pitch has been accepted by the venture capitalists, and you have attracted a talented engineering team to implement it. Now you will expand your pitch into a more complete plan.</p>
+<p>Work with your newly-assigned project team to establish a solid definition of your project from which to base a design and implementation. You will write a document that describes the goals of your project, its functional and non-functional requirements, and how your team plans to deliver it. This is the first iteration of a living document, and you’ll be asked to update it during the development cycle.</p>
+<p>Reminder: AI tools may not be used for content in your project document nor in other github docs (e.g., README, status reports, developer and user guides).  Please see the course Syllabus for the class policy on using AI tools.</p>
+</section>
+<section id="part-1---github-setup" class="level2">
+<h2 class="anchored" data-anchor-id="part-1---github-setup">Part 1 - GitHub setup</h2>
+<section id="create-your-teams-github-repository" class="level3">
+<h3 class="anchored" data-anchor-id="create-your-teams-github-repository">1. Create your team’s GitHub repository</h3>
+<p>Create a repository for your project on GitHub. Determine if you want to make your repo public or private. Make all team members contributors, give all staff members edit access. Plan to use one repo (vs multiple) for all your work.</p>
+</section>
+<section id="add-a-top-level-readme.md-file" class="level3">
+<h3 class="anchored" data-anchor-id="add-a-top-level-readme.md-file">2. Add a top-level README.md file</h3>
+<p>The top-level README should briefly describe the idea and goals of your project and explain the layout of the repository. It should link to your living document (which might be stored in the repository, or might be stored elsewhere).</p>
+</section>
+<section id="add-a-folder-and-template-for-your-weekly-status-report" class="level3">
+<h3 class="anchored" data-anchor-id="add-a-folder-and-template-for-your-weekly-status-report">3. Add a folder and template for your weekly status report</h3>
+<p>See the class <a href="./index.html">project page</a> for the content of the weekly status report, which should be collaboratively written. Make each week’s report its own file in a ‘Status reports’ folder in your repo, so that you can easily refer to past reports and track status. Create a template for use each week.</p>
+</section>
+<section id="start-tracking-your-project-tasks-by-creating-issues" class="level3">
+<h3 class="anchored" data-anchor-id="start-tracking-your-project-tasks-by-creating-issues">4. Start tracking your project tasks by creating issues</h3>
+<p>Managing issues or tasks or bugs is a very common feature of project management tools like GitHub. We highly recommend you use it for team coordination. Consider creating a github “Project” alongside your repo to leverage the scrum-style taskboard support. Project tasks can be simultaneously registered as issues.</p>
+</section>
+<section id="start-experimenting-and-setting-up-resources" class="level3">
+<h3 class="anchored" data-anchor-id="start-experimenting-and-setting-up-resources">5. Start experimenting and setting up resources</h3>
+<p>Next week’s milestone will have you finalize your system’s architecture and design, but start exploring, prototyping, and setting up resources now. For example, if your project requires setting up a web or SQL server, get started on this task and add relevant instructions and information to your Git repository.</p>
+<p>Review the article, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">About merge conflicts</a> and <a href="https://htmlpreview.github.io/?https://github.com/mernst/git-conflict-tutorial/master/git-conflict-resolution.html">Git conflict resolution tutorial</a>. When merge conflicts come up later in the quarter, you will be happy that you did.</p>
+<p><strong>Complete these tasks and include the link to your repo in your project document (described below).</strong></p>
+</section>
+</section>
+<section id="part-2---project-description-and-plan" class="level2">
+<h2 class="anchored" data-anchor-id="part-2---project-description-and-plan">Part 2 - Project description and plan</h2>
+<p>Create a shared living document. We recommend using a Google doc, MS Word doc, or Markdown doc in a shared repository. The majority of your technical writing will go in to this document. Use tables and bullets and diagrams when appropriate to capture the information and to make the document easy to read and update. When a milestone is due you will make a snapshot (PDF) of this document and upload it to Canvas.</p>
+<p>Produce the first version of your project document with the following sections.</p>
+<section id="title-your-document-with-the-project-name" class="level3">
+<h3 class="anchored" data-anchor-id="title-your-document-with-the-project-name">Title your document with the project name</h3>
+<p>Provide a name, a brand, for your project. Often in 403, your project name will be the same as your product name. Your marketing team will want you to include this on all your deliverables.</p>
+</section>
+<section id="team-info-10" class="level3">
+<h3 class="anchored" data-anchor-id="team-info-10">1. Team info (10%)</h3>
+<p>Provide a concise summary of the project team and project artifacts. Specifically:</p>
+<ul>
+<li>List each team member, their current role in the project and why they were chosen for this role. If a team member’s role changes during the quarter, remember to update this information.</li>
+<li>Link to each project relevant artifact such as your git repo.</li>
+<li>List communication channels/tools, expectations, and meeting plans that will keep your team in sync.</li>
+</ul>
+</section>
+<section id="product-description-20" class="level3">
+<h3 class="anchored" data-anchor-id="product-description-20">2. Product description (20%)</h3>
+<p>Briefly describe your overall product and its purpose. Use your project proposal as a starting point. Revise it based on feedback you received so far and the input of your whole team. It is very typical that your project description at this point will have evolved from what was pitched last week.</p>
+<p>Additionally, add the following to this section:</p>
+<ul>
+<li>4+ major features you will implement (P0 and P1s).</li>
+<li>2+ stretch goals you hope to implement (P2s).</li>
+</ul>
+<p>The major features should constitute a minimal viable product (MVP).</p>
+</section>
+<section id="use-cases-functional-requirements-30" class="level3">
+<h3 class="anchored" data-anchor-id="use-cases-functional-requirements-30">3. Use cases (functional requirements) (30%)</h3>
+<p><strong>Each team member</strong> must come up with and describe <strong>at least one formal use case</strong> of your product, following this template as described in class and the readings:</p>
+<ol start="0" type="1">
+<li>Goal</li>
+<li>Actors</li>
+<li>Triggers</li>
+<li>Preconditions</li>
+<li>Postconditions (success scenario)</li>
+<li>List of steps (success scenario)</li>
+<li>Extensions/variations of the success scenario</li>
+<li>Exceptions: failure conditions and scenarios</li>
+<li>Name of team member who created the use case</li>
+</ol>
+<p>Use cases should capture the unique features of your product. Do not focus on features common to products, such as logging into a service, or downloading a result file.</p>
+<p>Team members should review each others use cases for accuracy and quality.</p>
+</section>
+<section id="non-functional-requirements-10" class="level3">
+<h3 class="anchored" data-anchor-id="non-functional-requirements-10">4. Non-functional requirements (10%)</h3>
+<p>Describe at least three non-functional requirements of your product, e.g., related to scalability, usability, security and privacy, etc.</p>
+</section>
+<section id="external-requirements-10" class="level3">
+<h3 class="anchored" data-anchor-id="external-requirements-10">5. External requirements (10%)</h3>
+<p>In addition to the requirements stated above, the staff imposes the following requirements on your product:</p>
+<ul>
+<li>The product must be robust against errors that can reasonably be expected to occur, such as invalid user input.</li>
+<li>The product must be installable by a user, or if the product is a web-based service, the server must have a URL that others can use to access it. If the product is a stand-alone application, you are expected to provide a reasonable means for others to easily download, install, and run it.</li>
+<li>The software (all parts, including clients and servers) should be buildable from source by others. If your product is a web-based server, you will need to provide instructions for someone else setting up a new server. Your system should be well documented to enable new developers to make enhancements.</li>
+<li>The scope of the project must match the resources (number of team members) assigned.</li>
+</ul>
+<p>Make sure that these requirements are specialized to your project and included in your document; do not copy and paste the above requirements verbatim.</p>
+</section>
+<section id="development-process-description-20" class="level3">
+<h3 class="anchored" data-anchor-id="development-process-description-20">6. Development process description (20%)</h3>
+<p>Describe your quarter-long software development process.</p>
+<ul>
+<li>Specify and justify the software toolset you will use.</li>
+<li>Provide a preliminary schedule for your project with at least four concrete milestones and deadlines for the quarter.</li>
+<li>Specify and explain at least three major risks that could prevent you from completing your project, and what is your mitigation plan.</li>
+<li>Describe at what point in your process external feedback (i.e., feedback from customers outside your project team, including the project manager) will be most useful and how you will get that feedback.</li>
+</ul>
+</section>
+</section>
+<section id="submit" class="level2">
+<h2 class="anchored" data-anchor-id="submit">Submit</h2>
+<ol type="1">
+<li>Export a PDF snapshot of your document named <strong>[project name]_m2.pdf</strong> and submit it to Canvas.</li>
+<li><strong>Individually</strong> complete the form individual-status-and-contribution, provided by your TA. This is a required part of each group milestone assignment and contributes to your individual grade.</li>
+</ol>
+</section>
+<section id="clarifications-and-faqs" class="level2">
+<h2 class="anchored" data-anchor-id="clarifications-and-faqs">Clarifications and FAQs</h2>
+<section id="what-is-a-team-member-role" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-team-member-role">What is a team member “role”?</h3>
+<p>A role describes the part of the project (or a set of tasks) a team member is responsible for. You can refine these roles as you continue to work on your project and you are free to change them as you go forward. It is important, however, to justify your current decisions.</p>
+<p>Here are two examples for defining roles:</p>
+<ol type="1">
+<li>A typical web application project could have roles of: 2-3 backend engineers, 1-2 frontend engineers, and 1-2 engineers in charge of UI design (probably in addition to being frontend or backend engineers).</li>
+<li>A data analysis project could have roles of: 1-2 people responsible for data collection and storage, 1-2 people responsible for data analysis and visualization, and 1-2 people responsible for infrastructure and automation.</li>
+</ol>
+<p>You may also want to consider if someone’s role includes running a daily scrum or driving schedule updates.</p>
+</section>
+<section id="how-much-should-we-say-about-the-software-toolset-we-will-use" class="level3">
+<h3 class="anchored" data-anchor-id="how-much-should-we-say-about-the-software-toolset-we-will-use">How much should we say about the software toolset we will use?</h3>
+<p>What programming languages, data sources, project trackers, and other tools will you use? What, if any, software components will you attempt to use “off the shelf” versus implementing them from scratch? Explain why you chose these tools and languages, as well as why they are suitable for your project.</p>
+<p>It is OK to establish some of the answers during the requirements engineering stage and others during the design stage. It is also OK of some of these change as you continue working on the project.</p>
+</section>
+<section id="what-should-we-consider-in-a-preliminary-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="what-should-we-consider-in-a-preliminary-schedule">What should we consider in a preliminary schedule?</h3>
+<p>Some ideas:</p>
+<ul>
+<li>Consult the class calendar for dates of course milestone deliverables. What needs to be done for and leading up to these?</li>
+<li>Be specific with your functionality targets. For example, don’t just say, beta release on day-x; say beta release on day-x that will include a, b, and c functionality.</li>
+<li>Consider a plan for each major area and when they’ll integrate. While we expect you to work in an agile fashion, given our short quarter, identifying some milestones that include integrated features is a good way to make sure you’re on track for your delivery. The beta release, for example, must include one feature that is connected from the front end to the back end.</li>
+</ul>
+</section>
+<section id="what-if-we-want-to-commercialize-our-project-idea" class="level3">
+<h3 class="anchored" data-anchor-id="what-if-we-want-to-commercialize-our-project-idea">What if we want to commercialize our project idea?</h3>
+<p>Your group will collectively own its own work. If you think you may want to commercialize your project, you may want to consult early with a legal source. A resource on campus is <a href="https://comotion.uw.edu/">Comotion</a>. Most often, the main value of the CSE 403 project is to flesh out and test ideas, rather than to produce code that will live until commercialization.</p>
+<p>Be aware of software licenses on open source (or other) software that you may want to leverage in your project. Understanding the ownership of intellectual property is important, for your class use as well as should you want to commercialize your project in the future. The 403 course staff is here to help you understand this space.</p>
+</section>
+<section id="any-advice-regarding-writing" class="level3">
+<h3 class="anchored" data-anchor-id="any-advice-regarding-writing">Any advice regarding writing?</h3>
+<p>Plausibility, thoughtfulness, and level of detail will largely determine the score for this assignment. For example, generic or incomplete use cases often lead to deductions. You should choose and clearly describe substantial use cases that are important to the core functionality of your product. You should also list a reasonable set of steps in the various scenarios that can occur in these use cases. Make sure to not omit important steps or details. Make sure that the state of the system at the end of any path through the use case matches what the use case claimed is the final state.</p>
+<p>Your document must be clear and professional. This means it should be concisely written, with proper spelling and grammar, clear wording, and formatted with supporting structure to present your ideas clearly to the reader. <strong>We strongly encourage using tables or bulleted lists, and diagrams, to help organize the material in a format easier to read.</strong></p>
+<p>Do not include the assignment instructions in your document. This can be very distracting. The document should be focused solely on your project specific information.</p>
+<p>You are developing a living document, which means you should expect change requests and iterations. Consider an organization that willq make this easier on yourselves over the quarter.</p>
+</section>
+<section id="is-there-a-minimum-or-maximum-number-of-pages" class="level3">
+<h3 class="anchored" data-anchor-id="is-there-a-minimum-or-maximum-number-of-pages">Is there a minimum or maximum number of pages?</h3>
+<p>No, grading focuses on completeness and proper writing (clarity and conciseness). As with all writing, technical or otherwise, you want to completely address each thing that needs to be addressed (in this case, requirements) clearly enough to be understandable. <em>Do not pad your writeup.</em> Express the information concisely and largely free of redundancy. (Use cross-references if necessary to avoid redundancy.)</p>
+</section>
+<section id="can-we-use-ai-to-create-this-document" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-use-ai-to-create-this-document">Can we use AI to create this document?</h3>
+<p>No.&nbsp;Please see the AI policy in the course syllabus.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

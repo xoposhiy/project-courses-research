@@ -1,0 +1,174 @@
+CSE 403 project: Gamma release
+
+Overview
+
+Make progress on the implementation of your product and solidify the
+documentation for end-users and developers.
+
+Set up
+
+Work with your project team to (1) make progress towards the final
+release and illustrate that progress through a video demo, (2) provide
+concise user and (3) developer documentation.
+
+Instructions
+
+1. Make progress in your GitHub repository (40%)
+
+This section of the assignment will be graded individually. Some
+requirements:
+
+- Each team member must contribute to the code base.
+
+- Each team member must demonstrate proper use of version control and
+  CI.
+
+- Each team members' contributions (commit/pull request) must be tested,
+  commented, and code reviewed.
+
+- Each team member must be a code reviewer on some pull requests, and
+  respond to comments on their pull requests.
+
+- Provide a GitHub tag (id) for this Gamma release (including
+  documentation) and include it in your ReadMe. Make sure the last
+  commit in this version is inside the due date timeline.
+
+  Complete this in the main branch of your repository.
+
+2. Provide a demo of the feature advances (10%)
+
+Create a short (3 minute) video demonstrating (1) one (or more) feature
+of your product that has advanced since the Beta release; (2) a
+successful run of your continuous integration process: trigger a build
+and test. Slides are not required.
+
+3. Write user documentation (25%)
+
+Your repository must contain a user manual. Anyone looking at your
+repository should be able to easily find the user manual. The user
+manual is focused solely on end-users of your product.
+
+The user manual should describe the functionality of your project as you
+expect it to be at the end of the quarter. For this assignment, indicate
+missing functionality as work in progress.
+
+The manual should include the following information:
+
+- A high-level description. What does the system do and why would a user
+  want to use it.
+
+- How to install the software (if applicable). If your system has
+  prerequisites (e.g., tools, libraries, emulators, third-party
+  applications, etc.), your instructions should list all of them and
+  indicate how to install and configure them. Make sure to indicate what
+  specific version requirements these prerequisites must satisfy. If
+  running the system requires the installation of, e.g., a virtual
+  machine, a database, or an emulator, make sure to provide clear
+  step-by-step instructions.
+
+- How to run the software. How to start up the system (e.g., a getting
+  started guide)? Are there mobile device or browser requirements?
+
+- How to use the software. How does the user use the main features? You
+  can assume that your user is familiar with your particular platform
+  (e.g., use of a web browser, desktop applications, or mobile
+  applications). For missing functionality, your documentation should
+  simply indicate that this functionality is work in progress.
+
+- How to report a bug. This should include not just the mechanics (a
+  pointer to your issue tracker), but also what information is needed.
+  You can set up a bug-report template in your issue tracker, or you can
+  reference a resource about how to write a good bug report. Here is an
+  example for bug reporting guidelines.
+
+- Known bugs. Known bugs or limitations should be documented in the bug
+  tracker. A user testing the implemented use case(s) should not
+  encounter trivial bugs or a large number of bugs that are unlisted in
+  your bug tracker.
+
+  Complete this in the main branch of your repository.
+
+3. Developer documentation (25%)
+
+Your GitHub repository must contain developer guidelines. Anyone looking
+at your repository should be able to easily find these guidelines. The
+developer guidelines are focused solely on people who want to contribute
+to your project.
+
+The developer documentation should include at least the following
+information:
+
+- How to obtain the source code. If your system uses multiple
+  repositories or submodules, provide clear instructions for how to
+  obtain all relevant sources.
+
+- The layout of your directory structure. What do the various
+  directories (folders) contain, and where to find source files, tests,
+  documentation, data files, etc.
+
+- How to build the software. Provide clear instructions for how to use
+  your project’s build system to build all system components.
+
+- How to test the software. Provide clear instructions for how to run
+  the system’s test cases. In some cases, the instructions may need to
+  include information such as how to access data sources or how to
+  interact with external systems. You may reference the user
+  documentation (e.g., prerequisites) to avoid duplication.
+
+- How to add new tests. Are there any naming conventions/patterns to
+  follow when naming test files? Is there a particular test harness to
+  use?
+
+- How to build a release of the software. Describe any tasks that are
+  not automated. For example, should a developer update a version number
+  (in code and documentation) prior to invoking the build system? Are
+  there any sanity checks a developer should perform after building a
+  release?
+
+  Complete this in the main branch of your repository.
+
+Submit
+
+1.  Export the video of your demo (max size: 500 MB) and submit it to
+    Canvas.
+2.  Individually complete the form individual-status-and-contribution,
+    provided by your TA. This is a required part of each group milestone
+    assignment and contributes to your individual grade.
+
+If your video file exceeds 500 MB, reduce the resolution and re-export
+the video before submitting. Be sure that the video remains clear and
+fully comprehensible, and that the demo is still easy to see and follow
+after compression.
+
+Clarifications
+
+- Can we use AI for this milestone? You can use AI tools only for coding
+  pieces of the milestone, as outlined in the AI policy in the course
+  syllabus. You may not use AI, for example, for the user or developer
+  documentation.
+
+- Can you explain what is meant by “user”? Think of the user as someone
+  to whom you might sell or license or provide-access-to your product.
+  They will want to understand what it does, how to install it (if
+  applicable), how to use it including what features are present and
+  future, and how to file bugs against it. Will you have multiple types
+  of users? For example,for a chat-board product, type1-user might be an
+  IT professional who wants to install a local version for their
+  organization, and type2-user might be an employee who will use the
+  local chat-board. If your product can only be used through your
+  universal central service, you may only have type2-users.
+
+- Should these documents read like essays? No. Your audience is
+  generally professionals and software developers like yourselves. While
+  you may want to write short paragraphs for the overview and section
+  introductions, we recommend you use lists and tables for instructions.
+  These are easier and faster for your stakeholders to follow.
+
+- What if info needed in my user or developer documentation already
+  exists in my project document? The documentation in your repository
+  should be largely self-contained, and anyone looking for documentation
+  should find it, or a link to it, in the repository. You may link to
+  sections of your project document from your user/developer
+  documentation, or you may move these sections to the repository and
+  put a link to it in your living document. Do not maintain two parallel
+  versions of any documentation.

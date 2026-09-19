@@ -1,0 +1,115 @@
+Syllabus
+
+Course description
+
+In this course, students learn and gain practical experience with
+software engineering principles, techniques, and tools. Topics in this
+course include requirements analysis, specification, design,
+abstraction, programming style, testing, maintenance, communication,
+teamwork, and software project management. The practical experience
+centers on a quarter-long team project, in which a software development
+project is carried through all the stages of the software life cycle.
+Particular emphasis is placed on communication skills and on developing
+maintainable software. In-class activities further provide a hands-on
+experience in using state-of-the-art techniques and tools.
+
+Prerequisites
+
+- CSE 331 and CSE 332
+
+Course format
+
+The class meets three times a week for lectures (Monday, Wednesday and
+Friday). All class meetings are in-person. Additionally, individual
+groups are required to meet twice a week during section for team and
+project meetings (Tuesday and Thursday). Classroom material is enhanced
+with assigned readings and in-class exercises. A major component of the
+course is teamwork on a group project. Individual contributions include
+exercises, retrospectives, an exam, and participation.
+
+Grading
+
+Grades will be based on the following:
+
+- 60%: Project milestone deliverables
+- 15%: In-class exercises
+- 15%: Exam
+- 10%: Participation
+
+Your individual grade on the group project milestone deliverables may be
+adjusted based on your contribution.
+General information about grading at the University of Washington is
+available as part of the UW Student Guide.
+
+Policies
+
+Late Policy
+
+Assignments must be submitted on Canvas by the due date and time. Unless
+otherwise noted, all times are given in PDT (Pacific Time). Group
+project milestones may not be submitted past the deadline. For other
+assignments, the submission site will remain open for 24 hours after the
+deadline. Assignments submitted within 24 hours after the deadline will
+incur a 20% penalty. Assignments will not be accepted beyond 24 hours
+after the deadline.
+
+Academic Integrity
+
+Except for clearly labeled group submissions, all assignments and
+projects in the course are to be done by you and you alone. Violation
+will result in an immediate F grade and possible initiation of formal
+procedures. We use automated techniques and manual checks to correlate
+submissions. At the same time, we encourage students to help each other
+learn the course material. As in most courses, there is a boundary
+separating these two situations. You are allowed to consult with other
+students in the current class to help you understand the material or
+homework/project requirements (i.e., the problem definition). However,
+you may not collaborate in any way when constructing your solution: the
+solution to an individual homework/project must be prepared by you
+working alone. In particular, you are not allowed to collaboratively
+work out a detailed solution to the extent that your submissions are
+identifiably similar. Please refer to the following websites for
+additional information on the Allen School and UW overall academic
+policies: Allen School Policies and UW Policies.
+
+Use of AI Tools
+
+You may use AI tools to assist with the coding (and source code review)
+of your group project milestone deliverables and for any AI-assisted
+features of your group project milestone deliverables. However you may
+not use AI tools for any other parts of the milestone deliverables or
+class assignments. If you use AI tools (1) your group members must all
+agree to the use; and (2) you must clearly disclose the use in the
+turned-in material. If you have any questions as to what constitutes
+acceptable use of AI, please talk to the course instructor.
+
+Code of Conduct
+
+The Allen School Code of Conduct articulates the behavioral expectations
+to which we hold ourselves and each other accountable. These
+expectations promote excellence and integrity in all of our activities,
+ensure that all persons are treated with respect, dignity, civility, and
+courtesy, promote constructive communication and collaborative teamwork,
+and articulate the available reporting and resolution pathways if
+violations of these expectations occur. Please refer to the following
+websites for details on the Code of Conduct at the Allen School and UW
+overall: Allen School Policies and UW Policies.
+
+Course Communication
+
+To ensure the security of your personal information, all communication
+related to this course should be conducted through either the course LMS
+(Canvas or EdStem Platform) or via your UW or CSE-issued email address.
+Personal email addresses should not be used for course-related
+correspondence.
+
+Accommodations
+
+If you require any special services or accommodations during a course
+please make sure to inform us within the first week of that course. This
+will give us time to plan accordingly to ensure that you get the help
+and support you need. Please refer to the following website for
+additional information on disabilty accommodations: UW Disability
+Accommodations Resources, and the following website for additional
+information on religious accommodations: UW Religious Accommodations
+Policy.

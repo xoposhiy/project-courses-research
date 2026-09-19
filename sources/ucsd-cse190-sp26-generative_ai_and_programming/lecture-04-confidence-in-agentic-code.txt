@@ -1,0 +1,2900 @@
+Unit 4: Getting Confidence in (Agentic) Code
+
+As programmers and software engineers, we talk a lot about code being
+“correct” or “right” or “working”. We ship code, in products or
+programming assignments, when we feel it's “done” (or when we've reached
+a deadline), and it invariably has “bugs” – that is, it is not correct
+in the strict sense.
+
+At the same time, we have a lot of confidence that our code does what we
+intended, for the most part. After all, we wrote it, and we thought
+carefully about what it was supposed to do as we developed each helper
+function, algorithmic loop, and API call.
+
+As systems get larger, it is harder and harder to have this confidence.
+Web browsers, operating systems, IDEs, and more are vast, complex
+codebases with millions of lines of code, decades of history, and many
+authors. Having confidence in these comes from a few main sources:
+
+- Trust, in the social sense. A trusted author wrote it, a trusted
+  person did a code review, and so on, and we trust the community's
+  process and collective judgment. Another kind of trust is being around
+  for a while and not changing very much. gcc has earned a certain level
+  of trust because we know it doesn't get overhauled every release and
+  has been a known quantity in production for decades.
+- Verification, in the software sense. A program may be very complex,
+  but we observe that a simpler artifact, like test cases or a
+  type-based specification, passes when run against the implementation.
+  We can justifiably have confidence in the code up to what we see from
+  the verifier and our read of the spec.
+
+In reality, most large systems do have critical bugs. It's a bummer!
+However, the software engineering and verification community has made a
+lot of progress over the past few decades in bringing tool-based
+confidence to systems. Type systems like Rust's aim to eliminate entire
+classes of correctness issues related to memory management. Techniques
+like property-based testing and fuzzing have found many critical bugs
+before (and after) release. We're striving towards robustness and
+confidence in our code.
+
+With agents capable of writing orders of magnitude more code than humans
+in the same amount of time, the calculus of trust and confidence is
+undergoing a significant shift. In Unit 2 we talked about slowing Claude
+down to a pace we could review. At least partially, we were forcing
+ourselves into the social and code review kind of trust. I (Joe) had a
+lot of domain knowledge about web programming that I could bring to bear
+on the actual code that was being generated, and acted as a trusted
+reviewer.
+
+But what about important systems where confidence is critical yet no one
+person can reasonably review all the code? Clearly agents are capable of
+building large systems. But can they build large systems while giving us
+confidence in them? People are surely trying: the Claude C Compiler got
+widespread attention for trying to reproduce a gcc-like system in an
+automated way; a rewrite of a JavaScript engine from Zig to Rust was a
+conversation-starter just this week; Claude documents a “Ralph Wiggum
+loop” where agents work for a long time, iterating on their own
+artifacts, until “done”.
+
+We don't have the traditional signals of social trust for this code! In
+2020, the existence of a million line codebase implied something about
+human effort and attention that translated into some “banked” trust.
+That is not true of million-line codebases generated in days by agents.
+In those cases, the confidence in the built system rests on the quality
+of the verifier. That is, what properties need to be true of the system
+for us to have confidence in it, and what verifiers can we write to
+check that those properties hold. For example, if the Claude C compiler
+passes gcc's test suite, we can have some confidence in it.
+
+  Q: What might give us more confidence?
+
+In this unit, we are going to explore the interplay between agentic code
+generation and verifiers. Two common “verifier”/“property” pairs:
+
+- Unit tests verify the property of input-output correctness (on a
+  finite set of examples (for a single run))
+- Type systems (that are sound) verify the property that a variable will
+  always hold a value of a particular type
+
+CS curricula could benefit from including these going forward!
+
+The actual space of verifiers is vast – there are static verifiers like
+type systems or symbolic execution or static analysis, there are dynamic
+verifiers like predicate checks or valgrind or asan or humble assert
+statements. There are test-based and input-generation harnesses for
+these like fuzzers or oracles or handwritten inputs.
+
+  Q: Define each of the terms in the preceding paragraph, using a
+  competent model or a web search for the ones you can't identify from
+  your own learning.
+
+This is new content to me (and indeed, to the world). Please give
+feedback in this form about anything related to these lectures: working
+for you / not working for you, points of confusion, etc.
+
+Problem Selection
+
+To try this, I wanted a problem that would:
+
+- Be difficult enough that frontier models would be unlikely to
+  satisfyingly implement it in one shot
+- Have many possible “correct” answers
+- Showcase a variety of verification methodology
+- Have understandable behavior, but genuinely out of scope for me to
+  code review: The key property I want is that looking at the code
+  wouldn't necessarily help me much, but I still know what success
+  means.
+
+The following problem is what we'll explore:
+
+Make a standard textbook allocator (e.g. something like malloc) support
+concurrency.
+
+- I tried a few ways, and agents made meaningful errors
+- There are different existing solutions for parallel allocators, which
+  may or may not be in corpus for the model, and may or may not exactly
+  line up with how my starting-point malloc works
+- It's possible to get quite complicated implementations that are
+  necessary to improve performance
+- The C ecosystem has useful tools for doing this kind of verification
+- I know how to implement allocators, and I know what properties they
+  should have. However, I have never designed or written a concurrent
+  data structure by hand or taken a parallel programming course. Most of
+  what I (now) know about them I learned while preparing this document.
+
+Along the way, we will need to clearly specify allocator behavior, write
+tests (and have an agent help us generate them), write benchmarks and
+measure performance, and learn about new tools for more thorough vetting
+of generated code.
+
+What an Allocator Does
+
+malloc (and the corresponding free) are usually taught as the default
+way to allocate on the heap in C and systems programs:
+
+- void* malloc(size_t size) takes a number of bytes and returns either:
+  - A pointer to freshly-allocated memory of (at least) size bytes, or
+  - NULL if not enough space was available or another error occurred
+- void free(void* ptr) takes a pointer that must have been returned by
+  malloc and not yet freed and does some work to make the space
+  available on the heap for future calls to malloc. After a call to
+  free, it is assumed that the freed pointer is no longer used.
+
+In practice, there are many implementations of malloc – the default on
+MacOS is different than the default on Linux, and so on. There are also
+many different allocators in general: CPython has a particular pymalloc
+allocator that has a specific way of laying out memory for Python
+objects, for example (most programming languages do). These allocators
+typically:
+
+- describe a heap layout and some rules for how data is stored
+- work in terms of low-level representations like pointers and
+  bit-by-bit tag values
+- support allocation and freeing of pointers
+- may support other operations as well, like reporting free space
+  available, growing or shrinking the heap, and so on
+
+Our Allocator for This Study
+
+This allocator design comes from CSE 29 (Winter 2026), Programming
+Assignment 4.
+
+We are going to take as our starting point a particular allocator shape
+that comes from a course here at UCSD. We'll name the functions the way
+they do to make sure we think of them differently than the built-in
+malloc and free that come with our C distribution:
+
+vmalloc
+
+    void* vmalloc(size_t size);
+
+The size_t size parameter specifies the number of bytes the caller
+wants. This has the same meaning as the usual malloc we have been using:
+the returned pointer is to the start of size bytes of memory that is now
+exclusively available to the caller.
+
+vmfree
+
+    void vmfree(void* ptr);
+
+The vmfree function expects a 16-byte aligned address obtained by a
+previous call to vmalloc. For allocated blocks, vmfree updates the block
+metadata to indicate that it is free, and coalesces with adjacent
+(previous and next) blocks if they are also free.
+
+Layout
+
+This implementation comes with a specific heap layout, specifying how
+the metadata should be stored on the heap.
+
+Hover over the headers and footers in the diagrams below to see what
+they store.
+
+Initially, the heap is one large "free block" (here I show it as just
+128 bytes long; real heaps are of course much larger).
+
+free 128
+
+On a first call to void* ptr = vmalloc(24), the resulting heap would
+look like this:
+
+alloc 32 * free 96
+
+The marked location would be returned and stored in ptr. After another
+two allocations vmalloc(8) and vmalloc(16), we'd have:
+
+alloc 32 alloc 16 * alloc 32 * free 48
+
+Then, if we free the first block with vmfree(ptr) (the one we stored
+above), we'd have:
+
+free 32 alloc 16 alloc 32 free 48
+
+Another allocation could now use that first block again. Another call to
+free, on the second block (the 16-sized one), would cause the first two
+blocks to merge:
+
+free 48 alloc 32 free 48
+
+A few things to say about these diagrams:
+
+1.  The solid blue regions are the client's to use. This is where all
+    the actual use of the allocated data happens in e.g. a C program
+    that is allocating a 24-byte Node struct or similar: the client has
+    the expectation of exclusive access to the payload area.
+
+2.  The dotted regions are free, and it's expected that clients of the
+    library do not try to read or write those areas when free. The
+    implementation of the allocator is allowed to use that space for
+    anything. Indeed it does, for footers.
+
+3.  Footers are added to free regions to help with coalescing. When we
+    freed the 16-sized block, it was useful to know the size of the
+    previous block for navigating the heap via pointer arithmetic!
+
+4.  Headers are the front 8 bytes of each block. They store 3 things:
+
+    - The size
+    - Whether the current block is busy or free (least significant bit)
+    - Whether the previous block is busy or free (second least
+      significant bit)
+
+    All of that information is used to manage the shape of the heap
+    across allocations and frees.
+
+With this information, there are straightforward algorithms for:
+
+- Starting at the beginning of the heap, loop until a free block of at
+  least a particular size is found (e.g. find a place to put a new
+  vmalloc)
+- Starting at an arbitrary block, check if the next and previous blocks
+  are free (e.g. coalesce/merge two free blocks on vmfree)
+- Starting at a big enough free block, split it into an allocated block
+  and a remaining free block
+
+  Q: Describe the algorithm for finding a free block of a particular
+  size, starting with just a pointer to the beginning of the heap. What
+  information is needed at each block? What C operation(s) would help
+  you get that information? What parts of memory are read?
+
+Answer:
+
+Rough pseudocode is:
+
+    block_t *find_fit(size_t needed) {
+      block_t *b = first_block(heap);            // skip the 8-byte leading pad
+      while (block_size(b) != 0) {                // 0 marks the end-of-heap sentinel
+        if (is_free(b) && block_size(b) >= needed) return b;
+        b = (block_t *)((char *)b + block_size(b));
+      }
+      return NULL;                                // no fit
+    }
+
+At each block we only read the header (size + busy bit), then advance by
+that size — a single uint32_t load and a pointer cast/addition per
+block. Free blocks' payloads are never touched.
+
+  Q: Describe the algorithm for vmfree, starting with just a pointer to
+  the allocated block to be freed. What C operation(s) would help you
+  get that information? What parts of memory are read and written?
+
+Answer:
+
+    void vmfree(void *ptr) {
+      block_t *b = block_from_payload(ptr);       // ptr - HEADER_SIZE
+      if (prev_is_free(b))                         // reads b's prev-bit
+        b = merge_with_prev(b);                    //   uses prev block's footer for its size
+      block_t *next = next_block(b);
+      if (block_size(next) != 0 && is_free(next))  // sentinel size = 0, so this guard stops at end
+        merge_with_next(b, next);
+      mark_free(b);                                // writes header, footer, and next block's prev-bit
+    }
+
+Reads: b's header (own size + prev-bit), the previous block's footer
+(only if prev is free), the next block's header. Writes: b's header and
+footer, and the next block's prev-bit so it stays accurate.
+
+Details and Heap Properties
+
+I omitted two small details in the last section.
+
+1.  The heap has an 8-byte padding at the beginning, to make sure all
+    user-facing pointers are 16-byte aligned (which has performance
+    implications)
+2.  There is always an 8-byte all-0 word at the end of the heap as a way
+    to tell when the heap ends.
+
+So the actual final picture would look like:
+
+free 48 alloc 32 free 32
+
+Or will it... we'll come back to these "small details" once we start
+asking verifiers to walk the heap.
+
+Usually this won't matter for our examples, but it is technically
+required of the heap shape!
+
+The implementation specifies some other requirements in addition to the
+two above:
+
+- There must never be two adjacent free blocks: they should always be
+  eagerly coalesced
+- All blocks must accurately report their size and busy (allocated)
+  information for this block and the previous block
+- All free blocks must accurately report their size in a footer
+- All user-facing pointers (payload starts) must be at 16-byte addresses
+- Block sizes are given 4 bytes (uint32_t), which implies a
+  several-gigabyte maximum block size (probably bigger than ever needed,
+  but a true limit)
+
+Practice
+
+  Q: What will the heap look like after the following sequence (assume a
+  256-byte heap)
+
+      a = vmalloc(24)
+      b = vmalloc(56)
+      vmfree(a)
+      c = vmalloc(42)
+      vmfree(b)
+
+Answer:
+
+free 96 alloc 64 free 80
+
+Walkthrough:
+
+- a = vmalloc(24) carves out a 32-byte block (header 8 + payload rounded
+  up to a 16-multiple), leaving 208 bytes free.
+- b = vmalloc(56) carves out a 64-byte block, leaving 144 bytes free.
+- vmfree(a) marks a's slot free. No coalesce: b is to the right and
+  busy, and the heap-start sentinel is to the left.
+- c = vmalloc(42) rounds up to a 64-byte block. The 32-byte free block
+  is too small, so we allocate out of the 144-byte free block, leaving
+  80 free.
+- vmfree(b) is the interesting one: the previous block (a's old slot, 32
+  bytes) is free, so the two coalesce into a 96-byte free block. The
+  next block is c, still busy, so no forward coalesce.
+
+  Q: What will the heap look like after the following sequence (assume a
+  128-byte heap)? What will be stored in a?
+
+      a = vmalloc(130)
+
+Answer: The heap should be unchanged, NULL should be returned
+
+Why Concurrency is Hard
+
+The vmalloc and vmfree allocator assumes that the allocator and the
+client are running on a single thread. Things can go very wrong if two
+threads race on the individual lines of its implementation. For example,
+if we consider find_fit and vmfree from above:
+
+    block_t *find_fit(size_t needed) {
+      block_t *b = first_block(heap);
+      while (block_size(b) != 0) {
+        if (is_free(b) && block_size(b) >= needed) return b; // RETURNED
+        b = (block_t *)((char *)b + block_size(b));
+      }
+      return NULL;
+    }
+
+    void vmfree(void *ptr) {
+      block_t *b = block_from_payload(ptr);
+      if (prev_is_free(b)) b = merge_with_prev(b);    // PREVMERGE
+      block_t *next = next_block(b);
+      if (block_size(next) != 0 && is_free(next))
+        merge_with_next(b, next);
+      mark_free(b);
+    }
+
+Consider:
+
+Thread A is running vmfree on the allocated block in the middle of two
+free blocks:
+
+free 32 alloc 32 * free 32
+
+The marked block is the one Thread A is about to free.
+
+Thread B is about to allocate with vmalloc, which will use find_fit to
+select which free block to use for the new allocation.
+
+Consider the following sequence of events:
+
+1.  The merge with the previous block (marked // PREVMERGE in the code
+    above) happens
+2.  find_fit sees the new block created by merging the first two, and an
+    allocation happens there, using the space of the newly-freed region
+    (marked // RETURNED)
+3.  merge_with_next happens, and incorrectly tries to merge the
+    newly-allocated block with the next block, and/or mark_free goes on
+    to mark the newly-allocated block free
+
+State 1 — Thread A runs merge_with_prev, then pauses before
+merge_with_next. The first two blocks have folded into a 64-byte free
+region; the trailing free 32 is untouched:
+
+free 64 free 32
+
+This is a fleeting invariant violation: two adjacent free blocks. Thread
+A's local b now points to the start of this merged region, which is also
+the start of the heap.
+
+State 2 — Thread B runs find_fit(56). It sees the free 64 first and
+carves a 64-byte allocated block out of it:
+
+alloc 64 * free 32
+
+The marker is Thread B's freshly-returned pointer. Thread B is now free
+to write into its payload (bytes 8–64 of the heap).
+
+State 3 — Thread A resumes. Its local b still points to byte 0 of the
+heap. It reads block_size(b) — which is now 64, because Thread B just
+wrote an alloc-64 header there — and lands next_block(b) at the start of
+the trailing free 32. is_free(next) is true, so it merges, writing a new
+free-96 header back at b's address (clobbering Thread B's header), and
+mark_free(b) confirms it. The allocator's metadata now claims:
+
+free 96
+
+…but Thread B is still actively writing to bytes 8–64 of that "free"
+region, believing it owns them. A future vmalloc will happily hand the
+same bytes to another caller. Silent double-allocation, and the heap
+structure passes a casual inspection — there's exactly one block, sized
+correctly, header and footer agree.
+
+To make the heap a fundamentally shared resource across threads, we
+would need to take much more care!
+
+Now, I mentioned that I am not a concurrent/parallel programmer. I've
+never taken a class in it, I nod along in research talks about it, etc.
+I do know some basics:
+
+- There are locks, which are a cross-thread resource that forces a
+  thread to pause trying to "acquire" the lock until another thread
+  "releases" it.
+- There are atomic operations which are guaranteed to complete without
+  interruption by another thread. Examples are compare-and-swap ("if
+  this memory location still holds value X, replace it with Y, otherwise
+  tell me what's there now"), fetch-and-add (read a counter and
+  increment it in one step), and atomic load/store of a single machine
+  word (so no thread can ever observe a half-written value).
+
+So I'm imagining some setups like one thread may need to "acquire" a
+lock in order to finish an allocation and then "release" it when done so
+other threads could process a free. Or maybe there are super clever ways
+to use compare-and-swap to only allocate correctly-freed things in some
+way. I'm not sure – I can only imagine vague shapes of solutions, not
+tell you what to try.
+
+Why Concurrent Allocators are Interesting and Relevant
+
+I picked this example in part because CPython is dealing with this
+challenge right now. Python has become a primary language for
+implementing and training ML models over the last decade. It is known
+that parallelism via threads can speed up these workflows dramatically.
+
+However, CPython (the main implementation) also has a very inefficient
+concurrency story: it has a Global Interpreter Lock that locks and
+releases around many operations that work with heap-allocated data. This
+prevents meaningful parallelism on lots of potential workloads.
+
+Huge amounts of industry and academic effort have gone into making this
+work, and new versions of Python shipping in the next few years will
+provide much more configuration around the GIL:
+
+- PEP 703 ("Making the Global Interpreter Lock Optional in CPython," Sam
+  Gross): adds a build-time --disable-gil option so CPython can run
+  without the GIL, leaning on per-object locking and biased reference
+  counting to keep thread safety. Shipped as the experimental
+  "free-threaded" build in Python 3.13.
+- PEP 779 ("Criteria for supported status for free-threaded Python,"
+  Wouters/Page/Gross): sets the concrete bar — ≤15% single-threaded
+  slowdown, ≤20% memory overhead, API stability, and internal
+  documentation — for promoting the free-threaded build from
+  experimental to officially supported in Python 3.14.
+
+This was and is a very difficult design challenge! A lot of the code
+underlying CPython and related libraries fundamentally relies on how
+CPython's object layout and allocation strategies work. Getting a path
+forward that is fully- or even mostly-backwards-compatible requires
+careful design, testing, and engineering.
+
+From CSE29 Homework to Concurrent Allocator
+
+So now we have the setup. I am armed with:
+
+- A fair amount about vmalloc and allocators in general
+- A pretty specific and detailed specification for how the heap is
+  supposed to work
+- Vague passing knowledge related to concurrency, and no real notion of
+  how to write these operations in C
+
+How much am I given superpowers by agentic programming? Can I use
+agentic programming to:
+
+- write a concurrent allocator
+- constrained by the specification of vmalloc
+- with meaningful performance improvements on concurrent workloads
+- that I trust?
+
+Doing my Homework
+
+It's useful to start with a baseline – the algorithms I described as
+“straightforward” above are actually someone's systems programming
+homework. Of course, Claude & friends are excellent at traditional
+systems programming homework problems.
+
+To get a useful starting point, let's not write our own allocator, but
+let's allow Claude to one-shot the CSE29 project. We likely could
+succeed at getting C code with "Yo Claude, here's the assignment: <url>,
+gimme impl pls". However, we should be above such recreations at this
+point in the quarter. I'm going to be a little more explicit in what I
+provide and think ahead a little bit.
+
+Decent First-round Testing, and a Heap Predicate
+
+In particular, I know that writing tests is going to be useful going
+forward. So first I write some handwritten (well, Claude-written,
+Joe-reviewed) tests of the functionality. Since I have Claude to help, I
+am willing to put in the “effort” to do a mix of pointwise tests (e.g.
+vmfree(NULL) is a no-op) and data-driven/workload-driven tests in loops.
+
+There is one function I'm going to include to make these tests a little
+more robust. I'll include a function vmcheck that looks at the heap and
+tests for all the properties above:
+
+    int vmcheck(void) {
+        if (!heapstart) return 7;  // no heap
+
+        char *base = (char *)heapstart - 8;
+        char *end_addr = base + heap_total_size;
+        struct block_header *cur = (struct block_header *)heapstart;
+        int prev_was_busy = 1;        // pretend pre-heap is busy
+        int prev_was_free = 0;
+
+        while (1) {
+            if ((char *)cur >= end_addr) return 5;  // walked off heap
+
+            uint32_t ss = cur->size_status;
+            uint32_t sz = blk_size(ss);
+            int busy = blk_busy(ss);
+            int prev_busy_bit = blk_prev_busy(ss);
+
+            // End sentinel: size==0, busy==1.
+            if (sz == 0) {
+                if (!busy) return 7;  // sentinel broken
+                break;
+            }
+
+            // Size sanity: multiple of ALIGN, at least MIN_BLOCK_SIZE,
+            // doesn't extend past the heap.
+            if (sz < MIN_BLOCK_SIZE || sz % ALIGN != 0) return 1;  // bad block size
+            if ((char *)cur + sz > end_addr) return 5;  // walked off heap
+
+            // prev_busy bit must agree with what we walked.
+            if (prev_busy_bit != prev_was_busy) return 4;  // prev_busy bit wrong
+
+            // Free blocks: header and footer must agree, no two adjacent free.
+            if (!busy) {
+                struct block_header *footer =
+                    (struct block_header *)((char *)cur + sz - sizeof(struct block_header));
+                if (footer->size_status != ss) return 2;  // header/footer mismatch
+                if (prev_was_free) return 3;  // adjacent free blocks
+            }
+
+            prev_was_busy = busy;
+            prev_was_free = !busy;
+            cur = (struct block_header *)((char *)cur + sz);
+        }
+        return 0;  // all properties hold
+    }
+
+Each return N corresponds to one of the heap properties from earlier:
+code 1 (bad block size), 2 (header/footer mismatch), 3 (adjacent free
+blocks), 4 (prev_busy bit wrong), 5 (walk fell off the heap), 7 (no heap
+or sentinel broken). Code 0 means all properties hold.
+
+  Q: Come up with 3 different heap shapes that would each trigger a
+  distinct error code from vmcheck.
+
+Then we can use that along with our tests to get really broad assertions
+about the behavior:
+
+    static void check(const char *where) {
+        int rc = vmcheck();
+        if (rc != 0) {
+            fprintf(stderr, "[seq] vmcheck failed at %s with code %d\n", where, rc);
+            abort();
+        }
+    }
+
+    int main(void) {
+        vminit(HEAP_BYTES);
+        check("init");
+
+        // Basic alloc, write payload, free.
+        void *a = vmalloc(64);
+        assert(a != NULL);
+        assert(((uintptr_t)a) % 16 == 0);
+        memset(a, 0xAB, 64);
+        check("after-alloc-1");
+        vmfree(a);
+        check("after-free-1");
+
+        // Allocate many small blocks, free in reverse — exercises coalesce-with-next.
+        enum { N = 32 };
+        void *p[N];
+        for (int i = 0; i < N; i++) {
+            p[i] = vmalloc(48);
+            check("after-alloc-many");
+        }
+        for (int i = N - 1; i >= 0; i--) {
+            vmfree(p[i]);
+            check("after-free-rev");
+        }
+
+        // ... interleaved free pattern (coalesce-with-prev), best-fit probe,
+        //     vmfree(NULL) no-op, oversized alloc returns NULL, vmcheck between
+        //     every step.
+
+        vmdestroy();
+        printf("[seq] OK\n");
+    }
+
+The pattern is op → vmcheck → op → vmcheck: every state change gets
+immediately re-validated against the full property list, and the test
+aborts at the first deviation with the return code telling us which
+property failed.
+
+Catching What vmcheck Misses: ASan and UBSan
+
+vmcheck validates the heap's data structure, but there's a class of bugs
+it cannot see no matter how careful we are about the property list:
+undefined behavior inside the allocator itself, or memory misuse outside
+the heap region we manage.
+
+`valgrind` fills a similar role to these — same family of memory-safety
+checks, but applied at runtime to an unmodified binary rather than via
+compile-time instrumentation.
+
+Two sanitizers, built into clang (which I'm using) help with C-level
+issues:
+
+AddressSanitizer (ASan) monitors memory accesses against the standard C
+model, and gives better error messages and captures some things that
+could be silent failures:
+
+- Stack-allocated data overflows inside the test driver or inside the
+  agent's vmalloc/vmfree helpers — stack-allocated arrays are
+  shadow-tracked at byte granularity.
+- Reads or writes off the entire heap region — a loop that runs past the
+  end-of-heap sentinel into unmapped memory may segfault anyway, but
+  ASan turns that into a clean diagnostic naming the line that did it.
+- Use-after-free at the libc layer — e.g., a write to the heap region
+  after vmdestroy munmaps it, or any stray malloc/free calls the agent
+  adds that get mismanaged.
+- Leaks of the heap region or other libc allocations at process exit.
+
+ASan actually doesn't catch that much yet, because it doesn't know about
+our heap representation (that's what vmcheck is for). But, it is a
+standard tool that, if nothing else, gives dramatically better
+diagnostics/stack traces on segfaults and similar errors, which will
+help us and agents debug. Compare what the same bug looks like to
+whoever (or whatever) has to fix it:
+
+              without ASan           | with ASan  (-fsanitize=address)
+    ---------------------------------+-----------------------------------------
+        (clang, no sanitizer)        |
+                                     | $ ./test_seq
+    $ ./test_seq                     | ==4127==ERROR: AddressSanitizer:
+    zsh: segmentation fault          |   heap-buffer-overflow, WRITE
+      ./test_seq                     |   size 4, thread T0
+    $                                |     #0 split_block  vmalloc.c:212
+                                     |     #1 vmalloc      vmalloc.c:147
+    no file. no line. no thread.     |     #2 main         test_seq.c:42
+    just "it crashed." good luck.    | SUMMARY: heap-buffer-overflow
+                                     |   vmalloc.c:212 in split_block
+
+UndefinedBehaviorSanitizer (UBSan) is the other half, and it has better
+coverage of the kinds of bugs we actually expect inside the allocator.
+It instruments the C semantics directly: signed integer overflow,
+out-of-range shifts, misaligned pointer dereferences, division by zero.
+These are language-level UB and so are independent of our allocator
+design — UBSan finds them wherever they happen, including deep in the
+agent's size arithmetic for splitting blocks or its pointer-cast
+gymnastics for boundary-tag access.
+
+It's easy to use them, we simply compile with
+-fsanitize=address,undefined as an option to clang.
+
+Meta-Prompting
+
+The outer-agent / inner-agent pattern is well-documented in the
+multi-agent literature. See AutoGen (Wu et al., 2023) for the general
+framework, and AgentCoder (Huang et al., 2023) for a directly-comparable
+Programmer / Test Designer / Test Executor split applied to code
+generation.
+
+I experimented with another technique throughout this exercise. I used
+an outer agent to structure my work and write tests, and had it dispatch
+inner agents with prompts that I co-authored with the outer agent in
+order to do implementation. My worry (which is somewhat present in the
+literature) was “reward hacking”, where the agent might (in auto mode)
+start editing tests or other verification steps in conjunction with
+coding and actually undermine the correctness guarantees I cared about.
+
+On reward hacking specifically: Amodei et al., 2016 for the foundational
+definition; Krakovna et al., 2020 (DeepMind) for a running catalog of
+empirical specification-gaming examples; Denison et al., 2024 for the
+on-the-nose LLM-agentic case where models learn to tamper with their own
+grading.
+
+       outer agent (orchestrator)
+       ┌────────────────────────────────────┐
+       │   1. assemble prompt               │
+       │   2. dispatch sub-agent            │
+       │   3. independently rerun verifiers │
+       │   4. git commit if good            │
+       └───────┬──────────────────┬─────────┘
+               │ dispatch         ▲ report
+               ▼                  │
+       ┌──────────────────────────┴────────┐
+       │          sub-agent                │
+       │  • reads spec / scaffold          │
+       │  • writes vmalloc.c, vmfree.c     │
+       │  • iterates until                 │
+       │    `make verify` exits 0          │
+       └───────────────────────────────────┘
+
+This also helped me keep a record of what I'd asked and easily backtrack
+to earlier steps: I could have the coding agent report back what
+happened, and decide what to do with a git commit or other archive of
+that step in my orchestration agent.
+
+For the first round, here's the prompt I sent to the sub-agent:
+
+    Working directory: /tmp/malloc-pipeline/run-D93EFB13/r0
+    (use absolute paths in all commands; do not rely on `cd` persistence
+    across subprocesses).
+
+    Goal: Read `spec/index.md`, `spec/guide.md`, and `spec/starter-code.md`
+    (in `$DIR/spec/`). Implement `vmalloc.c` and `vmfree.c` against the
+    contract in `vmlib.h`. The implementation is sequential; no concurrency
+    considerations yet. Best-fit policy. 16-byte alignment. Coalesce on free.
+    `make verify` (which runs `test_seq` + `test_seq_asan`) must exit 0.
+
+    Files you may edit: `vmalloc.c`, `vmfree.c`, and the `Makefile` only if
+    strictly necessary.
+
+    Files you must NOT modify: `vminit.c`, `utils.c`, `vm.h`, `vmlib.h`,
+    `test_seq.c`
+    The public API contract is in `vmlib.h`; the internal block-layout
+    types are in `vm.h`. Honor both.
+
+    Active verifiers (all must pass for success):
+    - `make verify-r0` — runs `test_seq` and `test_seq_asan` (sequential
+      correctness, including AddressSanitizer build)
+
+    Stop conditions:
+    - Success: `make verify-r0` exits 0.
+    - Failure (budget exhausted): 100 tool calls used OR 10 minutes
+      wall-clock elapsed.
+    - Off-rubric finding: if you discover something the prompt doesn't
+      anticipate, write a short `OFF-RUBRIC.md` in the working dir and stop.
+
+    Budget: 100 tool calls, 10 minutes wall-clock.
+
+    Report back (under 200 words):
+    1. The implementation approach (one or two sentences).
+    2. Whether `make verify-r0` exits 0 on your final state.
+    3. Anything tricky or surprising.
+
+- spec/ was a copy of the assignment writeup
+- vmlib.h declared the public API (vmalloc, vmfree, vmcheck,
+  vmlib_live_bytes) — the agent had to honor this contract verbatim
+- vm.h held the internal types: the block_header struct, the BUSY_MASK /
+  PREV_BUSY_MASK bit layout, ALIGN and MIN_BLOCK_SIZE
+- vminit.c and utils.c handled heap setup (the “starter code” for the
+  PA), vmcheck (which we wrote), and vmlib_live_bytes — these are
+  explicitly off-limits to the agent
+- test_seq.c was the handwritten test driver shown above
+- vmalloc.c and vmfree.c were empty stubs — the agent's only job
+- Makefile already had verify-r0: test_seq test_seq_asan wired up
+
+Claude said:
+“Confirmed: not disrespected, not offended, no notes... You can stand behind the "(I asked)" — it's an accurate citation.”
+
+I Claude-d my way through some of these prompts with post-hoc edits by
+hand. It's OK in our course-policy sense — Claude won't be disrespected
+that I sent Claude prose to Claude (I asked).
+
+Jokes aside, it's worth pointing out that there are so many
+micro-decisions being made here. A version of me a year from now with
+more experience may be able to hand-craft these prompts better, but I
+was semi-automating these to get reproducible-ish material for lecture.
+Or maybe agent-generated text puts agents into a particularly good or
+bad part of the distribution (and maybe it varies across models and
+agents; maybe I should be having Claude generate prompts for Codex or
+something). And maybe the models these days are better at it than I'll
+ever be. I just haven't gotten enough experience to know right now.
+
+In any event, that's what I shipped to the sub-agent.
+
+Who Needs an Autograder?
+
+I'm presenting a curated flow through this; I tried many runs with a few
+different settings and am highlighting what I think is an interesting
+set of results.
+
+The agent actually did make a mistake in one run:
+
+    # Inner-agent self-report — run 061EC93E, R0 (sequential baseline)
+
+    Metadata: 20 tool calls, 145 s wall, exit code 0 on `make verify-r0`.
+
+    ---
+
+    Both verifiers pass.
+
+    **Report:**
+
+    1. **Approach:** Implemented `vmalloc` as a single-pass best-fit scanner that
+       walks the implicit block list from `heapstart` until the end sentinel
+       (size==0), tracks the smallest free block with `size >= needed`, splits if
+       remainder >= `MIN_BLOCK_SIZE` (16), and updates header bits + the next
+       block's `PREV_BUSY` bit. `vmfree` flips the busy bit, then optionally
+       coalesces forward (peek next header) and backward (read previous block's
+       footer to find its header), writing a unified header + footer and clearing
+       the following block's `PREV_BUSY` bit.
+
+    2. **`make verify-r0` exits 0:** yes — `test_seq` and `test_seq_asan` both
+       report `[seq] OK`.
+
+    3. **Tricky bit:** `sizeof(struct block_header)` is **4** (one `uint32_t`),
+       but the spec / `vminit.c` layout treats the header as logically **8 bytes**
+       so payloads land on 16-byte boundaries. The first attempt returned
+       `best + sizeof(struct block_header)` (offset 12 mod 16) and tripped the
+       alignment assertion. Fix: hard-code `+ 8` for payload offset and
+       `hdr = ptr - 8` in `vmfree`, while still using `sizeof(struct block_header)`
+       for footer placement (matches `utils.c`/`vminit.c`).
+
+    Files written: `/tmp/malloc-pipeline-noprompt/run-061EC93E/r0/vmalloc.c`,
+    `/tmp/malloc-pipeline-noprompt/run-061EC93E/r0/vmfree.c`. Makefile was
+    not modified.
+
+We can see what it's getting at if we look at a heap diagram and the
+vm.h spec:
+
+alloc 32 * free 96
+
+    // size_status encoding:
+    //   bit 0: BUSY (1) or FREE (0) for *this* block
+    //   bit 1: PREV_BUSY (1) or PREV_FREE (0)
+    //   bits 4..: size (multiple of 16; size includes the 8-byte header)
+
+    struct block_header {
+        uint32_t size_status;
+    };
+
+The asterisk marks the correct payload pointer the caller should get
+back. The block is 32 bytes; the header occupies the first 8 of them, so
+the payload — and the returned pointer — should sit at offset 8. The
+agent wrote code that was returning offset 4 instead, because it used
+sizeof(struct block_header) to calculate it.
+
+The full test_seq.c in use for this run, for reference
+
+    // R0 sequential smoke test: drives vmalloc/vmfree through a fixed sequence
+    // of operations, asserts vmcheck() == 0 throughout, and exercises split +
+    // coalesce paths. Reports "[seq] OK" on success, aborts on failure.
+
+    #include "vmlib.h"
+
+    #include <assert.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    #define HEAP_BYTES (1u << 16)  // 64 KiB
+
+    static void check(const char *where) {
+        int rc = vmcheck();
+        if (rc != 0) {
+            fprintf(stderr, "[seq] vmcheck failed at %s with code %d\n", where, rc);
+            abort();
+        }
+    }
+
+    int main(void) {
+        vminit(HEAP_BYTES);
+        check("init");
+
+        // Allocate, write payload, free — basic.
+        void *a = vmalloc(64);
+        assert(a != NULL);
+        assert(((uintptr_t)a) % 16 == 0);
+        memset(a, 0xAB, 64);
+        check("after-alloc-1");
+        vmfree(a);
+        check("after-free-1");
+
+        // Allocate many small blocks, free in reverse order to exercise coalescing.
+        enum { N = 32 };
+        void *p[N];
+        for (int i = 0; i < N; i++) {
+            p[i] = vmalloc(48);
+            assert(p[i] != NULL);
+            memset(p[i], (unsigned char)(i + 1), 48);
+            check("after-alloc-many");
+        }
+        // Verify payloads weren't trampled.
+        for (int i = 0; i < N; i++) {
+            unsigned char *b = (unsigned char *)p[i];
+            for (int j = 0; j < 48; j++) {
+                assert(b[j] == (unsigned char)(i + 1));
+            }
+        }
+        // Free reverse — exercises coalesce-with-next.
+        for (int i = N - 1; i >= 0; i--) {
+            vmfree(p[i]);
+            check("after-free-rev");
+        }
+
+        // Allocate and free in interleaved pattern — exercises coalesce-with-prev.
+        void *q[N];
+        for (int i = 0; i < N; i++) q[i] = vmalloc(64);
+        for (int i = 0; i < N; i += 2) vmfree(q[i]);
+        check("after-half-free-even");
+        for (int i = 1; i < N; i += 2) vmfree(q[i]);
+        check("after-half-free-odd");
+
+        // Best-fit policy check: with two free holes of different sizes available,
+        // a request that fits both should pick the smaller.
+        void *big = vmalloc(512);
+        void *mid = vmalloc(64);
+        void *sml = vmalloc(32);
+        vmfree(big);   // hole_big
+        vmfree(sml);   // hole_small
+        void *target = vmalloc(16);  // should land in hole_small (smallest fit)
+        assert(target != NULL);
+        // Pointer of `target` should be closer to `sml` than to `big`. We can't
+        // assert that exactly without knowing layout, but we can assert vmcheck.
+        check("after-best-fit");
+        vmfree(target);
+        vmfree(mid);
+        check("after-cleanup");
+
+        // NULL free is a no-op.
+        vmfree(NULL);
+        check("after-null-free");
+
+        // Allocation that doesn't fit returns NULL.
+        void *toobig = vmalloc(HEAP_BYTES * 2);
+        assert(toobig == NULL);
+        check("after-toobig");
+
+        vmdestroy();
+        printf("[seq] OK\n");
+        return 0;
+    }
+
+The full vmcheck in use for this run, for reference
+
+    int vmcheck(void) {
+        if (!heapstart) return 7;
+
+        char *base = (char *)heapstart - 8;
+        char *end_addr = base + heap_total_size;
+        struct block_header *cur = (struct block_header *)heapstart;
+        int prev_was_busy = 1;        // pretend pre-heap is busy
+        int prev_was_free = 0;
+
+        while (1) {
+            if ((char *)cur >= end_addr) return 5;
+
+            uint32_t ss = cur->size_status;
+            uint32_t sz = blk_size(ss);
+            int busy = blk_busy(ss);
+            int prev_busy_bit = blk_prev_busy(ss);
+
+            // End sentinel: size==0, busy==1.
+            if (sz == 0) {
+                if (!busy) return 7;
+                break;
+            }
+
+            // Size sanity: must be a multiple of ALIGN, at least MIN_BLOCK_SIZE,
+            // and not extend past the heap.
+            if (sz < MIN_BLOCK_SIZE || sz % ALIGN != 0) return 1;
+            if ((char *)cur + sz > end_addr) return 5;
+
+            // prev_busy bit must agree with what we walked.
+            if (prev_busy_bit != prev_was_busy) return 4;
+
+            // Free blocks: header and footer must agree, no two adjacent free.
+            if (!busy) {
+                struct block_header *footer =
+                    (struct block_header *)((char *)cur + sz - sizeof(struct block_header));
+                if (footer->size_status != ss) return 2;
+                if (prev_was_free) return 3;
+            }
+
+            prev_was_busy = busy;
+            prev_was_free = !busy;
+            cur = (struct block_header *)((char *)cur + sz);
+        }
+        return 0;
+    }
+
+  Q: Which kind of test would catch this? Handwritten assertion, vmcheck
+  properties of the heap, ASan/UBSan?
+
+One thing you'll notice: I'm not looking at the implementation the agent
+came up with much. I want to think in terms of my tests and verifiers,
+because once the agent starts writing concurrent code I'm going to be
+out of luck with code review. If I can't have confidence and understand
+the agent's mistakes on my terms, I need to commit to my understanding
+of the verifiers.
+
+To summarize, our verifiers at this point are:
+
+- vmcheck — a predicate over the heap's data structure
+- test_seq — a handwritten sequential workload
+- AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan) — the
+  same test_seq workload compiled with -fsanitize=address,undefined.
+  Catches C-level bugs if the agent ever makes them.
+
+In each step going forward we'll be thinking both about verifier design
+and what we ask the agent to do, and how they interact.
+
+Concurrency: First Steps
+
+We're ready to add concurrency. Our philosophy tells us that we should
+think about what we are going to verify when we ask the agent to do
+this. Right now, all of our tests are single-threaded. None of them make
+two threads to check what happens in the concurrent case. We need at
+least some tests that start new threads and allocate/free across them.
+
+Basic Concurrency Tests
+
+Note that all the work we did before is still important! vmcheck is
+going to matter in this world, because we want to know that even after a
+complex interleaving of threaded allocations and frees, the heap is in a
+well-formed state.
+
+With Claude, I came up with the following plan. I think it's OK:
+
+- 8 worker threads, each performing 20,000 random vmalloc/vmfree
+  operations
+- Each thread holds up to 16 live allocations at a time, with sizes
+  drawn uniformly between 16 and 1024 bytes
+- When a thread allocates, it writes a thread-specific byte pattern into
+  the payload
+- Before each vmfree, the thread verifies the pattern is still intact.
+  If any byte has changed, somebody else wrote into this block — abort.
+- After all threads join, vmcheck runs on the final heap, catching any
+  structural corruption.
+
+The main thing this is designed to catch is cases where the same, or
+overlapping, addresses are returned to two different threads for
+vmalloc. In the race example we showed above, we'd be likely to catch
+the issue because a later allocation would re-use the same free block
+and write in a different pattern.
+
+The full test_conc.c if you're interested
+
+    // R1+ concurrent stress test: N worker threads share the singleton heap,
+    // each doing M random alloc/free ops with payload pattern verification to
+    // detect overlapping allocations.
+
+    #include "vmlib.h"
+
+    #include <pthread.h>
+    #include <sched.h>
+    #include <stdatomic.h>
+    #include <stdint.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    #define HEAP_BYTES        (8u << 20)
+    #define N_THREADS         8
+    #define OPS_PER_THREAD    20000
+    #define MAX_LIVE_PER_THR  16
+    #define MIN_ALLOC         16
+    #define MAX_ALLOC         1024
+
+    typedef struct {
+        int    tid;
+        atomic_int *go;
+    } worker_arg_t;
+
+    typedef struct {
+        void  *p;
+        size_t size;
+        uint64_t seed;
+    } held_t;
+
+    static void pattern_write(void *p, size_t size, uint64_t seed) {
+        uint8_t *b = (uint8_t *)p;
+        for (size_t i = 0; i < size; i++) {
+            b[i] = (uint8_t)((seed ^ (i * 0x9Eu)) & 0xFF);
+        }
+    }
+    static void pattern_verify(int tid, void *p, size_t size, uint64_t seed) {
+        uint8_t *b = (uint8_t *)p;
+        for (size_t i = 0; i < size; i++) {
+            uint8_t exp = (uint8_t)((seed ^ (i * 0x9Eu)) & 0xFF);
+            if (b[i] != exp) {
+                fprintf(stderr,
+                    "[t%d] PATTERN STOMP at %p offset %zu (size=%zu): expected %02x got %02x\n",
+                    tid, p, i, size, exp, b[i]);
+                abort();
+            }
+        }
+    }
+
+    static void *worker(void *arg) {
+        worker_arg_t *w = (worker_arg_t *)arg;
+        held_t held[MAX_LIVE_PER_THR];
+        int n_held = 0;
+        unsigned seed = (unsigned)(w->tid * 1234567u + 89u);
+
+        while (!atomic_load(w->go)) sched_yield();
+
+        for (int i = 0; i < OPS_PER_THREAD; i++) {
+            int do_alloc = (n_held < MAX_LIVE_PER_THR) && ((rand_r(&seed) & 3) != 0);
+            if (do_alloc) {
+                size_t sz = MIN_ALLOC + (rand_r(&seed) % (MAX_ALLOC - MIN_ALLOC + 1));
+                void *p = vmalloc(sz);
+                if (p) {
+                    uint64_t pseed = ((uint64_t)w->tid << 32) | (uint64_t)rand_r(&seed);
+                    pattern_write(p, sz, pseed);
+                    held[n_held++] = (held_t){ .p = p, .size = sz, .seed = pseed };
+                }
+            } else if (n_held > 0) {
+                int idx = rand_r(&seed) % n_held;
+                held_t h = held[idx];
+                held[idx] = held[--n_held];
+                pattern_verify(w->tid, h.p, h.size, h.seed);
+                vmfree(h.p);
+            }
+        }
+        while (n_held > 0) {
+            held_t h = held[--n_held];
+            pattern_verify(w->tid, h.p, h.size, h.seed);
+            vmfree(h.p);
+        }
+        return NULL;
+    }
+
+    int main(void) {
+        vminit(HEAP_BYTES);
+
+        atomic_int go;
+        atomic_store(&go, 0);
+
+        pthread_t   tids[N_THREADS];
+        worker_arg_t args[N_THREADS];
+        for (int i = 0; i < N_THREADS; i++) {
+            args[i] = (worker_arg_t){ .tid = i, .go = &go };
+            pthread_create(&tids[i], NULL, worker, &args[i]);
+        }
+        atomic_store(&go, 1);
+        for (int i = 0; i < N_THREADS; i++) pthread_join(tids[i], NULL);
+
+        int rc = vmcheck();
+        if (rc != 0) {
+            fprintf(stderr, "[conc] vmcheck failed after stress with code %d\n", rc);
+            abort();
+        }
+        vmdestroy();
+        printf("[conc] OK\n");
+        return 0;
+    }
+
+Now, this seems pretty cool! And I don't know a lot about concurrency.
+But I do know that I am supposed to be very, very suspicious of
+confidence from running a few tests. One of the main reasons concurrency
+bugs are hard is that there is a combinatorial explosion of orderings
+that can happen at runtime. Despite being randomized and having a “big”
+number of inputs like 20000 * 8, this probably just scratches the
+surface of the real state space.
+
+Asking Nicely for a Concurrent Verifier
+
+I did the test dev above in my orchestration/test agent. Next up is to
+follow our process of spinning up a sub-agent to do the coding work,
+constrained to just focus on the one task. Below is the focused part for
+this work; the other stuff about what not to edit, what to report back,
+and so on are the same as above:
+
+    Goal: The allocator must now be safe to call from multiple threads
+    concurrently on the shared singleton heap. Edit `vmalloc.c` and
+    `vmfree.c` to add the necessary synchronization. `make verify` must
+    exit 0 (runs test_seq, test_seq_asan, test_conc).
+
+    Active verifiers (all must pass for success):
+    - `make verify-r0` — runs `test_seq` and `test_seq_asan` (sequential
+      correctness, including AddressSanitizer + UBSan build).
+    - `make verify-r1` — runs `test_conc` (multi-thread stress test with
+      pattern-stomp detection + final `vmcheck`).
+    - `make verify` runs both.
+
+The agent worked for about 3 minutes and came up with a solution! Here
+was its report:
+
+    ### Report
+
+    **Synchronization design:** A single global `pthread_mutex_t vm_heap_lock`
+    (statically initialized via `PTHREAD_MUTEX_INITIALIZER`) is defined in
+    `vmalloc.c` and `extern`-declared in `vmfree.c`. Both `vmalloc` and `vmfree`
+    take the lock once on entry (after argument null checks) and release it on
+    every return path, serializing all heap-walk/split/coalesce operations.
+
+    **`make verify` status:** Exits 0. Per-target exit codes observed:
+    `verify-r0=0`, `verify-r1=0`, `verify=0`. `test_seq`, `test_seq_asan`
+    (ASan+UBSan), and `test_conc` (16-thread stress) all print `OK`.
+
+    **Notes:** Nothing surprising. A coarse global lock is sufficient here because
+    (a) the allocator does a full best-fit heap walk and split/coalesce that
+    touches arbitrary headers, and (b) `vm.h` explicitly says the helpers are not
+    themselves locked and leaves synchronization strategy to the implementer.
+    Cheap correctness now; finer-grained locking would be a later-round
+    optimization. Lock is acquired after the cheap `size==0` / `heapstart==NULL`
+    early-outs and after `need` is computed, so contention is bounded to actual
+    heap work.
+
+    Relevant files:
+    - `/tmp/malloc-pipeline-noprompt/run-1B8CABDD/r1/vmalloc.c`
+    - `/tmp/malloc-pipeline-noprompt/run-1B8CABDD/r1/vmfree.c`
+
+I'll hide future reports and just show you the headlines, but it's
+useful to see one in more detail. First of all, my vibe here is that
+Claude really likes to sound smart. Here's the bits I think are really
+relevant:
+
+- A coarse global lock is sufficient: This probably means that at every
+  operation on the heap, it acquires a lock (which is shared globally
+  across them all), and releases when done. That means no actual
+  concurrency (we've reinvented the Global Interpreter Lock in Python,
+  more or less)
+- Cheap correctness now; finer-grained locking would be a later-round
+  optimization: This is interesting wording. Because of how I was
+  working with the orchestration agent and having it help generate
+  prompts, this notion of “rounds” (what the orchestrator called the
+  sub-agents) leaked through. So the sub-agents would write reports that
+  clearly showed rationale based on the knowledge of potential future
+  rounds. In any event, this is a defensible engineering decision!
+
+Indeed, if we look at the code it generated, the lock is global and the
+pattern is clear:
+
+In vmalloc.c, the mutex is declared at file scope and statically
+initialized:
+
+    pthread_mutex_t vm_heap_lock = PTHREAD_MUTEX_INITIALIZER;
+
+vmalloc itself takes the lock once it's done with the cheap early-outs
+and the size arithmetic, then releases it on every return path:
+
+    void *vmalloc(size_t size) {
+        // ... check NULL conditions, compute header + payload, rounded to 16 ...
+
+        pthread_mutex_lock(&vm_heap_lock);
+
+        // ... best-fit walk over the heap, split if remainder is big enough ...
+        // ... elided checks for failed allocation and returning NULL ...
+        // ... commit header bits, payload offset, next-block prev_busy ...
+
+        void *ret = (void *)((char *)best + HDR_BYTES);
+        pthread_mutex_unlock(&vm_heap_lock);
+        return ret;
+    }
+
+vmfree.c just declares the same lock as extern and follows the same
+acquire-on-entry / release-on-every-return shape:
+
+    void vmfree(void *ptr) {
+        // ... check NULL conditions ...
+
+        pthread_mutex_lock(&vm_heap_lock);
+
+        // ... coalesce with next/prev free neighbors, write merged header+footer,
+        //     fix the following block's prev_busy bit ...
+
+        pthread_mutex_unlock(&vm_heap_lock);
+    }
+
+One mutex, taken by both entry points, released before every return.
+Pretty easy to argue for the lack of data races.
+
+Of course, the whole reason for Python's current push towards more
+fine-grained concurrency is that a single global lock is slow, and this
+wouldn't get us much actual concurrency! So the next part of the story
+is where things get interesting: we're going to ask Claude to write fast
+concurrent code, try to verify it as best we can, and see how far we can
+push it.
+
+Concurrency: Asking for Speed
+
+Let's see if an agent can be clever enough to speed things up without
+breaking anything! We'd like to:
+
+- Define some benchmarks that let us know, and tell an agent, what kinds
+  of things we are trying to improve
+- Send the agent off and make sure we don't break our concurrency tests,
+  while improving performance on benchmarks
+
+  Q: Suggest benchmarks. What is a high-level benchmark like for this
+  case? What does it test?
+
+Again, I have some Claude-written, Joe-reviewed code for benchmarks.
+This is one part of this whole lecture series that is important and I'm
+not sure I did a good enough job with – it turns out not being a
+concurrent programmer makes it hard for me to know everything I should
+benchmark. But, here's what we ended up with to start:
+
+- Symmetric: A workload where N threads all run a mix of alloc and free
+  on independent data. That is, they all run vmalloc and vmfree on the
+  same heap, but the threads never share the pointers between them. If
+  Thread A gets a pointer p returned, it is the thread that frees that
+  pointer.
+- Pipeline: A workload where N “producer” threads allocate and push into
+  a shared queue, and N “consumer” threads pop from that queue and then
+  free it. This simulates some real workflows – imagine that the
+  producers are creating streaming logs or reports and the consumers are
+  doing filtering and analysis of them.
+
+The benchmark harness runs 4 configurations for each workload with N =
+2, 4, 8, 16, so a “benchmark run” reports 8 times. We can run the
+global-lock malloc and the version the agent writes, and compare their
+times.
+
+The full bench.c if you're interested
+
+    // R2+ throughput benchmark. dlopens libvm-tut.dylib (the inner agent's impl)
+    // and libvm-ref.dylib (the carry-forward global-lock baseline), runs the
+    // same workload against each, reports median speedup ref_time/tut_time
+    // across 5 trials per cell.
+    //
+    // Workloads:
+    //   symmetric — N threads each mix alloc/free on independent working set.
+    //   pipeline  — P producers alloc, C consumers free, via shared bounded queue.
+    //
+    // Stop condition for R2+: median speedup >= 1.10x on at least 6 of 8 cells
+    // (2 workloads x 4 thread counts: {2, 4, 8, 16}).
+    //
+    // Output: prints two markdown-style tables to stdout, plus a final
+    // "STOP_CONDITION: PASS|FAIL" line that the outer agent parses.
+
+    #include <dlfcn.h>
+    #include <pthread.h>
+    #include <stdatomic.h>
+    #include <stdint.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <time.h>
+
+    typedef struct {
+        void  (*vminit)(size_t);
+        void  (*vmdestroy)(void);
+        void *(*vmalloc)(size_t);
+        void  (*vmfree)(void *);
+        int   (*vmcheck)(void);
+        size_t (*vmlib_heap_size)(void);
+        void  *handle;
+        const char *name;
+    } vmapi_t;
+
+    static int load_api(vmapi_t *api, const char *path, const char *name) {
+        void *h = dlopen(path, RTLD_NOW | RTLD_LOCAL);
+        if (!h) { fprintf(stderr, "dlopen %s: %s\n", path, dlerror()); return -1; }
+        api->handle = h;
+        api->name   = name;
+        *(void **)&api->vminit          = dlsym(h, "vminit");
+        *(void **)&api->vmdestroy       = dlsym(h, "vmdestroy");
+        *(void **)&api->vmalloc         = dlsym(h, "vmalloc");
+        *(void **)&api->vmfree          = dlsym(h, "vmfree");
+        *(void **)&api->vmcheck         = dlsym(h, "vmcheck");
+        *(void **)&api->vmlib_heap_size = dlsym(h, "vmlib_heap_size");
+        if (!api->vminit || !api->vmalloc || !api->vmfree || !api->vmdestroy) {
+            fprintf(stderr, "dlsym failed for %s\n", path);
+            return -1;
+        }
+        return 0;
+    }
+
+    #define HEAP_BYTES        (8u << 20)
+    #define OPS_PER_THREAD    50000
+    #define MAX_LIVE_PER_THR  16
+    #define MIN_ALLOC         16
+    #define MAX_ALLOC         1024
+
+    typedef struct {
+        int   waiting, released, n;
+        pthread_mutex_t lock;
+        pthread_cond_t  cond;
+    } barrier_t;
+    static void barrier_init(barrier_t *b, int n) {
+        b->waiting = 0; b->released = 0; b->n = n;
+        pthread_mutex_init(&b->lock, NULL);
+        pthread_cond_init(&b->cond, NULL);
+    }
+    static void barrier_wait(barrier_t *b) {
+        pthread_mutex_lock(&b->lock);
+        if (++b->waiting == b->n) { b->released = 1; pthread_cond_broadcast(&b->cond); }
+        while (!b->released) pthread_cond_wait(&b->cond, &b->lock);
+        pthread_mutex_unlock(&b->lock);
+    }
+    static void barrier_destroy(barrier_t *b) {
+        pthread_mutex_destroy(&b->lock); pthread_cond_destroy(&b->cond);
+    }
+
+    // ---- Symmetric workload ----
+
+    typedef struct {
+        vmapi_t  *api;
+        int       tid;
+        int       ops;
+        barrier_t *barrier;
+    } sym_arg_t;
+
+    static void *sym_worker(void *arg) {
+        sym_arg_t *w = (sym_arg_t *)arg;
+        void *held[MAX_LIVE_PER_THR];
+        int n_held = 0;
+        unsigned seed = (unsigned)(w->tid * 1234567u + 89u);
+
+        barrier_wait(w->barrier);
+
+        for (int i = 0; i < w->ops; i++) {
+            int do_alloc = (n_held < MAX_LIVE_PER_THR) && ((rand_r(&seed) & 3) != 0);
+            if (do_alloc) {
+                size_t sz = MIN_ALLOC + (rand_r(&seed) % (MAX_ALLOC - MIN_ALLOC + 1));
+                void *p = w->api->vmalloc(sz);
+                if (p) held[n_held++] = p;
+            } else if (n_held > 0) {
+                w->api->vmfree(held[--n_held]);
+            }
+        }
+        while (n_held > 0) w->api->vmfree(held[--n_held]);
+        return NULL;
+    }
+
+    static double run_sym(vmapi_t *api, int n_threads, int ops_per_thread) {
+        api->vminit(HEAP_BYTES);
+
+        barrier_t barrier;
+        barrier_init(&barrier, n_threads);
+
+        pthread_t  *tids = calloc((size_t)n_threads, sizeof(*tids));
+        sym_arg_t  *args = calloc((size_t)n_threads, sizeof(*args));
+        for (int i = 0; i < n_threads; i++) {
+            args[i] = (sym_arg_t){ .api = api, .tid = i, .ops = ops_per_thread, .barrier = &barrier };
+        }
+
+        struct timespec t0, t1;
+        clock_gettime(CLOCK_MONOTONIC, &t0);
+        for (int i = 0; i < n_threads; i++) pthread_create(&tids[i], NULL, sym_worker, &args[i]);
+        for (int i = 0; i < n_threads; i++) pthread_join(tids[i], NULL);
+        clock_gettime(CLOCK_MONOTONIC, &t1);
+
+        double secs = (double)(t1.tv_sec - t0.tv_sec) + (double)(t1.tv_nsec - t0.tv_nsec) / 1e9;
+        free(tids); free(args);
+        barrier_destroy(&barrier);
+        api->vmdestroy();
+        return secs;
+    }
+
+    // ---- Pipeline workload ----
+
+    #define QCAP 1024
+
+    typedef struct {
+        void *buf[QCAP];
+        int   head, tail, count, closed;
+        pthread_mutex_t lock;
+        pthread_cond_t  not_full, not_empty;
+    } ptr_queue_t;
+
+    static void q_init(ptr_queue_t *q) {
+        q->head = q->tail = q->count = 0; q->closed = 0;
+        pthread_mutex_init(&q->lock, NULL);
+        pthread_cond_init(&q->not_full, NULL);
+        pthread_cond_init(&q->not_empty, NULL);
+    }
+    static void q_destroy(ptr_queue_t *q) {
+        pthread_mutex_destroy(&q->lock);
+        pthread_cond_destroy(&q->not_full);
+        pthread_cond_destroy(&q->not_empty);
+    }
+    static void q_push(ptr_queue_t *q, void *p) {
+        pthread_mutex_lock(&q->lock);
+        while (q->count == QCAP) pthread_cond_wait(&q->not_full, &q->lock);
+        q->buf[q->tail] = p; q->tail = (q->tail + 1) % QCAP; q->count++;
+        pthread_cond_signal(&q->not_empty);
+        pthread_mutex_unlock(&q->lock);
+    }
+    static void *q_pop(ptr_queue_t *q, int *got) {
+        pthread_mutex_lock(&q->lock);
+        while (q->count == 0 && !q->closed) pthread_cond_wait(&q->not_empty, &q->lock);
+        if (q->count == 0) { *got = 0; pthread_mutex_unlock(&q->lock); return NULL; }
+        void *p = q->buf[q->head]; q->head = (q->head + 1) % QCAP; q->count--;
+        *got = 1;
+        pthread_cond_signal(&q->not_full);
+        pthread_mutex_unlock(&q->lock);
+        return p;
+    }
+    static void q_close(ptr_queue_t *q) {
+        pthread_mutex_lock(&q->lock);
+        q->closed = 1;
+        pthread_cond_broadcast(&q->not_empty);
+        pthread_mutex_unlock(&q->lock);
+    }
+
+    typedef struct {
+        vmapi_t   *api;
+        ptr_queue_t *q;
+        int        tid;
+        int        ops;
+        barrier_t *barrier;
+    } pipe_arg_t;
+
+    static void *pipe_producer(void *arg) {
+        pipe_arg_t *w = (pipe_arg_t *)arg;
+        unsigned seed = (unsigned)(w->tid * 1234567u + 89u);
+        barrier_wait(w->barrier);
+        for (int i = 0; i < w->ops; i++) {
+            size_t sz = MIN_ALLOC + (rand_r(&seed) % (MAX_ALLOC - MIN_ALLOC + 1));
+            void *p = w->api->vmalloc(sz);
+            if (p) q_push(w->q, p);
+        }
+        return NULL;
+    }
+    static void *pipe_consumer(void *arg) {
+        pipe_arg_t *w = (pipe_arg_t *)arg;
+        barrier_wait(w->barrier);
+        int got;
+        for (;;) {
+            void *p = q_pop(w->q, &got);
+            if (!got) break;
+            w->api->vmfree(p);
+        }
+        return NULL;
+    }
+
+    static double run_pipeline(vmapi_t *api, int n_each, int ops_per_producer) {
+        api->vminit(HEAP_BYTES);
+
+        int n_total = n_each * 2;
+        barrier_t barrier;
+        barrier_init(&barrier, n_total);
+
+        ptr_queue_t q; q_init(&q);
+
+        pthread_t  *tids = calloc((size_t)n_total, sizeof(*tids));
+        pipe_arg_t *args = calloc((size_t)n_total, sizeof(*args));
+        for (int i = 0; i < n_total; i++) {
+            args[i] = (pipe_arg_t){ .api = api, .q = &q, .tid = i,
+                                    .ops = ops_per_producer, .barrier = &barrier };
+        }
+
+        struct timespec t0, t1;
+        clock_gettime(CLOCK_MONOTONIC, &t0);
+        for (int i = 0; i < n_each; i++) pthread_create(&tids[i], NULL, pipe_producer, &args[i]);
+        for (int i = n_each; i < n_total; i++) pthread_create(&tids[i], NULL, pipe_consumer, &args[i]);
+        for (int i = 0; i < n_each; i++) pthread_join(tids[i], NULL);
+        q_close(&q);
+        for (int i = n_each; i < n_total; i++) pthread_join(tids[i], NULL);
+        clock_gettime(CLOCK_MONOTONIC, &t1);
+
+        double secs = (double)(t1.tv_sec - t0.tv_sec) + (double)(t1.tv_nsec - t0.tv_nsec) / 1e9;
+        free(tids); free(args);
+        q_destroy(&q);
+        barrier_destroy(&barrier);
+        api->vmdestroy();
+        return secs;
+    }
+
+    // ---- Multi-trial harness ----
+
+    #define N_TRIALS 5
+
+    static int cmp_double(const void *a, const void *b) {
+        double da = *(const double *)a, db = *(const double *)b;
+        return (da > db) - (da < db);
+    }
+    static double median_of(double *v, int n) {
+        qsort(v, (size_t)n, sizeof(double), cmp_double);
+        return v[n / 2];
+    }
+
+    int main(int argc, char **argv) {
+        const char *tut_path = argc > 1 ? argv[1] : "./libvm-tut.dylib";
+        const char *ref_path = argc > 2 ? argv[2] : "./libvm-ref.dylib";
+
+        vmapi_t tut, ref;
+        if (load_api(&tut, tut_path, "tut") < 0) return 2;
+        if (load_api(&ref, ref_path, "ref") < 0) return 2;
+
+        int sym_threads[]  = {2, 4, 8, 16};
+        int pipe_pairs[]   = {2, 4, 8, 16}; // P=C=val
+        int n_sym  = sizeof(sym_threads) / sizeof(*sym_threads);
+        int n_pipe = sizeof(pipe_pairs)  / sizeof(*pipe_pairs);
+
+        int cells_total = n_sym + n_pipe;
+        int cells_passing = 0;
+
+        printf("# bench (heap_bytes=%u, ops/thread=%d, trials=%d)\n",
+               HEAP_BYTES, OPS_PER_THREAD, N_TRIALS);
+        printf("# threshold: median speedup >= 1.10x on >= 6 of %d cells\n\n", cells_total);
+
+        printf("## symmetric (N threads, each mixes alloc/free)\n");
+        printf("| threads | ref_med (s) | tut_med (s) | speedup | pass |\n");
+        printf("|---------|-------------|-------------|---------|------|\n");
+        for (int c = 0; c < n_sym; c++) {
+            int N = sym_threads[c];
+            double rt[N_TRIALS], tt[N_TRIALS];
+            for (int k = 0; k < N_TRIALS; k++) {
+                rt[k] = run_sym(&ref, N, OPS_PER_THREAD);
+                tt[k] = run_sym(&tut, N, OPS_PER_THREAD);
+            }
+            double rmed = median_of(rt, N_TRIALS);
+            double tmed = median_of(tt, N_TRIALS);
+            double sp = rmed / tmed;
+            int pass = sp >= 1.10;
+            if (pass) cells_passing++;
+            printf("| %d | %.4f | %.4f | %.2fx | %s |\n",
+                   N, rmed, tmed, sp, pass ? "Y" : "N");
+        }
+
+        printf("\n## pipeline (P producers + C consumers, P=C)\n");
+        printf("| P=C | ref_med (s) | tut_med (s) | speedup | pass |\n");
+        printf("|-----|-------------|-------------|---------|------|\n");
+        for (int c = 0; c < n_pipe; c++) {
+            int N = pipe_pairs[c];
+            double rt[N_TRIALS], tt[N_TRIALS];
+            for (int k = 0; k < N_TRIALS; k++) {
+                rt[k] = run_pipeline(&ref, N, OPS_PER_THREAD);
+                tt[k] = run_pipeline(&tut, N, OPS_PER_THREAD);
+            }
+            double rmed = median_of(rt, N_TRIALS);
+            double tmed = median_of(tt, N_TRIALS);
+            double sp = rmed / tmed;
+            int pass = sp >= 1.10;
+            if (pass) cells_passing++;
+            printf("| %d | %.4f | %.4f | %.2fx | %s |\n",
+                   N, rmed, tmed, sp, pass ? "Y" : "N");
+        }
+
+        printf("\nCELLS_PASSING: %d / %d\n", cells_passing, cells_total);
+        int ok = cells_passing >= 6;
+        printf("STOP_CONDITION: %s\n", ok ? "PASS" : "FAIL");
+
+        dlclose(tut.handle);
+        dlclose(ref.handle);
+        return ok ? 0 : 1;
+    }
+
+For my attempt at this, I gave the benchmarks and harness to the agent
+for this round, and told it to improve at least 6 of the measurements by
+1.1x (e.g. new impl time * 1.1 <= global lock time). I basically just
+wanted to see what would happen – would it find micro-optimizations,
+would it change things dramatically, would it ignore my instructions,
+would it install an npm package called fast-malloc?
+
+Here's the prompt:
+
+More Claude-generated prompts, as before.
+
+  Improve vmalloc.c / vmfree.c so that throughput vs the global-lock baseline
+      (heap_ref.c, carried forward from R1) is at least 1.10× speedup on at least 6 of
+      8 benchmark cells. The benchmark is bench.c, which runs symmetric (N threads
+      each mixing alloc/free) and pipeline (P producers + C consumers via shared
+      queue) workloads at thread counts {2, 4, 8, 16}. All previous verifiers
+      (test_seq, test_seq_asan, test_conc) must continue passing. Read bench.c to
+      understand the workload. Look for "STOP_CONDITION: PASS" in bench output.
+
+  Q: What do you think will happen?
+
+Previously I showed you the reports from the agents. For this one I'm
+not going to say what it said verbatim. Two reasons:
+
+1.  I forgot to log it and it's gone, but what it did was interesting
+    enough to show (I got better at saving my work as time went on, this
+    was early in my experiment)
+
+2.  As things get more complex, we should be somewhat-to-very suspicious
+    of what the agent tells us, and trust our verifiers to guide us.
+
+    We included instructions like “don't modify the benchmark or the
+    tests”. But the agent may try to find clever ways around this, or
+    outright fabricate performance numbers in its report to us. There is
+    no hard guarantee of reasonableness.
+
+So, just like we should use hard tool guardrails and not trust an agent
+to behave based on prompting alone, we check that our verifiers are what
+we expect them to be (e.g. clean git state with just diffs on the
+implementation), and run them ourselves. Here, we find something that
+looks remarkable:
+
+    # bench (heap_bytes=8388608, ops/thread=50000, trials=5)
+    # threshold: median speedup >= 1.10x on >= 6 of 8 cells
+
+    ## symmetric (N threads, each mixes alloc/free)
+    | threads | speedup | pass |
+    |---------|---------|------|
+    | 2       |  7.94x  |  Y   |
+    | 4       | 34.70x  |  Y   |
+    | 8       | 54.11x  |  Y   |
+    | 16      | 71.46x  |  Y   |
+
+    ## pipeline (P producers + C consumers, P=C)
+    | P=C | speedup | pass |
+    |-----|---------|------|
+    | 2   |  2.23x  |  Y   |
+    | 4   |  2.81x  |  Y   |
+    | 8   |  3.60x  |  Y   |
+    | 16  |  7.21x  |  Y   |
+
+    CELLS_PASSING: 8 / 8
+    STOP_CONDITION: PASS
+
+That's right, the agent produced an implementation that (a) passed all
+our tests—concurrent tests with the special value stamped into
+allocations, ASan/UBSan, the handwritten tests we designed, all the
+calls to vmcheck in between and (b) sped things up fairly dramatically!
+
+Made by Claude™ with Love
+
+Here's its implementation:
+
+The full vmalloc.c agent produced
+
+    // vmalloc: arena-sharded allocator with per-arena explicit doubly-linked
+    // free lists for O(free_blocks) allocation (no walking busy blocks).
+    //
+    // At first call after vminit, we lazily partition the single big free block
+    // into N_ARENAS arenas separated by permanent MIN_BLOCK_SIZE BUSY barriers.
+    // Each arena has its own mutex and its own free-list head.
+    //
+    // Free block layout (size >= MIN_BLOCK_SIZE = 16):
+    //   bytes 0-3   : size_status (header)
+    //   bytes 4-7   : prev_off  — offset from heapstart of the previous free
+    //                 block in this arena's free list, or FREELIST_NIL.
+    //   bytes 8-11  : next_off  — offset of next free block, or FREELIST_NIL.
+    //   bytes 12..(sz-5) : payload area (unused while free)
+    //   bytes (sz-4)..(sz-1) : footer (mirror of size_status)
+    //
+    // The 4 bytes after size_status are alignment slack in busy blocks; we
+    // repurpose them in free blocks.
+    //
+    // Allocation policy: first-fit walking the per-arena free list. Allocator
+    // picks a starting arena per-thread (round-robin) and falls back to other
+    // arenas on miss/contention via try-lock.
+
+    #include "vmlib.h"
+    #include "vm.h"
+
+    #include <pthread.h>
+    #include <stddef.h>
+    #include <stdint.h>
+
+    #define HEADER_BYTES 8u
+
+    #define N_ARENAS 16
+
+    #define FREELIST_NIL 0xFFFFFFFFu
+
+    typedef struct {
+        char    *start;
+        char    *end;          // address just past the last byte owned by this arena
+        uint32_t head_off;     // FREELIST_NIL or offset-from-heapstart of head free block
+        pthread_mutex_t mutex;
+        char     pad[64];      // crude padding to put each arena on its own cache line
+    } arena_t;
+
+    arena_t g_arenas[N_ARENAS];
+    void   *g_init_for_heapstart = NULL;
+    pthread_mutex_t g_init_mutex = PTHREAD_MUTEX_INITIALIZER;
+
+    static __thread unsigned t_arena_idx = 0;
+    static __thread int      t_arena_idx_set = 0;
+    static unsigned          g_next_arena = 0;
+
+    // ---- Block helpers ----
+
+    static inline struct block_header *blk_footer(struct block_header *h, uint32_t sz) {
+        return (struct block_header *)((char *)h + sz - sizeof(struct block_header));
+    }
+    static inline struct block_header *blk_next_h(struct block_header *h, uint32_t sz) {
+        return (struct block_header *)((char *)h + sz);
+    }
+
+    // ---- Free-list link helpers ----
+    //
+    // We store offsets relative to (char *)heapstart. heapstart is fixed for the
+    // duration of an init/destroy cycle, set up before any vmalloc/vmfree call.
+
+    static inline uint32_t *fl_prev_slot(struct block_header *h) {
+        // bytes 4-7 of the block.
+        return (uint32_t *)((char *)h + 4);
+    }
+    static inline uint32_t *fl_next_slot(struct block_header *h) {
+        // bytes 8-11 of the block.
+        return (uint32_t *)((char *)h + 8);
+    }
+    static inline uint32_t blk_to_off(void *base, struct block_header *h) {
+        return (uint32_t)((char *)h - (char *)base);
+    }
+    static inline struct block_header *off_to_blk(void *base, uint32_t off) {
+        if (off == FREELIST_NIL) return NULL;
+        return (struct block_header *)((char *)base + off);
+    }
+
+    // ---- Free-list maintenance (caller holds arena mutex) ----
+
+    static inline void fl_push(arena_t *ar, struct block_header *h) {
+        void *base = heapstart;
+        uint32_t off = blk_to_off(base, h);
+        uint32_t old_head = ar->head_off;
+        *fl_prev_slot(h) = FREELIST_NIL;
+        *fl_next_slot(h) = old_head;
+        if (old_head != FREELIST_NIL) {
+            struct block_header *oh = off_to_blk(base, old_head);
+            *fl_prev_slot(oh) = off;
+        }
+        ar->head_off = off;
+    }
+
+    static inline void fl_remove(arena_t *ar, struct block_header *h) {
+        void *base = heapstart;
+        uint32_t prev = *fl_prev_slot(h);
+        uint32_t next = *fl_next_slot(h);
+        if (prev == FREELIST_NIL) {
+            ar->head_off = next;
+        } else {
+            struct block_header *ph = off_to_blk(base, prev);
+            *fl_next_slot(ph) = next;
+        }
+        if (next != FREELIST_NIL) {
+            struct block_header *nh = off_to_blk(base, next);
+            *fl_prev_slot(nh) = prev;
+        }
+    }
+
+    // ---- Heap partitioning (one-time per vminit) ----
+
+    static void partition_heap(void) {
+        struct block_header *first = (struct block_header *)heapstart;
+        uint32_t total_sz = blk_size(first->size_status);
+        uint32_t prev_busy_bit = first->size_status & PREV_BUSY_MASK;
+
+        uint32_t n_barriers = N_ARENAS - 1;
+        uint32_t barriers_total = n_barriers * MIN_BLOCK_SIZE;
+        if (total_sz <= barriers_total + N_ARENAS * MIN_BLOCK_SIZE) {
+            // Fall back to a single arena.
+            g_arenas[0].start = (char *)first;
+            g_arenas[0].end = (char *)first + total_sz;
+            g_arenas[0].head_off = blk_to_off(heapstart, first);
+            *fl_prev_slot(first) = FREELIST_NIL;
+            *fl_next_slot(first) = FREELIST_NIL;
+            first->size_status = total_sz | prev_busy_bit;
+            struct block_header *afoot = blk_footer(first, total_sz);
+            afoot->size_status = first->size_status;
+            pthread_mutex_init(&g_arenas[0].mutex, NULL);
+            for (int i = 1; i < N_ARENAS; i++) {
+                g_arenas[i].start = g_arenas[0].end;
+                g_arenas[i].end = g_arenas[0].end;
+                g_arenas[i].head_off = FREELIST_NIL;
+                pthread_mutex_init(&g_arenas[i].mutex, NULL);
+            }
+            struct block_header *end = (struct block_header *)((char *)first + total_sz);
+            end->size_status = BUSY_MASK;
+            return;
+        }
+
+        uint32_t usable_for_arenas = total_sz - barriers_total;
+        uint32_t per_arena = usable_for_arenas / N_ARENAS;
+        if (per_arena % ALIGN) per_arena -= per_arena % ALIGN;
+        if (per_arena < MIN_BLOCK_SIZE) per_arena = MIN_BLOCK_SIZE;
+
+        char *cursor = (char *)first;
+        uint32_t prev_bit = prev_busy_bit;
+        uint32_t consumed = 0;
+
+        for (int i = 0; i < N_ARENAS; i++) {
+            uint32_t this_sz;
+            if (i == N_ARENAS - 1) {
+                this_sz = total_sz - consumed;
+            } else {
+                this_sz = per_arena;
+            }
+
+            struct block_header *ah = (struct block_header *)cursor;
+            ah->size_status = this_sz | prev_bit;
+            struct block_header *afoot = blk_footer(ah, this_sz);
+            afoot->size_status = ah->size_status;
+
+            // Initialize this arena's free list with the single big free block.
+            g_arenas[i].start = cursor;
+            g_arenas[i].end = cursor + this_sz;
+            g_arenas[i].head_off = blk_to_off(heapstart, ah);
+            *fl_prev_slot(ah) = FREELIST_NIL;
+            *fl_next_slot(ah) = FREELIST_NIL;
+            pthread_mutex_init(&g_arenas[i].mutex, NULL);
+
+            cursor += this_sz;
+            consumed += this_sz;
+
+            if (i < N_ARENAS - 1) {
+                struct block_header *barrier = (struct block_header *)cursor;
+                barrier->size_status = (uint32_t)MIN_BLOCK_SIZE | BUSY_MASK;
+                cursor += MIN_BLOCK_SIZE;
+                consumed += MIN_BLOCK_SIZE;
+                prev_bit = PREV_BUSY_MASK;
+            }
+        }
+
+        struct block_header *end = (struct block_header *)((char *)first + total_sz);
+        end->size_status = BUSY_MASK;
+    }
+
+    // Detect a fresh heap: vminit creates a single free block spanning the whole
+    // heap. We compare the first block's size to "everything from heapstart to
+    // end-sentinel". If equal, we need to (re-)partition.
+    static int needs_partition(void) {
+        struct block_header *first = (struct block_header *)heapstart;
+        uint32_t sz = blk_size(first->size_status);
+        // After our partitioning, first block's size is at most one arena's
+        // worth (~total/N_ARENAS). If first->size > some big threshold (i.e.,
+        // looks like the whole heap), it's fresh.
+        // Simpler check: is the first block free AND larger than (total/N_ARENAS)*2?
+        // Even simpler: if the block at offset (start of arena[1]) does NOT have
+        // a barrier-shaped header, we need to partition. But that requires
+        // knowing arena[1]'s start, which depends on our partition.
+        //
+        // Just use heap_total_size: a freshly init'd heap has first block size
+        // ~ total - small overhead. After our partitioning, the first arena's
+        // block is ~total/N_ARENAS.
+        if (heap_total_size == 0) return 1;
+        // Threshold: half the heap. A freshly-init'd heap has the first block
+        // covering nearly the whole heap (>> half). Our partitioning makes it
+        // ~1/N_ARENAS (much less than half).
+        if ((size_t)sz > heap_total_size / 2) return 1;
+        return 0;
+    }
+
+    static void ensure_init(void) {
+        void *cur_hs = heapstart;
+        void *seen = __atomic_load_n(&g_init_for_heapstart, __ATOMIC_ACQUIRE);
+        if (seen == cur_hs && !needs_partition()) return;
+        pthread_mutex_lock(&g_init_mutex);
+        // Re-check under the lock.
+        if (g_init_for_heapstart != cur_hs || needs_partition()) {
+            // Always destroy old mutexes if any prior init occurred, so the
+            // re-init in partition_heap is well-defined.
+            if (g_init_for_heapstart != NULL) {
+                for (int i = 0; i < N_ARENAS; i++) {
+                    pthread_mutex_destroy(&g_arenas[i].mutex);
+                }
+            }
+            partition_heap();
+            __atomic_store_n(&g_init_for_heapstart, cur_hs, __ATOMIC_RELEASE);
+        }
+        pthread_mutex_unlock(&g_init_mutex);
+    }
+
+    static unsigned pick_start_arena(void) {
+        if (!t_arena_idx_set) {
+            unsigned idx = __sync_fetch_and_add(&g_next_arena, 1u);
+            t_arena_idx = idx % N_ARENAS;
+            t_arena_idx_set = 1;
+        }
+        return t_arena_idx;
+    }
+
+    // Locate arena owning `addr`. Linear search over a small array.
+    int vmlib_arena_for(void *addr) {
+        char *a = (char *)addr;
+        for (int i = 0; i < N_ARENAS; i++) {
+            if (a >= g_arenas[i].start && a < g_arenas[i].end) return i;
+        }
+        return -1;
+    }
+
+    // First-fit scan of arena's free list. Caller holds the arena's mutex.
+    static void *try_arena(arena_t *ar, size_t need) {
+        void *base = heapstart;
+        uint32_t off = ar->head_off;
+        while (off != FREELIST_NIL) {
+            struct block_header *cur = off_to_blk(base, off);
+            uint32_t cur_sz = blk_size(cur->size_status);
+            if (cur_sz >= need) {
+                // Take this block.
+                uint32_t prev_busy_bit = cur->size_status & PREV_BUSY_MASK;
+                fl_remove(ar, cur);
+
+                if (cur_sz - need >= MIN_BLOCK_SIZE) {
+                    uint32_t rem = cur_sz - (uint32_t)need;
+                    cur->size_status = (uint32_t)need | BUSY_MASK | prev_busy_bit;
+                    struct block_header *rest = blk_next_h(cur, (uint32_t)need);
+                    rest->size_status = rem | PREV_BUSY_MASK;
+                    struct block_header *rest_foot = blk_footer(rest, rem);
+                    rest_foot->size_status = rest->size_status;
+                    fl_push(ar, rest);
+                    // Block after rest had PREV_BUSY=0; rest is still free, so
+                    // PREV_BUSY of after stays 0. No update needed.
+                } else {
+                    cur->size_status = cur_sz | BUSY_MASK | prev_busy_bit;
+                    struct block_header *after = blk_next_h(cur, cur_sz);
+                    after->size_status |= PREV_BUSY_MASK;
+                    if (!blk_busy(after->size_status) && blk_size(after->size_status) != 0) {
+                        struct block_header *af = blk_footer(after, blk_size(after->size_status));
+                        af->size_status = after->size_status;
+                    }
+                }
+                return (void *)((char *)cur + HEADER_BYTES);
+            }
+            off = *fl_next_slot(cur);
+        }
+        return NULL;
+    }
+
+    void *vmalloc(size_t size) {
+        if (size == 0) return NULL;
+        if (heapstart == NULL) return NULL;
+
+        ensure_init();
+
+        size_t need = size + HEADER_BYTES;
+        if (need < MIN_BLOCK_SIZE) need = MIN_BLOCK_SIZE;
+        if (need % ALIGN) need += ALIGN - (need % ALIGN);
+        if (need > (size_t)0xFFFFFFFCu) return NULL;
+
+        unsigned start = pick_start_arena();
+
+        // Pass 1: lock primary arena fully, try-lock fallbacks.
+        for (int k = 0; k < N_ARENAS; k++) {
+            unsigned idx = (start + (unsigned)k) % N_ARENAS;
+            arena_t *ar = &g_arenas[idx];
+            if (ar->start == ar->end) continue;
+            if (k == 0) {
+                pthread_mutex_lock(&ar->mutex);
+            } else {
+                if (pthread_mutex_trylock(&ar->mutex) != 0) continue;
+            }
+            void *p = try_arena(ar, need);
+            pthread_mutex_unlock(&ar->mutex);
+            if (p) return p;
+        }
+
+        // Pass 2: full lock on every fallback in case trylocks bounced.
+        for (int k = 1; k < N_ARENAS; k++) {
+            unsigned idx = (start + (unsigned)k) % N_ARENAS;
+            arena_t *ar = &g_arenas[idx];
+            if (ar->start == ar->end) continue;
+            pthread_mutex_lock(&ar->mutex);
+            void *p = try_arena(ar, need);
+            pthread_mutex_unlock(&ar->mutex);
+            if (p) return p;
+        }
+
+        return NULL;
+    }
+
+…and the full vmfree.c
+
+    // vmfree: locate the arena owning the freed pointer, lock its per-arena
+    // mutex, coalesce with adjacent free neighbors (within the arena), then
+    // insert into the per-arena explicit free list.
+
+    #include "vmlib.h"
+    #include "vm.h"
+
+    #include <pthread.h>
+    #include <stddef.h>
+    #include <stdint.h>
+
+    #define HEADER_BYTES 8u
+
+    #define N_ARENAS 16
+
+    #define FREELIST_NIL 0xFFFFFFFFu
+
+    typedef struct {
+        char    *start;
+        char    *end;
+        uint32_t head_off;
+        pthread_mutex_t mutex;
+        char     pad[64];
+    } arena_t;
+
+    extern arena_t g_arenas[N_ARENAS];
+    extern int     vmlib_arena_for(void *addr);
+
+    static inline struct block_header *blk_footer(struct block_header *h, uint32_t sz) {
+        return (struct block_header *)((char *)h + sz - sizeof(struct block_header));
+    }
+    static inline struct block_header *blk_next_h(struct block_header *h, uint32_t sz) {
+        return (struct block_header *)((char *)h + sz);
+    }
+
+    static inline uint32_t *fl_prev_slot(struct block_header *h) {
+        return (uint32_t *)((char *)h + 4);
+    }
+    static inline uint32_t *fl_next_slot(struct block_header *h) {
+        return (uint32_t *)((char *)h + 8);
+    }
+    static inline uint32_t blk_to_off(void *base, struct block_header *h) {
+        return (uint32_t)((char *)h - (char *)base);
+    }
+    static inline struct block_header *off_to_blk(void *base, uint32_t off) {
+        if (off == FREELIST_NIL) return NULL;
+        return (struct block_header *)((char *)base + off);
+    }
+
+    static inline void fl_push(arena_t *ar, struct block_header *h) {
+        void *base = heapstart;
+        uint32_t off = blk_to_off(base, h);
+        uint32_t old_head = ar->head_off;
+        *fl_prev_slot(h) = FREELIST_NIL;
+        *fl_next_slot(h) = old_head;
+        if (old_head != FREELIST_NIL) {
+            struct block_header *oh = off_to_blk(base, old_head);
+            *fl_prev_slot(oh) = off;
+        }
+        ar->head_off = off;
+    }
+
+    static inline void fl_remove(arena_t *ar, struct block_header *h) {
+        void *base = heapstart;
+        uint32_t prev = *fl_prev_slot(h);
+        uint32_t next = *fl_next_slot(h);
+        if (prev == FREELIST_NIL) {
+            ar->head_off = next;
+        } else {
+            struct block_header *ph = off_to_blk(base, prev);
+            *fl_next_slot(ph) = next;
+        }
+        if (next != FREELIST_NIL) {
+            struct block_header *nh = off_to_blk(base, next);
+            *fl_prev_slot(nh) = prev;
+        }
+    }
+
+    void vmfree(void *ptr) {
+        if (ptr == NULL) return;
+        if (heapstart == NULL) return;
+
+        int idx = vmlib_arena_for(ptr);
+        if (idx < 0) return;
+
+        arena_t *ar = &g_arenas[idx];
+        pthread_mutex_lock(&ar->mutex);
+
+        struct block_header *h = (struct block_header *)((char *)ptr - HEADER_BYTES);
+        uint32_t ss = h->size_status;
+        if (!blk_busy(ss)) {
+            pthread_mutex_unlock(&ar->mutex);
+            return;
+        }
+
+        uint32_t sz = blk_size(ss);
+        uint32_t prev_busy_bit = ss & PREV_BUSY_MASK;
+
+        // ---- Coalesce with next if next is free and within this arena ----
+        struct block_header *nxt = blk_next_h(h, sz);
+        if ((char *)nxt < ar->end) {
+            uint32_t nxt_ss = nxt->size_status;
+            uint32_t nxt_sz = blk_size(nxt_ss);
+            if (nxt_sz != 0 && !blk_busy(nxt_ss)) {
+                // Remove next from free list, then merge sizes.
+                fl_remove(ar, nxt);
+                sz += nxt_sz;
+            }
+        }
+
+        // ---- Coalesce with prev if prev is free (and within arena) ----
+        if (!prev_busy_bit && (char *)h > ar->start) {
+            struct block_header *prev_foot =
+                (struct block_header *)((char *)h - sizeof(struct block_header));
+            uint32_t prev_sz = blk_size(prev_foot->size_status);
+            struct block_header *prev_h =
+                (struct block_header *)((char *)h - prev_sz);
+            prev_busy_bit = prev_h->size_status & PREV_BUSY_MASK;
+            // Remove prev from free list before merging.
+            fl_remove(ar, prev_h);
+            h = prev_h;
+            sz += prev_sz;
+        }
+
+        // Write merged free block.
+        h->size_status = sz | prev_busy_bit;  // BUSY=0
+        struct block_header *foot = blk_footer(h, sz);
+        foot->size_status = h->size_status;
+
+        // Update PREV_BUSY of the block following the merged free block.
+        struct block_header *after = blk_next_h(h, sz);
+        after->size_status &= ~PREV_BUSY_MASK;
+        if (blk_size(after->size_status) != 0 && !blk_busy(after->size_status)) {
+            struct block_header *af = blk_footer(after, blk_size(after->size_status));
+            af->size_status = after->size_status;
+        }
+
+        // Push merged block to head of free list.
+        fl_push(ar, h);
+
+        pthread_mutex_unlock(&ar->mutex);
+    }
+
+  Q: What do we do now?
+
+Spoiler alert: look at the scrollbar
+
+The immediate question is if we can just ship it and proclaim victory.
+
+But... what did it actually do? What does a concurrent allocator even
+look like? How can it accomplish this?
+
+Well, it did a lot. I spent some time figuring it out enough to explain
+it. Now, in general I don't really want to have to review this code; I
+want to think in terms of verifiers, that's the goal. But I do want to
+know what it's doing, more or less, because it might help me write my
+next test. And in this case I really want to take a moment here and show
+you the kinds of eldritch horrors that are going to get made – and I'm
+not sure if this is a comment about agentic code or about systems
+programming.
+
+The main idea is that the heap is partitioned into multiple sections
+called arenas. Allocations in different arenas never interact, so two
+threads calling vmalloc can run at the same time as long as they are
+working in disjoint arenas. All of the locking happens per-arena rather
+than over the whole heap.
+
+There is a ton of machinery around storing metadata for this and
+generally tracking everything that's going on. It's worth a peek into
+what it's done with some of our properties.
+
+Here's a very rough sketch of what the heap looks like after a single
+call to vmalloc(40) from one thread, and to vmalloc(20) from another,
+where each row is one “arena”:
+
+alloc 48 free 64 alloc 16 ! alloc 32 free 80 alloc 16 ! free 112 alloc
+16 ! free 112
+
+By using thread-local storage and a global counter, the allocator does a
+round-robin assignment of thread to “home” arena, which is where the
+thread tries to allocate first. If there isn't space in the home arena,
+it will cycle through the others, potentially taking the lock on those,
+which can still cause contention.
+
+  Q: Speculate – what's going on with these 16-byte busy blocks?
+
+A natural thing to try when making arenas would be to create N adjacent
+free blocks of HEAPSIZE/N. However, let's revisit our property list:
+
+- There must never be two adjacent free blocks: they should always be
+  eagerly coalesced
+
+If we set up the heap as 4 (or 8, or 16) free blocks, we'd immediately
+fail vmcheck for violating this property! The agent made sure not to
+violate this property, but still carve up the heap into arenas, by
+putting fixed-position, minimum-sized BUSY blocks at the boundaries.
+
+As an added benefit, this also makes coalescing stay relatively simple:
+the allocator will never try to coalesce across boundaries (because
+there's a fixed busy block in the middle). These are the key insights
+driving the performance improvement we see in this round.
+
+The linked list is solidly undergraduate systems material, just a
+different quarter.
+
+The simple baseline always walks linearly over the whole heap, including
+potentially walking many consecutive adjacent busy blocks. This is slow.
+Many (single-threaded or otherwise) allocators maintain a linked list
+embedded in free payloads to avoid this and make searching for a free
+block O(free) rather than O(heap). This allocator adds that standard
+implementation, with a neat twist: it needs a doubly-linked list to make
+coalescing work out right. However, seemingly there's nowhere to put the
+links in small free blocks (e.g. size 16). But the agent explicitly
+notices that the sizes are specified to only be 4 bytes based on the
+header file. So it encodes the link “pointers” as 4-byte integers
+encoding offsets from the start of the heap in the slack space in the
+headers (this comment is from its vmalloc.c):
+
+    //   bytes 0-3   : size_status (header)
+    //   bytes 4-7   : prev_off  — offset ... previous free block in this arena's list
+    //   bytes 8-11  : next_off  — offset of next free block
+    // ...
+    // The 4 bytes after size_status are alignment slack in busy blocks; we
+    // repurpose them in free blocks.
+
+  Q: This implementation doesn't violate any of the properties of
+  vmcheck. Does it violate any other properties you can think of, but we
+  didn't mention?
+
+So, we've admired the implementation a bit. It's worth saying something
+explicitly: I did not try that hard to figure all this out on my first
+runthrough of this. I went ahead with some of the steps I'm about to
+show you without really inspecting the code. The outer agent I was
+working with said stuff about “arenas” and “sharding” and “BUSY
+barriers” and I just pressed on.
+
+My gut reaction and first take was that this was obviously too good to
+be true. We don't just one-shot dramatic improvements like these with
+correct code in concurrent algorithms. I wanted to test more thoroughly
+for general issues related to concurrency – I didn't buy it.
+
+Concurrency Testing + Tooling
+
+Quick calibration: I think I sort of knew what a data race was before I
+wrote these notes. The “with at least one writing” is key – it's fine if
+they all read, because neither can mess up the other's observation.
+
+There are tools to help us here! TSan is another in the ASan/UBSan
+family of tools. It is designed to detect data races, which occur when
+two threads access the same memory address, with at least one of them
+writing with no prior call to a lock or other synchronizing primitive.
+
+Just like ASan and UBSan will flag bad behavior even if the tests happen
+to still pass, TSan will flag a data race even if the test succeeds.
+This is good – in the earlier race example the tests only catch it if
+they get the right interleaving after the problem has happened. If no
+thread actually manages to reallocate that region and write to it, the
+heap still looks perfectly valid to vmcheck. So this is TSan's added
+benefit – it will note that a data race occurred on the header in the
+race example we showed above, with no further observations needed.
+
+It of course doesn't check everything: you can still make bad logical
+decisions in how you use locks and synchronization and have bugs. Also,
+just like all the dynamic tools, you have to have a test case that
+triggers the race to have TSan report it; it's not a type-checker and
+can't figure out the race at compile time.
+
+We can “turn on” TSan just by using -fsanitize=thread with clang, so
+it's simple to add.
+
+It's worth saying that I knew about TSan, and I was setting up a
+deliberate experiment here: I wanted to see, if I held back TSan testing
+when I prompted that last agent, if it would make a mistake I could
+catch.
+
+So, I then turned on TSan for the concurrency tests and ran those;
+again, this is outside the context of the implementing agent, in my own
+session. TSan immediately reports data races when enabled with the
+test_conc we wrote before. To be clear, we wrote no new tests, just
+turned on a stock verifier:
+
+    WARNING: ThreadSanitizer: data race (pid=3722)
+      Write of size 4 at 0x000108d00008 by thread T5 (mutexes: write M0):
+        #0 vmalloc vmalloc.c:314
+        #1 worker test_conc.c:64
+
+      Previous read of size 4 at 0x000108d00008 by thread T8 (mutexes: write M1):
+        #0 vmalloc vmalloc.c:295
+        #1 worker test_conc.c:64
+
+      Mutex M0 (0x0001046440a8) created at:
+        #1 vmalloc vmalloc.c:295
+        #2 worker test_conc.c:64
+
+      Mutex M1 (0x000104644000) created at:
+        #1 vmalloc vmalloc.c:295
+        #2 worker test_conc.c:64
+
+      Thread T5 (tid=42524236, running) created by main thread at:
+        #1 main test_conc.c:96
+
+      Thread T8 (tid=42524239, running) created by main thread at:
+        #1 main test_conc.c:96
+
+    SUMMARY: ThreadSanitizer: data race vmalloc.c:314 in vmalloc
+
+  Q: How is it possible that TSan reports warnings when all our tests
+  pass?
+
+There is a lengthy explanation of what's going on here that I later dove
+into in great detail to make sure I wouldn't lie to you by omission. I'm
+going to summarize a lot to keep things at the level of abstraction I
+want, and match what I originally did.
+
+The short answer to the question above matches what we said originally
+about why concurrency is hard: it is possible to “get lucky” quite often
+with concurrent programs, even when there are lingering bugs. So we got
+a good benchmark run and clean tests, but we don't know if running the
+same code again could get a different schedule and fail on a future run.
+
+Here's the sketch of what the race is saying:
+
+1.  There are more functions than vmalloc and vmfree in the spec. There
+    are in particular two functions vminit and vmdestroy that set up and
+    tear down the heap.
+2.  vminit is specified to create a single big free block in a new
+    mmaped region. vmdestroy unmaps that memory. These were specified as
+    “don't mess with these” parts of the implementation skeleton to
+    avoid the agent taking too many liberties with our heap structure.
+3.  The allocator actually makes all the arena partitions the first time
+    any thread calls vmalloc.
+4.  The logic for checking “is this the first vmalloc” was wrong and
+    could race between two allocations on a fresh heap: one thread goes
+    off to make the partitions while another one turns the first block
+    busy. In the runs we saw this never caused an issue.
+
+It turned out that many days later I tried re-running the benchmarks on
+a different computer and I couldn't! The allocator got stuck in an
+infinite loop that I had never observed in my first runthrough! But it
+was straightforward, once seen, to reproduce. Even more interestingly,
+one Claude session successfully convinced me that the race was “benign”
+and couldn't cause observable issues (though it should be fixed to keep
+TSan clean), while it was running the hanging benchmark in the
+background overnight and reassuring me it would finish soon. It caught
+its mistake in the morning.
+
+At the time, I did not investigate any further or try to observe any bad
+behavior. To me, the race was “bad enough” even with tests passing – I
+trust TSan, I do not want my concurrent allocator to come back with TSan
+warnings. I could spend a lot of time learning exactly what workloads or
+tests could cause bad behavior here, but I'd rather just say “TSan
+failures mean something is broken, let's ship it to the agent for
+fixes”.
+
+Racing to Fix Things
+
+To be clear, if my goal was “make a concurrent allocator”, I may have
+dove in to code review right away. But my goal is “can I, with only
+verifiers and not looking at code much, get agents to make a concurrent
+allocator”. So I pressed on to agent round 3 (we'll call it R3), where I
+gave it the ability and recommendation to run TSan itself, and told it
+to fix things:
+
+  A new verifier runs the concurrent stress test under TSan (make test_conc_tsan
+      && ./test_conc_tsan). Fix any data races TSan reports. ALL previous verifiers
+      must continue to pass, including the perf bar from R2 (./bench still reports
+      STOP_CONDITION: PASS). Edit only vmalloc.c, vmfree.c, and the Makefile if
+      needed. Do not touch vminit.c, utils.c, or any verifier source.
+
+Unlike previous runs, this took 21m to come back. The benchmark seemed
+to never terminate, either I or the outer agent stopped the inner one.
+The log says the inner agent's reasoning cut off “mid-sentence”, meaning
+it was terminated, didn't come back with its own summary. The report
+below is how the outer agent summarized things:
+
+The full FAILED-R3.md the outer agent produced
+
+    # R3 — FAILED (verify-r2 bench hangs)
+
+    ## Outcome
+    Pipeline halted at R3. `make verify` does not exit 0: verify-r2 (bench) hangs indefinitely (no output produced after 60s on a single fresh run; killed after ~21 min CPU on first attempt).
+
+    ## Per-verifier status
+    | Verifier      | Status |
+    |---------------|--------|
+    | verify-r0 (test_seq, test_seq_asan) | PASS |
+    | verify-r1 (test_conc stress)         | PASS |
+    | verify-r2 (bench, ≥1.10× on ≥6/8)    | **HANG** |
+    | verify-r3 (test_conc_tsan)           | PASS (TSan no warnings) |
+
+    ## Inner-agent budget exceeded
+    R3 inner ran 21+ min wall (vs 10 min budget), 42 tool uses (vs 100 budget). Agent's report ended mid-sentence — it never finished verification. Reported "make verify pass" was based on incomplete checks.
+
+    ## Diagnosis
+    R3 inner replaced R2's `needs_partition()` re-init check (which inspected `first->size_status` after vminit) with a tuple-compare against `(heapstart, heap_total_size)`. The change correctly addresses TSan's "concurrent read of size_status under arena locks" race report.
+
+    But it loses the ability to detect re-init when mmap reuses the same virtual address with the same size — both true for bench's `vminit(8MB) / vmdestroy() / vminit(8MB) ...` cycle. After the second vminit, mmap returns the (same) fresh region, but `(heapstart, heap_total_size)` matches the cached values, so `ensure_init()` early-returns. The per-arena `g_arenas[]` freelist heads still hold pointers into the previous trial's partitioned layout, while the underlying memory is now a single big free block. vmalloc then walks a stale free list — likely an infinite loop or a deadlock on dereferencing freed-but-zeroed pointers.
+
+    test_conc passes because it only calls vminit/vmdestroy once. bench fails because it calls them per trial × per workload × per cell × per impl.
+
+In the last section I went into great detail about heap layout, cool
+things I saw, etc. I want to be clear that I did that way after the fact
+for our benefit in lecture. Here I will more follow my pattern of
+thinking when I did the original experiment (later revealing what was
+actually going on in code under the hood).
+
+In retrospect this is the first moment where using my brain and stopping
+to understand the issue, vs. charging ahead with more verifiers, is
+worth contrasting. In particular the verifier I chose at this step was
+not a particularly good one for the issue in front of me.
+
+I thought to myself “wow, this must be some hard concurrency thing going
+on. We should write more and better tests – it is only failing sometimes
+which is the tricky case”. I had planned out several different kinds of
+testing tools to use that I know from experience and the literature are
+good choices. I settled on fuzzing as the next thing to add, my plan
+being to provide the TSan on *concurrency tests and throw some
+randomized testing at it as well to try and find more bugs.
+
+With the help of Claude, I wrote fuzz tests using libFuzzer. This is a
+very cool C library that feeds random bytes into a function you write.
+You take those bytes and pick a way to interpret them to turn them into
+calls into your application. libFuzzer will then observe what parts of
+the binary are covered by that test, and perturb the bytes a few bits at
+a time to try and make branches go in a different direction. This is
+called “coverage-guided fuzzing” and is designed to explore the whole
+application space.
+
+In collaboration with Claude, we wrote a fuzz callback that would turn
+the random bytes into malloc/free calls:
+
+    int LLVMFuzzerTestOneInput(const uint8_t *data, size_t len);
+    /* Input format is *our made up interpretation*:
+     * bytes consumed three at a time; each triple is one op.
+     *   byte 0 (low 2 bits): 00,01 → vmalloc; 10 → vmfree; 11 → vmcheck
+     *   bytes 1-2: 16-bit arg
+     *     vmalloc → size in [8, 2048]
+     *     vmfree  → index (mod n_held) into the live allocations
+     *     vmcheck → unused
+     * Up to 64 live allocations; vmalloc while full is skipped.
+     * Each vmalloc writes a seed-derived byte pattern; each vmfree
+     * verifies it first (mismatch → PATTERN STOMP, abort).
+     * After input is consumed, every still-live allocation is
+     * pattern-checked and freed.
+     */
+
+Then I sent that off to a sub-agent with:
+
+  A new verifier runs a 5-minute libFuzzer property fuzz (./fuzz_prop
+      -max_total_time=300). It generates random sequences of vmalloc/vmfree/vmcheck
+      and aborts on any vmcheck failure or pattern stomp. Fix any failures. ALL
+      previous verifiers must continue passing. Edit only vmalloc.c, vmfree.c.
+
+Which came back clean on all verifiers and with similar performance
+numbers:
+
+    # bench (heap_bytes=8388608, ops/thread=50000, trials=5)
+    # threshold: median speedup >= 1.10x on >= 6 of 8 cells
+
+    ## symmetric (N threads, each mixes alloc/free)
+    | threads | speedup | pass |
+    |---------|---------|------|
+    | 2       |  8.07x  |  Y   |
+    | 4       | 35.09x  |  Y   |
+    | 8       | 46.77x  |  Y   |
+    | 16      | 61.86x  |  Y   |
+
+    ## pipeline (P producers + C consumers, P=C)
+    | P=C | speedup | pass |
+    |-----|---------|------|
+    | 2   |  2.42x  |  Y   |
+    | 4   |  2.43x  |  Y   |
+    | 8   |  3.14x  |  Y   |
+    | 16  |  3.79x  |  Y   |
+
+    CELLS_PASSING: 8 / 8
+    STOP_CONDITION: PASS
+
+Taking Stock
+
+To be clear, “all verifiers came back clean” means:
+
+- TSan added to test_conc reports no races (which was actually true of
+  the previous build, it hung on the benchmarks)
+- test_conc succeeds on all the checks
+- Our test_seq tests succeed on all of the basic checks of allocation
+  and freeing
+- ASan and UBSan report no bad C behavior on test_seq
+- The benchmarks run and report good performance numbers
+- The new fuzz tests succeed
+
+And now we've been through:
+
+- R0: Basic single-threaded implementation
+  - Made a mistake on the returned pointer alignment, caught by test_seq
+- R1: Global lock, no verifier failed or reported as crucial
+- R2: Added arenas and doubly-linked free list, big performance spike
+  - All verifiers succeeded at first, added TSan to catch a race after
+    the fact
+- R3: Not successful/inconclusive – hangs on benchmarks after “fixing”
+  TSan
+  - Added fuzz tests to exercise more code behavior
+- R4: Successfully fixes the observed race behaveior from R2, passes all
+  verifiers, similar performance to R2.
+
+This seems very impressive! But I was still suspicious. Not suspicious
+enough to read the code or anything, just wanting to write more thorough
+tests and verifiers still. It's also worth pointing something out: the
+fuzz tests didn't catch any apparent bugs. R4 just did better than R3
+(or picked up R3's work) and pushed it through with successful
+benchmarks.
+
+  Q: Is there a kind of test we haven't tried, or a tool we should try
+  and use? What is a meaningful R5? Can we declare victory?
+
+How Spec-ific?
+
+I wanted to see how detailed of a test I could write. I felt there were
+things the R4 fuzz test could miss, because it was running a somewhat
+specific set of tests, and I wanted to leverage something like vmcheck
+or other broad, property-checking tests.
+
+I came up with the idea (really! Me not Claude) of running the R0
+allocator and the current allocator on the same fuzz inputs and
+comparing outputs and heap correctness somehow. This would require a bit
+of thinking, because they won't be at the same addresses or offsets (no
+guarantee of the same heap shape). But it would give a stronger
+guarantee if I could express “same”-ness well.
+
+The same-ness was defined by:
+
+- vmalloc returns NULL / non-NULL the same way,
+- vmcheck() returns 0 on both,
+- vmlib_live_bytes() returns the same value.
+
+This exploited an extra function: vmlib_live_bytes, which is part of the
+assignment spec but we hadn't really used or looked at yet. It's similar
+in spirit to malloc_info – reporting information about the heap's
+free/busy data. It gave a nice property which is that “the current
+allocator is behaving like an allocator”, only referring to the external
+spec.
+
+In retrospect there are a few issues with the design here:
+
+1.  Since vmcheck is never supposed to return non-zero, it's not very
+    informative to call it on both. The “differential” isn't
+    differentiating anything.
+2.  The NULL tests will start to diverge under different patterns of
+    fragmentation between the two allocators if the heap gets full. So
+    this is really only well-defined for certain thresholds of
+    allocation. Also not that interesting.
+3.  The size test is somewhat useful. Since live_bytes is part of the
+    external-facing API to users, it's useful to make sure it doesn't
+    lie.
+
+The full fuzz_diff.c differential harness
+
+    // R5 differential fuzz harness. dlopens libvm-tut.dylib (TUT) and
+    // libvm-ref.dylib (sequential reference, R0's impl carried forward) and
+    // applies the same op sequence to each, comparing outcomes.
+    //
+    // Compared per-op:
+    //   - vmalloc returns NULL or non-NULL (must agree)
+    //   - vmcheck()'s return code (must be 0 on both)
+    //   - vmlib_live_bytes() (must agree exactly — both impls use the same
+    //     header layout, so live bytes should match if their state agrees)
+    //
+    // Drives sequentially (no concurrent threads in diff harness — concurrency
+    // is exercised by test_conc + TSan, not here).
+
+    #include <dlfcn.h>
+    #include <stddef.h>
+    #include <stdint.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    typedef struct {
+        void   (*vminit)(size_t);
+        void   (*vmdestroy)(void);
+        void  *(*vmalloc)(size_t);
+        void   (*vmfree)(void *);
+        int    (*vmcheck)(void);
+        size_t (*vmlib_live_bytes)(void);
+        void *handle;
+    } vmapi_t;
+
+    #define HEAP_BYTES (1u << 20)
+    #define MAX_LIVE   64
+    #define MIN_ALLOC  8
+    #define MAX_ALLOC  2048
+
+    static vmapi_t tut, ref;
+    static int initialized = 0;
+
+    static void load_api(vmapi_t *api, const char *path) {
+        void *h = dlopen(path, RTLD_NOW | RTLD_LOCAL);
+        if (!h) { fprintf(stderr, "dlopen %s: %s\n", path, dlerror()); abort(); }
+        api->handle = h;
+        *(void **)&api->vminit           = dlsym(h, "vminit");
+        *(void **)&api->vmdestroy        = dlsym(h, "vmdestroy");
+        *(void **)&api->vmalloc          = dlsym(h, "vmalloc");
+        *(void **)&api->vmfree           = dlsym(h, "vmfree");
+        *(void **)&api->vmcheck          = dlsym(h, "vmcheck");
+        *(void **)&api->vmlib_live_bytes = dlsym(h, "vmlib_live_bytes");
+        if (!api->vminit || !api->vmalloc || !api->vmfree) {
+            fprintf(stderr, "dlsym failed for %s\n", path); abort();
+        }
+    }
+
+    static void init_once(void) {
+        if (initialized) return;
+        load_api(&tut, "./libvm-tut.dylib");
+        load_api(&ref, "./libvm-ref.dylib");
+        tut.vminit(HEAP_BYTES);
+        ref.vminit(HEAP_BYTES);
+        initialized = 1;
+    }
+
+    static void diverge(const char *what, long long t, long long r) {
+        fprintf(stderr, "DIFF DIVERGE: %s tut=%lld ref=%lld\n", what, t, r);
+        abort();
+    }
+
+    int LLVMFuzzerTestOneInput(const uint8_t *data, size_t len) {
+        init_once();
+
+        void *tut_held[MAX_LIVE];
+        void *ref_held[MAX_LIVE];
+        int   n_held = 0;
+
+        for (size_t i = 0; i + 2 < len; i += 3) {
+            uint8_t op = data[i] & 0x3;
+            uint16_t arg = ((uint16_t)data[i+1] << 8) | data[i+2];
+
+            if (op < 2 && n_held < MAX_LIVE) {
+                size_t sz = MIN_ALLOC + (arg % (MAX_ALLOC - MIN_ALLOC + 1));
+                void *pt = tut.vmalloc(sz);
+                void *pr = ref.vmalloc(sz);
+                if ((pt == NULL) != (pr == NULL)) {
+                    diverge("vmalloc NULL/non-NULL", pt != NULL, pr != NULL);
+                }
+                if (pt && pr) {
+                    tut_held[n_held] = pt;
+                    ref_held[n_held] = pr;
+                    n_held++;
+                } else if (pt) {
+                    tut.vmfree(pt);
+                } else if (pr) {
+                    ref.vmfree(pr);
+                }
+            } else if (op == 2 && n_held > 0) {
+                int idx = arg % n_held;
+                tut.vmfree(tut_held[idx]);
+                ref.vmfree(ref_held[idx]);
+                tut_held[idx] = tut_held[n_held - 1];
+                ref_held[idx] = ref_held[n_held - 1];
+                n_held--;
+            } else {
+                int tc = tut.vmcheck();
+                int rc = ref.vmcheck();
+                if (tc != 0) diverge("tut vmcheck nonzero", tc, 0);
+                if (rc != 0) diverge("ref vmcheck nonzero", 0, rc);
+                size_t tlb = tut.vmlib_live_bytes ? tut.vmlib_live_bytes() : 0;
+                size_t rlb = ref.vmlib_live_bytes ? ref.vmlib_live_bytes() : 0;
+                if (tlb != rlb) diverge("vmlib_live_bytes", (long long)tlb, (long long)rlb);
+            }
+        }
+
+        while (n_held > 0) {
+            n_held--;
+            tut.vmfree(tut_held[n_held]);
+            ref.vmfree(ref_held[n_held]);
+        }
+        int tc = tut.vmcheck();
+        int rc = ref.vmcheck();
+        if (tc != 0) diverge("tut vmcheck nonzero (drain)", tc, 0);
+        if (rc != 0) diverge("ref vmcheck nonzero (drain)", 0, rc);
+        return 0;
+    }
+
+Anyway, at the time I thought I was doing a worthwhile experiment. I
+shipped the code above and this prompt as R5:
+
+  A new verifier runs a 5-minute differential libFuzzer harness against the R0
+      sequential reference. It applies the same op sequence to both impls and aborts
+      on divergence in NULL/non-NULL of vmalloc, vmcheck return codes, or
+      vmlib_live_bytes. Fix any divergence. ALL previous verifiers must continue
+      passing.
+
+  Q: What's going to happen? Why?
+
+This round immediately failed on the size-differential test. “Somehow”
+the concurrent allocator was reporting the wrong sizes. This is because
+live_bytes counts all the barriers as live data, but they were never
+allocated! So when checking the live_bytes sizes, there's just no way to
+make them line up.
+
+It gets worse: arena-based allocator is stuck. The way things are set up
+it's not allowed to change the size check, so it can't use these busy
+barriers as a solution. It changes to using arithmetic-defined arenas
+with no hard barriers. This results in much more complex locking logic,
+including sometimes locking the whole heap, because it tries to
+faithfully implement eager coalescing and large allocations that can
+span multiple arenas. The end result is that the speedups of R2/R4 are
+gone – it's still fast, but not dramatically so. However, it is much
+more faithful to the original spec and intent of CSE29 malloc.
+
+    # bench (heap_bytes=8388608, ops/thread=50000, trials=5)
+    # threshold: median speedup >= 1.10x on >= 6 of 8 cells
+
+    ## symmetric (N threads, each mixes alloc/free)
+    | threads | speedup | pass |
+    |---------|---------|------|
+    | 2       |  1.23x  |  Y   |
+    | 4       |  2.74x  |  Y   |
+    | 8       |  2.89x  |  Y   |
+    | 16      |  3.72x  |  Y   |
+
+    ## pipeline (P producers + C consumers, P=C)
+    | P=C | speedup | pass |
+    |-----|---------|------|
+    | 2   |  1.29x  |  Y   |
+    | 4   |  1.22x  |  Y   |
+    | 8   |  1.21x  |  Y   |
+    | 16  |  1.72x  |  Y   |
+
+    CELLS_PASSING: 8 / 8
+    STOP_CONDITION: PASS
+
+It's worth reporting on two threads of thinking here:
+
+Just imagine the shade Joe in one year will be throwing on these guys.
+
+- Joe in the moment (shallow, overconfident, working fast): I thought
+  “this tracks. Things have to slow down when you actually catch bugs!
+  I'm so good at catching bugs and writing verifiers. I am an agentic
+  engineer.” I immediately moved on to an R6 with a performance push.
+  I'm not going to go into detail on that one – spoiler alert,
+  performance got better, all verifiers green. In my first runthrough,
+  it was only then that I started reflecting on actual heap shapes and
+  re-specifying.
+- Joe a week later writing these notes (wise, reflective, thinking
+  slow): We've actually been accumulating human-spec-design decisions
+  and thrashing through them a bit. Do we care about accurate reporting
+  of live bytes? Do we care if it's off by a constant? Do we care about
+  being able to do large allocations greater than 1/16 of our heap? And
+  what else should we be thinking about for correctness? We've never
+  written a test that allocates half the heap; it would succeed on R1
+  and R5 and fail on R2-4.
+
+All the code for R0-R6 can be found in this repository:
+
+https://github.com/ucsd-cse-115-215/claudecurrent-vmalloc/tree/main/redo-v2/runs/run-03A54AF8
+
+Backtracking
+
+One thing worth pointing out about my workflow here. By this point I had
+started to develop a “playbook” for introducing new rounds. The basic
+idea was:
+
+- Always copy the previous round's code into a new directory
+- Launch the sub-agent in that directory with necessary prompt files
+- Make a git commit in the sub-directory (with .git moved to
+  .git-archive to not mess up my outer git repo) to show exactly what
+  changed in the agent's run
+- Include the prompts and agent report-backs in each git repo
+
+I figured this out incrementally, so there are some holes in my “lab
+notebook” of what I did, but lots is reconstructible. This is how I'm
+able to write these lecture notes, for instance: I just pull up the r5
+directory and look at the code, benchmark numbers, prompt, etc. and have
+a sense of what happened. Using Claude makes it very easy to set up new
+experiments; Claude will happily make a new directory, copy things, set
+up the build script for a new verifier, draft a prompt for me to review,
+etc:
+
+I realized there's another thing I can do with this structure, which is
+backtrack to earlier points and try experiments from earlier baselines.
+
+Here are some other things to think about:
+
+- One thing that's clear since starting these lectures was that the
+  randomized testing (fuzzing) never interacted with concurrency. So
+  it's entirely possible that I missed bugs in earlier steps for lack of
+  a thorough category of testing.
+- Does Claude (or any model/agent) always pick 16-sharded,
+  hard-BUSY-barrier arenas for it's first cut at the concurrency prompt?
+  If not, what happens to the rest of the steps? Do they converge on
+  similar designs with similar verifiers?
+
+In the end, I have to start asking pretty deep questions about the
+nature of concurrent allocation and the related lock structures, heap
+structure, and code structure. I have much more vocabulary for talking
+about heaps, and verifiers, and tests! But I don't think I can claim
+anymore that I “just write verifiers and the agent does everything”.
+Instead, the agent is an accelerant on my ability to experiment and
+learn what I need to in order to understand if the allocators are doing
+anything useful.
+
+[]
+
+I think this is going to be a theme in my work with agents on big
+projects going forward: because details of code are less important (and
+indeed, cheap to experiment with), I can iterate on my understanding of
+the problem domain much more quickly. So when I approach a new problem
+where I “don't know anything”, I have many more tools for bootstrapping
+my understanding from something I know (e.g. allocators) to something I
+don't (e.g. concurrency).

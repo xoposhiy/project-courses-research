@@ -1,0 +1,94 @@
+# Lecture slides, week5-mon, CS146S Fall 2025 (text extracted from the Google Slides PDF export on 2026-09-18; images not included)
+
+--- slide 1 ---
+The Modern Software 
+Developer
+CS146S Stanford University, Fall 2025Mihail Eric
+themodernsoftware.dev
+--- slide 2 ---
+themodernsoftware.dev
+Guest Lecture - 10/24/25
+CEO of Warp, Zach Lloyd
+--- slide 3 ---
+Building a breakout AI 
+developer product
+themodernsoftware.dev
+--- slide 4 ---
+Why
+● We’re seeing some of the fastest adoption of new dev tools in history
+themodernsoftware.dev
+--- slide 5 ---
+Why
+● The UX/UI for developer tools are changing rapidly to best leverage agentic 
+autonomy 
+● What does having agents in your developer environment change about the 
+product you are using?
+themodernsoftware.dev
+--- slide 6 ---
+7 Product Principles of Modern AI 
+Dev Tools
+themodernsoftware.dev
+--- slide 7 ---
+Start with what developers know
+themodernsoftware.dev
+● Encourage transition from existing interfaces
+○ Everyone uses an IDE (Cursor)
+○ Terminal is well-understood UX (Warp)
+○ People know chat (Bolt)
+● Easily switch between code and natural language
+--- slide 8 ---
+Configuration flexibility
+themodernsoftware.dev
+● Zero setup required to demonstrate value for average user
+● Swap between models seamlessly
+● Tremendous configurability for power user
+○ Prompts
+○ Project rules
+○ MCP
+--- slide 9 ---
+Focus on developer ergonomics
+themodernsoftware.dev
+● If you can shave off a single keystroke, do it
+○ Keyboard hotkeys 
+● Zero onboarding friction
+○ “5 minutes to WOW”
+--- slide 10 ---
+Chat as a first-class citizen
+themodernsoftware.dev
+● Code is inherently a contrived representation of human intent
+● As tools evolve, more of them will involve just speaking in natural language
+○ Progress toward simply communicating developer intent rather than syntax
+--- slide 11 ---
+MCP Integration
+themodernsoftware.dev
+● MCP has become the lingua franca for allowing LLMs to interact with the 
+real-world 
+● Extensible tool ecosystem to give LLMs access to any resource and ability to 
+do anything
+--- slide 12 ---
+Rapid feedback loops
+themodernsoftware.dev
+● Allow iterating on changes and seeing updates quickly
+○ Panels and dashboards that change in near real-time based on prompts
+● This is why entire projects are committed to just reducing build time
+● Explainability is first-class citizen
+--- slide 13 ---
+Agent Workflows
+themodernsoftware.dev
+● Full autonomy for substantive tasks
+● Increasing adoption of an “agent-take-the-wheel” approach
+● Varied levels of human-in-the-loop involvement
+○ Agent asks clarifying questions
+○ YOLO
+--- slide 14 ---
+Open Questions
+themodernsoftware.dev
+● Will we see massive consolidation from point solutions (for code review, app 
+building, monitoring) into a single all-in-one platform?
+● Will AI IDEs just evolve into AI terminals into AI browser replits? 
+● Will tools like Warp/Cursor become more verticalized, specializing their 
+offering for tasks like full stack development?
+● What universal standard will emerge for personalizing your coding agents and 
+giving them project-specific rules? 
+○ We won’t be in a fragmented .cursorrules / CLAUDE.md / etc world for long.
+○ AGENTS.md is a first step in that direction

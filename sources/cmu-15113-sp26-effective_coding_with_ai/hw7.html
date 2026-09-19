@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW7: Code Handoff | 15-113</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>HW7: Code Handoff</h1>
+        <p class="subtitle">CMU 15-113: Effective Coding with AI</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">&larr; Back to Course</a>
+            <a href="#overview">Overview</a>
+            <a href="#projects">Project Options</a>
+            <a href="#phase1">Phase 1</a>
+            <a href="#phase2">Phase 2</a>
+            <a href="#submission">Submission</a>
+            <a href="#grading">Grading</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div class="info-box">
+    <strong>Phase 1 (In-Class):</strong> Wednesday in class (~30 minutes)<br>
+    <strong>Phase 2 (Out-of-Class):</strong> Due Sunday 3/22 8pm (1 hour of focused work)<br>
+    <strong>Time Estimate:</strong> ~1.5 hours total (30 min in class + 1 hour out of class)<br>
+    <strong>Deliverables:</strong> Two GitHub repositories (Phase 1 and Phase 2) with code + README + prompt log<br>
+    <strong>Language:</strong> All code must be in Python. You may use any Python animation/graphics framework you like (Pygame, CMU Graphics, Tkinter, etc.).
+</div>
+
+<div class="container">
+
+<h2 id="overview">Assignment Overview</h2>
+
+<p><strong>Goal:</strong> Experience what it's like to pick up, read, and continue someone else's code, and learn why clear documentation and thoughtful organization matter so much.</p>
+
+<p><strong>Why This Matters:</strong> In the real world, you will almost never write code entirely from scratch in isolation. You'll join teams with existing codebases, inherit projects from colleagues who've moved on, and hand off your own work for others to maintain. The ability to write code that someone else can understand, and to productively navigate code written by someone else, is one of the most important (and most underrated) skills in software development. AI tools can help with both of these challenges, but only if you use them strategically.</p>
+
+<p>This assignment has two phases:</p>
+
+<ol>
+    <li><strong>Phase 1 (In-Class, Wednesday):</strong> Choose one of four project options (given in lecture, but not beforehand) and begin building it with AI assistance. Focus on writing clean, well-commented, well-organized code. After roughly 30 minutes, commit your work to GitHub and stop.</li>
+    <li><strong>Phase 2 (Out-of-Class):</strong> Shortly after lecture, you will be emailed a link to another student's Phase 1 repository. Spend at least one focused hour (and not much more) attempting to understand their code and advance or complete their project. You must retain at least 75% of the original code. You do not need to finish the project to get full points, but it should be obvious from your submission that you have invested one focused and thoughtful hour of work.</li>
+</ol>
+
+<div class="note">
+    <strong>Please submit <a href="https://forms.gle/zgTD9Qc3WKsnGxY8A" target="_blank">this google form</a> to let us know where your repositories are!</strong>
+</div>
+
+<div class="note">
+    <strong>Modifying someone else's code is hard.</strong> It's <em>much</em> harder when the code is poorly commented, inconsistently organized, or uses confusing variable names. Keep this in mind during Phase 1. Someone else will be depending on the code you write.
+</div>
+
+
+<h2 id="projects">Project Options</h2>
+
+<p>Choose <strong>one</strong> of the four projects listed in class. All four are designed to be ambitious enough that completing them in a combined ~1.5 hours is a meaningful challenge, but achievable if both partners write clear code and use AI tools well. All projects should be implemented in Python using any graphics/animation framework of your choice.</p>
+
+<!-- <div class="project-card">
+    <h4>Option A: Fireboy &amp; Watergirl-Style Cooperative Platformer</h4>
+    <p>Build a simple two-character platformer where two characters must work together to navigate through a level. One character is harmed by water obstacles and the other by fire obstacles. Each character is controlled by different keys (e.g., WASD for one, arrow keys for the other).</p>
+    <p><strong>Minimum features to aim for:</strong></p>
+    <ul>
+        <li>Two player-controlled characters with independent keyboard controls</li>
+        <li>A platform-based level with solid ground, walls, and platforms to jump between</li>
+        <li>Elemental hazards (fire zones and water zones) that each harm only one character</li>
+        <li>Basic collision detection with platforms and hazards</li>
+        <li>A goal or exit that both characters must reach to complete the level</li>
+    </ul>
+    <p><strong>Stretch features (if time allows):</strong> Multiple levels, collectible gems, moving platforms, doors activated by switches/buttons.</p>
+</div>
+
+<div class="project-card">
+    <h4>Option B: Pac-Man with Intelligent Ghost Movement</h4>
+    <p>Build a Pac-Man-style game where the player navigates a maze, eating dots while avoiding ghosts. The twist: at least one ghost should use a simple pathfinding or chase strategy rather than purely random movement.</p>
+    <p><strong>Minimum features to aim for:</strong></p>
+    <ul>
+        <li>A grid-based maze with walls, dots, and open paths</li>
+        <li>A player character that moves through the maze and collects dots</li>
+        <li>At least two ghosts: one that moves randomly and one that actively chases the player (e.g., moves toward the player's current position, or uses a simple shortest-path approach)</li>
+        <li>Score tracking based on dots collected</li>
+        <li>Game-over condition when a ghost catches the player</li>
+    </ul>
+    <p><strong>Stretch features (if time allows):</strong> Power pellets that let the player eat ghosts temporarily, multiple ghost AI personalities (ambush, patrol, chase), increasing difficulty over time, multiple lives.</p>
+</div>
+
+<div class="project-card">
+    <h4>Option C: Sokoban-Style Puzzle Game</h4>
+    <p>Build a Sokoban-style box-pushing puzzle game where the player pushes boxes onto designated target locations. The player can only push (not pull) boxes, and can only push one box at a time.</p>
+    <p><strong>Minimum features to aim for:</strong></p>
+    <ul>
+        <li>A grid-based level with walls, open floor, boxes, target locations, and a player character</li>
+        <li>Player movement in four directions using keyboard input</li>
+        <li>Box-pushing mechanics: boxes move when the player walks into them (if the space behind the box is free)</li>
+        <li>Win detection when all boxes are on target locations</li>
+        <li>At least one solvable level (you may hardcode the level layout as a 2D list)</li>
+    </ul>
+    <p><strong>Stretch features (if time allows):</strong> An undo/restart feature, multiple levels, a move counter, animation when pushing boxes, levels loaded from a text file.</p>
+</div>
+
+<div class="project-card">
+    <h4>Option D: Tower Defense Game</h4>
+    <p>Build a tower defense game where enemies travel along a path and the player places towers to stop them. Towers should automatically target and shoot at nearby enemies. The player earns currency from defeating enemies and spends it to place new towers.</p>
+    <p><strong>Minimum features to aim for:</strong></p>
+    <ul>
+        <li>A grid-based map with a defined path that enemies follow from a start point to an end point</li>
+        <li>Enemies that spawn in waves and move along the path toward the exit</li>
+        <li>At least one type of tower that the player can place on valid (non-path) grid cells</li>
+        <li>Towers that automatically detect and shoot at enemies within range</li>
+        <li>A basic economy: the player starts with some currency, earns more by defeating enemies, and spends it to place towers</li>
+        <li>A lose condition (too many enemies reach the exit) and some form of wave progression</li>
+    </ul>
+    <p><strong>Stretch features (if time allows):</strong> Multiple tower types with different range/damage/cost tradeoffs, enemies with varying speed and health, visual projectiles, a lives/health system, upgrading existing towers.</p>
+</div> -->
+
+
+<h2 id="phase1">Phase 1: Build &amp; Document (In-Class, ~30 Minutes)</h2>
+<p>On Wednesday in class, you will have approximately <strong>30 minutes</strong> to choose one of the four projects above and begin building it. You are encouraged to use AI tools to help you write and document your code.</p>
+
+<h3>Phase 1 Instructions</h3>
+
+<ol>
+    <li><strong>Choose your project.</strong></li>
+    <li><strong>Create a GitHub repository</strong> for your project. We recommend naming it something clear, something that indicates what your project is.</li>
+    <li><strong>Start coding!</strong> Use AI tools to help you scaffold the project, generate boilerplate, and write game logic. But remember: someone else will need to read this code. Prioritize clarity over cleverness.</li>
+    <li><strong>Create documentation as you go.</strong> This is <em>critical</em>. Add comments explaining your design decisions, what each major section does, and what still needs to be done. Reserve enough time in class to create a README that describes the project, how to run it, what's been completed, and what remains. (See the tips section for specifics.)</li>
+    <li><strong>After ~30 minutes, stop working.</strong> Commit and push your current code to GitHub, even if it is incomplete. This is expected! The goal is a strong, clear starting point, not a finished game.</li>
+    <li><strong>Submit your GitHub link</strong> via the form we will provide in class.</li>
+</ol>
+
+<div class="note">
+    <strong>Important:</strong> You will <em>not</em> continue working on your own Phase 1 code after class. Your Phase 1 code is your gift to another student. Make it a good one. After you submit your link, we will assign you a different student's repository for Phase 2. (Do not update your Phase 1 code or documentation after class until after hw7 is due, so that the next student can start in the correct place.)
+</div>
+
+
+<h2 id="phase2">Phase 2: Continue Someone Else's Code (Out-of-Class, 1 Hour)</h2>
+<p>After class, you will receive a link to another student's Phase 1 repository. Your job is to <strong>spend one focused hour</strong> reading, understanding, and advancing that student's project.</p>
+
+<h3>Phase 2 Instructions</h3>
+
+<ol>
+    <li><strong>Clone or download the repository</strong> you receive.</li>
+    <li><strong>Before changing anything,</strong> make sure to commit the initial state of the code you received to your own repository. This is important so that we (and you) can see exactly what starting point you were given. (You can fork the repo, or create a new repo and make an initial commit with their unmodified code. The latter is probably easiest.)</li>
+    <li><strong>Read the code and README carefully.</strong> Try to understand the structure, what has been done, and what remains. Use AI tools to help you understand unfamiliar code.</li>
+    <li><strong>Start making progress.</strong> Fix bugs, add missing features, complete unfinished functions, or polish the app if it is already working. Work strategically: identify what will have the most impact and focus there.</li>
+    <li><strong>You must retain at least 75% of the original code.</strong> You may reorganize, refactor, add to, and fix the code, but you cannot simply delete or comment out most of it and start over. The point is to work <em>with</em> the existing code, not to replace it. (We will compare your final submission against the initial commit to verify this.)</li>
+    <li><strong>Stop soon after one hour.</strong> It's okay if the project is not complete! Commit and push your final code.</li>
+    <li><strong>Update the README</strong> to describe the following: what you changed, what challenges you faced, and what you would do next if you had more time.</li>
+</ol>
+
+<div class="note">
+    <strong>Reflection prompt:</strong> As you work through Phase 2, pay attention to what makes the code easy or hard to work with. Was it well-commented? Were variable names clear? Was the structure logical? Did the README help? These observations are valuable and will shape how you write code going forward, both for yourself and for others.
+</div>
+
+
+<h2 id="submission">Submission &amp; Deliverables</h2>
+
+<h3>Repository Requirements</h3>
+
+<p>You should create <strong>two separate GitHub repositories</strong> for this assignment:</p>
+
+<ol>
+    <li><strong>Phase 1 Repository</strong> (the code <em>you</em> wrote in class):
+        <ul>
+            <li>Contains your Phase 1 code and any associated files.</li>
+            <li>Include a <strong>README.md</strong> at the root that includes:
+                <ul>
+                    <li>Which project option you chose and a brief description of what you built and what you left unfinished</li>
+                    <li>A prompt log: which AI model(s)/tool(s) you used in Phase 1 and the key prompts that shaped your work.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><strong>Phase 2 Repository</strong> (the code you received from another student, plus your modifications):
+        <ul>
+            <li><strong>Important:</strong>The <strong>initial commit</strong> should contain the other student's unmodified Phase 1 code, exactly as you received it. Make sure this is committed before you start making changes so that we can see the diff.</li>
+            <li>Subsequent commits should show your modifications and additions.</li>
+            <li>Include a <strong>README.md</strong> at the root that includes:
+                <ul>
+                    <li>Which project you received for Phase 2, what state it was in, what changes you made, and what challenges you encountered</li>
+                    <li>A prompt log: which AI model(s)/tool(s) you used in Phase 2 and the key prompts that shaped your work.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ol>
+
+<p><strong>Google form:</strong> Submit your repository links (both Phase 1 and Phase 2) via <a href="https://forms.gle/zgTD9Qc3WKsnGxY8A" target="_blank">the Google form here</a> by the deadline.</p>
+
+
+<h2 id="grading">Grading</h2>
+
+<p>This assignment is graded on <strong>good-faith effort</strong>, not on whether the final game is complete or bug-free. The time constraints are intentionally tight so that you grapple with the challenges of modifying someone else's work.</p>
+
+<h3>Phase 1 (50 points)</h3>
+
+<p>We are looking for evidence that you made a genuine, focused effort to create a well-organized and well-documented starting point for another student. Your code should be structured clearly, with helpful comments and a README that explains how to run the project, what has been completed, and what still needs to be done. We expect to see roughly 30 minutes of productive work reflected in your submission.</p>
+
+<h3>Phase 2 (50 points)</h3>
+
+<p>We are looking for evidence that you spent a focused hour strategically reading, understanding, and advancing the code you received. Your commits and README should show that you engaged thoughtfully with the existing codebase: understanding it before modifying it, making meaningful contributions, and documenting what you changed and why.</p>
+
+<div class="note">
+    <strong>Grading is not based on completion.</strong> You will not be penalized if the game or app is incomplete at the end of Phase 2. We understand that some students will receive better-documented starting code than others, and we take that into account. What matters is that you demonstrate effort, strategic thinking, and clear documentation in both phases.
+</div>
+
+<p><strong>The 75% rule:</strong> We will compare your Phase 2 final code against the initial commit of the code you received. If we determine that you deleted or commented out more than 25% of the original code (rather than building on it), you may lose significant points. The goal is to work with what you've been given, not around it.  Of course this means you need to carefully examine any changes made by AI, and we recommend asking AI for specific and well-defined changes.  Otherwise <strong>AI may make large-scale deletions and changes that you may need to revert.</strong></p>
+
+
+<h2 id="tips">Tips for Success</h2>
+
+<h3>Tips for Phase 1: Writing Code That Someone Else Can Actually Use</h3>
+
+<ul>
+    <li><strong>Start with structure, not features.</strong> Before writing game logic, set up a clear file structure and define your main classes or functions with descriptive names and docstrings. A well-organized skeleton is more valuable to your partner than a tangled mess of working code.</li>
+    <li><strong>Name things like a human will read them.</strong> Use <code>playerXVelocity</code> instead of <code>vx</code>. Use <code>checkBoxCollision()</code> instead of <code>chk()</code>. Your partner will be grateful.</li>
+    <li><strong>Write a good README.</strong> Include: how to install dependencies and run the code, what's been implemented so far, what still needs to be done, and any design decisions you made. Think of this as a briefing for the person taking over.</li>
+    <li><strong>Comment the "why," not just the "what."</strong> Comments like <code># increment x</code> aren't helpful. Comments like <code># Move player right; we use 5px per frame to match the jump arc timing</code> are gold.</li>
+    <li><strong>Leave clear TODOs.</strong> Mark unfinished work with <code># TODO: implement ghost AI pathfinding here</code>. This gives your partner a clear map of what still needs attention.</li>
+</ul>
+
+<h3>Tips for Phase 2: Navigating Someone Else's Code</h3>
+
+<ul>
+    <li><strong>Don't start coding immediately.</strong> Spend the first few minutes reading. Trace the main game loop. Identify what runs when. Understand the data structures.</li>
+    <li><strong>Run the code first.</strong> See what works and what doesn't before trying to change anything. Make a list of what's functional and what's broken or missing.</li>
+    <li><strong>Work in small, testable increments.</strong> Fix one bug or add one feature at a time. Making multiple changes at once is riskier and can lead to unintended (and possibly unnoticed) changes.</li>
+    <li><strong>Commit frequently.</strong> Make small commits with clear messages. This protects your progress and helps us see your thought process.</li>
+    <li><strong>Be strategic about what you tackle.</strong> With only one hour, prioritize work that has the highest impact. Fixing a crash bug or completing a core mechanic is more valuable than adding a nice-to-have feature.</li>
+</ul>
+
+<h3>Tips for Using AI Effectively in This Assignment</h3>
+
+<ul>
+    <li><strong>You can use AI to generate documentation.</strong> One of the best uses of AI in this assignment is to take code you've written and ask the model to help you write clear comments, docstrings, and README content. Prompt example: <em>"Here is my Python game code. Please add clear, helpful comments throughout and write a README section describing how the code is organized and what still needs to be done."</em> <strong>Make sure to manually check that this documentation is accurate.</strong></li>
+    <li><strong>Use AI to understand unfamiliar code (Phase 2).</strong> When you receive your partner's code, paste it into an AI tool and ask for an explanation. Prompt example: <em>"I just received this Python game code from another student and need to continue building it. Can you explain how it's structured, what the main functions do, and identify any bugs or incomplete sections?"</em></li>
+    <li><strong>You can use AI to plan your approach (Phase 2).</strong> Before writing any code, ask AI to help you form a strategy. Prompt example: <em>"Given this code and 1 hour of time, what would be the most impactful changes I could make to advance this project toward completion?"</em></li>
+    <li><strong>Don't just vibe-code.</strong> If AI generates 50 lines of code and you don't understand what they do, stop. Ask the model to explain. Break it into smaller pieces. You are responsible for every line in your submission, and good-faith effort means understanding what you're submitting.</li>
+    <li><strong>Use AI for debugging.</strong> When something breaks, paste the error message and relevant code into an AI tool. This is one of the most efficient uses of AI, but read the explanation it gives rather than just copying the fix blindly.</li>
+    <li><strong>Log your prompts.</strong> Keep a running note of the key prompts you use. This is a submission requirement and also a good personal habit. Over time, you'll build a library of prompts that work well for you.</li>
+</ul>
+
+
+<p><strong>Questions?</strong> Ask on Ed, attend office hours, or email the instructor. (Remember that Mike is out of town for most of this week though, so Ed is probably a better bet.)  Consult the course AI usage and collaboration policies on the <a href="index.html">course homepage</a>.</p>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+    </div>
+</footer>
+
+</body>
+</html>

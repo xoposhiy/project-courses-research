@@ -1,0 +1,218 @@
+A4 — Student Choice
+
+For the final project, you'll choose your project, make a proposal for
+it, react to our proposal feedback, then do a review/final submission
+workflow. Planned dates (we will clearly announce any deviations):
+
+- Tuesday, May 19: Proposal due
+- Thursday, May 21: Proposal feedback from staff
+- ~~Tuesday, May 26~~ Thursday, May 28: Initial submission due
+- Monday, June 1: New! Pre-reviews due
+- ~~Thursday, May 28~~ Tuesday, June 2: Review day in class
+- Wednesday, June 3: Post-review-day feedback + staff feedback on
+  initial submissions
+- Tuesday, June 9: Final submissions due
+
+Partners: You can work with a partner on this project, and it can be the
+same as a past partner (if e.g. you want to extend a prior project).
+
+Github Classroom: https://classroom.github.com/a/gzTSZiH_
+
+Project Proposals
+
+We recommend a few options for your project. We don't know how to do all
+these things; everything should involve some learning on your own.
+
+1.  Run it fully locally — deploy a past project or a new one as a
+    downloadable installer, with no API calls leaving the device. Use
+    local models and figure out how to package.
+
+2.  Ship with auth + live URL — deploy a past project or a new one
+    hosted and public-facing. Add accounts, secrets, sessions, per-user
+    isolation, cost ceiling, and anything else needed for a real
+    deployment.
+
+3.  Embed in another tool — make a past project or a new one into a
+    Slack or Discord bot, browser extension, VS Code extension, other
+    app extension. Get real user feedback and really integrate into the
+    ecosystem.
+
+4.  Generation as the point — Create, rather than classifying or
+    extracting. Logos, art, design, music, story. Eval design is
+    crucial. Think broadly! Could even be an agent (e.g. a game master
+    for a hidden information game, a music improv partner, ...)
+
+5.  Agentic programming — pick a very difficult traditional programming
+    task with no existing solution. Implement it with the help of an
+    agent, evaluate, and explain.
+
+6.  Propose your own.
+
+Put your own human effort into this, don't have an agent do the thinking
+for you. Please don't submit a bunch of text that is indistinguishable
+from an agent's writing style. Don't ask the recipients of your work to
+try harder than you did
+
+Your project proposal should include the following:
+
+- Title
+- One sentence description – “Receipt scanner on Google Cloud (Ship it
+  with auth + live URL)”, “Game Master for Werewolf (Generation as the
+  point)”, “Private CSE tutor installed on ieng6 (Run it fully on your
+  laptop)”. The description should make it obvious which of the above
+  options you've chosen.
+- Past project reference – Indicate which assignment + student's past
+  project is the base, if any. With permission from the other partner,
+  partners can extend the past project submission from a group. Include
+  a github link (if a truly new project, make a stub github repository
+  and link that).
+- Planned technologies – What frameworks, platforms, etc do you plan to
+  use? It's fine to give multiple options for a category.
+- First deliverable – What is the first thing you will build? Focus on a
+  single user story/workflow, or as small a set of them as you can. What
+  will force you to look at all the parts of your application in at
+  least some way?
+- Rough architecture for first deliverable – What components and data
+  will be involved? A component is often best described like a function
+  call – what inputs does each component take, what output does it
+  produce, what effects does it have? Data could be the database shape
+  or an application-specific kind of data (like the ReceiptUpdate type
+  or the representation of git commands for gitbot). Don't talk about
+  individual Python helper functions, but try to explain your system in
+  terms of 5-10 major components.
+- After first deliverable goals – What else do you want to support after
+  the first deliverable? Make this be a clear bulleted list of features
+  that we could clearly identify in a final submission: we may add to,
+  subtract from, and hold you accountable for completing things in the
+  list.
+
+We will give you feedback on your proposal and “lock in” what your
+expectations are. We may:
+
+- Give pure feedback – we think XYZ tech would be better, did you think
+  about ABC, etc.
+- Extend the requirements – if we think what you've proposed is somewhat
+  small or will end up being trivial, we may extend the requirements
+  list
+- Contract the requirements, or ask you to focus on a subset – if we
+  think you need to narrow your focus at the start to make meaningful
+  progress
+
+Submit your proposal to Gradescope; you'll upload a repository. A single
+markdown file is fine, you can also use PDF or images to support your
+plan. If you have supporting code, we probably won't read it, but it's
+fine to include it if you already have that structure set up alongside
+your proposal.
+
+Initial Submission
+
+Submit your initial submission to Gradescope by Thursday, May 28.
+
+Along with your implementation, include the standard set of documents
+plus two more:
+
+- 3 transcripts
+- DESIGN.md
+- README.md
+- YouTube video
+- (new) proposal/
+- (new) DEMO.md
+
+proposal/ should include:
+
+- Your original proposal
+- A document that is a “marked up” copy of your proposal. It should be
+  the same format as your original (e.g. PDF if you submitted PDF,
+  markdown if you submitted markdown), where for each item in your
+  proposal, you indicate if it's (a) implemented as written/in-use as
+  written, in which case you say where in the code that is, (b) planned
+  to be implemented, in which case you should say where it will fit
+  in, (c) no longer planned. The items you should report on are:
+  - Planned technologies
+  - First deliverable
+  - Rough architecture for first deliverable
+  - After first deliverable goals
+
+DEMO.md should include ONE of:
+
+- Instructions for accessing a live demo/install of your tool (e.g.
+  visit this URL, download this Github repo, etc)
+- Instructions for building the tool from scratch
+
+Please do not give Windows- or Mac-specific instructions. Assume that
+folks can get WSL or general Linuxy setups to work. You won't be
+strictly graded on your tool being able to run/install/build on someone
+else's machine (and given the nature of some of the projects, it's hard
+to expect someone else to always be able to do it), but please make an
+effort.
+
+Review Feedback & Staff Feedback
+
+For this assignment, we're going to assign pre-reviews before review day
+— a new category of work, distinct from the reviews you've done on past
+assignments. On Friday, May 29 we'll release the two other groups you've
+been assigned to review. You'll then have a pre-review window from
+Friday, May 29 to Monday, June 1 to review their code and submit a
+pre-review as a GitHub Issue using this pre-review template. As a
+pre-reviewer you will:
+
+- Attempt to demo the tool (via DEMO.md)
+- Look at the components in the proposal and try to identify some of
+  them
+- Give suggestions and feedback
+
+You will submit this pre-review before review day, so that everyone has
+a chance to see one another's submissions before we all sit down and see
+things for the first time.
+
+There will be a post-review-day deadline on Wednesday, June 3 when the
+staff will also give you their feedback. You should generally expect
+that you can keep working after the Thursday deadline (you don't just
+have to wait for feedback), but that you'll also get actionable review
+feedback on June 2 and 3 that you're expected to respond to for the
+final deadline.
+
+Final Submission
+
+Submit your final submission to Gradescope by Tuesday, June 9.
+
+Along with your final implementation, include:
+
+- Code implementing the feedback you were required to implement based on
+  the staff meta-review of your reviews (actually coming Thursday)
+- A new final demo video (see below)
+- An updated proposal/ reflecting the final state of your features and
+  fixes compared to your proposal
+- REVIEW-PLAN.md
+- REGRETS.md
+
+Final demo video
+
+Record a new video (not the one from your initial submission). Both
+partners must appear on video. In it, walk through:
+
+- A narrated summary of the changes from your initial submission to your
+  final submission
+- A demo of one feature you added since the initial submission
+- A demo of one feature or fix that came out of review day
+- A demo of another workflow that you think is the coolest thing your
+  app can do
+
+Updated proposal/
+
+Update the marked-up copy of your proposal so it reflects the final
+state of the project: for each item, say whether it ended up implemented
+as written (and where in the code), changed, or dropped — compared to
+what you originally proposed.
+
+REVIEW-PLAN.md
+
+Bullet points capturing the feedback you got from review day, and the
+fixes and features you identified in response — both from your reviewers
+and from staff feedback.
+
+REGRETS.md
+
+Things you wish you'd gotten to, and advice you'd give a future engineer
+picking up your project: where time was wasted, opportunities you
+missed, what you'd do differently.

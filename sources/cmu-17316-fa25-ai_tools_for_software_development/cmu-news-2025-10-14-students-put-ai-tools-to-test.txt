@@ -1,0 +1,278 @@
+Parent Sites
+
+- CMU.EDU
+- School of Computer Science
+
+Actions Menu
+
+Partner
+
+Give
+
+[][]
+
+Toggle Visibility of Main Menu
+
+About
+
+About
+
+- About: About SCS
+- About: Departments
+- About: Dean’s Office
+- About: Awards
+
+- About: Community Engagement
+- About: Alumni Engagement
+- About: Employment at SCS
+- About: Directory
+
+Education
+
+Education
+
+- Education: Education at SCS
+- Education: Undergraduate
+- Education: Master's
+- Education: Doctoral
+- Education: Graduate Admissions
+
+- Education: Executive & Professional Education
+- Education: Online Education
+- Education: Pre-College
+- Education: Outreach
+
+Research
+
+Research
+
+- Research: Research at SCS
+- Research: Institutes & Centers
+- Research: Selected Publications
+- Research: Undergraduate Research
+
+News & Events
+
+News & Events
+
+- News & Events: SCS News
+- News & Events: The LINK Magazine
+- News & Events: Does Compute Podcast
+
+- News & Events: SCS Events Calendar
+- News & Events: SCS Seminars
+- News & Events: SCS Distinguished Lecture Series
+
+Industry & Entrepreneurship
+
+Industry & Entrepreneurship
+
+- Industry & Entrepreneurship: Industry & Government Partnerships
+- Industry & Entrepreneurship: SCS Careers & Recruitment
+- Industry & Entrepreneurship: Entrepreneurship
+
+Giving
+
+Giving
+
+- Giving: Donate Now
+- Giving: Explore Giving at SCS
+- Giving: Ways To Give
+- Giving: SCS Funds
+
+Actions Menu
+
+Partner
+
+Give
+
+Search
+
+Search
+
+Home / SCS News / News Archive / CMU Students Put AI Coding Tools to the
+Test
+
+October 14, 2025
+
+CMU Students Put AI Coding Tools to the Test
+
+By Marylee Williams
+
+Media Inquiries
+
+Aaron Aupperlee
+
+- Senior Director of Media Relations, School of Computer Science
+- aaupperlee@cmu.edu
+- 412-268-9068
+
+[]
+
+It took a room full of Carnegie Mellon University students 13 minutes to
+build something similar to Instagram. And no one wrote a line of code.
+
+It was the first day and first in-class assignment for students in AI
+Tools for Software Development, a new experimental course offered by the
+School of Computer Science's Software and Societal Systems Department
+(S3D) this fall. But the course goes far beyond recreating social media
+apps. Students are learning how artificial intelligence tools can be
+part of the software development process, while professors are
+determining the best ways to teach computer science while working with
+these tools.
+
+"We've told the students, you will not write actual code in this class,"
+said Andrew Begel, an S3D associate professor. "Instead, you will tell
+the large language model (LLM) to do everything for you. If it generates
+incorrect code, you need to be able to read it and tell the LLM how to
+fix it, but you won't code the fix yourself."
+
+It's all part of vibe coding. The relatively new term — which has sprung
+up as people increasingly turn to AI tools for software development —
+refers to when someone uses an LLM to write code. Begel defines it as
+"coding with the hope that the output will work flawlessly without
+testing or training."
+
+Students in AI Tools for Software Development vibe code a lot, but
+rather than hoping, they're learning how to apply a software engineering
+mindset to make AI tools more reliable.
+
+Akeil Smith, a junior majoring in business administration, saw the
+course as essential for his goals and necessary for an interdisciplinary
+university like CMU. AI tools are here to stay, he said, and courses
+should reflect that reality. Google's 2025 DORA Report, which surveys
+trends in software development, found that 90% of respondents had
+adopted AI tools for tasks such as writing code, analyzing data and
+more.
+
+"We're at a rare point in history where technology is advancing faster
+than courses can be created for it," Smith said. "This course is
+probably the most relevant class at the university in 2025. This
+technology is impacting the workforce at scale."
+
+On the first day of class, co-instructors Begel and S3D Associate
+Teaching Professor Austin Henley explained that tech companies expect
+junior software developers to already have experience using AI tools,
+like Cursor or Windsurf, when they start jobs.
+
+Both Begel and Henley worked at Microsoft before coming to CMU. Begel
+researched the human aspects of software, focusing on how software teams
+collaborate to build large software products. Henley studied AI tools
+for software developers and published papers about how novices use LLM
+code-generators and ways to improve AI-assisted code editors.
+
+Henley said he envisioned teaching a class like this one when he joined
+the SCS faculty.
+
+"I thought up a course like this when I saw the push internally at
+Microsoft to use AI products for our own day-to-day work," Henley said.
+"We were using AI to build AI."
+
+Miguel Almeida, a master's student in the Languages Technologies
+Institute, appreciates that SCS is encouraging students to learn how to
+better adopt AI tools.
+
+"I hope to learn how to integrate AI tools into my work, no matter what
+new features are added to these applications," Almeida said. "AI
+developer tools are moving at a thrilling pace, so I look forward to
+learning how I can leverage them to create value at a very basic level."
+
+The class is broken up into lectures, in-class activities and projects.
+Mob programming, a type of chaotic group programming activity, is a
+staple of the in-class activities and involves the class calling out
+commands that a student standing in front of the room types into an open
+AI tool. The students have to collaborate to help the AI tool achieve a
+goal based on something they learned recently in lecture.
+
+"As the mobbing activity proceeds throughout the semester, they're going
+to get better at knowing how to convert requests from classmates into
+commands that they should give to the LLM," Begel said.
+
+This class is also an experiment for S3D. Michael Hilton, a teaching
+professor and S3D's associate department head for education, said this
+is a chance for faculty to see how AI developer tools can be taught
+effectively. For him, Henley and Begel are the perfect instructors to
+approach this experiment because of their research experience with these
+tools.
+
+"It's a bit unusual to pitch a class and essentially say, 'We don't
+really know what we're doing, and we're going to figure it out as we go
+along,'" Hilton said. "But I think we're at a unique moment in time and
+this is one of the only ways to approach it. If we wait 10 years until
+everybody has figured out everything on how to teach AI and software
+development, it's going to be too late for a lot of people."
+
+At the beginning of December, the students will present their final
+projects — web applications created with the help of AI. Almeida's group
+plans to make an app that draws inspiration from Slack, but it will take
+much longer than 13 minutes to create because his group isn't just
+vibe-coding. They're also using newly learned software development
+processes to make the app. But they'll still do it without writing a
+line of code.
+
+SCS News
+
+- Home
+
+- Archive
+
+- The LINK Magazine
+
+- Does Compute Podcast
+
+[Site Logo]
+
+5000 Forbes Avenue
+Pittsburgh, PA 15213
+
+- Bluesky
+- Facebook
+- Instagram
+- LinkedIn
+- Threads
+- Twitter
+- YouTube
+- RSS feed
+
+CMU.EDU
+
+Connect
+
+- Contact Us
+- Give to SCS
+- Partner With SCS
+- Alumni Engagement
+- For The Media
+
+Prospective Student Resources
+
+- Education at SCS
+- Undergraduate Admissions
+- Graduate Admissions
+- Directions, Maps & Parking
+- Tour Policy
+- Visit CMU
+
+Current Student Resources
+
+- Schedule of Classes
+- Undergraduate Course Catalog
+- Student Affairs
+- For International Students
+
+Administrative Resources
+
+- Directory
+- Building Facilities
+- Computing Facilities
+- Business Office
+- Lost and Found
+
+Back to top
+
+© Carnegie Mellon University 2026
+
+- Legal Info
+- Contact Us
+- Qatar Campus
+- Silicon Valley Campus

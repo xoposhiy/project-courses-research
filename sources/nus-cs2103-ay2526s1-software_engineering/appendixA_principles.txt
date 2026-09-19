@@ -1,0 +1,314 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+Grade BreakdownApdx B: Course Policies
+
+Apdx A: Course Principles : OPTIONAL
+
+These are some of the main principles underlying the course structure.
+
+The product is you, NOT what you build.
+
+The software product you build is a side effect only. You are the
+product of this course. This means,
+
+- We may not take the most efficient route to building the software
+  product. We take the route that allows you to learn the most.
+- Building a software product that is unique, creative, and shiny is not
+  our priority (although we try to do a bit of that too). Learning to
+  take pride in, and discovering the joy of, high quality software
+  engineering work is our priority.
+
+Following from that, we evaluate you on not just how much you've done,
+but also, how well you've done those things. Here are some of the
+aspects in which we focus on:
+
+  ------------------------------------------------------------ -------------------------------------------------------------------------------------------------------
+  We appreciate ...                                            But we value more ...
+  Ability to deal with low-level details                       Ability to abstract over details, generalize, see the big picture
+  A drive to learn latest and greatest technologies            Ability to make the best of given tools
+  Ability to find problems that interest you and solve them    Ability to solve the given problem to the best of your ability
+  Ability to burn the midnight oil to meet a deadline          Ability to schedule work so that the need for 'last minute heroics' is minimal
+  Preference to do things you like or things you are good at   Ability to buckle down and deliver on important things that you don't necessarily like or are good at
+  Ability to deliver desired end results                       Ability to deliver in a way that shows how well you delivered (i.e., visibility of your work)
+  ------------------------------------------------------------ -------------------------------------------------------------------------------------------------------
+
+We learn together, NOT compete against each other.
+
+You are not in a competition. Our grading is not forced on a bell curve.
+
+Learn from each other. That is why we open-source your submissions.
+
+Teach each other, even those in other teams. Those who do it well can
+become tutors next time.
+
+Continuously engage, NOT last minute heroics.
+
+We want to train you to do software engineering in a steady and
+repeatable manner that does not require 'last minute heroics'.
+
+In this course, last minute heroics will not earn you a good project
+grade, and last minute mugging will not earn you a good exam grade.
+
+Where you reach at the end matters, NOT what you knew at the beginning.
+
+When you start the course, some others in the class may appear to know a
+lot more than you. Don't let that worry you. The final grade depends on
+what you know at the end, not what you knew to begin with. All marks
+allocated to intermediate deliverables are within the reach of everyone
+in the class irrespective of their prior knowledge.
+
+Grade BreakdownApdx B: Course Policies
+
+Apdx A: Course Principles : OPTIONAL‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

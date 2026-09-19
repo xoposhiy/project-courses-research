@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Project 3: Capstone | 15-113 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3: Creative Web App | 15-113</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Project 3: The Capstone</h1>
+        <p class="subtitle">CMU 15-113: Effective Coding with AI</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">← Back to Course</a>
+            <a href="#overview">Overview</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#instructions">Instructions</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div class="info-box">
+    <strong>Checkpoint Due Date:</strong> Mon. 4/20 at 8:00 PM<br>
+    <strong>Final Due Date:</strong> Thu. 4/23 at 8:00 PM<br>
+    <strong>Time Estimate:</strong> ~8 hours (spread over ~2 weeks)<br>
+    <strong>Deliverables:</strong> Source code on GitHub (including README.md + prompt log + reflection) + live demo + short video + <a href="https://forms.gle/wXBQWZMcbZB6cno47" target=_blank>Google form response</a>
+</div>
+
+<h2 id="overview">Assignment Overview</h2>
+
+<div class="project-card">
+<p><strong>Goal:</strong> Simply put, make something extremely cool that demonstrates your technical skills and design sensibilities, while using AI effectively as part of your process. This project should be portfolio-ready, and an asset that you will be eager to show off in the future.  The format is very open-ended, but we will be looking for attention to detail, thoughtful use of AI, clear documentation of your process, and demonstrable learning since the start of the semester.</p>
+<br>
+<p><strong>Timeline:</strong> Roughly two weeks to complete. Expect to spend about <strong>8 hours</strong> of focused work. We'll have at least two hours of working time in-class.  There will be a checkpoint at the beginning of the final week (Mon. 4/20) where we'll expect to see a working demo, and then you'll have until Thu. 4/24 to polish everything up and make your final submission.</p>
+<br>
+<p><strong>Why This Matters:</strong> Like Projects 1 and 2, this project is meant to open doors for you.  This assignment asks you to combine <i>your</i> technical skills with responsible and strategic AI usage to produce a project you can show in interviews and on your portfolio.  It's also <strong>very open-ended</strong>, which is actually part of the challenge.  What will you create in a mostly-unconstrained space?  It could be a web app, a phone app, something that only runs locally, or something else entirely as long as it demonstrates your mastery of <strong>Effective Coding with AI.</strong></p>
+<br>
+<p><em>Note: Like what followed Project 2, there will be an oral exam in the last week where we will expect you to understand and be able to explain what each part of the code is responsible for.  Once again, you'll also need to write or substantially modify at least some of your code, so be careful not to just vibe-code until it's too complicated for you to grasp.  As you work, ask yourself this: Would you be comfortable discussing this project in an in-person technical job interview, without notes?  If not, begin investing effort in understanding the code the AI has written for you, or focus on simplifying the project until you feel you understand and can discuss it.</em></p>
+</div>
+
+<h2 id="requirements">Requirements & Grading</h2>
+
+<div class="project-card">
+<h3>What You Must Submit</h3>
+<ul>
+    <li><strong>Source code on GitHub:</strong> A public repository (or a clearly named folder inside your GitHub Pages portfolio repo) containing your project code and documentation, including these required files in the project root or folder:
+        <ul>
+            <li><strong>README.md</strong> — must be named <code>README.md</code> and located at the repository root (or inside the project folder if you placed the project in your portfolio repo). The README should explain: what the project does, how to use it, which features you are most proud of, how to run it locally, and how secrets (if any) are handled. (Note that even if you deploy in github pages, this should be a new README for just this project.)</li>
+            <li><strong>Prompt log</strong> — titled <code>PROMPT_LOG.txt</code> or <code>PROMPT_LOG.md</code>, and located in the same folder as your README. It must list which AI model(s)/tools you used, document the development process from start to finish (including which parts of the code were written or substantially modified by you), and include important, non-trivial prompts. (These should be quoted prompts, not just summaries.)  As a whole, this file and your commit history should make it obvious that you invested roughly 8 hours of work.</li>
+            <li><strong>Reflection</strong> — titled <code>REFLECTION.txt</code> or <code>REFLECTION.md</code> or <code>REFLECTION.pdf</code>, and located in the same folder as your README.  See Reflection section below for details.</li>
+        </ul>
+    </li>
+    <li><strong>Portfolio link:</strong> The project must be linked from the "Projects" section of your deployed portfolio website (i.e. Project 1).</li>
+    <li><strong>Short demo video:</strong> A short screen-recorded video that shows how the app works and explains the main technical choices; upload to YouTube/Drive and include the link in the Google form. <strong>Put a little love into this one!</strong> Give it some sound, make it something that will get people excited!<ul><li><strong>Note: Show your project running where it is meant to be run!</strong> In other words, if you create a webapp, your video should show it running in a deployed state, non-locally.  If you create a phone app, your video should show it running on an actual phone.  If you create something meant to run on a potato, you're going to have to show us that potato.</li></ul></li>
+    <li><strong>Google form:</strong> Fill out the <a href="https://forms.gle/wXBQWZMcbZB6cno47" target=_blank>project submission form</a> with your repository URL and video link.</li>
+    <li><strong>Midpoint check-in:</strong> There will be one required in-person check-in (similar to what we did for Projects 1 and 2) due by Monday 4/20 at 8pm so you can receive feedback and adjust direction.  <strong>More so than before, we will expect to see substantial progress and a mostly-working project by this date.</strong>  Details to follow.</li>
+    <li><strong>Final presentation / oral exam:</strong> These will likely be done on Thursday and Friday of the final week, with perhaps a few slots on Saturday.  If you choose a time before the final submission deadline, this gives you some time to fix any issues discovered during the presentation. Details to follow, but these will be similar to what we did for Project 2. These must be done in-person.</li>
+</ul>
+
+<strong>Privacy & Security:</strong> Do not commit API keys, credentials, or secrets to GitHub. Store secrets as environment variables or use Render/Vercel secret management.
+<br><br>
+<h3>Grading</h3>
+<p>Full credit requires a working, well-documented, and thoughtfully designed project. Special emphasis will be placed on:</p>
+<ul>
+    <li>Clear README and comprehensive prompt log, thoughtful reflection</li>
+    <li>Evidence of meaningful learning and manual code work (not just copy-paste from AI)</li>
+    <li>Evidence of ~8 hours of work specifically for Project 2 (i.e. we should see your project take shape over several github commits throughout the project period)</li>
+    <li>Robust and thoughtfully designed and tested user interface, and attention to detail in the user experience (it should be engaging and richly interactive with no common bugs)</li>
+    <li>Correct, secure handling of any relevant secrets and APIs</li>
+</ul>
+<p>You may reuse and/or improve upon code from earlier assignments, but we still expect ~8 hours of *new* work for this project.</p>
+</div>
+
+<h2 id="instructions">Detailed Instructions</h2>
+
+<div class="card">
+<ol>
+    <li><strong>Decide on a creative idea.</strong> Pick a project that excites you and can be completed in ~8 hours. Focus on something that will be useful or impressive on your portfolio. The safest ideas will be those that you can get working relatively quickly, but which have many features that you can add and improve once the core is working.</li>
+</ol>
+
+<div class="note">
+    <strong>First focus on substance over polish:</strong> Demonstrate clear functionality and learning. UI polish will help your grade, but the graders will first evaluate for functionality and technical implementation.
+</div>
+
+<ol start="2">
+    <li><strong>Build the core app.</strong> You may use any stack (i.e. any combination of technologies) that meets the project requirements, but make sure your project includes <strong>at least two of the following:</strong>
+        <ul>
+            <li>Frontend-backend communication (e.g., fetch + API endpoint)</li>
+            <li>Thoughtful third-party API usage with secure keys</li>
+            <li>Use of a database</li>
+            <li>Use of Expo and/or React Native or something else that allows it to run on a physical phone</li>
+            <li>Substantial data analysis or visualization</li>
+            <li>Exceptionally rich interactivity through a technology we haven't explored yet, like WebGL</li>
+            <li>Use of a computer vision or ML module/algorithm</li>
+            <li>(If these features really don't fit your idea, talk to Mike ASAP in case we can work something out.)</li>
+        </ul>
+        Also include at least one substantial part of the code that you wrote or meaningfully modified yourself so you can explain it in person or on video.
+    </li>
+    <li><strong>Document thoroughly</strong> and document as you build (rather than just at the end).  Add a clear <code>README.md</code> and a detailed prompt log (<code>prompt_log.txt</code> or similar) that shows your workflow and AI usage. <strong>Include your SPEC.md and REVIEW.md if you use an agentic process!</strong>
+    </li>
+    <li><strong>Commit and push changes regularly.</strong>  We will expect to see several commits made to your repository over the two-week project period, since this will be evidence for sustained effort. We recommend pushing your changes whenever you are done working each day. (This also prevents you from losing your progress if your computer breaks at the deadline, which <i>will</i> happen to at least one or two of you. And if for some reason you aren't able to submit the form on time, we could in theory still find and grade your existing work, which is good for you and good for us.)</li>
+    <li><strong>Attend the midpoint in-person check-in.</strong> Bring as much working code as possible and be ready to describe progress and remaining work.</li>
+    <li><strong>Test end-to-end.</strong> Make sure the deployed frontend talks to any backend services (if applicable).  Make sure that error states are handled gracefully (i.e. try not to crash due to unexpected user behavior, and provide sensible error messages for issues that cannot be avoided, like a backend server outage).  We strongly recommend testing any backends locally first, in order to speed up the debugging process.</li>
+    <li><strong>Write your reflection.</strong> See below for more details, and include it in your repository.</li>
+    <li><strong>Push to GitHub (& deploy if relevant).</strong> Deploy the app (in whatever form makes sense for your project) and verify any links work. If creating a phone app, make sure it runs on your phone and ideally someone else's phone too.</li>
+    <li><strong>Record a short demo video.</strong> Show the app running (in its deployed location, not just locally unless it only makes sense to do so) and briefly explain the architecture and the portion of code you implemented yourself.</li>
+    <li><strong><a href="https://forms.gle/wXBQWZMcbZB6cno47" target=_blank>Complete the Google form.</a></strong> Submit your repository URL and video link before the deadline.</li>
+
+</ol>
+</div>
+
+<h2 id="reflection">Reflection</h2>
+<p>In <code>REFLECTION.md</code>, answer the following. Be honest and specific; there
+  are no wrong answers here, but you must <strong>write this yourself, without AI.</strong> (Approx. 250-500 words total.)</p>
+<ol>
+  <li><strong>Describe your process.</strong> At a high level, how did you go about creating this project?</li>
+  <li><strong>What AI tools and strategies did you use?</strong> What models did you choose, and were you using them in a browser chat, in something like Cursor, in the command line, etc? Did you use an agentic process like in HW8, or something else?</li>
+  <li><strong>Why did you make the choices above?</strong></li>
+  <li><strong>What changed from your pre-113 approach?</strong> Compare your approach to how you might have approached the project before 15-113.  What has changed, if anything? Do you feel more or less well-equipped to create projects like this within a reasonable time frame?</li>
+  <li><strong>What might you do with this project with more time?</strong></li>
+</ol>
+
+<h2 id="tips">Tips (Mostly repeated from Project 2)</h2>
+
+<div class="card">
+<ul>
+    <li><strong>Having trouble coming up with an idea?  <strong>Talk to a actual human!  Maybe even our TAs!</strong>  Compared to AI, they'll be able to give you a better sense for what might be feasible and what you might want to consider.</strong></li>
+    <li><strong>Start with a clear MVP (Minimum Viable Product):</strong> Implement one core feature well, test it, then add extras as allowed by time.</li>
+    <li><strong>Test locally first:</strong> Run and debug your app locally before deploying. Use curl or browser devtools to validate requests and responses.</li>
+    <li><strong>Store secrets safely:</strong> Use environment variables or Render/Vercel secret management; do not commit keys to GitHub.</li>
+    <li><strong>Handle errors gracefully:</strong> Return helpful error messages from the backend and show friendly messages in the UI.</li>
+    <li><strong>Document everything:</strong> The README + prompt log are part of the grade — be explicit about what you built and how AI helped.</li>
+    <li><strong>Write a thoughtful reflection:</strong> This is a large part of how we will gauge if you have pushed yourself to be creative and if you have learned new skills.</li>
+    <li><strong>Be prepared to explain:</strong> You should be ready to verbally explain the architecture, and especially the parts of the code you wrote or modified using your own technical skills.</li>
+</ul>
+<p><em>Note: Start early and back up your work!  We aren't willing to extend the deadline into Finals Week (except perhaps in a very rare and serious emergency, under the guidance of your advisor) so you should try to get done early, especially since we're looking for a mostly-working project by the checkpoint.  Extensions on this project for typical reasons (illnesses, broken computers, etc) are very unlikely, even on the checkpoint, since this will delay useful feedback.</em></p>
+</div>
+
+<div class="info-box">
+    <strong>Questions?</strong> Ask on Ed, attend office hours, or email the instructor. Consult the course AI usage and collaboration policies on the course homepage.
+</div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+    </div>
+</footer>
+
+</body>
+</html>
+

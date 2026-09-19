@@ -1,0 +1,585 @@
+CMU 15-113: Effective Coding with AI
+
+Spring 2026
+
+Description Schedule Grading Projects Policies Tools, OH, etc. Ed
+Student Portfolios
+
+Prerequisites: 15-112 Fundamentals of Programming and Computer Science
+Time Commitment: 6 hours/week (3 hours in class + 3 hours outside work)
+Semester: Spring 2026
+Instructor: Mike Taylor (mdtaylor at andrew.cmu.edu)
+
+Description
+
+This application-focused course will teach students how to effectively
+combine intermediate programming skills with contemporary AI tools to
+enhance their software development workflow. Students will explore the
+capabilities and limitations of current AI coding assistants, experiment
+with prompt engineering, and collectively develop standards for
+maintaining code quality, transparency, and ethical integrity in
+AI-augmented workflows. The course will also feature seminars from AI
+experts in industry and academia. Through weekly coding projects,
+students will rapidly build complete applications while balancing
+creative problem-solving with rigorous quality assurance. A
+collaborative approach emphasizes peer learning, with students sharing
+discoveries and contributing to evolving best practices for prompting
+and evaluating AI-generated code, ensuring proper attribution, and
+establishing transparent development protocols. These projects are also
+designed to jump-start students' portfolios for future employment. By
+completion, students gain practical development experience with AI tools
+and will contribute to evolving best practices for future courses,
+learning from both instructors and peers' experiences with these rapidly
+advancing technologies.
+
+Course Goals: By completion, students gain practical development
+experience with AI tools and will contribute to evolving best practices
+for future courses, learning from both instructors and peers'
+experiences with these rapidly advancing technologies.
+
+The Portfolio Approach
+
+For your first major assignment, you'll build a personal portfolio
+website using AI (even if you have no prior experience with HTML or web
+development).
+
+- Make it: Throughout the semester, you'll use your creativity and
+  technical strengths along with AI to build a variety of projects using
+  the strategies and tools we discuss in class.
+- Get feedback: You'll submit these projects for review and critique by
+  adding them to your portfolio.
+- Take it with you: By the end of the semester, you'll have a complete
+  online showcase of your AI-augmented development skills.
+
+Add your work from other courses and projects and you'll be able to show
+off your best work for future internships, jobs, and graduate school
+applications.
+
+Ein Fehler ist aufgetreten.
+
+JavaScript kann nicht ausgeführt werden.
+
+This video shows some of the excellent projects students created during
+Spring 2026. You can find more of their work here! This course jumps
+into AI-assisted programming from Day 1. We'll alternate between class
+discussions and regularly building cool stuff, with the goal of
+finishing the semester with refined strategies for using AI effectively
+and responsibly.
+
+Guest Lectures
+
+Throughout the semester, we'll host guest lectures from experts in
+computer science, software engineering, and machine learning/AI
+research. These engineers and researchers will share:
+
+- How they use AI tools in their daily work (coding, debugging,
+  communication, and research)
+- Real-world applications and case studies from their organizations
+- Challenges and limitations they've encountered with AI-assisted
+  development
+- Where they see the technology heading and how it will shape our
+  careers
+- Advice for students entering the field in the AI era
+
+Tentative Schedule: The schedule of topics presented below is tentative,
+and may shift to accommodate our guest lectures. Specific dates and
+speakers will be announced as confirmed. Ideally these will mostly occur
+during class time, though occasionally we may have optional
+presentations outside of our normally-scheduled sessions.
+
+Learning Objectives
+
+AI as Force Multiplier: Modern AI tools can be very powerful, but to use
+them effectively requires us to combine the speed and generative
+capabilities of AI with our critical thinking and problem-solving
+skills. This course teaches you how to strategically leverage AI tools
+to enhance your productivity and versatility while maintaining code
+quality and strong ethical standards.
+
+At the end of the course, students should be able to:
+
+- Build ambitious projects faster by using AI tools strategically while
+  maintaining code quality
+- Evaluate AI-generated content critically for correctness, security,
+  performance, and maintainability
+- Choose appropriate AI tools based on task requirements, tool
+  capabilities, and project constraints
+- Navigate ethical considerations including bias, privacy, authorship
+  and attribution, environmental impact, and responsible use
+- Articulate a personal framework for when and how to use AI in software
+  development
+
+Ethics Discussions
+
+Ethics discussions will include the following topics:
+
+- AI training data and representation
+- Intellectual property with AI-generated code
+- Accessibility and inclusive design
+- Security ethics and disclosure
+- Privacy and data collection
+- Environmental impact of AI systems
+- Algorithmic bias
+- Job displacement and adaptation
+- Professional responsibility
+- Personal ethical frameworks
+
+Please email Mike if you have ideas for additional topics that would be
+of interest!
+
+The 15-113 Team
+
+[Faculty]
+
+Mike Taylor
+
+[Head TA]
+
+Taha Shakeel
+
+[Teaching Assistant]
+
+Nazanin Ghazi
+
+[Teaching Assistant]
+
+Alex Chen
+
+[Teaching Assistant]
+
+Michelle Jiang
+
+Topic List and Schedule
+
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week                | Mon 12:30pm-1:50pm  | Wed               | Assignments       | Cool Stuff        |
+|                     |                     | 12:30pm-1:50pm    |                   |                   |
++=====================+=====================+===================+===================+===================+
+| PHASE 1: TOOLS AND EXPLORATION (Weeks 1-4)                                                            |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 1              | Lecture 1 Slides    | Lecture 1+2       | HW1:              | Guide: Project 1  |
+| 1/12-16             | Welcome & First     | Slides            | Intro Survey      | setup             |
+| AI Intro Bootcamp   | Build               | Building your     | (due Fri 1/16     | Guide: Github     |
+|                     | • Course intro      | Portfolio         | 8pm)              | branches          |
+|                     | • Course ethos      | • Project 1       | Start Project 1   |                   |
+|                     | • Useful Tools      | description       |                   |                   |
+|                     |                     | • HTML crash      |                   |                   |
+|                     |                     | course            |                   |                   |
+|                     |                     | • "My First       |                   |                   |
+|                     |                     | Webpage"          |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 2              | No Class: M.L. King | Lecture 3 Slides  | Project 1         | Project 1         |
+| 1/19-23             | Jr. day             | HW1 survey        | (due Sun 1/25     | Example: Taha     |
+| AI Intro Cont'd     |                     | results           | 8pm)              |                   |
+|                     |                     | Github Copilot    |                   |                   |
+|                     |                     | Project 1 work    |                   |                   |
+|                     |                     | time              |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 3              | Lecture 4 Slides    | Lecture 5 Slides  | HW2:              |                   |
+| 1/26-30             | Tetris 3 ways       | More prompting    | Crossy Road       |                   |
+| Core prompting      | • Naive prompting   | strategies        | (due Sat 1/31     |                   |
+| strategies          | •                   | • Tetris debrief  | 8pm)              |                   |
+|                     | Plan-Adjust-Execute | • More games      |                   |                   |
+|                     | • Detailed prompts  |                   |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| PHASE 2: STRATEGIC MASTERY (Weeks 4-7)                                                                |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 4              | Lecture 6 Slides    | Lecture 7 Slides  | HW3:              |                   |
+| 2/2-6               | Project 1 debrief   | HW2 debrief       | Explore an API    |                   |
+| Getting started     | • Discussion        | More API examples | (due Sat 2/7 8pm) |                   |
+| with APIs           | • Highlights        | Build a chatbot   |                   |                   |
+|                     | Intro to APIs       | in Python         |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 5              | Lecture 8 Slides    | Lecture 9 Slides  | HW4:              | Simple AI         |
+| 2/9-13              | HW3 debrief         | Ethics overview   | Frontend +        | Carnegie          |
+| Server-side         | • Discussion        | HW4 work period   | Backend           | Simple AI Kimchee |
+| development         | • Highlights        |                   | (due Sat 2/14     |                   |
+|                     | Backend basics      |                   | 8pm)              |                   |
+|                     | HW4 ideation        |                   |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 6              | Lecture 10 Slides   | Lecture 11 Slides | HW5:              | Rossum's          |
+| 2/16-20             | HW4 debrief         | Reading           | Read this and one | Universal Robots  |
+| AI, Labor, and      | Project 2           | discussion        | of the three      | The Evitable      |
+| Learning            | introduction        | Project 2 work    | stories to the    | Conflict          |
+|                     | Discussion: AI and  | period            | right -->         | Runaround         |
+|                     | Labor               |                   | (due Mon 2/23 in  |                   |
+|                     |                     |                   | class)            |                   |
+|                     |                     |                   | Project 2         |                   |
+|                     |                     |                   | (due Sat 2/28     |                   |
+|                     |                     |                   | 8pm)              |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 7              | Lecture 12 Slides   | Special Guest:    | Project 2         | Pac-Dog           |
+| 2/23-27             | AI in Sci-Fi        | Prof. Illah       | (due Sat 2/28     |                   |
+| Broader Issues      | Project 2 work      | Nourbakhsh        | 8pm)              |                   |
+|                     | period              | on Ethics and AI  |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| SPRING BREAK (3/2 - 3/6)                                                                              |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 8              | Lecture 14 Slides   | Special Guest:    | HW6:              | SQLite examples   |
+| 3/9-13              | Introduction to     | Kian Nassre       | SQLite App        |                   |
+| Databases           | databases and       | on Why AI+SQL is  | (due Sun 3/15     |                   |
+|                     | SQLite              | Hard              | 8pm)              |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 9              | Lecture 16 Slides   | Lecture 17 Slides | HW7:              | (Mike is away     |
+| 3/16-20             | Case Studies with   | Project 2         | Code Handoff      | this week!)       |
+| Case Studies        | Alex and Taha       | Showcase with     | (due Sun 3/22     |                   |
+|                     |                     | Michelle and Naz  | 8pm)              |                   |
+|                     |                     | Beginning Code    |                   |                   |
+|                     |                     | Handoffs          |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| PHASE 3: CAPSTONES AND BEST PRACTICES                                                                 |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 10             | Lecture 18 Slides   | Lecture 19 Slides | HW8:              |                   |
+| 3/23-27             | Fresh from San      | More Agentic      | The Agentic Build |                   |
+| The Cutting Edge    | Diego:              | Development       | (due Sun 3/29     |                   |
+|                     | The State of GenAI  |                   | 8pm)              |                   |
+|                     | Multi-Agent         |                   |                   |                   |
+|                     | Workflows           |                   |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 11             | Lecture 20 Slides   | Lecture 21 Slides | HW9:              | Kan Devnani-      |
+| 3/30-4/3            | Phone apps and Expo | More phone apps   | Phone apps        | AI in the         |
+| Phone apps          |                     | Dedicated         | (UPDATE: due WED  | Workplace slides  |
+|                     |                     | installation/work | 4/8 8pm)          |                   |
+|                     |                     | time              |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 12             | Lecture 22 Slides   | Lecture 23 Slides | No homework this  | Simple RAG demo   |
+| 4/6-4/10            | RAG (the Taha and   | Reviewing phone   | week              |                   |
+| Retrieval-Augmented | Mike show)          | apps              | (but HW9 is due   |                   |
+| Generation          |                     | Capstone project  | WED 4/8 8pm)      |                   |
+|                     |                     | preview           |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 13             | Special Guest:      | Lecture 25 Slides | Project 3         | Starfall          |
+| 4/13-4/17           | Adhvik Kanagala     | The Agentic       | (Checkpoint due   | Chronicles        |
+| Final Topics part 1 | on being a Software | Frontier          | Mon 4/20 8pm)     | (An agent teams   |
+|                     | Engineer            | •                 |                   | demo, in          |
+|                     |                     | OpenClaw/ZeroClaw |                   | progress)         |
+|                     |                     | • True            |                   |                   |
+|                     |                     | Multi-Agent Teams |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+| Week 14             | Lecture 26 Slides   | Best Practices    | Project 3         |                   |
+| 4/20-4/24           | • Starfall update   | and Lessons       | (due              |                   |
+| Final Topics part 2 | • How does GenAI    | Learned           | Thu 4/23 8pm)     |                   |
+|                     | work?               | • What next?      |                   |                   |
+|                     |                     | • Project work    |                   |                   |
+|                     |                     | time              |                   |                   |
++---------------------+---------------------+-------------------+-------------------+-------------------+
+
+Grading
+
+  Component                Weight   Notes
+  ------------------------ -------- ---------------------------------------------------------------------------------------------------------------
+  Homework (about 10)      20%      Mostly smaller, weekly projects. Grading based on evidence of effort, due Fridays
+  Participation            20%      Includes attendance, contribution to discussions and critiques/code reviews, and good collaboration
+  Big Projects (about 3)   40%      Weeks 10-14, ~12-15 hours total
+  Exams/Quizzes            20%      Infrequent quizzes + 2 exams. These will mostly ask you to reflect on tools and strategies we have discussed.
+
+Letter Grades
+
+A: [90-100], B: [80-90), C: [70-80), D: [60-70), R: [0-60)
+
+Grading Philosophy: This course emphasizes effort, growth, and
+understanding over perfection. Grades reflect engagement with the
+material, demonstration of learning, and thoughtful use of AI tools.
+Code doesn't need to be production-perfect, but you must understand it
+and be able to explain your choices.
+
+Projects
+
+(Note that Projects 2 and 3 are especially tentative and subject to
+change)
+
+Project 1: Personal Portfolio Website (Weeks 1-2)
+
+Goal: Build a professional portfolio website to showcase your work—using
+AI to learn web development from scratch
+
+Time: ~4 hours outside class, over two weeks
+
+Context: Most students have never built a website before. This project
+teaches you to use AI as a learning tool to master new domains (HTML,
+CSS, JavaScript) while creating something immediately useful.
+
+Requirements:
+
+- About Me section with bio, photo, interests, skills
+- Projects section with showcases (start with placeholders—you'll add
+  real projects throughout the semester!)
+- Contact section with email, GitHub, LinkedIn, or contact form
+- Responsive design that works on desktop, tablet, and mobile
+- Professional appearance with clean, modern design
+- Optional: At least one interactive feature using JavaScript
+  (animations, dark mode, etc.)
+- Deployed and live via GitHub Pages
+
+Deliverables: Live URL, GitHub repo, informal reflection (don't use AI
+to write this part or do the thinking for you)
+
+Important: Throughout the semester, you'll add each new project to your
+portfolio. By Week 14, you'll have a complete showcase of your work!
+
+Project 2: Creative Web App (Weeks 6-7)
+
+Goal: Build a complete, deployed web application
+
+Time: ~6 hours outside class, over two weeks
+
+Requirements: Should include at least one and ideally two of the
+following: Frontend-backend communication, API usage with authorization,
+databases, data analysis/visualization, rich interactivity, computer
+vision or ML. See project writeup for more details.
+
+Examples:
+
+- Task manager with sharing
+- Recipe collection with search
+- Fitness tracker with graphs
+- Study group organizer
+- Book club with reviews
+- Personal finance tracker
+- An online game using computer vision or AI
+
+Deliverables: Deployed application with live URL, GitHub repo, demo
+video, README and prompt log, posted your portfolio website. Will
+include midpoint checkin and final presentation.
+
+Project 3: The Capstone (Weeks 13-14)
+
+Goal: Make something extremely cool that demonstrates your technical
+skills and design sensibilities, while using AI effectively as part of
+your process. This project should be portfolio-ready.
+
+Time: ~8 hours outside class, over ~2 weeks
+
+Requirements: Must include at least two of the following:
+Frontend-backend communication, thoughtful third-party API usage with
+secure keys, database, Expo/React Native (phone app), substantial data
+analysis/visualization, rich interactivity (e.g. WebGL), or computer
+vision/ML. See project writeup for details.
+
+Examples:
+
+- AI-powered study tool with intelligent features
+- Data visualization dashboard using real data
+- Mobile app solving a real problem
+- Multiplayer game with real-time networking
+- Browser extension with useful functionality
+- ML application with user interface
+- Community or campus-specific tool
+
+Deliverables: Source code on GitHub (with README, prompt log, and
+reflection), live demo, short demo video, Google form submission.
+Includes midpoint check-in and final oral exam/presentation.
+
+Course Policies
+
+AI Usage Policy
+
+Philosophy: Transparency and learning over restriction
+
+Required:
+
+- Document all significant AI usage in code comments and writeups
+- Explain AI-generated code in your own words
+- Modify and test AI suggestions, don't just copy-paste
+- Cite AI tools used
+
+Encouraged:
+
+- Experiment with different tools and approaches
+- Share successful prompts and strategies with classmates
+- Use AI to learn new concepts and debug
+- Push AI to its limits to understand boundaries
+
+Not Allowed:
+
+- Submitting AI code you can't explain reasonably well
+- Claiming AI-augmented work as wholly original
+- Any improper/missing attribution, or misrepresentation of submitted
+  work and your process for creating it
+- Using AI on written exams or quizzes (except if explicitly permitted)
+
+Verification: The instructor may ask you to explain any part of your
+submitted code, your process for creating it, or possible trade-offs and
+alternatives. Honesty and transparency always yields the best outcomes.
+
+Collaboration Policy
+
+Highly Encouraged:
+
+- Discuss ideas, strategies, and approaches
+- Debug together
+- Review each other's code
+- Share resources and prompts
+- Form study groups
+
+Not Allowed:
+
+- Copying code from classmates, except where explicitly allowed
+- Submitting identical work to independent assignments
+- Doing someone else's project/assignment/assessment for them
+
+General guidance: If you can teach them how to do it, great! If you're
+just giving them the answer, or if they can't recreate the work on their
+own without referencing notes or the original, you aren't collaborating.
+Ask if you aren't sure if something counts as good collaboration.
+
+Academic Integrity
+
+Core philosophy: You must understand and be able to explain all
+submitted code at a reasonably high level. More importantly, you must
+represent your work and your submissions with thorough transparency and
+proper attributions. When in doubt, ask if something is acceptable!
+
+Violations include:
+
+- Submitting code you don't understand at a reasonable level
+- Copying from others (human or AI) without attribution
+- Misrepresenting your use of AI tools
+- Other violations of the collaboration / AI use policies above
+- Receiving or providing any unauthorized assistance or information on
+  quizzes or exams
+- Using any prohibited tools or resources on quizzes or exams
+- Any other form of deliberate dishonesty or misrepresentation
+
+Consequences: Penalties up to course failure, reported to university
+
+Negligence or uncertainty is not an acceptable excuse. When in doubt:
+Ask! Better to ask than assume.
+
+Late Policy
+
+Homework / Mini-Projects:
+
+- On time: 100%
+- 1-3 days late: 80%
+- 4-7 days late: 50%
+- >7 days late: 0%
+- All late work must be submitted by the last day of class
+- In extenuating circumstances such as medical or family emergencies,
+  email Mike or fill out the extension form listed below.
+
+Major Projects:
+
+- Due dates are firm to allow for presentations and peer review
+- Extensions only for major documented emergencies (email Mike)
+- Extensions must be requested BEFORE deadline whenever possible
+
+Exams and quizzes:
+
+- Extensions/excused absences for emergencies/illnesses must be
+  requested in advance whenever possible.
+- Quizzes will typically be excused for emergencies. Make-up exams must
+  be scheduled promptly.
+
+Extensions and Excused Absences
+
+If you need an extension or an excused absence due to extenuating
+circumstances such as medical or family emergencies or
+university-related conflicts, please fill out this form.
+
+- Please fill out the form before the deadline or class whenever
+  possible. Extensions and excused absences will be less likely to be
+  approved if not requested in a timely manner.
+- This form is just meant to streamline the process for common issues
+  like brief illnesses, and it helps us keep track of requests. We'll
+  generally be pretty flexible as long as requests are relatively rare
+  and made promptly.
+- If your circumstance is particularly unusual or if you need additional
+  support, always feel free to email Mike!
+
+Tools and External Resources
+
+Required Tools (All Free for Students)
+
+- Python 3.12+
+
+  Programming language. Download from python.org
+
+- Git & GitHub
+
+  Version control. Create account at github.com
+
+- GitHub Copilot
+
+  AI pair programmer. Free with GitHub Student Developer Pack
+
+- ChatGPT
+
+  Conversational AI assistant. Free tier available at chat.openai.com
+
+- VS Code
+
+  Code editor. Download from code.visualstudio.com
+
+- Python 3.12+
+
+  Programming language. Download from python.org
+
+Recommended Tools (Free)
+
+- Claude - Good for complex explanations (free tier)
+- Cursor - Advanced IDE integration (free for students)
+- Replit - Online collaboration (free tier)
+- GitHub Codespaces - Cloud development environment
+
+Course Materials
+
+- Weekly guides and prompt templates (on course website)
+- Code examples and starter files (on GitHub)
+- Ethics case studies (provided in class)
+- Tool comparison matrices (on course website)
+- Best practices checklists (on course website)
+
+Office Hours and Support
+
+Getting Help
+
+- Ed Discussion
+
+  Quick questions, sharing resources, peer support, course logistics
+
+- Instructor Office Hours in GHC 4126
+
+  For conceptual questions, project guidance, career advice
+
+  - Monday 2:00pm-3:30pm
+  - Thursday 12:00pm-1:30pm
+
+- TA Office Hours in the hall outside GHC 4126
+
+  For debugging help, tool assistance, assignment questions
+
+  - Wednesday 5:00pm-6:00pm
+  - Thursday 4:00pm-5:00pm
+  - Friday 2:00pm-4:00pm
+
+- In Class
+
+  Ask questions, work with peers, get immediate help.
+
+- Email
+
+  mdtaylor at andrew.cmu.edu
+  For private concerns, extension requests, accommodations
+
+Accommodations
+
+Students with documented disabilities should ensure that their
+memorandum of accommodations has been sent to 15-113 through the Office
+of Disability Resources portal. Soon after we receive your memorandum,
+we'll contact you with additional information on how you can use these
+accommodations. All tools and activities will be evaluated for
+accessibility, and alternatives will be provided as needed.
+
+Additional notes
+
+- Original layout/some preliminary wording created with Claude Sonnet
+  4.5, Nov 2025. (In fact, we'll talk about this process in week 1!)
+- Some course policies adapted from CMU 15-112. F25
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science
+
+This course is designed for post-15-112 students with strong Python
+programming foundations.

@@ -1,0 +1,208 @@
+HW3: Explore an API
+
+CMU 15-113: Effective Coding with AI
+
+← Back to Course Overview Requirements Instructions Tips
+
+Due Date: Sat. 2/7 at 8:00 PM
+Time Estimate: 2–3 hours
+Deliverables: Code, README, and key prompts uploaded to GitHub + brief
+form response
+
+UPDATE: The Google submission form will now require you to submit a
+brief video showing what you've made. This will help us to grade your
+work if we can't easily run it ourselves.
+
+Assignment Overview
+
+Goal: Use AI tools to explore and integrate a public API of your choice
+into a small but interesting app, or you may add an API-related feature
+on your portfolio website. The goal is hands-on experience with how APIs
+work, how to call them from code, and how to read and discuss the
+resulting code.
+
+Why This Matters: APIs are how many external data sources and services
+are accessed. This assignment teaches you to find a suitable API, design
+a small integration, and use AI to help implement and understand the
+code.
+
+Examples of APIs you might use: weather, stock prices, random quotes,
+public transport schedules, open datasets, and other public endpoints.
+
+Requirements & Scoring
+
+What You Must Submit
+
+- GitHub repository: Place the following items in either a new Github
+  repo or (if adding a feature to your website) update the repo for your
+  website to include the code and necessary information.
+  1.  Code: A python script, game, small web app, or an added feature to
+      your portfolio website that fetches data from the chosen API and
+      does something interesting or interactive with it. We recommend
+      making a python app, but you may use javascript or another
+      language if you wish. (Information can be displayed as console
+      output, simple app or HTML page, or embedded widget on your
+      website).
+  2.  README: In the repo README, include 3–5 sentences that explain (at
+      a high level) how the API is called (for example, what modules are
+      used if any, what key parameters are provided, and what format /
+      data types are returned). If your code requires an API key or
+      other authentication, provide information on how to obtain an and
+      use that API key (WITHOUT exposing the key itself in the repo).
+  3.  Prompt log: A short note (in README or a separate file like
+      PROMPT_HISTORY.txt) listing which AI model(s)/tool(s) you used and
+      the key prompts that shaped the implementation (not the
+      necessarily the entire chat dump, just the prompts you found most
+      important).
+- Portfolio: Add your project to your portfolio. (Note: If you have a
+  good reason to not want your submission on your portfolio, email Mike
+  before the deadline, but we hope you will make something cool.)
+- NEW VIDEO REQUIREMENT: Make a short video that shows what you've
+  created. This can be very short, but it should contain enough
+  information for us to grade your work if we can't easily run it
+  ourselves. You should submit a link to this video (either a Youtube
+  link or a Google Drive link, with permissions set so that anyone with
+  the link can view it) to the form below. Note: We aren't looking for
+  top production quality here (though of course if you're proud of your
+  video, you might find it useful for your portfolio).
+- Google form: Fill out this google form, which asks for some basic
+  information on how to find your project, along with a link to your
+  video (make sure we can view it by testing your Youtube or Google
+  Drive link in an incognito window). Be sure to fill this out by the
+  due date!
+
+Privacy note: Do not commit API keys, credentials, or other secrets to
+GitHub. If the API requires a key, use environment variables or a local
+text file or config file excluded via .gitignore, and explain in the
+README how to provide the key locally. See the Tips section below for
+advice on how to set up a .gitignore file. Security is important, and
+you will receive a zero if your repository contains a private key that
+should not be exposed. (Ask on Ed if you aren't sure if something is a
+private key or not!)
+
+Grading
+
+Prioritize a thoughtful implementation that does something interesting
+and more complex than just getting and printing data, and make your
+supporting documents clear and explanatory. The assignment is
+intentionally open-ended.
+
+- For full points (100/100) we're looking to see evidence of about 2.5
+  to 3 hours of thoughtful and exploratory effort, with the requisite
+  components listed above. We'll expect some interactivity and
+  creativity here.
+- For a passing C grade (70/100) we would expect a simple script that
+  makes an API call and displays the information in a simple,
+  non-interactive way.
+- On Wednesday 2/4 we'll create a small app in class, and we'll let you
+  know what grade this would receive as an additional gauge for your
+  progress.
+
+As with Crossy Road, by default we will expect that you'll post the
+result on your portfolio, though you may request to be exempt from this
+requirement if you email Mike with a good reason before the deadline. Be
+creative! You may wish to use this as a start to a larger project.
+Regardless, first focus on a working, clean implementation of the API
+and then wrap an experience around it.
+
+Detailed Instructions
+
+1.  Choose a public API you find interesting (preferably free or with a
+    free tier).
+2.  Decide on a small scope: fetch and display current data (e.g.,
+    current weather for a city), or fetch and show a list (e.g., latest
+    quotes), or perhaps a plot (e.g. for stock data or recent
+    temperatures), or add a small dynamic widget to your portfolio. You
+    should choose something that can do more than just return the same
+    data every time, e.g. you should fetch recent data, or you should
+    allow the user to specify some parameters for the information they
+    wish to retrieve.
+3.  Use AI tools to help learn how the API works and to generate some
+    code. As always, be explicit in your prompts so that you get results
+    that align with your goals.
+4.  Implement the code and test it locally. Remember, keep API keys and
+    other secrets out of the repo — use environment variables or a local
+    text file or config file excluded from version control. See below
+    for instructions on setting up a .gitignore if needed. (This is only
+    relevant if your API requires authentication or a secret key.)
+5.  Write a short README and prompt log as described above and include
+    these in your repo.
+6.  Push your code to a public GitHub repo.
+7.  Make your video and upload it, and fill out the Google submission
+    form before the deadline
+
+What is an API?
+
+An API (Application Programming Interface) is a set of rules that lets
+programs talk to each other. Many web APIs provide data over the network
+via HTTP requests. You may also find and use Python modules that provide
+helper functions for specific APIs.Below are a few short definitions you
+may find useful as you work on this assignment.
+
+- Endpoint: A specific URL you request to get or send data (for example,
+  /weather).
+- Request: The HTTP call your code makes (includes method like GET/POST,
+  headers, and parameters).
+- Response: The data the API returns (often JSON) and an HTTP status
+  code.
+- JSON: A common text format for API responses (JavaScript Object
+  Notation). The JSON format looks a little like a nested dictionary,
+  with keys and values.
+- Authentication / API key: A secret token (e.g. a string of letters and
+  numbers) some APIs require to identify you. Never commit keys to a
+  public repo.
+- Rate limit: A limit on how many requests you can make in a time
+  period.
+- Query parameter: Extra data appended to a URL to modify the request
+  (for example, ?city=Pittsburgh).
+- REST: A common API style that uses HTTP verbs and endpoints to operate
+  on resources.
+- Wrappers: Helper functions and classes that implement the HTTP
+  requests behind the scenes, and allow you to use the APIs more easily.
+  These can be very convenient!
+
+When you use AI to generate API code, ask the model to show sample
+requests and explain each field in the response so you can verify you
+understand how the API works.
+
+Tips
+
+- Start small: Fetch one endpoint and display a few fields; you can
+  extend if time allows.
+- Check rate limits: Use APIs with reasonable limits for development or
+  use sample/demo keys if provided. Also, make sure your code does not
+  make more calls than it needs to! For example, if you have a loop in
+  Python that constantly calls the API, you can hit your rate limit
+  almost instantly. Or, for paid APIs, you might accidentally rack up a
+  very large bill... for this reason, we strongly recommend not using
+  APIs that you have to pay for in this assignment.
+- Hide keys: Put keys in environment variables or a file named
+  config.local (and add it to .gitignore). In README show how to set the
+  env var. See GitHub's guide on ignoring files:
+  https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+- Find cool APIs here: See these curated lists of public APIs and Python
+  wrappers:
+  - https://github.com/realpython/list-of-python-api-wrappers
+  - https://github.com/public-apis/public-apis
+- Ask AI to explain: After getting code from an AI model, ask it to
+  annotate or explain each function or request so you can demonstrate
+  understanding.
+- Use the documentation: APIs typically have extensive documentation
+  online. This documentation can be dense, but we strongly recommend you
+  read the basics, even if AI seems to be giving you something that
+  "just works." Also, many API docs include sample requests. Use them as
+  a starting point when prompting the model.
+- You may wish to use some supporting modules and libraries (like pygame
+  or matplotlib if you're making your submission in python). This is
+  a-ok! Note that pygame and matplotlib and most other modules are not
+  APIs, but they can be helpful in adding visualization and
+  interactivity to your app. Ask us if you need help finding resources
+  and documentation for these modules.
+
+Questions? Ask on Ed, attend office hours, or email the instructor.
+Consult the course AI usage and collaboration policies on the course
+homepage.
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science

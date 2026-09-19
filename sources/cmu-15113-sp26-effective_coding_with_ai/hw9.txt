@@ -1,0 +1,506 @@
+HW9: Your First Mobile App
+
+CMU 15-113: Effective Coding with AI
+
+← Back to Course Overview Requirements Instructions Key Concepts Tips
+
+⚠️ Heads-up: We've updated this assignment to strongly recommend that
+you either use an Android phone if you have one, or an iPhone simulator
+otherwise.
+You may attempt to use an actual iPhone if you have one and also have a
+mac (by either following the Development Build without EAS option in
+Expo, or if you have a paid Apple Developer Account you can probably use
+Expo Go) but these routes are substantially harder, and we can't make
+the instructions online any more concise or robust. We did put together
+a repo with some Claude-generated instructions for iPhones without a
+paid developer license (and for Android simulators), but we haven't been
+able to test them on fresh devices so they may have bugs. I've put those
+and the Expo-related Claude skills here in this repo.
+
+Due Date: Wed. 4/8 at 8:00 PM (Note: This is updated from the original
+Tue. 4/7 date)
+Time Estimate: 3–4 hours (up to 6 if you go ambitious)
+Deliverables: Code + README + prompt log on GitHub, short video, Google
+form submission, portfolio entry
+
+Assignment Overview
+
+Goal: Build a mobile app capable of running on an actual phone or
+simulator. You'll use React Native with Expo, a framework that lets you
+build real iOS and Android apps using JavaScript. To do this assignment
+successfully in a reasonable amount of time, you must leverage AI
+thoughtfully. We strongly recommend an agentic workflow similar to what
+you did in HW8. By the end of this assignment, you'll be able to show
+off a real app that you created.
+
+Why This Matters: Mobile apps are everywhere, and "I built a mobile app"
+is one of the most impressive things you can put on a portfolio. Mobile
+development has traditionally had a very steep learning curve, including
+specialized languages and complex build tools that differ between
+Android and iOS. After setting up your environment, using AI tools and
+React Native with Expo will allow you to build a working app on your
+phone in as little as an hour. This is still a challenging project,
+however, and you will be unlikely to succeed unless you practice
+attention to detail and use the strategies you have learned in class so
+far.
+
+Examples of what you might build:
+
+- Flashcard study app — Create, review, and track your progress on
+  flashcard decks for any subject
+- Mood tracker — Log your mood each day with notes and see trends over
+  time
+- Countdown collection — Track countdowns to events you're excited about
+  (spring break, graduation, concerts, etc.)
+- Workout logger — Log exercises, sets, reps, and see your recent
+  history
+- Personal AI assistant — A mobile chatbot powered by Claude or GPT
+  (requires a backend, similar to HW4)
+- Daily quote/affirmation app — A fresh inspirational quote each day
+  with the ability to save favorites
+
+You're welcome to come up with your own idea! The key is that it should
+be something you'd actually want on your phone as more than just a
+webpage or webapp, and something you'd be excited to show other people.
+Start simple for this assignment! If you have a bigger idea, that could
+be a perfect choice for your capstone project.
+
+Hardware challenges: Part of the barrier to app development is that
+certain phones (specifically iPhones) require a fee in order to install
+your app on your phone. Because of that, you are not required to run
+your app on an actual phone, and it's ok to use a simulator instead. We
+recommend developing on a physical Android phone if you have one, and on
+an iPhone (or Android) simulator if you have an iPhone.
+
+Learning with AI: This assignment is as much about learning a new
+framework with AI as it is about the final product. React Native and the
+Expo framework will almost certainly be completely new to you, and
+that's the point. When AI generates code using unfamiliar patterns
+(components, hooks, state, navigation), ask it to explain what
+unfamiliar parts do and why. Your prompt log should show thoughtful
+engagement with the code and the AI.
+
+Requirements & Scoring
+
+Core Requirements
+
+- Multiple screens: Your app must have at least 2 screens with
+  navigation between them (e.g., a home screen and a detail screen, or a
+  list screen and an "add new item" screen).
+- User input: Your app must accept meaningful user input in some
+  form—text fields, buttons, toggles, pickers, sliders, etc. The app
+  should respond to this input in a useful way.
+- Data persistence: Your app must save at least one piece of data
+  locally so that it survives closing and reopening the app. (You'll use
+  AsyncStorage or a similar local storage solution for this. AI will
+  help you set it up.)
+- Can be demoed: You must demo your app running on an actual phone or a
+  simulator. There are multiple paths to making each of these happen.
+  - Note: Either path is valid; choose whatever hardware/environment
+    works for you, and document which path you used in your README and
+    video.
+- Looks intentional: Your app doesn't need to be beautiful, but it
+  should look like you made design choices: consistent colors, readable
+  text, reasonable spacing. A few minutes of styling goes a long way.
+
+Optional Enhancements (for extra ambition, not required)
+
+- Integrate an AI API (Claude or OpenAI) to add intelligence to your app
+  (this will require a backend, similar to HW4)
+- Use a device feature like the camera, location services, haptic
+  feedback, or push notifications
+- Add animations or gesture-based interactions
+- Build more than 2 screens with a tab-based or drawer navigation
+
+Scope advice: A simple, polished 2-screen app is better than a buggy
+5-screen app. Get the basics working first, then add features if you
+have time. Many often underestimate how satisfying a clean, simple app
+can be when it actually runs on your phone. Be aware that using external
+APIs, phone sensors, and other sophisticated features may make it very
+hard to achieve a working app without a reasonable understanding of the
+code and how the Expo framework works.
+
+What You Must Submit
+
+- GitHub repository containing (at a minimum):
+  1.  Code: Your complete Expo project. It should be runnable by cloning
+      the repo, running npm install, and then npx expo start. (More info
+      on these commands below.)
+  2.  README.md: Located at the repository root. Include:
+      - What your app does and why you chose this idea (1-2 sentences).
+        Don't use AI to write this.
+      - A description of each screen and what the user can do on it.
+        Don't use AI to write this.
+      - How to set up and run the app (any extra dependencies or API
+        keys needed). You may use AI to write this piece but you are
+        responsible for its accuracy.
+      - One thing you learned about mobile development that surprised
+        you. Don't use AI for this.
+  3.  Prompt log (titled prompt_log.txt or prompt_log.md): Which AI
+      tools you used, and the key prompts that shaped your work.
+      Remember, share your actual prompts, verbatim, and not just
+      summaries (AI generated or otherwise).For this assignment, we
+      especially want to see prompts where you asked AI to explain React
+      Native concepts—not just "build me a screen," but "what does
+      useState do?" or "why do I need SafeAreaView?"
+  4.  If you use an agentic development process, which we very very
+      strongly recommend, you should also include your SPEC.md and
+      REVIEW.md files.
+- Portfolio: Add a link to your project repository on your portfolio
+  with a brief description and a screenshot of the app running on your
+  phone.
+- Short video: A screen recording or phone recording (1-2 minutes)
+  showing the app running on your phone or simulator. Walk through each
+  screen, demonstrate the user input and data persistence (e.g., add
+  something, close the app, reopen it, show it's still there). Upload to
+  YouTube or Google Drive with appropriate view permissions so that we
+  can see it.
+- Google form: Fill out this form with your repo link, video link, and
+  basic info before the deadline.
+
+Grading
+
+  Grade        (Roughly) What We're Looking For
+  ------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  A (90-100)   App can be demoed and has at least 2 screens with navigation, meaningful user input, and data persistence. Looks intentional and polished. Clean README and prompt log that meet the assignment specifications and show learning (asking AI to explain, not just generate). Evidence of 3-4 hours of effort and some creativity in the concept. Video clearly demonstrates the app.
+  B (80-89)    App runs and has most core features working (screens, input, persistence). Functional but may look rough around the edges. README and prompt log present but less detailed. Video might be a little unclear.
+  C (70-79)    App runs but may be missing one core feature (e.g., no persistence, or only one screen). Basic README, prompt log, and video. Limited evidence of the learning process.
+  Below C      App does not run, or submission is incomplete.
+
+Step-by-Step Instructions
+
+Follow these steps in order, and read carefully. Each one builds on the
+last, and this sequence is designed to minimize the time you spend
+stuck. If any step takes significantly longer than the time listed,
+please ask on Ed or come to office hours!
+
+Step 1: Set Up Your Environment (20 minutes)
+
+For iPhone / iPhone simulator only:
+
+If you're on a Mac, you'll need to install XCode on your laptop from the
+App Store, and this may take about an hour to download. You should start
+doing that right now.
+
+For Android:
+
+Search for "Expo Go" in the Google Play Store and install it.
+Alternatively you can download a beta version of the Expo Go app if you
+wish to use the very latest version, but we don't recommend this since
+you'll probably have to unlock dev options on your phone.
+
+For Everyone:
+
+You need Node.js on your computer, and an AI-enabled code editor (you
+probably already have VS Code or Cursor).
+
+1.  Install Node.js (if you don't already have it): Download the LTS
+    version from nodejs.org. After installing, verify it works by
+    running node --version in your terminal. You should see a version
+    number (18 or higher).
+2.  Read and follow the Expo "Create a Project" tutorial:
+    - IMPORTANT: The latest phone apps on the App Store and Play Store
+      may be version 54, which is a step behind the dev tools. This
+      means your phone might not be able to use your project unless you
+      replace the 55 with a 54 in the first command of the tutorial:
+      npx create-expo-app@latest --template default@sdk-54
+    - Be sure to select either "Android Device" or "iOS Simulator" on
+      the second tutorial screen. You should also select "Expo Go"
+      instead of "Development build" to start with, though you may
+      optionally do a Development build later if you wish. (You may
+      attempt to make this work on your real iPhone, but the process
+      will either be expensive and easy with Expo Go or free and
+      difficult with a development build, so we don't recommend this
+      right now.)
+    - You will be running commands in your computer's terminal. For
+      Windows this is the Command Prompt, and for macs this will be the
+      Terminal. We don't recommend trying to run these in VS Code. These
+      are not Python commands!
+    - Note: When you reach the step where you run npx expo start in your
+      terminal, it will take a moment to load, and then it will show a
+      QR code in your terminal. If you are developing on an Android
+      phone: Make sure your phone is on the same wifi network. Scan the
+      code with your phone camera or the Expo Go app (Android). You
+      should see a default "Welcome to Expo" screen appear on your
+      phone. If you are developing on an iPhone sim: As long as you have
+      XCode and the simulator installed, you should be able to press 'i'
+      to open the simulator with your app.
+    - You should read and follow the instructions up through the Next
+      Steps page, and stop before running npm run reset-project since
+      this will remove the demo code.
+
+Important: Your phone and computer must be on the same Wi-Fi network for
+Expo Go to connect. If you're on campus, CMU-SECURE should work. If the
+QR code doesn't connect, try the "tunnel" option: press s to switch to
+Expo Go, then try pressing shift+t to switch the connection to tunnel
+mode. Ask on Ed if you're stuck—this is a common setup hiccup.
+
+We very very strongly recommend using AI within your IDE, like Copilot,
+Claude Code, Cursor, etc. You'll have an extremely bad time if you have
+to constantly copy things into your browser.
+Optional but extremely useful: Try to install the Expo AI skills found
+here. I (Mike) had some trouble with installing the skills to Claude
+initially, but I asked AI to look a the github repo with the skills and
+to modify CLAUDE.md so that it has access to them. It created a .claude
+directory with the cloned skills inside. You can find my CLAUDE.md and
+claude directory here.
+These skills are not strictly necessary, but they're documentation and
+resources that your AI can use to research how to implement many of the
+features that you might want. The installation process will vary for
+each AI.
+
+Step 2: Understand the Basics with AI (10 minutes)
+
+Before you reset the project and start building, spend a few minutes
+getting oriented. Open the App.js (or App.tsx) file that was generated
+and ask AI some questions:
+
+- "I'm brand new to React Native. Can you explain at a high level how
+  these files create a working app?"
+- "What's the difference between React Native and a regular website? How
+  is a View different from a div?"
+- "How do I add a button and a text input to a React Native screen? Show
+  me a simple example and explain the useState hook."
+
+Try making a small change to the app, like changing the text or a color,
+and watch it update on your phone in real time. (If it does not update
+immediately, you can go to your terminal and press 'r' to reload the
+app.)
+
+Step 3: Write Your App Specification (30 minutes)
+
+Before you write any code, review the agentic process you used in HW8.
+If you choose to use an agentic process for this assignment (which we
+recommend), write a detailed specification for your app in a file called
+SPEC.md. This is the most important step. As before, write this spec
+yourself and be thorough. This will help ensure that the app matches
+your vision and works well.
+
+Keep your app idea simple: two screens, one or two key interactions, and
+one type of data to persist is plenty.
+
+Useful SPEC.md template: I created this blank SPEC.md template to help
+me with this step, and I found it very useful. You may not need all of
+these fields, but we recommend you start by copying this template and
+then modifying it to suit your needs.
+
+Step 4: The Agentic Build (45 minutes)
+
+Assuming you use an agentic process (which is a very good idea) you'll
+now hand your spec to your agent of choice (Copilot, Claude Code,
+Cursor, etc.) and let it build. Refer to HW8 for guidance on the agentic
+process.
+
+Setup
+
+1.  Add your SPEC.md into the project folder, add the folder to Github
+    (in Github Desktop, click the current repository, click add, and
+    click "add existing repository", and select your project folder) and
+    make your first commit and push. Verify that you can see the app on
+    github.com before proceeding.
+2.  If you're lost, make sure you've completed the environment setup
+    from Steps 1 and 2.
+3.  Open the project folder in VS Code or Cursor or another AI-enabled
+    IDE.
+
+The Prompt
+
+You might want to set your Agent to its most powerful setting for this
+step (bearing your usage limits in mind). Give your agent a prompt like
+this (adapt it to your actual spec):
+
+    Read SPEC.md in this project. Implement the full mobile app exactly as specified. 
+    Create all necessary files, components, and navigation. Make sure that appropriate data is persistent. 
+    Avoid security risks for sensitive data.  Include proper error handling. 
+    Make sure the app starts without errors and displays the home screen correctly.
+
+Reminders
+
+- Hands off (as much as possible). Let the agent work. You will likely
+  need to accept some file creation and terminal command prompts. Your
+  goal is to see how far it gets without your intervention.
+- Test frequently on your phone. After the agent finishes, run
+  npx expo start (or press 'r' to refresh the app if it is already
+  running) and test the app on your phone.
+- Commit the raw result. After the agent finishes (or you decide it's
+  done), commit everything with a message like
+  "Raw agentic build output". Don't fix anything before that commit. We
+  want to see what the agent produced.
+
+Step 5: The AI Review (45 minutes)
+
+Review Setup
+
+1.  Open a new chat session and make sure you're in Agent mode.
+
+The Review Prompt
+
+Give this new agent a prompt like:
+
+    Review the React Native/Expo code in this project against the spec in SPEC.md. 
+    For each acceptance criterion in the spec, verify whether the code actually implements it correctly. 
+    Also check for:
+    - Bugs or logic errors
+    - Missing error handling
+    - Code quality issues (unclear naming, repeated code, etc.)
+    - Best practices for React Native or other technologies
+
+    Format your review as a numbered list of findings, each marked as [PASS], [FAIL], or [WARN]. 
+    Be specific. Reference file names and line numbers. 
+    Export the review as REVIEW.md at the root of the project.
+
+Act on the Review
+
+- Read the review carefully. Do you agree with its findings? Are there
+  issues it missed?
+- Save the REVIEW.md file in your repository. (Ask the agent to export
+  it, or copy it manually.)
+- Fix real issues flagged as [FAIL] or critical [WARN] items. You can
+  use AI to help, but you're responsible for the fixes.
+- Commit the fixes, with a commit message like "Fixes after AI review".
+
+Step 6: Polish, Test, and Verify (30 minutes)
+
+With the core features working, now polish your app:
+
+- Visual polish: Choose a consistent color scheme (2-3 colors), ensure
+  text is readable, add clear titles/headers to each screen, make
+  buttons look tappable.
+- Thorough testing: Walk through every acceptance criterion and verify
+  each one works on your phone. Test edge cases.
+- Verify data persistence: Add data, close Expo Go completely, reopen
+  it, and confirm the data is still there.
+- Make any final adjustments needed.
+- Commit with a message like "Polish and final adjustments".
+
+Step 7: Document and Submit (30 minutes)
+
+Write your README and prompt log, record your video, add the project to
+your portfolio, push to GitHub, and fill out the Google form.
+
+For the video, the easiest approach is to screen-record your phone or
+simulator, or to simply record your phone screen with another device.
+Walk through each screen, show the user interactions, and demonstrate
+data persistence.
+
+Important: Your prompt log should include actual prompts, verbatim. Some
+recommended examples include:
+
+- Your initial build prompt to the agent
+- Your review prompt to the second agent
+- Any follow-up prompts or clarifications during the phases
+- Prompts where you asked AI to explain React Native or Expo concepts
+- Notes on any manual interventions you made and why
+
+Key Concepts
+
+Here's a reference for the new concepts in this assignment. AI will help
+you with all of these, but it's useful to know what you're working with.
+
+- React Native: A framework for building mobile apps using JavaScript.
+  Unlike a web app, React Native produces real native mobile components
+  (not a website in a wrapper). The code you write looks similar to web
+  React, but instead of <div> and <p>, you use <View> and <Text>.
+- Expo: A platform that simplifies React Native development. It handles
+  the complex build process, provides a library of pre-built features
+  (camera, location, notifications, etc.), and gives you Expo Go for
+  instant testing on your phone. Think of Expo as "React Native made
+  easy."
+- Expo Go: The app on your phone that runs your project during
+  development. When you scan the QR code, Expo Go downloads your latest
+  code and runs it. No app store publishing needed.
+- Components: The building blocks of a React Native app. Everything on
+  screen is a component: View (a container, like a <div>), Text
+  (displays text), TextInput (text field), Button (a button), FlatList
+  (a scrollable list), Image (displays images), etc.
+- State (useState): The way React Native tracks data that can change.
+  When state updates, the screen automatically re-renders to reflect the
+  new data. Example: const [count, setCount] = useState(0); creates a
+  count variable and a setCount function to update it.
+- Props: Data passed from a parent component to a child component. For
+  example, when you write <Text style={{color: 'red'}}>Hello</Text>,
+  style is a prop being passed to the Text component.
+- Navigation: The system for moving between screens. React Navigation is
+  the most popular library. A "stack navigator" works like a stack of
+  cards—you push a new screen on top, and you can go back to the
+  previous one.
+- AsyncStorage: A simple, persistent key-value storage system for React
+  Native. Works like a mobile version of localStorage in web browsers.
+  Data survives app restarts.
+- Hot reload: When you save a file, Expo automatically updates the app
+  on your phone within seconds. This makes development fast and
+  iterative.
+
+Tips
+
+- Get the "Hello World" running first. Before writing any real code,
+  make sure that you can get the example app working on your phone or
+  simlator. If setup takes longer than 20 minutes (aside from installing
+  XCode on macs, which will take while to download), ask on Ed or in
+  office hours. We predict that setup problems will be the #1 time sink
+  on this assignment, and we can usually resolve them quickly.
+- Build incrementally. After the initial build, add one feature at a
+  time and test on your phone after each change. React Native's hot
+  reload makes this fast. If something breaks, you'll know exactly what
+  caused it. Trying to do too much all at once will likely be the #2
+  source of trouble.
+- Use AI to learn, not just to generate. You should come out of this
+  with at least some insight into how an app is structured in Expo. This
+  is the learning goal of the assignment, and your prompt log should
+  show it.
+- Don't fight the styling system. React Native uses Flexbox for layout
+  (similar to CSS Flexbox). If positioning is driving you crazy, ask AI:
+  "How does Flexbox layout work in React Native? I'm trying to put X
+  above Y with Z on the right." A few minutes understanding Flexbox will
+  save you a lot of trial and error.
+- Keep your app idea simple. Two screens, one main feature, and local
+  data persistence is a very solid app. You can always add more if you
+  finish early, but you can't get time back from an overly ambitious
+  plan. Some of the best apps are simple apps that do one thing well.
+- Restart the development server if things get weird. If your app starts
+  behaving unexpectedly, stop the Expo server (Ctrl+C in the terminal)
+  and restart it with npx expo start. Also try shaking your phone in
+  Expo Go to access the developer menu, where you can reload the app.
+
+Setup Resources
+
+- Node.js download — Install the LTS version
+- Expo Go — Download for iOS or Android
+- Expo: Create your first app — Official getting-started guide
+- Mike's repo of Claude skills + Claude-generated setup instructions for
+  running on actual iPhones or Android sims.
+
+React Native Resources
+
+- React Native documentation — Official docs with explanations of every
+  component
+- React Navigation — The library you'll use for moving between screens
+- AsyncStorage documentation — How to save and load data locally
+- Expo SDK documentation — Camera, location, notifications, and many
+  more device features
+
+Troubleshooting
+
+- "I can't connect to my phone" — Make sure both devices are on the same
+  Wi-Fi network. Try tunnel mode by pressing shift+t in the Expo
+  terminal. On campus, use CMU-SECURE.
+- "My app crashes when I open it" — Check the terminal for error
+  messages. The most common cause is a syntax error or a missing import.
+  AI is very good at diagnosing React Native error messages. Paste the
+  error and ask.
+- "npm install is failing" — Try deleting the node_modules folder and
+  package-lock.json file, then running npm install again. If that
+  doesn't work, ask on Ed with the exact error message.
+- "I don't have a smartphone" — You can use an emulator (Android
+  Studio's emulator or Xcode's simulator on Mac). Ask on Ed and we'll
+  help you set one up. You can also use Expo Snack, an online editor
+  that includes a phone simulator in the browser. We'd still like you to
+  get a simulator locally installed, but this might work in a pinch.
+
+Questions? Ask on Ed, attend office hours, or email the instructor.
+Consult the course AI usage and collaboration policies on the course
+homepage.
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science

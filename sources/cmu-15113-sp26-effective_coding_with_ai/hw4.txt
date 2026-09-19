@@ -1,0 +1,246 @@
+HW4: Backend + Frontend
+
+CMU 15-113: Effective Coding with AI
+
+← Back to Course Overview Requirements Instructions Tips
+
+Due Date: Sat. 2/14 at 8:00 PM
+Time Estimate: ~3 hours
+Deliverables: Backend code on Render + frontend code on GitHub + brief
+form response
+
+Assignment Overview
+
+Goal: Build a simple backend service on Render.com and integrate it with
+your portfolio website or a GitHub Pages site. This assignment teaches
+you how to build server-side code that handles operations that are
+better done on the backend (like using APIs securely, storing data, or
+processing user input).
+
+Why This Matters: Many features are best implemented on the backend
+because: (1) you can keep API keys and secrets secure, (2) you can
+process and store data safely, (3) you can do computationally intensive
+work, and (4) you can validate user input before using it. This
+assignment teaches you to identify when a backend is useful and how to
+build one quickly using AI.
+
+Examples of what you might build:
+
+- A chatbot on your website that talks to an AI (e.g., a character
+  version of yourself or a famous person) using OpenAI or Claude API
+- A form that saves data to a database
+- A page that fetches data from an API that requires authentication
+- A tool that processes user input in some way (e.g., translates text,
+  generates images, analyzes sentiment)
+
+See the course website for an example: check out this Carnegie Chat
+example, which uses a Python backend on Render to power an AI chatbot.
+
+Tutorial: Watch this first!
+
+Ein Fehler ist aufgetreten.
+
+JavaScript kann nicht ausgeführt werden.
+
+This video walks through the steps for getting an example up and running
+on Render. We strongly recommend you watch this first so that you can
+see what steps you should take, and so that you can get some inspiration
+for how to prompt for what you need. Your code will be different, so
+focus on capturing the main ideas, and refer back to HW3 for help with
+APIs.
+
+Requirements & Scoring
+
+What You Must Submit
+
+- Backend code deployment: A public Render deployment link to your
+  running backend service. (Note: If you wish to use a different service
+  like Vercel, that's ok too, though we will be best equipped to help
+  you with Render.)
+- Backend code on GitHub: A new public repository containing your
+  backend code (Python using Flask or FastAPI is recommended) along with
+  your readme and prompt log described below. Note that this repository
+  is different from the repository you will use for your frontent.
+  - README: In your backend repo, add a README that briefly explains:
+    - What your backend does (what endpoints it has, what parameters it
+      accepts, what it returns)
+    - How the frontend communicates with the backend (which endpoints it
+      calls, when, and what it does with the response)
+    - How to set up and run the backend (including any environment
+      variables or API keys needed locally)
+    - How authentication or secrets are handled (e.g., API keys stored
+      on the backend, not in frontend code)
+  - Prompt log: In your backend repo, add a short note (in README or
+    PROMPT_HISTORY.txt) listing which AI model(s)/tool(s) you used and
+    the key prompts that shaped implementation.
+- Frontend code deployed and on GitHub: Add your frontend code to Github
+  pages (either as a new feature on your portfolio or as a separate
+  page, like the Carnegie Chat example). This is the HTML/CSS/JavaScript
+  that communicates with your backend.
+- Portfolio: If your work is not a feature on your portfolio (i.e. if
+  it's not already directly integrated into your portfolio somehow) add
+  a link to it in your projects section.
+- Short Video: Make a short video that shows what you've created and how
+  it works (screenshare of the frontend interacting with the backend is
+  fine). This can be brief, but should contain enough information for us
+  to grade your work if we can't run it ourselves. Submit a link to the
+  video (YouTube or Google Drive with view permissions) below.
+- Google form: Fill this out with some key information, like the public
+  URL for your frontend (which might just be a link to your portfolio),
+  the repository URL for your backend, the repository URL for your
+  frontend, and the link to your video. Be sure to fill this out before
+  the deadline.
+
+Privacy and Security: Once again, do not commit API keys, credentials,
+or secrets to GitHub. Keep all secrets on the Render backend using
+environment variables or an uploaded secret file that is not in your
+repository. We will not accept submissions that expose private keys
+publicly. Watch the tutorial video for information on how to do this.
+
+Grading
+
+You'll receive full credit for submitting a working backend-frontend
+integration with clear documentation and clean communication: Your
+frontend should make requests to your backend and display the results or
+confirm that the request was handled successfully. It should handle
+errors gracefully. Focus on core functionality and clean communication
+between frontend and backend rather than UI polish.
+
+Detailed Instructions
+
+1.  Choose what your backend will do. Decide on something interesting
+    that requires server-side logic: handle authentication, process
+    data, call a third-party API securely, store information, etc.
+
+Focus on functionality: For this assignment, prioritize getting the
+backend and frontend working together over adding lots of features and
+polishing the UI or user experience. Don't spend much time on design
+details. Later in the course (Project 2), we'll bring together your
+knowledge of frontends, APIs, and backends into one really polished
+project. For that and any future work, you can either build on earlier
+assignments in this class or start fresh with an entirely new idea, as
+long as your work meets the assignment specifications.
+
+2.  Write your backend. We recommend using Python with Flask, but you
+    may also use FastAPI or another backend framework, or you may use a
+    different language altogether. Use AI tools to help you write the
+    code. Make sure your backend:
+    - Has at least one endpoint that accepts data and returns a
+      meaningful response
+    - Handles any API keys or secrets using environment variables or a
+      secret file that is not present on your repo or your frontend
+    - Returns JSON or another structured format that your frontend can
+      use
+3.  Deploy your backend to Render. Create a free account at render.com,
+    create a new Web Service, connect your GitHub repo, and deploy.
+    Render will give you a public URL (e.g.,
+    https://my-backend.onrender.com).
+4.  Write your frontend. Create an HTML/CSS/JavaScript page (on your
+    portfolio or a new repo) that:
+    - Makes requests to your backend using fetch() or another HTTP
+      client
+    - Displays the responses nicely (or provides confirmation that the
+      request was handled)
+    - Handles errors (e.g., if the backend is down or the user provides
+      bad input)
+5.  Test end-to-end. Make sure your frontend can call your backend and
+    display real results. Test error cases too (e.g., what happens if
+    the user submits an empty form).
+6.  Document everything. Write a clear README explaining what your
+    backend does, how to run it locally, how the frontend calls it, and
+    where secrets are stored.
+7.  Push both repos to GitHub (backend + frontend) and fill out the
+    Google form with your Render URL and GitHub repos before the
+    deadline.
+8.  Make your video and upload it, and fill out the google form before
+    the deadline.
+
+What is a Backend? Key Concepts
+
+A backend is a program running on a server that your frontend (website)
+can communicate with. Here are some key ideas:
+
+- Server: A computer or service that runs your code and is always
+  available to respond to requests.
+- Endpoint: A specific URL on your backend that does something (e.g.,
+  https://my-backend.onrender.com/chat).
+- Request: Your frontend asks the backend to do something by sending
+  data (usually as JSON).
+- Response: The backend processes the request and sends back a result
+  (usually as JSON).
+- Environment variables: Settings stored on the server (like API keys)
+  that your code can read but aren't in the code itself.
+- Framework: A library that makes it easy to write a backend (Flask,
+  FastAPI, Django, etc.).
+- Render: A service that hosts your backend for free (or cheap) and
+  handles all the server stuff for you.
+- CORS: A security rule that controls which websites can talk to your
+  backend. You may need to ask AI to enable CORS for your frontend to
+  communicate with your backend.
+
+When you use AI to write your backend, ask it to explain what each
+endpoint does and how to test it locally.
+
+Tips
+
+- Start simple: Begin with a single endpoint that does one thing well.
+  You can add more endpoints later if you have time.
+- Test locally first: Before deploying to Render, test your backend on
+  your laptop. Make sure it works before you push it live.
+  - Run the server locally (for example, run your backend Python file
+    and you should see an IP address show up.) While it is running
+    locally, you should be able to substitute this IP address for your
+    endpoint in your frontend .html code, and if you open your frontend
+    in the browser, you should be able to interact with the service. You
+    can also use curl as shown farther below to send very specific
+    requests to your endpoint.
+- Use environment variables: Store API keys, database URLs, and secrets
+  as environment variables or in a secret file on Render. Never put them
+  in your code. See the Render docs for how to set these.
+- Handle errors gracefully: Your backend should return helpful error
+  messages (not just crash). Your frontend should display these errors
+  to the user.
+- Remember CORS: If your frontend is on GitHub Pages
+  (https://username.github.io) and your backend is on Render, you may
+  need to enable CORS on the backend so the browser allows the requests.
+  Most backend frameworks have easy middleware for this.
+- Use the documentation: Render, Flask, and FastAPI all have good
+  documentation. Read the basics so you understand what your
+  AI-generated code is doing.
+- Ask AI to explain: After getting code from an AI model, ask it to
+  explain what each function and endpoint does so you can demonstrate
+  understanding and debug if needed.
+- Remember, Ed and OH are here to help! Even if we don't know the answer
+  to your question right away, we can probably point you in a good
+  direction.
+
+Getting Started with Render
+
+- Sign up for free at https://render.com
+- Read Render's quickstart for Python:
+  https://docs.render.com/deploy-python
+- Render has a free tier; use it for this assignment. (Note: free
+  services may take a moment to start up if idle, but that's fine for
+  learning.)
+
+Backend Framework Resources
+
+- Flask: Simple and beginner-friendly. See
+  https://flask.palletsprojects.com/
+- FastAPI: More modern, faster, and great for JSON APIs. See
+  https://fastapi.tiangolo.com/
+
+Frontend-Backend Communication
+
+- Use fetch() in JavaScript to call your backend. Example:
+  fetch('https://my-backend.onrender.com/chat', { method: 'POST', body: JSON.stringify({message: "Hello"}) })
+- Test requests locally using curl:
+  curl -X POST https://my-backend.onrender.com/chat -d '{"message":"Hello"}' -H "Content-Type: application/json"
+
+Questions? Ask on Ed, attend office hours, or email the instructor.
+Consult the course AI usage and collaboration policies on the course
+homepage.
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science

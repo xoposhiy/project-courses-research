@@ -1,0 +1,60 @@
+[] CMU 17-316/616: AI Tools for Software Development
+
+Home
+
+Overview
+
+Syllabus
+
+Teamwork Practices
+
+Staff Staff
+
+On This Page
+
+-  Instructors
+
+Assignments
+
+Assignments
+
+-  Reflection 1
+-  Reflection 2
+-  Reflection 3
+-  Reflection 4
+-  Reflection 5
+-  Reflection 6
+
+Project
+
+Project
+
+-  Project 1 Requirements Engineering
+-  Project 2 Development Specifications
+-  Project 3 Frontend Development
+-  Project 4 Backend Development
+-  Project 5 Testing
+-  Project 6 Deployment
+-  Project 7 Final Demo + Postmortem
+
+On This Page
+
+-  Instructors
+
+Staff
+
+Instructors¶
+
+[]
+
+Austin Henley
+
+mail public
+
+[]
+
+Andrew Begel
+
+mail public
+
+[] Back to top

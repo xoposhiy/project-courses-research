@@ -1,0 +1,279 @@
+HW7: Code Handoff
+
+CMU 15-113: Effective Coding with AI
+
+← Back to Course Overview Project Options Phase 1 Phase 2 Submission
+Grading Tips
+
+Phase 1 (In-Class): Wednesday in class (~30 minutes)
+Phase 2 (Out-of-Class): Due Sunday 3/22 8pm (1 hour of focused work)
+Time Estimate: ~1.5 hours total (30 min in class + 1 hour out of class)
+Deliverables: Two GitHub repositories (Phase 1 and Phase 2) with code +
+README + prompt log
+Language: All code must be in Python. You may use any Python
+animation/graphics framework you like (Pygame, CMU Graphics, Tkinter,
+etc.).
+
+Assignment Overview
+
+Goal: Experience what it's like to pick up, read, and continue someone
+else's code, and learn why clear documentation and thoughtful
+organization matter so much.
+
+Why This Matters: In the real world, you will almost never write code
+entirely from scratch in isolation. You'll join teams with existing
+codebases, inherit projects from colleagues who've moved on, and hand
+off your own work for others to maintain. The ability to write code that
+someone else can understand, and to productively navigate code written
+by someone else, is one of the most important (and most underrated)
+skills in software development. AI tools can help with both of these
+challenges, but only if you use them strategically.
+
+This assignment has two phases:
+
+1.  Phase 1 (In-Class, Wednesday): Choose one of four project options
+    (given in lecture, but not beforehand) and begin building it with AI
+    assistance. Focus on writing clean, well-commented, well-organized
+    code. After roughly 30 minutes, commit your work to GitHub and stop.
+2.  Phase 2 (Out-of-Class): Shortly after lecture, you will be emailed a
+    link to another student's Phase 1 repository. Spend at least one
+    focused hour (and not much more) attempting to understand their code
+    and advance or complete their project. You must retain at least 75%
+    of the original code. You do not need to finish the project to get
+    full points, but it should be obvious from your submission that you
+    have invested one focused and thoughtful hour of work.
+
+Please submit this google form to let us know where your repositories
+are!
+
+Modifying someone else's code is hard. It's much harder when the code is
+poorly commented, inconsistently organized, or uses confusing variable
+names. Keep this in mind during Phase 1. Someone else will be depending
+on the code you write.
+
+Project Options
+
+Choose one of the four projects listed in class. All four are designed
+to be ambitious enough that completing them in a combined ~1.5 hours is
+a meaningful challenge, but achievable if both partners write clear code
+and use AI tools well. All projects should be implemented in Python
+using any graphics/animation framework of your choice.
+
+Phase 1: Build & Document (In-Class, ~30 Minutes)
+
+On Wednesday in class, you will have approximately 30 minutes to choose
+one of the four projects above and begin building it. You are encouraged
+to use AI tools to help you write and document your code.
+
+Phase 1 Instructions
+
+1.  Choose your project.
+2.  Create a GitHub repository for your project. We recommend naming it
+    something clear, something that indicates what your project is.
+3.  Start coding! Use AI tools to help you scaffold the project,
+    generate boilerplate, and write game logic. But remember: someone
+    else will need to read this code. Prioritize clarity over
+    cleverness.
+4.  Create documentation as you go. This is critical. Add comments
+    explaining your design decisions, what each major section does, and
+    what still needs to be done. Reserve enough time in class to create
+    a README that describes the project, how to run it, what's been
+    completed, and what remains. (See the tips section for specifics.)
+5.  After ~30 minutes, stop working. Commit and push your current code
+    to GitHub, even if it is incomplete. This is expected! The goal is a
+    strong, clear starting point, not a finished game.
+6.  Submit your GitHub link via the form we will provide in class.
+
+Important: You will not continue working on your own Phase 1 code after
+class. Your Phase 1 code is your gift to another student. Make it a good
+one. After you submit your link, we will assign you a different
+student's repository for Phase 2. (Do not update your Phase 1 code or
+documentation after class until after hw7 is due, so that the next
+student can start in the correct place.)
+
+Phase 2: Continue Someone Else's Code (Out-of-Class, 1 Hour)
+
+After class, you will receive a link to another student's Phase 1
+repository. Your job is to spend one focused hour reading,
+understanding, and advancing that student's project.
+
+Phase 2 Instructions
+
+1.  Clone or download the repository you receive.
+2.  Before changing anything, make sure to commit the initial state of
+    the code you received to your own repository. This is important so
+    that we (and you) can see exactly what starting point you were
+    given. (You can fork the repo, or create a new repo and make an
+    initial commit with their unmodified code. The latter is probably
+    easiest.)
+3.  Read the code and README carefully. Try to understand the structure,
+    what has been done, and what remains. Use AI tools to help you
+    understand unfamiliar code.
+4.  Start making progress. Fix bugs, add missing features, complete
+    unfinished functions, or polish the app if it is already working.
+    Work strategically: identify what will have the most impact and
+    focus there.
+5.  You must retain at least 75% of the original code. You may
+    reorganize, refactor, add to, and fix the code, but you cannot
+    simply delete or comment out most of it and start over. The point is
+    to work with the existing code, not to replace it. (We will compare
+    your final submission against the initial commit to verify this.)
+6.  Stop soon after one hour. It's okay if the project is not complete!
+    Commit and push your final code.
+7.  Update the README to describe the following: what you changed, what
+    challenges you faced, and what you would do next if you had more
+    time.
+
+Reflection prompt: As you work through Phase 2, pay attention to what
+makes the code easy or hard to work with. Was it well-commented? Were
+variable names clear? Was the structure logical? Did the README help?
+These observations are valuable and will shape how you write code going
+forward, both for yourself and for others.
+
+Submission & Deliverables
+
+Repository Requirements
+
+You should create two separate GitHub repositories for this assignment:
+
+1.  Phase 1 Repository (the code you wrote in class):
+    - Contains your Phase 1 code and any associated files.
+    - Include a README.md at the root that includes:
+      - Which project option you chose and a brief description of what
+        you built and what you left unfinished
+      - A prompt log: which AI model(s)/tool(s) you used in Phase 1 and
+        the key prompts that shaped your work.
+2.  Phase 2 Repository (the code you received from another student, plus
+    your modifications):
+    - Important:The initial commit should contain the other student's
+      unmodified Phase 1 code, exactly as you received it. Make sure
+      this is committed before you start making changes so that we can
+      see the diff.
+    - Subsequent commits should show your modifications and additions.
+    - Include a README.md at the root that includes:
+      - Which project you received for Phase 2, what state it was in,
+        what changes you made, and what challenges you encountered
+      - A prompt log: which AI model(s)/tool(s) you used in Phase 2 and
+        the key prompts that shaped your work.
+
+Google form: Submit your repository links (both Phase 1 and Phase 2) via
+the Google form here by the deadline.
+
+Grading
+
+This assignment is graded on good-faith effort, not on whether the final
+game is complete or bug-free. The time constraints are intentionally
+tight so that you grapple with the challenges of modifying someone
+else's work.
+
+Phase 1 (50 points)
+
+We are looking for evidence that you made a genuine, focused effort to
+create a well-organized and well-documented starting point for another
+student. Your code should be structured clearly, with helpful comments
+and a README that explains how to run the project, what has been
+completed, and what still needs to be done. We expect to see roughly 30
+minutes of productive work reflected in your submission.
+
+Phase 2 (50 points)
+
+We are looking for evidence that you spent a focused hour strategically
+reading, understanding, and advancing the code you received. Your
+commits and README should show that you engaged thoughtfully with the
+existing codebase: understanding it before modifying it, making
+meaningful contributions, and documenting what you changed and why.
+
+Grading is not based on completion. You will not be penalized if the
+game or app is incomplete at the end of Phase 2. We understand that some
+students will receive better-documented starting code than others, and
+we take that into account. What matters is that you demonstrate effort,
+strategic thinking, and clear documentation in both phases.
+
+The 75% rule: We will compare your Phase 2 final code against the
+initial commit of the code you received. If we determine that you
+deleted or commented out more than 25% of the original code (rather than
+building on it), you may lose significant points. The goal is to work
+with what you've been given, not around it. Of course this means you
+need to carefully examine any changes made by AI, and we recommend
+asking AI for specific and well-defined changes. Otherwise AI may make
+large-scale deletions and changes that you may need to revert.
+
+Tips for Success
+
+Tips for Phase 1: Writing Code That Someone Else Can Actually Use
+
+- Start with structure, not features. Before writing game logic, set up
+  a clear file structure and define your main classes or functions with
+  descriptive names and docstrings. A well-organized skeleton is more
+  valuable to your partner than a tangled mess of working code.
+- Name things like a human will read them. Use playerXVelocity instead
+  of vx. Use checkBoxCollision() instead of chk(). Your partner will be
+  grateful.
+- Write a good README. Include: how to install dependencies and run the
+  code, what's been implemented so far, what still needs to be done, and
+  any design decisions you made. Think of this as a briefing for the
+  person taking over.
+- Comment the "why," not just the "what." Comments like # increment x
+  aren't helpful. Comments like
+  # Move player right; we use 5px per frame to match the jump arc timing
+  are gold.
+- Leave clear TODOs. Mark unfinished work with
+  # TODO: implement ghost AI pathfinding here. This gives your partner a
+  clear map of what still needs attention.
+
+Tips for Phase 2: Navigating Someone Else's Code
+
+- Don't start coding immediately. Spend the first few minutes reading.
+  Trace the main game loop. Identify what runs when. Understand the data
+  structures.
+- Run the code first. See what works and what doesn't before trying to
+  change anything. Make a list of what's functional and what's broken or
+  missing.
+- Work in small, testable increments. Fix one bug or add one feature at
+  a time. Making multiple changes at once is riskier and can lead to
+  unintended (and possibly unnoticed) changes.
+- Commit frequently. Make small commits with clear messages. This
+  protects your progress and helps us see your thought process.
+- Be strategic about what you tackle. With only one hour, prioritize
+  work that has the highest impact. Fixing a crash bug or completing a
+  core mechanic is more valuable than adding a nice-to-have feature.
+
+Tips for Using AI Effectively in This Assignment
+
+- You can use AI to generate documentation. One of the best uses of AI
+  in this assignment is to take code you've written and ask the model to
+  help you write clear comments, docstrings, and README content. Prompt
+  example: "Here is my Python game code. Please add clear, helpful
+  comments throughout and write a README section describing how the code
+  is organized and what still needs to be done." Make sure to manually
+  check that this documentation is accurate.
+- Use AI to understand unfamiliar code (Phase 2). When you receive your
+  partner's code, paste it into an AI tool and ask for an explanation.
+  Prompt example: "I just received this Python game code from another
+  student and need to continue building it. Can you explain how it's
+  structured, what the main functions do, and identify any bugs or
+  incomplete sections?"
+- You can use AI to plan your approach (Phase 2). Before writing any
+  code, ask AI to help you form a strategy. Prompt example: "Given this
+  code and 1 hour of time, what would be the most impactful changes I
+  could make to advance this project toward completion?"
+- Don't just vibe-code. If AI generates 50 lines of code and you don't
+  understand what they do, stop. Ask the model to explain. Break it into
+  smaller pieces. You are responsible for every line in your submission,
+  and good-faith effort means understanding what you're submitting.
+- Use AI for debugging. When something breaks, paste the error message
+  and relevant code into an AI tool. This is one of the most efficient
+  uses of AI, but read the explanation it gives rather than just copying
+  the fix blindly.
+- Log your prompts. Keep a running note of the key prompts you use. This
+  is a submission requirement and also a good personal habit. Over time,
+  you'll build a library of prompts that work well for you.
+
+Questions? Ask on Ed, attend office hours, or email the instructor.
+(Remember that Mike is out of town for most of this week though, so Ed
+is probably a better bet.) Consult the course AI usage and collaboration
+policies on the course homepage.
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science

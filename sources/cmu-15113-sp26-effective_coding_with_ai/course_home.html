@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Original layout/some wording created using Claude Sonnet 4.5, Nov 2025
+ -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-113: Effective Coding with AI | CMU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>CMU 15-113: Effective Coding with AI</h1>
+        <p class="subtitle">Spring 2026</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="#description">Description</a>
+<!--             <a href="#objectives">Learning Objectives</a>-->
+            <a href="#schedule">Schedule</a>
+<!--             <a href="#classes">Class Times</a>-->
+            <a href="#grading">Grading</a>
+            <a href="#projects">Projects</a>
+            <a href="#policies">Policies</a>
+            <a href="#resources">Tools, OH, etc.</a>
+            <a href="https://edstem.org/us/courses/91174/discussion" target = "_blank">Ed</a>
+            <a href="students.html">Student Portfolios</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div class="info-box">
+    <strong>Prerequisites:</strong> 15-112 Fundamentals of Programming and Computer Science<br>
+    <strong>Time Commitment:</strong> 6 hours/week (3 hours in class + 3 hours outside work)<br>
+    <strong>Semester:</strong> Spring 2026<br>
+    <strong>Instructor:</strong> Mike Taylor (mdtaylor at andrew.cmu.edu)<br>
+</div>
+
+<!-- <div class="info-box">
+<strong>Note: The specific details of the course are still VERY subject to change!</strong><br>
+The general description and themes shouldn't change much, but the schedule, policies, and assignments
+will continue to take shape until the start of the course. 
+</div> -->
+
+
+
+<h2 id="description">Description</h2>
+<p>
+    This application-focused course will teach students how to effectively combine intermediate programming skills with contemporary AI tools to enhance their software development workflow. Students will explore the capabilities and limitations of current AI coding assistants, experiment with prompt engineering, and collectively develop standards for maintaining code quality, transparency, and ethical integrity in AI-augmented workflows. The course will also feature seminars from AI experts in industry and academia. Through weekly coding projects, students will rapidly build complete applications while balancing creative problem-solving with rigorous quality assurance. A collaborative approach emphasizes peer learning, with students sharing discoveries and contributing to evolving best practices for prompting and evaluating AI-generated code, ensuring proper attribution, and establishing transparent development protocols. These projects are also designed to jump-start students' portfolios for future employment. By completion, students gain practical development experience with AI tools and will contribute to evolving best practices for future courses, learning from both instructors and peers' experiences with these rapidly advancing technologies.
+</p><br>
+<p>
+    <span class="emphasis">Course Goals:</span> By completion, students gain practical development experience with AI tools and will contribute to evolving best practices for future courses, learning from both instructors and peers' experiences with these rapidly advancing technologies.
+</p>
+
+<h2>The Portfolio Approach</h2>
+
+<p>
+    For your first major assignment, you'll build a personal portfolio 
+    website using AI (even if you have no prior experience with HTML or web development). <ul><li><strong>Make it:</strong> Throughout the semester, you'll use your creativity and technical strengths along with AI to build a variety of projects using the strategies and tools we discuss in class.</li>
+    <li><strong>Get feedback:</strong> You'll submit these projects for review and critique by adding them to your portfolio.</li> 
+    <li><strong>Take it with you:</strong> By the end of the semester, you'll have a complete online showcase of your AI-augmented 
+    development skills.</li></ul></p>
+<p>Add your work from other courses and projects and you'll be able to show off your best work for future internships, jobs, and graduate school applications.
+</p>
+
+
+<div class="video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/MSJrWGHEhcU?si=dIfpWEv52azf0puK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p class="video-caption"></p>
+</div>
+
+<div class="note">
+    This video shows some of the excellent projects students created during Spring 2026. <b>You can find more of their work <a href="students.html">here</a>!</b> This course jumps into AI-assisted programming from Day 1. We'll alternate between class discussions and regularly building cool stuff, with the goal of finishing the semester with refined strategies for using AI effectively and responsibly.
+</div>
+
+<h2>Guest Lectures</h2>
+<p>
+    Throughout the semester, we'll host <strong>guest lectures from experts</strong> in computer science, 
+    software engineering, and machine learning/AI research. These engineers and researchers will share:
+</p>
+<ul>
+    <li><strong>How they use AI tools in their daily work</strong> (coding, debugging, communication, and research)</li>
+    <li><strong>Real-world applications and case studies</strong> from their organizations</li>
+    <li><strong>Challenges and limitations</strong> they've encountered with AI-assisted development</li>
+    <li><strong>Where they see the technology heading</strong> and how it will shape our careers</li>
+    <li><strong>Advice for students</strong> entering the field in the AI era</li>
+</ul>
+<div class="note">
+    <strong>Tentative Schedule:</strong> The schedule of topics presented below is tentative, and may shift to accommodate our guest lectures. Specific dates and 
+    speakers will be announced as confirmed. Ideally these will mostly occur during class time, though occasionally we may have optional presentations outside of our normally-scheduled sessions. 
+</div>
+
+<h2 id="objectives">Learning Objectives</h2>
+<p>
+    <span class="emphasis">AI as Force Multiplier:</span> Modern AI tools can be very powerful, but to use them effectively requires us to combine the speed and generative capabilities of AI with our critical thinking and problem-solving skills. This course teaches you how to strategically leverage AI tools to enhance your productivity and versatility
+    while maintaining code quality and strong ethical standards.
+</p><br>
+<p>At the end of the course, students should be able to:</p>
+<ul>
+    <li><strong>Build ambitious projects faster</strong> by using AI tools strategically while maintaining code quality</li>
+    <li><strong>Evaluate AI-generated content critically</strong> for correctness, security, performance, and maintainability</li>
+    <li><strong>Choose appropriate AI tools</strong> based on task requirements, tool capabilities, and project constraints</li>
+    <li><strong>Navigate ethical considerations</strong> including bias, privacy, authorship and attribution, environmental impact, and responsible use</li>
+    <li><strong>Articulate a personal framework</strong> for when and how to use AI in software development</li>
+</ul>
+
+<h2>Ethics Discussions</h2>
+<p>Ethics discussions will include the following topics:</p>
+<ul>
+    <li>AI training data and representation</li>
+    <li>Intellectual property with AI-generated code</li>
+    <li>Accessibility and inclusive design</li>
+    <li>Security ethics and disclosure</li>
+    <li>Privacy and data collection</li>
+    <li>Environmental impact of AI systems</li>
+    <li>Algorithmic bias</li>
+    <li>Job displacement and adaptation</li>
+    <li>Professional responsibility</li>
+    <li>Personal ethical frameworks</li>
+</ul>
+<p>Please email Mike if you have ideas for additional topics that would be of interest!</p>
+
+<h2 id="staff">The 15-113 Team</h2>
+<div class="staff-container">
+    <div class="staff-member">
+        <img src="images/mdtaylor.jpg" alt="Faculty" class="staff-photo">
+        <h3><a href="mailto:mdtaylor@andrew.cmu.edu">Mike Taylor</a></h3>
+    </div>
+    <div class="staff-member">
+        <img src="images/tshakeel.jpg" alt="Head TA" class="staff-photo">
+        <h3><a href="mailto:tshakeel@andrew.cmu.edu">Taha Shakeel</a></h3>
+    </div>
+    <div class="staff-member">
+        <img src="images/nghazi.jpg" alt="Teaching Assistant" class="staff-photo">
+        <h3><a href="mailto:nghazi@andrew.cmu.edu">Nazanin Ghazi</a></h3>
+    </div>
+    <div class="staff-member">
+        <img src="images/alexche3.jpg" alt="Teaching Assistant" class="staff-photo">
+        <h3><a href="mailto:alexche3@andrew.cmu.edu">Alex Chen</a></h3>
+    </div>
+    <div class="staff-member">
+        <img src="images/mzj.jpg" alt="Teaching Assistant" class="staff-photo">
+        <h3><a href="mailto:mzj@andrew.cmu.edu">Michelle Jiang</a></h3>
+    </div>
+</div>
+
+<h2 id="schedule">Topic List and Schedule</h2>
+
+<div class="table-container">
+<table>
+    <thead>
+        <tr>
+            <th style="width: 10%">Week</th>
+            <th style="width: 25%">Mon 12:30pm-1:50pm</th>
+            <th style="width: 25%">Wed 12:30pm-1:50pm</th>
+            <th style="width: 20%">Assignments</th>
+            <th style="width: 20%">Cool Stuff</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td colspan="5" class="phase-header">
+            PHASE 1: TOOLS AND EXPLORATION (Weeks 1-4)
+        </td>
+    </tr>
+    
+    <tr>
+        <td><span class="week-title">Week 1</span><br>1/12-16<br>AI Intro Bootcamp</td>
+        <td><a href="lec1.pdf" target="_blank">Lecture 1 Slides</a><br>Welcome & First Build<br>• Course intro<br>• Course ethos<br>• Useful Tools</td>
+        <td><a href="lec2.pdf" target="_blank">Lecture 1+2 Slides</a><br>Building your Portfolio<br>• <a href="project1.html">Project 1</a> description<br>• HTML crash course<br>• "My First Webpage"</td>
+        <td><strong>HW1:</strong><br><a href="https://forms.gle/DzWPyE8Zg17QLabL7" target="_blank">Intro Survey</a><br>(due Fri 1/16 8pm)<br><strong>Start <a href="project1.html">Project 1</a></strong></td>
+        <td><a href="https://docs.google.com/document/d/19dzs0fms0RIMBOSR_jBEuCcZPb0OQQ7XnheptPycWFY/edit?usp=sharing" target="_blank">Guide: Project 1 setup</a><br>
+            <a href="https://docs.google.com/document/d/13o1PkbUQiBx6jRxmok-9IcSSaaR3RyU--sryZ_VRd7Y/edit?tab=t.0" target="_blank">Guide: Github branches</a></td>
+    </tr>
+
+
+    <tr>
+        <td><span class="week-title">Week 2</span><br>1/19-23<br>AI Intro Cont'd</td>
+        <td>No Class: M.L. King Jr. day</td>
+        <td><a href="lec3.pdf" target="_blank">Lecture 3 Slides</a><br>HW1 survey results<br>Github Copilot<br>Project 1 work time</td>
+        <td><strong><a href="project1.html">Project 1</a></strong><br>(due Sun 1/25 8pm)</td>
+        <td><a href="https://tshakeel05.github.io/" target="_blank">Project 1 Example: Taha</a></td>
+    </tr>
+
+ 
+    
+    <tr>
+        <td><span class="week-title">Week 3</span><br>1/26-30<br>Core prompting strategies</td>
+        <td><a href="lec4.pdf" target="_blank">Lecture 4 Slides</a><br>Tetris 3 ways<br>• Naive prompting<br>• Plan-Adjust-Execute<br>• Detailed prompts</td>
+        <td><a href="lec5.pdf" target="_blank">Lecture 5 Slides</a><br>More prompting strategies<br>• Tetris debrief<br>• More games</td>
+        <td><strong>HW2:</strong><br><a href="hw2.html">Crossy Road</a><br>(due Sat 1/31 8pm)</td>
+    </tr>
+
+    <tr>
+        <td colspan="5" class="phase-header">
+            PHASE 2: STRATEGIC MASTERY (Weeks 4-7)
+        </td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 4</span><br>2/2-6<br>Getting started with APIs</td>
+        <td><a href="lec6.pdf" target="_blank">Lecture 6 Slides</a><br>Project 1 debrief<br>• Discussion<br>• Highlights<br>Intro to APIs</td>
+        <td><a href="lec7.pdf" target="_blank">Lecture 7 Slides</a><br>HW2 debrief<br>More API examples<br>Build a chatbot in Python</td>
+        <td><strong>HW3:</strong><br><a href="hw3.html">Explore an API</a><br>(due Sat 2/7 8pm)</td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 5</span><br>2/9-13<br>Server-side development</td>
+        <td><a href="lec8.pdf" target="_blank">Lecture 8 Slides</a><br>HW3 debrief<br>• Discussion<br>• Highlights<br>Backend basics<br>HW4 ideation</td>
+        <td><a href="lec9.pdf" target="_blank">Lecture 9 Slides</a><br>Ethics overview<br>HW4 work period</td>
+        <td><strong>HW4:</strong><br><a href="hw4.html">Frontend + Backend</a><br>(due Sat 2/14 8pm)</td>
+        <td><a href="carnegie-chat.html" target="_blank">Simple AI Carnegie</a><br><a href="lotl-chat.html" target="_blank">Simple AI Kimchee</a></td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 6</span><br>2/16-20<br>AI, Labor, and Learning</td>
+        <td><a href="lec10.pdf" target="_blank">Lecture 10 Slides</a><br>HW4 debrief<br>Project 2 introduction<br>Discussion: AI and Labor</td>
+        <td><a href="lec11.pdf" target="_blank">Lecture 11 Slides</a><br>Reading discussion<br>Project 2 work period</td>
+        <td><strong>HW5:</strong><br><a href="https://bit.ly/4tkIl81" target="_blank">Read this</a> and <strong>one</strong> of the three stories to the right --><br>(due Mon 2/23 in class)<br><strong><a href="project2.html">Project 2</a></strong><br>(due Sat 2/28 8pm)</td>
+        <td><a href="https://www.gutenberg.org/files/59112/59112-h/59112-h.htm" target="_blank">Rossum's Universal Robots</a><br>
+            <a href="Asimov-Isaac-I-Robot.pdf" target="_blank">The Evitable Conflict</a><br>
+            <a href="Asimov-Isaac-I-Robot.pdf" target="_blank">Runaround</a></td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 7</span><br>2/23-27<br>Broader Issues</td>
+        <td><a href="lec12.pdf" target="_blank">Lecture 12 Slides</a><br>AI in Sci-Fi<br>Project 2 work period</td>
+        <td><!--a href="lec13.pdf" target="_blank">Lecture 13 Slides</a><br--><strong>Special Guest: Prof. Illah Nourbakhsh</strong><br>on Ethics and AI</td>
+        <td><a href="project2.html"><strong>Project 2</strong></a><br>(due Sat 2/28 8pm)</td>
+        <td><a href="pacdog.html" target="_blank">Pac-Dog</a></td>
+    </tr>
+
+    <tr>
+        <td colspan="5" class="phase-header">
+            SPRING BREAK (3/2 - 3/6)
+        </td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 8</span><br>3/9-13<br>Databases</td>
+        <td><a href="lec14.pdf" target="_blank">Lecture 14 Slides</a><br>Introduction to databases and SQLite</td>
+        <td><!--a href="lec15.pdf" target="_blank">Lecture 15 Slides</a><br--><strong>Special Guest: Kian Nassre</strong><br>on Why AI+SQL is Hard</td>
+        <td><strong>HW6:</strong><br><a href="hw6.html">SQLite App</a><br>(due Sun 3/15 8pm)</td>
+        <td><a href="https://github.com/mtaylor-create/sqliteBasics" target="_blank">SQLite examples</a></td>
+    </tr>
+
+
+    <tr>
+        <td><span class="week-title">Week 9</span><br>3/16-20<br>Case Studies</td>
+        <td><a href="lec16.pdf" target="_blank">Lecture 16 Slides</a><br>Case Studies with Alex and Taha</td>
+        <td><a href="lec17.pdf" target="_blank">Lecture 17 Slides</a><br>Project 2 Showcase with Michelle and Naz<br>Beginning Code Handoffs</td>
+        <td><strong>HW7:</strong><br><a href="hw7.html">Code Handoff</a><br>(due Sun 3/22 8pm)</td>
+        <td>(Mike is away this week!)</td>
+    </tr>
+
+    <tr>
+        <td colspan="5" class="phase-header">
+            PHASE 3: CAPSTONES AND BEST PRACTICES
+        </td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 10</span><br>3/23-27<br>The Cutting Edge</td>
+        <td><a href="lec18.pdf" target="_blank">Lecture 18 Slides</a><br>Fresh from San Diego:<br>The State of GenAI<br>Multi-Agent Workflows</td>
+        <td><a href="lec19.pdf" target="_blank">Lecture 19 Slides</a><br>More Agentic Development</td>
+        <td><strong>HW8:</strong><br><a href="hw8.html">The Agentic Build</a><br>(due Sun 3/29 8pm)</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 11</span><br>3/30-4/3<br>Phone apps</td>
+        <td><a href="lec20.pdf" target="_blank">Lecture 20 Slides</a><br>Phone apps and Expo</td>
+        <td><a href="lec21.pdf" target="_blank">Lecture 21 Slides</a><br>More phone apps<br>Dedicated installation/work time</td>
+        <td><strong>HW9:</strong><br><a href="hw9.html">Phone apps</a><br><b>(UPDATE: due WED 4/8 8pm)</b></td>
+        <td><a href="ai_in_workplace.pdf" target="_blank">Kan Devnani-<br><i>AI in the Workplace</i> slides</a></td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 12</span><br>4/6-4/10<br>Retrieval-Augmented Generation</td>
+        <td><a href="lec22.pdf" target="_blank">Lecture 22 Slides</a><br>RAG (the Taha and Mike show)</td>
+        <td><a href="lec23.pdf" target="_blank">Lecture 23 Slides</a><br>Reviewing phone apps<br>Capstone project preview</td>
+        <td>No homework this week<br>(but HW9 is due WED 4/8 8pm)</td>
+        <td><a href="https://github.com/mtaylor-create/ragDemo" target="_blank">Simple RAG demo</a></td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 13</span><br>4/13-4/17<br>Final Topics part 1</td>
+        <td><strong>Special Guest: Adhvik Kanagala</strong><br>on being a Software Engineer</td>
+        <td><a href="lec25.pdf" target="_blank">Lecture 25 Slides</a><br>The Agentic Frontier<br>• OpenClaw/ZeroClaw<br>• True Multi-Agent Teams</td>
+        <td><a href="project3.html"><strong>Project 3</strong></a><br>(Checkpoint due<br>Mon 4/20 8pm)</td>
+        <td><a href="https://github.com/mtaylor-create/teamsDemo-RPG2" target="_blank">Starfall Chronicles</a><br>(An agent teams demo, in progress)</td>
+    </tr>
+
+    <tr>
+        <td><span class="week-title">Week 14</span><br>4/20-4/24<br>Final Topics part 2</td>
+        <td><a href="lec26.pdf" target="_blank">Lecture 26 Slides</a><br>• Starfall update<br>• How does GenAI work?</td>
+        <td><a href="bestPractices.html" target="_blank">Best Practices and Lessons Learned</a><br>• What next?<br>• Project work time</td>
+        <td><a href="project3.html"><strong>Project 3</strong></a><br>(due<br>Thu 4/23 8pm)</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+<h2 id="grading">Grading</h2>
+
+<div class="table-container">
+<table>
+    <thead>
+        <tr>
+            <th style="width: 40%">Component</th>
+            <th style="width: 15%">Weight</th>
+            <th style="width: 45%">Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Homework (about 10)</td>
+            <td>20%</td>
+            <td>Mostly smaller, weekly projects.  Grading based on evidence of effort, due Fridays</td>
+        </tr>
+        <tr>
+            <td>Participation</td>
+            <td>20%</td>
+            <td>Includes attendance, contribution to discussions and critiques/code reviews, and good collaboration</td>
+        </tr>
+        <tr>
+            <td>Big Projects (about 3)</td>
+            <td>40%</td>
+            <td>Weeks 10-14, ~12-15 hours total</td>
+        </tr>
+        <tr>
+            <td>Exams/Quizzes</td>
+            <td>20%</td>
+            <td>Infrequent quizzes + 2 exams. These will mostly ask you to reflect on tools and strategies we have discussed.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<h3>Letter Grades</h3>
+<p>
+    A: [90-100], B: [80-90), C: [70-80), D: [60-70), R: [0-60)
+</p>
+
+<div class="note">
+    <strong>Grading Philosophy:</strong> This course emphasizes effort, growth, and understanding over 
+    perfection. Grades reflect engagement with the material, demonstration of learning, and thoughtful 
+    use of AI tools. Code doesn't need to be production-perfect, but you must understand it and be 
+    able to explain your choices.
+</div>
+
+<h2 id="projects">Projects</h2>
+(Note that Projects 2 and 3 are especially tentative and subject to change)
+
+<div class="project-card">
+<h3><a href="project1.html">Project 1: Personal Portfolio Website (Weeks 1-2)</a></h3>
+<p><strong>Goal:</strong> Build a professional portfolio website to showcase your work—using AI to learn web development from scratch</p>
+<p><strong>Time:</strong> ~4 hours outside class, over two weeks</p>
+<p><strong>Context:</strong> Most students have never built a website before. This project teaches you to use AI as a learning tool to master new domains (HTML, CSS, JavaScript) while creating something immediately useful.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+    <li><strong>About Me</strong> section with bio, photo, interests, skills</li>
+    <li><strong>Projects</strong> section with showcases (start with placeholders—you'll add real projects throughout the semester!)</li>
+    <li><strong>Contact</strong> section with email, GitHub, LinkedIn, or contact form</li>
+    <li><strong>Responsive design</strong> that works on desktop, tablet, and mobile</li>
+    <li><strong>Professional appearance</strong> with clean, modern design</li>
+    <li><strong>Optional: At least one interactive feature</strong> using JavaScript (animations, dark mode, etc.)</li>
+    <li><strong>Deployed and live</strong> via GitHub Pages</li>
+</ul>
+<p><strong>Deliverables:</strong> Live URL, GitHub repo, informal reflection (don't use AI to write this part or do the thinking for you)</p>
+<div class="note"><strong>Important:</strong> Throughout the semester, you'll add each new project to your portfolio. By Week 14, you'll have a complete showcase of your work!</div>
+</div>
+
+<div class="project-card">
+<h3><a href="project2.html">Project 2: Creative Web App (Weeks 6-7)</a></h3>
+<p><strong>Goal:</strong> Build a complete, deployed web application</p>
+<p><strong>Time:</strong> ~6 hours outside class, over two weeks</p>
+<p><strong>Requirements:</strong> Should include at least one and ideally two of the following: Frontend-backend communication, API usage with authorization, databases, 
+    data analysis/visualization, rich interactivity, computer vision or ML.  See project writeup for more details.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+    <li>Task manager with sharing</li>
+    <li>Recipe collection with search</li>
+    <li>Fitness tracker with graphs</li>
+    <li>Study group organizer</li>
+    <li>Book club with reviews</li>
+    <li>Personal finance tracker</li>
+    <li>An online game using computer vision or AI</li>
+</ul>
+<p><strong>Deliverables:</strong> Deployed application with live URL, GitHub repo, demo video, README and prompt log, posted your portfolio website. Will include midpoint checkin and final presentation.</p>
+</div>
+
+<div class="project-card">
+<h3><a href="project3.html">Project 3: The Capstone (Weeks 13-14)</a></h3>
+<p><strong>Goal:</strong> Make something extremely cool that demonstrates your technical skills and design sensibilities, while using AI effectively as part of your process. This project should be portfolio-ready.</p>
+<p><strong>Time:</strong> ~8 hours outside class, over ~2 weeks</p>
+<p><strong>Requirements:</strong> Must include at least two of the following: Frontend-backend communication, thoughtful third-party API usage with secure keys, database, Expo/React Native (phone app), substantial data analysis/visualization, rich interactivity (e.g. WebGL), or computer vision/ML. See project writeup for details.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+    <li>AI-powered study tool with intelligent features</li>
+    <li>Data visualization dashboard using real data</li>
+    <li>Mobile app solving a real problem</li>
+    <li>Multiplayer game with real-time networking</li>
+    <li>Browser extension with useful functionality</li>
+    <li>ML application with user interface</li>
+    <li>Community or campus-specific tool</li>
+</ul>
+<p><strong>Deliverables:</strong> Source code on GitHub (with README, prompt log, and reflection), live demo, short demo video, Google form submission. Includes midpoint check-in and final oral exam/presentation.</p>
+</div>
+
+<h2 id="policies">Course Policies</h2>
+
+<div class="card">
+<h3>AI Usage Policy</h3>
+<p><span class="emphasis">Philosophy:</span> Transparency and learning over restriction</p>
+
+<p><strong>Required:</strong></p>
+<ul>
+    <li>Document all significant AI usage in code comments and writeups</li>
+    <li>Explain AI-generated code in your own words</li>
+    <li>Modify and test AI suggestions, don't just copy-paste</li>
+    <li>Cite AI tools used</li>
+</ul>
+
+<p><strong>Encouraged:</strong></p>
+<ul>
+    <li>Experiment with different tools and approaches</li>
+    <li>Share successful prompts and strategies with classmates</li>
+    <li>Use AI to learn new concepts and debug</li>
+    <li>Push AI to its limits to understand boundaries</li>
+</ul>
+
+<p><strong>Not Allowed:</strong></p>
+<ul>
+    <li>Submitting AI code you can't explain reasonably well</li>
+    <li>Claiming AI-augmented work as wholly original</li>
+    <li>Any improper/missing attribution, or misrepresentation of submitted work and your process for creating it</li>
+    <li>Using AI on written exams or quizzes (except if explicitly permitted)</li>
+</ul>
+
+<div class="note">
+    <strong>Verification:</strong> The instructor may ask you to explain any part of your submitted code, 
+    your process for creating it, or possible trade-offs and alternatives.  Honesty and transparency always yields the best outcomes. 
+</div>
+</div>
+
+<div class="card">
+<h3>Collaboration Policy</h3>
+<p><strong>Highly Encouraged:</strong></p>
+<ul>
+    <li>Discuss ideas, strategies, and approaches</li>
+    <li>Debug together</li>
+    <li>Review each other's code</li>
+    <li>Share resources and prompts</li>
+    <li>Form study groups</li>
+</ul>
+
+<p><strong>Not Allowed:</strong></p>
+<ul>
+    <li>Copying code from classmates, except where explicitly allowed</li>
+    <li>Submitting identical work to independent assignments</li>
+    <li>Doing someone else's project/assignment/assessment for them</li>
+</ul>
+
+<div class="note"><strong>General guidance:</strong> If you can teach them how to do it, great! If you're just giving them the answer, or if they can't recreate the work on their own without referencing notes or the original, you aren't collaborating. Ask if you aren't sure if something counts as good collaboration.</div>
+</div>
+
+<div class="card">
+<h3>Academic Integrity</h3>
+<p><span class="emphasis">Core philosophy:</span> You must understand and be able to explain all submitted code at a reasonably high level.  More importantly, you must represent your work and your submissions with thorough transparency and proper attributions. When in doubt, ask if something is acceptable!</p>
+
+<p><strong>Violations include:</strong></p>
+<ul>
+    <li>Submitting code you don't understand at a reasonable level</li>
+    <li>Copying from others (human or AI) without attribution</li>
+    <li>Misrepresenting your use of AI tools</li>
+    <li>Other violations of the collaboration / AI use policies above</li>
+    <li>Receiving or providing any unauthorized assistance or information on quizzes or exams</li>
+    <li>Using any prohibited tools or resources on quizzes or exams</li>
+    <li>Any other form of deliberate dishonesty or misrepresentation</li>
+</ul>
+
+<p><strong>Consequences:</strong> Penalties up to course failure, reported to university</p>
+
+<div class="note"><strong>Negligence or uncertainty is not an acceptable excuse.</strong>  When in doubt: Ask! Better to ask than assume.</div>
+</div>
+
+<div class="card">
+<h3>Late Policy</h3>
+<p><strong>Homework / Mini-Projects:</strong></p>
+<ul>
+    <li>On time: 100%</li>
+    <li>1-3 days late: 80%</li>
+    <li>4-7 days late: 50%</li>
+    <li>&gt;7 days late: 0%</li>
+    <li>All late work must be submitted by the last day of class</li>
+    <li>In extenuating circumstances such as medical or family emergencies, email Mike or fill out the extension form listed below.</li>
+</ul>
+
+<p><strong>Major Projects:</strong></p>
+<ul>
+    <li>Due dates are firm to allow for presentations and peer review</li>
+    <li>Extensions only for major documented emergencies (email Mike)</li>
+    <li>Extensions must be requested BEFORE deadline whenever possible</li>
+</ul>
+
+<p><strong>Exams and quizzes:</strong></p>
+<ul>
+    <li>Extensions/excused absences for emergencies/illnesses must be requested in advance whenever possible.</li>
+    <li>Quizzes will typically be excused for emergencies. Make-up exams must be scheduled promptly.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Extensions and Excused Absences</h3>
+<p>
+    If you need an extension or an excused absence due to extenuating circumstances such as medical or family emergencies or university-related conflicts, please fill out <a href="https://forms.gle/jQ9U9ytT6a6pBCD37" target="_blank">this form</a>.
+<ul>
+    <li><strong>Please fill out the form before the deadline or class whenever possible.</strong> Extensions and excused absences will be less likely to be approved if not requested in a timely manner.</li>
+    <li>This form is just meant to streamline the process for common issues like brief illnesses, and it helps us keep track of 
+        requests.  We'll generally be pretty flexible as long as requests are relatively rare and made promptly.</li>
+    <li>If your circumstance is particularly unusual or if you need additional support, always feel free to email Mike!</li>
+</ul>
+</p>
+</div>
+
+<h2 id="resources">Tools and External Resources</h2>
+
+<h3>Required Tools (All Free for Students)</h3>
+<ul><li>
+        <strong>Python 3.12+</strong>
+        <p>Programming language. Download from <a href="https://python.org">python.org</a></p>
+    </li><li>
+        <strong>Git & GitHub</strong>
+        <p>Version control. Create account at <a href="https://github.com">github.com</a></p>
+    </li><li>
+        <strong>GitHub Copilot</strong>
+        <p>AI pair programmer. Free with <a href="https://education.github.com/pack">GitHub Student Developer Pack</a></p>
+    </li><li>
+        <strong>ChatGPT</strong>
+        <p>Conversational AI assistant. Free tier available at <a href="https://chat.openai.com">chat.openai.com</a></p>
+    </li><li>
+        <strong>VS Code</strong>
+        <p>Code editor. Download from <a href="https://code.visualstudio.com/">code.visualstudio.com</a></p>
+    </li><li>
+        <strong>Python 3.12+</strong>
+        <p>Programming language. Download from <a href="https://python.org">python.org</a></p>
+    </li></ul>
+
+<h3>Recommended Tools (Free)</h3>
+<ul>
+    <li><strong>Claude</strong> - Good for complex explanations (free tier)</li>
+    <li><strong>Cursor</strong> - Advanced IDE integration (free for students)</li>
+    <li><strong>Replit</strong> - Online collaboration (free tier)</li>
+    <li><strong>GitHub Codespaces</strong> - Cloud development environment</li>
+</ul>
+
+<h3>Course Materials</h3>
+<ul>
+    <li>Weekly guides and prompt templates (on course website)</li>
+    <li>Code examples and starter files (on GitHub)</li>
+    <li>Ethics case studies (provided in class)</li>
+    <li>Tool comparison matrices (on course website)</li>
+    <li>Best practices checklists (on course website)</li>
+</ul>
+
+<h2 id="support">Office Hours and Support</h2>
+
+<h3>Getting Help</h3>
+<ul><li>
+        <strong><a href="https://edstem.org/us/courses/91174/discussion" target = "_blank">Ed Discussion</a></strong>
+        <p>Quick questions, sharing resources, peer support, course logistics</p>
+    </li><li>
+        <strong>Instructor Office Hours</strong> in GHC 4126
+        <p>For conceptual questions, project guidance, career advice<ul>
+            <li>Monday 2:00pm-3:30pm</li>
+            <li>Thursday 12:00pm-1:30pm</li></ul></p>
+    </li><li>
+        <strong>TA Office Hours</strong> in the hall outside GHC 4126
+        <p>For debugging help, tool assistance, assignment questions<ul>
+            <li>Wednesday 5:00pm-6:00pm</li>
+            <li>Thursday 4:00pm-5:00pm</li>
+            <li>Friday 2:00pm-4:00pm</li>
+        </ul></p>
+    </li><li>
+        <strong>In Class</strong>
+        <p>Ask questions, work with peers, get immediate help.</p>
+    </li><li>
+        <strong>Email</strong>
+        <p>mdtaylor at andrew.cmu.edu<br>For private concerns, extension requests, accommodations</p>
+    </li></ul>
+
+<h3>Accommodations</h3>
+<p>
+    Students with documented disabilities should ensure that their memorandum of accommodations has been 
+    sent to 15-113 through the Office of Disability Resources portal.  Soon after we receive your 
+    memorandum, we'll contact you with additional information on how you can use these accommodations.
+    All tools and activities will be evaluated for accessibility, and alternatives 
+    will be provided as needed.
+</p>
+
+<div class="note">
+<h3 id="resources">Additional notes</h3>
+<ul><li>Original layout/some preliminary wording created with Claude Sonnet 4.5, Nov 2025. (In fact, we'll talk about this process in week 1!)
+</li>
+<li>Some course policies adapted from <a href="https://www.cs.cmu.edu/~112/" target = "_blank">CMU 15-112. F25</a> 
+</ul>
+</li>
+
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+        <p style="margin-top: 8px;">This course is designed for post-15-112 students with strong Python programming foundations.</p>
+    </div>
+</footer>
+
+</body>
+</html>

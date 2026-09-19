@@ -1,0 +1,210 @@
+Document Scanner Assignment
+
+- Initial submission: Friday, April 24
+- Review day: Tuesday, April 28
+- Reviews: Wednesday, April 29
+- Final submission: Friday, May 1
+
+Github Classroom: https://classroom.github.com/a/l8HTMkk-
+
+Assignment goals:
+
+- Create and manage prompts with multi-modal queries
+- Create a useful standalone application with a GUI and data persistence
+- Put the user in the loop of LLM prompting and corrections
+
+More than Text
+
+Modern Generative AI systems are capable of working with much more than
+text. They support multi-media queries and are able to “read” and “see”
+documents like PDFs and images, and extract structured information from
+them.
+
+For example, these notes show some incremental development of a program
+that takes a receipt as input and prompts various models to turn it into
+JSON output.
+
+This capability comes with some interesting consequences:
+
+- Like all other interactions with generative AI, the results are
+  nondeterministic. Run the CLI example above several times -- you will
+  see differences in the reported information from the receipt on each
+  run. In addition, different models report different results.
+- Sourcing authentic test data can be more work. It's not obvious how to
+  create many examples of images or PDFs for the program, while
+  deploying an application that uses this functionality may end up
+  seeing a wide variety of inputs from users. It's not obvious what the
+  full scope of evaluation is; one solution is to put the user in the
+  loop of determining correctness for their own usage.
+
+Document Scanning Application
+
+Your task for this assignment is to pick a domain involving documents
+(receipts, transcripts, handwritten notes, chalkboard scans, screenshots
+– many options!) and write a useful application around it.
+
+Here are just a few ideas:
+
+- A receipt and expense tracking app that helps administrators in an
+  academic department manage reimbursements and expenses from student
+  organizations or research travel
+- An apartment-hunting app where you can share links or screenshots of
+  listings across many different platforms, flyers, etc. and aggregate
+  information about all the options you've seen
+- A restaurant app that scans a menu and lets a user see descriptions
+  and pictures of unknown food items (and could make suggestions based
+  on stored preferences and history)
+- A note-tracking app that allows a user to take screenshots of the
+  chalkboard or whiteboard after a class and get text-based notes and
+  organize them throughout the quarter
+- A flashcard/study app that allows a user to upload a photo or scan of
+  class handouts or lecture notes and automatically generates study
+  flashcards from the key terms and concepts. Could use evidence-based
+  techniques like spaced repetition.
+- An app for tutors and TAs that allows them to take a photo of student
+  work (e.g. their screen, which may have many windows open including
+  some code and error messages) and helps them copy or run the code in
+  another environment, as well as keep a journal of what happened with
+  different students during their office hours, author frequent issues
+  to send to their team, etc.
+- An interior design app that takes photos of a space and links to
+  products and helps the user place them in the space
+
+You may have your own – please be creative (and yes, some of these are
+adjacent to existing products!) No matter what you pick there are some
+requirements for what you build.
+
+User-facing Features
+
+The application must:
+
+- Have a GUI (we strongly recommend web-based but if you have a
+  compelling alternative, go for it).
+- Support users uploading documents. We should be able to easily try our
+  own document(s) on your system.
+- Get structured information out of the document in a way that
+  meaningfully involves a generative AI system
+- Involve the user in verifying and clarifying ambiguity in the
+  structured information, allowing the user to edit or correct it
+- Use information from user corrections to improve future extractions.
+  For example, the user might add a category of groceries or a
+  particular name for an item, and that information should propagate to
+  prompts/extractions of future documents.
+- Persist data across sessions. It should be possible to shut down and
+  come back to the system later and have data present.
+- Do some useful tasks for the user. For example, your app might:
+  - Present the information in a new or different way than the original
+    document
+  - Aggregate, summarize, or visualize data from across all the
+    documents that have been uploaded
+  - Use some of the structured information to drive another GenAI query
+    based on the structured extraction
+  - Other tasks of your own design
+
+You may enjoy seeing how far you can get on the following with an
+agent's help, but they are not required right now:
+
+- Support login, multiple users, accounts and sharing
+- Deploy it at a public-facing URL like via Heroku or Render or fly.io
+- Support languages other than English
+
+Engineering and Testing
+
+- You should have a meaningful evaluation dataset containing both
+  positive and negative examples. We will not tell you “how many” tests
+  or what is “enough” or which statistics to test. Make your own
+  argument for adequacy based on what you've learned – we are happy to
+  discuss this with you in office hours! The thoroughness of evaluation
+  can often be traded off against the usability of the user corrections.
+- The data extraction part of the system should be separately testable –
+  that is, you should be able to run example documents through the part
+  of your system that generates structured answers without starting up
+  the whole program. This should be automatable with a testing harness
+  that gives useful summarized output.
+- It should be possible to run your evaluation dataset automatically, on
+  single examples and on subsets of the full evaluation dataset, without
+  editing the program (e.g. command-line flags or config file edits).
+
+Metadata and Initial Submission
+
+As in assignment 1, you should have your code ready on Github and also
+submit it via Gradescope. You can work in pairs (including grad-ugrad
+pairs), but if you worked in a pair for assignment 1, you cannot work in
+the same pair for this assignment.
+
+For your initial submission on Friday, April 24, you should submit to
+Gradescope:
+
+- Your implementation
+- As in assignment 1
+  - 3 representative transcripts of interactions you had with agents in
+    transcripts/
+  - DESIGN.md
+  - A demo video and a README.md
+
+For Review and Final Submission
+
+For review:
+
+- Authors should prepare based on this session log template
+- Reviewers should plan to fill in this review template
+
+New Requirements
+
+You must pick one of the following extensions, where the one you pick is
+not already implemented in your project. For example, if you already
+have user accounts, you can't claim the auth extension below.
+
+Whichever you pick, implement it, and add discussion about it to
+README.md and DESIGN.md — explain what existing parts of your design had
+to change, and what didn't. If you used an agent, add the relevant
+transcript to transcripts/. Add FEEDBACK-RESPONSE.md as before for
+responding to your reviewers.
+
+- Privacy Concerns Limit New Markets: You've released your application
+  and users are loving it. Revenue has started to trickle in, Github
+  stars are rising. But there's a problem. You have excited users in
+  organizations like Acme Inc. who would love to pay per user for your
+  product, but they refuse because of concerns about persisting their
+  documents to your storage.
+
+  Your leadership team decides you need to ship a version that does not
+  persist documents to meet the needs of this new userbase (and revenue
+  stream). Adapt your application to:
+
+  - no longer store documents on the backend
+  - allow existing users to delete any stored documents without losing
+    the structured extracted data
+  - allow users to permanently delete any extracted data upon making
+    corrections
+
+- Power Users Demand Power Features: You've released your application
+  and several well-known influencers have shared it. They are power
+  users, making videos and tutorials on how to 10x your life using
+  <your app name here>. There's a consistent theme across their reviews:
+  they are tired of uploading documents one at a time.
+
+  The ask is clear: there needs to be a batch mode where users can
+  upload multiple documents at once and have a useful workflow for
+  managing the corrections across the whole uploaded set. Adapt your
+  application to:
+
+  - Have a new UI endpoint that accepts multiple documents
+  - Have some UI for guiding or tracking the user through all of them
+    (analogies like an “inbox” or “queue” supporting incremental work
+    with “uncorrected” state could be useful here)
+
+- Internal App Becomes the Business: You developed your app for internal
+  company use, skipping steps like creating user accounts or putting
+  authorization checks in front of sensitive data. The CEO now wants to
+  pivot the company to it, since the company's main product — an
+  AI-agent version of the original Yo — isn't catching on.
+
+  You need to add authentication/authorization and user accounts so that
+  the app can be deployed to other businesses and eventually to the
+  public. Adapt your application to:
+
+  - Require some kind of login (username/password, OAuth, passkey)
+    before any access to documents or extracted data
+  - Store all data in a per-user fashion, so different users'
+    corrections and feedback into prompts are managed separately

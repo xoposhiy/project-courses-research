@@ -1,0 +1,177 @@
+Source: https://www.eomag.io/article/stanford-mihail-eric
+Saved: 2026-09-18
+
+What the Junior Developer Crisis Reveals About the Future of Software Engineering 
+
+ 0 
+
+ Raise Report Inside Hacker Houses Founder Focused The Thinking Mode Behind The Scenes 
+ About us 
+
+ Sign in 
+
+ 1 . Key Highlights: 2 . Lesson 1: What Is Happening to Junior Software Engineers? 3 . Lesson 2: How Top 1% AI-Native Engineers Orchestrate Agents 4 . Lesson 3: Functional Software vs. Incredible Software 
+
+ 2 
+
+ Mar 04, 2026
+ What the Junior Developer Crisis Reveals About the Future of Software Engineering
+
+ An interview with Mihail Eric, an Adjunct CS Lecturer at Stanford & Head of AI at Monaco
+
+ The Thinking Mode
+
+ Jessica Lee
+ Editor
+
+ Jiyoon Lim
+ Producer
+
+ Chanwoo Lim
+ Video Editor
+
+ Table of Contents
+ 1 . Key Highlights: 
+
+ 2 . Lesson 1: What Is Happening to Junior Software Engineers? 
+
+ 3 . Lesson 2: How Top 1% AI-Native Engineers Orchestrate Agents 
+
+ 4 . Lesson 3: Functional Software vs. Incredible Software 
+
+ We’re seeing the rise of the AI-native engineer, someone who builds with AI at the core of their workflow. Instead of writing every line of code, a single developer can coordinate multiple agents to draft, review, test, and research. But more agents don’t automatically mean better results; without clear roles and oversight, systems become chaotic. Those who can orchestrate multiple AI systems well are operating at a very high level and that ability is quickly becoming a defining advantage. 
+
+ Mihail leads AI at an early-stage startup in San Francisco and teaches what may be Stanford's most in-demand new course: The Modern Software Developer. It's the first class focused entirely on AI across the software development lifecycle and filled up with over 100 students within hours of enrollment opening.
+
+ In this interview, Mihail breaks down: 
+ 1. Why junior engineers are facing their hardest job market ever.
+2. What separates the top 0.1% of AI-native engineers from everyone else.
+3. How to build an agent-friendly codebase before you ever touch an agent.
+4. How "functional software" and "incredible software" are different. 
+
+ Watch the full interview now on EO's YouTube channel! Below is the complete transcription of the interview. Minor edits have been made for clarity and readability. 
+
+ Download the full transcript 
+
+ Key Highlights:
+
+ "AI is really starting to make its way into every single part of how software is being done and clearly something was changing."
+
+"This particular generation of junior developers, the people that are now entering the workforce, will be the first generation of that new shift, where they have to both have good fundamentals but also know how to be fully AI-native ." 
+
+" Trying to do too much too soon . Someone will hear that Boris from Claude does 10 agents at once and think they should start doing 10 agents at once and that's the wrong outcome to emphasize."
+
+"Agents can compound errors very quickly. If an agent has one misunderstanding in the code and then sees that misunderstanding it created in step one, it can double down and create another error in step two — it magnifies it."
+
+"Taste-building happens in that last mile, where you go spend the extra work to expand the feature, make it more robust, make more things possible in the application."
+
+"That confidence, almost like arrogance, of seeing any problem and thinking software is the solution : that's one of the most powerful properties of CS developers."
+
+ Lesson 1: What Is Happening to Junior Software Engineers?
+
+ Mihail Eric : AI is really starting to make its way into every single part of how software is being done, and clearly something was changing. I've heard some pretty scary anecdotes. I was talking to someone that had just graduated from Berkeley and they were saying that they had applied to a thousand places and had only heard back from two. Not even got interviews and gone through the pipeline, really just heard back. So the reality is for a lot of junior engineers, it's very difficult to get some of these roles.
+
+ What caused this situation? Was it one thing, or did several forces collide at once?
+
+ Mihail Eric : It's an interesting time in the software ecosystem where basically three things came together in this kind of perfect storm.
+
+The first thing was that around 2021, there was a huge surge of hiring. Soon after COVID, there were just a bunch of companies that felt they needed to increase their employee count and then a lot of companies realized they had over hired. So there were massive layoffs where companies that had hired a ton of people realized they could reduce their workforce by 20–30% and it would still be okay.
+
+That was combined with the fact that the growth of the CS curriculum, the CS major nationally and internationally, has grown tremendously in the last 10 to 15 years. Since I was graduating, I think it's doubled, maybe 3x, in terms of how many CS graduates there are every year.
+
+And then the third thing was that AI became popular. For a lot of employers, they started considering: do I need to hire more people to fill my gaps, or can I just hire fewer people who are native at AI and that way cover the quota?
+
+ So what does this mean for the new generation of engineers?
+
+ Mihail Eric: This particular generation of junior developers, the people that are now entering the workforce, will be the first generation of that new shift, where they have to both have good fundamentals but also know how to be fully AI-native.
+
+ Lesson 2: How Top 1% AI-Native Engineers Orchestrate Agents
+
+ What defines an AI-native engineer?
+
+ Mihail Eric : At its core, I think the AI-native engineer is one that both has a strong foundation in traditional programming, system design, and algorithmic thinking, but is also very competent at using agentic workflows.
+
+ What's the most common mistake people make when getting started with agents?
+
+ Mihail Eric : Trying to do too much too soon. Someone will hear that Boris from Claude does 10 agents at once and think they should start doing 10 agents at once and that's the wrong outcome to emphasize. I always teach people to build it up piecemeal. 
+
+Get really good at doing one agent workflow quite well, build a complex piece of software with one agent, and then identify something else that's an isolated task, maybe a small change. Add a second agent to fix the logo, and maybe a third to update the copy on the header. These are isolated changes that have nothing to do with each other. Iteratively add more work for the agents, make sure you understand what has to be done, know where the lines are between those items of work, and when you're feeling good about how one agent is doing something, then add a second one.
+
+ What's the second key skill for orchestrating multiple agents?
+
+ Mihail Eric : Knowing how to context switch. In practice, what you're doing is kicking off these eager, savvy interns, the agents, and they're doing a thing while you're watching them in the terminal or the IDE. Sometimes they get stuck. How do you go from one to another while still understanding what each one was working on and meaningfully push each task forward?
+
+ That switching is probably one of the core skills of getting multi-agent workflows to work really well. And what I've described is basically what makes a good human manager. If you can do that task really well, you'll also be a very good human manager and the people I've seen best at this are the ones who've already managed human developers and learned how to do that context switching.
+
+ You talk about "agent-friendly codebases". What does that mean?
+
+ Mihail Eric : If an agent was released into your codebase, would it know how to understand what's happening there? There are a few things that matter.
+
+First, tests. When you release an agent to build in the context of your codebase, the way you ensure they won't break something is they test against your tests, which are contracts that define the correctness of software. Agents can only operate on explicitly defined contracts. If you don't have enough test coverage, you don't have contracts.
+
+Second, consistency between your README and your code. Any developer who's been in the industry knows that READMEs get out of date almost immediately. If your code says one thing and your README says something completely different, the agent won't know which to follow. Make sure they're consistent.
+
+Third, consistent design patterns. If there's one part of your codebase where you create a certain object using one API, and another part where you create the same object using a different API, an agent won't know which to use and honestly, neither would a human walking into that codebase for the first time.
+
+ What about spaghetti code, how does that happen with agents?
+
+ Mihail Eric : Spaghetti code typically happens when an agent has gone on and built something over multiple iterations, multiple features, and it just starts going off the rails. One bad thing agents are really good at is compounding errors very quickly. If an agent has one misunderstanding in the code, and then it sees that misunderstanding it created in step one, it can double down and create another error in step two — it magnifies it.
+
+The most important thing is making sure that the first thing the agent sees is completely robust and airtight in terms of design, testing, the build, all of the core parts of the codebase before you even think about the agent.
+
+ Lesson 3: Functional Software vs. Incredible Software
+
+ What separates functional software from truly incredible software?
+
+ Mihail Eric : One version of the answer is just taste. What is good software taste? And genuinely, there are people that have taste and people that don't, or people that spend more time developing it.
+
+When I look at the students in my class, the difference starts to arise when someone already hits 100% on the requirements but still wants to keep going, not because they want the grade, but because they're invested in building the most complex thing because they want to solve a problem. That taste-building happens in that last mile, where you go spend the extra work to expand the feature, make it more robust, make more things possible in the application. 
+
+The students that did the best are literally now building startups around their projects because they see something there and they're rolling with it. The class ended, but they're still working on the same thing because they think there's more to build. That's how the top engineers think.
+
+ How important is experimentation in becoming AI-native?
+
+ Mihail Eric : Experimentation is the name of the game. One example that comes to mind is when Boris from Claude Code came to speak. Even a team like Anthropic, building such an amazing piece of software, basically rewrites Claude every week or two using Claude. They are constantly rewriting their own software with software they've built. They themselves are figuring things out as they go, experimenting and constantly iterating based on feedback from their users.
+
+What I tried to reinforce in students was: I can come here and give you suggestions, say you should try this tool, here's what I think is good about it, but at the end of the day, you have to beat your head against the wall a little bit yourself. You have to experiment, see what works for you and what doesn't, and really make that a part of the new way of doing software development.
+
+ With AI automating so much, why do we still need junior engineers?
+
+ Mihail Eric : Senior developers historically tend to be a little resistant to AI tools because they're so ingrained in their own way of doing things. They've been developing for 20 years and think the only way to do something is the way they've always done it.
+
+Someone coming to the industry for the first time is like a sponge. Everything is possible for them. All of the things that are difficult about industries and verticals, they haven't internalized yet. They're not scarred by how hard healthcare is, for example. They just see a problem and think, why don't I go try and do it? There's a good naivety to how young people think, which is perfect for a startup founder.
+
+ Can junior engineers actually compete in this new landscape?
+
+ Mihail Eric : I think they can succeed in ways that senior developers cannot. The people learning these skills for the first time end up being the most nimble and the fastest at using them. Even if it's becoming harder to get employed in the traditional sense, those who embrace these skills will have an edge.
+
+ What is software development fundamentally teaching people?
+
+ Mihail Eric: Fundamentally, what you're teaching with software is how to think about building a complex system using digital means, and how to use algorithms to solve that system. It's almost more like math than CS. You're teaching someone how to think, because so much of the CS profession is breaking things up, seeing how things work, fixing things, expanding on them, and iterating.
+
+Developers are a lot more willing to customize things, to fix things when they don't work, to say "why did this happen, let me get into the internals." That confidence, almost like arrogance of seeing any problem and thinking software is the solution: that's one of the most powerful properties of CS developers.
+
+ # AI & Work # AI Education # Dev Tools # Jobs & Skills 
+
+ 2 
+
+ 2 
+
+ Join the 1.5M+ founders inbox
+to get the latest updates.
+
+ Explore more
+
+ San Francisco, California 
+
+ mag@eoeoeo.net 
+
+ Copyright ©2026 EO STUDIO All rights reserved.
+ Registration on or use of this site constitutes acceptance of our Terms of Service and Privacy Policy .
+
+ San Francisco, California 
+
+ mag@eoeoeo.net 
+
+ Copyright ©2026 EO STUDIO All rights reserved.
+ Registration on or use of this site constitutes acceptance of our Terms of Service and Privacy Policy .

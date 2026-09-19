@@ -1,0 +1,366 @@
+Notes: (1) Future entries are tentative and subject to change. Please
+check back often. (2) Slides (here) and recordings (in Panopto) will be
+posted after class. Recordings are not always available depending on the
+class material and recording technology. (3) Weekly project-team status
+reports (due Weds by 11:59pm) are not listed on the calendar.
+
+Date
+
+Topic and Slides
+
+Materials
+
+Assignments
+
+Week 1
+
+01/05/2026
+
+Course overview [Slides]
+
+Read: Course project
+
+Project proposal (due Mon 01/12/26 11:59pm)
+
+01/06/2026
+
+Proposal group formation and working time [Slide]
+
+Signup your proposal group (due today 11:59pm)
+
+01/07/2026
+
+Software development lifecycles (SDLs) [Slides]
+
+Read: Traditional SDLs and Agile ("Philosophy" section);
+Read: Agile Alliance: What is Agile - include the linked pages
+describing the Agile Manifesto , 12 Principles , Pair Programming and
+Test Driven Development
+
+01/08/2026
+
+Project proposal working time
+
+01/09/2026
+
+SDLs, scrum and teams [Slides]
+
+Read: Learn Scrum (and github support)
+
+Week 2
+
+01/12/2026
+
+Requirements and use cases [Slides]
+
+Read: Eliciting requirements (p 83-91, rest optional)
+Read:Use cases-1 and Use cases-2
+Read: User scenarios
+
+01/13/2026
+
+Project pitches - set 1
+
+Reference: Proposals folder (Canvas)
+
+Presentation order posted in Ed
+Register your project preferences (due Thurs 1/15/26 by 11:59pm)
+
+01/14/2026
+
+Project pitches - set 2
+
+01/15/2026
+
+Project pitches - set 3
+
+01/16/2026
+
+Version control and git [Slides]
+
+Reference: Git and Github git cheat sheet
+Read: Feature branches
+
+Be available on Ed for preference questions (if asked, answers due today
+11:59pm)
+
+Week 3
+
+01/19/2026
+
+No class - Martin Luther King day
+
+01/20/2026
+
+Projects announced and team meetings start [Slide]
+
+Project teams (in Canvas)
+
+Requirements and development plan (due Tues 01/27/26 by 11:59pm)
+
+01/21/2026
+
+In-class team activity: requirements and specifications (due during
+class)
+
+Reference material: Canvas folder
+
+01/22/2026
+
+Project meetings [Slide]
+
+01/23/2026
+
+In-class exercise: git pull requests
+
+Read: About pull requests (GitHub)
+Read:Creating a github pull request (Ernst)
+Read: The Unwritten Guide to pull requests (Atlassian)
+
+git pull-requests in-class exercise (due today by 11:59pm)
+
+Week 4
+
+Project status reports start (due Weds by 11:59pm)
+
+01/26/2026
+
+Architecture [Slides]
+
+Read: 10 Common Software Architecture Patterns
+Optional: 5 Essential Software Architecture Patterns
+
+01/27/2026
+
+Team meetings
+
+01/28/2026
+
+Design [Slides]
+
+Read: Introduction to Design Principles
+Read (intro and categories), reference (specific patterns): Design
+Patterns for Humans
+Read: SOLID Design Principles
+
+Architecture and design (due Tues 02/03/26 by 11:59pm)
+
+01/29/2026
+
+Project meetings
+
+01/30/2026
+
+In-class exercise: code reviews [Slides]
+
+Read: How to do code reviews like a human
+Reference: Google code review guide
+
+Code reviews in-class exercise (
+
+due today by 11:59pm
+
+)
+
+Week 5
+
+02/02/2026
+
+Continuous build, integration, deployment [Slides]
+
+Read: GitHub: What is CI/CD
+Read: Amazon: What is devops
+Read: Microsoft: What is devops
+Read: Understanding GitHub Actions
+
+02/03/2026
+
+Team meetings
+
+02/04/2026
+
+Software testing [Slides]
+
+Read: Software Testing Basics
+
+Testing and continuous integration (due Tues 02/10/26 by 11:59pm)
+
+02/05/2026
+
+Project meetings
+
+02/06/2026
+
+In-class exercise: git-bisect
+
+Read: Debugging with git-bisect
+
+git-bisect in-class exercise (
+
+due today by 11:59pm
+
+)
+
+Week 6
+
+02/09/2026
+
+Software testing part 2 [Slides]
+
+Read: Code Coverage Testing in Software
+Read: Discover MC/DC Coverage
+Reference: Code Coverage at Google
+
+02/10/2026
+
+Team meetings
+
+02/11/2026
+
+Industry guest speaker - Tanvi Tiwari, Meta [Slides]
+
+Talk will not be recorded
+
+Attendance required to individually submit your guest speaker learning
+(due today by 11:59pm)
+Beta release (due Tues 02/17/26 by 11:59pm)
+
+02/12/2026
+
+Project meetings
+
+Signup for a Beta demo time: Signup sheet
+
+02/13/2026
+
+In-class exercise: code coverage
+
+Reference: JaCoCo and Intro to JaCoCo
+
+Code coverage in-class exercise (due today by 11:59pm)
+
+Week 7
+
+02/16/2026
+
+No class - Presidents day
+
+02/17/2026
+
+Team meetings
+
+02/18/2026
+
+Beta release presentations - group 1
+
+Presentation Schedule
+
+Gamma release (due Tues 02/24/26 by 11:59pm)
+
+02/19/2026
+
+Beta release presentations - group 2
+
+02/20/2026
+
+Beta release presentations - group 3
+
+Week 8
+
+02/23/2026
+
+Intellectual property [Slides]
+
+Read:A dev's guide to Software Licensing
+
+02/24/2026
+
+Team meetings
+
+02/25/2026
+
+Study time, no class (use class-time to study for exam)
+
+Extended office hours 12:30-2:20 in CSE1 212 for any specific questions
+
+Peer project review (due Tues 03/03/26 by 11:59pm)
+
+02/26/2026
+
+Project meetings
+
+02/27/2026
+
+Exam (in-class)
+This exam is closed book. You may refer to one page of handwritten notes
+(one side of an 8.5x11 paper).
+
+Reference: Old Exams
+
+Week 9
+
+03/02/2026
+
+Industry guest speaker - Nathan Sjoquist, Microsoft [Slides]
+
+Talk will not be recorded
+
+Attendance required to individually submit your guest speaker learning
+(due today by 11:59pm)
+
+03/03/2026
+
+Team meetings
+
+03/04/2026
+
+In-class activity: UI/UX design jeopardy
+
+Final release (due Tues 03/10/26 by 11:59pm)
+
+03/05/2026
+
+Project meetings
+
+03/06/2026
+
+In-class exercise: AI coding
+
+AI coding in-class exercise (due today by 11:59pm)
+
+Week 10
+
+03/09/2026
+
+Drive to final release (use class-time for team meetings)
+
+Signup for a demo time
+
+03/10/2026
+
+Team meetings
+
+03/11/2026
+
+Final release demos - set 1
+
+We expect students to attend all demo presentations to support and learn
+from each other
+
+Individual reflection (due MONDAY 03/16/26 by 11:59pm)
+
+03/12/2026
+
+Final release demos - set 2
+
+03/13/2026
+
+Final release demos - set 3
+
+Finals Week
+
+03/16/2026
+
+No classes: finals week
+
+Individual reflection due today, Monday, 11:59pm

@@ -1,0 +1,118 @@
+CMSC 398Z - Effective use of AI coding assistants and agents
+
+Planned assigned readings
+
+There will be assigned readings each week. The following are some of the
+readings that will be assigned in the first part of the semester.
+
+- week 1: (due Sept 12th)
+
+  - NYTimes How Do You Teach Computer Science in the A.I. Era?
+  - The Fly Blog - My AI Skeptic Friends Are All Nuts
+  - Harper Reed - An LLM Codegen Hero's Journey
+  - optional: How AI Coding Agents Will Change Your Job
+
+- week 2: How people are coding with AI tools (due Sept 19th)
+
+  - Harper Reed - My LLM codegen workflow atm
+  - Simon Willison - Here's how I use LLMs to help me write code
+  - Decoder - Why tech is racing to adopt AI coding
+
+- Teaching coding wih AI tools - Leo Porter @ UCSD
+
+  - In This Era of AI, Will Everyone Be a Programmer?
+  - CS1-LLM: Integrating LLMs into CS1 Instruction
+
+- How Google is using AI coding tools
+
+  - AI in software engineering at Google: Progress and the path ahead
+  - What do professional software developers need to know to succeed in
+    an age of Artificial Intelligence?
+    - Read sections 1 and 5, skim rest of paper
+    - or listen to NotebookLLM summary (coming)
+  - How much does AI impact development speed? An enterprise-based
+    randomized controlled trial
+    - Read Sections 1, 3, 7 and 8, skim rest of paper
+    - or listen to NotebookLLM summary (coming)
+
+- Impact of AI on the broader undergraduate curriculum
+
+  - Asking AI for a website of the Catalog of Ships by Ethan Mollick
+  - Will the Humanities Survive Artificial Intelligence? | The New
+    Yorker
+  - What Happens After A.I. Destroys College Writing? | The New Yorker
+
+Confirmed topics for first part of semester
+
+We are continuing to evolve the course and the field is rapidly
+changing. We have fairly high confidence in this part of the schedule:
+
+- Intro & Purpose
+- Setting the stage and configuring your computer
+  - Python
+    - lists, dictionaries, tuples
+    - library management, version compatibility, using uv
+    - doctest and unittest
+  - VSCode
+  - csv files, dataframes and databases
+  - json
+  - git basics
+  - markdown
+  - Additional useful background reading: https://missing.csail.mit.edu/
+- Using GitHub Copilot in VSCode
+  - GitHub slash commands: /explain, /fix, /doc
+  - Autocomplete
+  - Chat
+  - Prompt and context engineering for software development
+  - Planning and documenting design decisions
+  - Concerns about correctness and security of generated code
+- Building software that uses LLMs
+  - Simon Willison - Building software on top of Large Language Models,
+    (offered at PyCon)
+  - Structured output & constrained generation
+  - Run Your Own AI – AnthonyLewis.com
+  - Security and prompt injection
+    - The lethal trifecta for AI agents
+- When AI generated code passes all test cases, what else matters?
+  - Maintainability
+  - Software architecture, API design
+  - Efficiency and scalability
+  - Security
+  - Solving the right problem
+
+Likely additional topics
+
+We will likely cover most of the following topics, but the order of
+topics and the precise set of tools for each topic are subject to
+change. As the schedule firms up, topics will be moved to the above
+list.
+
+- Other coding models
+  - Cursor ai
+  - Claude code
+  - Google announces Gemini CLI: your open-source AI agent
+- Other ways to access LLMs
+  - Google AI studio
+- Using AI tools with continuous integration, commit hooks, code reviews
+  - git branching, forking and pull requests
+  - Continuous integration, commit hooks
+  - code reviews
+  - GitHub Copilot agent
+  - Asynchronous coding agents and AI code reviews
+    - Gemini Jules
+    - OpenAI codex
+    - LangChain
+    - Code Rabbit
+- Vibe coding, and environments that allow you to use AI to create and
+  deploy web applications.
+  - Claude artifacts
+  - Google AI studio
+  - GitHub Sparks
+
+Additional topics that might be covered
+
+We may cover the following topics:
+
+- AI assistants for UI/UX
+- MCP
+- agents tool use

@@ -1,0 +1,83 @@
+# Lecture slides, week8-mon, CS146S Fall 2025 (text extracted from the Google Slides PDF export on 2026-09-18; images not included)
+
+--- slide 1 ---
+The Modern Software 
+Developer
+CS146S Stanford University, Fall 2025Mihail Eric
+themodernsoftware.dev
+--- slide 2 ---
+Automated UI and App 
+Building
+themodernsoftware.dev
+--- slide 3 ---
+This is not the “vibe coding” class
+themodernsoftware.dev
+--- slide 4 ---
+…except today
+themodernsoftware.dev
+--- slide 5 ---
+● Modern SaaS development has focused on web apps for over two decades
+Why
+themodernsoftware.dev
+--- slide 6 ---
+● LAMP
+● MERN
+● JAM
+● Serverless
+The Old Days
+themodernsoftware.dev
+--- slide 7 ---
+The Old Days
+themodernsoftware.dev
+client-side server-side database
+--- slide 8 ---
+The Old Days
+themodernsoftware.dev
+--- slide 9 ---
+The Old Days
+themodernsoftware.dev
+--- slide 10 ---
+Take #1: Visual Low-code/No-code
+ ● Wix
+● Squarespace
+● Webflow
+themodernsoftware.dev
+--- slide 11 ---
+The New AI World
+ ● Lovable
+● Replit
+● Vercel v0
+● Base44
+● Cursor/Claude Code/etc
+themodernsoftware.dev
+--- slide 12 ---
+What Has Changed
+● Prompt your way to a fully fledged app
+● Engineers are becoming more cross-functional
+○ Design
+○ Product management
+● Anyone can build an app now
+○ More user-friendly than 1st generation no-code platforms like Webflow, Wix, Squarespace
+themodernsoftware.dev
+--- slide 13 ---
+Let’s Make An App Right Now
+themodernsoftware.dev
+--- slide 14 ---
+App Builder Architecture
+themodernsoftware.dev
+WebContainer
+--- slide 15 ---
+App Builder System Prompt
+themodernsoftware.dev
+--- slide 16 ---
+Limitations
+● Everything is awesome when it works but once things break we’re back at 
+square 1
+● Prompts are just suggestions. Not every user understands that
+● Security has been an issue in the past
+● How do we prevent all these apps from looking the same?
+● How complex can these apps realistically get?
+themodernsoftware.dev
+--- slide 17 ---
+themodernsoftware.dev
+Questions?

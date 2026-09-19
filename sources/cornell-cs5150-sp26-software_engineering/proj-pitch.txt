@@ -1,0 +1,49 @@
+Project pitch
+
+Overview
+
+Propose an exciting new feature or enhancement to an existing software
+system. You may choose any internal project from 5150 or an external
+project. The feature must be non-trivial, should not have been
+implemented before, and should be feasible to implement within the time
+constraints of the course with a 4-5 person team. The pitch should not
+propose building a new system from scratch. It must be adding a feature
+to an existing open-source software system, ideally with a user
+interface (UI/UX) component.
+
+What to submit
+
+Submit a 1-2 page PDF on Canvas that includes the following sections:
+
+- Project title: A concise, descriptive title for your project.
+- Team members: List the current members of your team if any.
+- Abstract: A brief summary of the feature you are proposing.
+- Current state: How is this problem currently solved (if at all)?
+  Include screenshots or diagrams as necessary.
+- Proposed enhancement: Describe the feature you are proposing. Include
+  screenshots or diagrams as necessary. (You can use examples from other
+  systems)
+- Motivation: Why is this feature important? Who will benefit from it,
+  and how?
+- Technical challenges: What are the key technical challenges you expect
+  to face in implementing this feature? What key skills will you need to
+  learn or expect your team to have?
+- Risks: What are the key risks to the success of this project? How do
+  you plan to mitigate these risks?
+
+Considerations
+
+- Do not choose a project/feature that you cannot run on your system
+  (e.g., mobile apps that require specific hardware). Also consider what
+  resources your teammates may have.
+- A link to all project proposals will be shared after the deadline.
+  Please review them and rank them according to your preferences. You
+  may choose to include/exclude your own project in your rankings.
+- You may propose a project individually or as a team (up to 5 members).
+
+Project selection and assignment
+
+After submission, the course staff will review all project pitches and
+communicate acceptance or rejection of the proposed project. You will
+asked to review and rank all accepted projects. Based on your rankings
+and team preferences, we will assign teams to projects.

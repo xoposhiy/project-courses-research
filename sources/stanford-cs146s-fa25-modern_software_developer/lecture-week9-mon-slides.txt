@@ -1,0 +1,124 @@
+# Lecture slides, week9-mon, CS146S Fall 2025 (text extracted from the Google Slides PDF export on 2026-09-18; images not included)
+
+--- slide 1 ---
+The Modern Software 
+Developer
+CS146S Stanford University, Fall 2025Mihail Eric
+themodernsoftware.dev
+--- slide 2 ---
+themodernsoftware.dev
+Guest Lecture - 11/21/25
+Member of Technical Staff Resolve
+Milind Ganjoo
+CTO of Resolve
+Mayank Agarwal
+--- slide 3 ---
+AI DevOps
+themodernsoftware.dev
+--- slide 4 ---
+● Monitoring software systems in production remains a mission-critical task
+○ Coding represents just 30 percent of engineering time
+○ Harder 70 percent is running that code in production where complexity, 
+tool silos, knowledge gaps, and interdependencies all collide
+● Managing production often requires laborious software triaging handled by 
+SREs
+Why
+themodernsoftware.dev
+--- slide 5 ---
+themodernsoftware.dev
+--- slide 6 ---
+The Old World
+● Responsibilities of SRE
+○ Operational monitoring
+■ on-call, troubleshooting, infrastructure management and security
+● Incident resolution involves piecing together info from many different sources 
+and teams
+● Maintain oftentimes outdated runbooks for how to resolve issues
+● Shift to cloud-native architectures with containerized workloads and 
+Kubernetes has introduced more data, dependencies, and complexity across 
+systems
+● SREs often get burned out due to on-call shifts
+themodernsoftware.dev
+--- slide 7 ---
+Principles of Infrastructure and DevOps 
+● Four golden signals of monitoring
+○ Latency
+○ Errors
+○ Traﬃc
+■ Requests/sec
+○ Saturation
+● Monitor production traces
+themodernsoftware.dev
+--- slide 8 ---
+themodernsoftware.dev
+At 3:12 am you get a ping from PagerDuty 
+that you’re seeing a spike in 500s on your 
+database queries. What do we do?
+--- slide 9 ---
+A Potential Playbook
+● Acknowledge and assess
+● Check DB + app
+● Identify recent changes
+● Localize blast radius
+● Execute mitigations
+● Stabilize + monitor
+● Communicate
+● Document
+themodernsoftware.dev
+--- slide 10 ---
+themodernsoftware.dev
+--- slide 11 ---
+Metrics Tracked
+● Mean-time-to-repair (MTTR)
+● How many engineers are pulled into incident
+● Reported SLA for customers
+themodernsoftware.dev
+--- slide 12 ---
+The New AI World
+● Resolve AI (guest lecture 11/21)
+● DataDog Bits AI Agent
+● Splunk Observability Assistant
+themodernsoftware.dev
+--- slide 13 ---
+Characteristics of an AI SRE
+● Dynamic mapping of a knowledge graph
+● Agentic system across observability stack and clouds
+● Generates real-time narratives of what is happening, pinpoints likely root 
+causes with supporting evidence, and recommends prescriptive remediation 
+steps
+● Heavy emphasis on explainability and auditability of predictions/reasoning
+themodernsoftware.dev
+--- slide 14 ---
+themodernsoftware.dev
+--- slide 15 ---
+What Has Changed
+themodernsoftware.dev
+● AI promises to scale out organizational and service level knowledge 
+○ Information is not siloed to the only engineers who know the 
+undocumented dependencies, brittle legacy services, and quirks that only 
+surface during high-stakes incidents.
+--- slide 16 ---
+What Has Changed
+themodernsoftware.dev
+● Automation reduces review time and catches issues early
+● Developers learn best practices through AI suggestions
+● AI applies the same standards across all code reviews
+● AI handles routine checks, letting humans focus on complex logic
+● AI systems improve over time with more data
+● modern AI code review tools go deeper, offering contextual analysis and 
+pattern recognition
+--- slide 17 ---
+Let’s See AI SRE in Action
+themodernsoftware.dev
+--- slide 18 ---
+Limitations
+themodernsoftware.dev
+● Complexity of incidents that can be resolved
+● Heterogeneity of modern production stacks
+● Ability to remediate actual code based on what has been detected
+○ Eventual goal though all providers are starting with root cause analysis
+● Good root cause analysis requires good monitoring gardening
+● Security could be a new attack vector
+--- slide 19 ---
+themodernsoftware.dev
+Questions?

@@ -1,0 +1,251 @@
+Final Project
+
+Like to see some of last year’s final projects?
+
+- Ideas
+- Combining Courses
+- Specifications
+  - Proposal
+    - What to Do
+  - Status Report
+    - What to Do
+  - Implementation
+    - How to Submit
+      - Step 1 of 2
+      - Step 2 of 2
+
+The climax of this course is its final project. The final project is
+your opportunity to take your newfound savvy with programming out for a
+spin and develop your very own piece of software. So long as your
+project draws upon the course’s lessons, the nature of your project is
+entirely up to you, albeit subject to the staff’s approval. You may
+implement your project in any language(s) as long as the staff approves.
+You are welcome to utilize any infrastructure, provided the staff
+ultimately has access to any hardware and software that your project
+requires. All that we ask is that you build something of interest to
+you, that you solve an actual problem, that you impact campus, or that
+you change the world. Strive to create something that outlives this
+course.
+
+Inasmuch as software development is rarely a one-person effort, you are
+allowed an opportunity to collaborate with one or two classmates for
+this final project. Needless to say, it is expected that every student
+in any such group contribute equally to the design and implementation of
+that group’s project. Moreover, it is expected that the scope of a two-
+or three-person group’s project be, respectively, twice or thrice that
+of a typical one-person project. A one-person project, mind you, should
+entail more time and effort than is required by each of the course’s
+problem sets. Although no more than three students may design and
+implement a given project, you are welcome to solicit advice from
+others, so long as you respect the course’s policy on academic honesty.
+
+Extensions on the final project will not be granted.
+
+Ideas
+
+Here are just some of the possibilities. Discuss any and all with the
+the staff! And if you’d like to solicit collaborators for an idea you
+have, do post in Ed!
+
+- a web-based application using JavaScript, Python, and SQL
+- an iOS app using Swift
+- an Android app using Java
+- a Chrome extension using JavaScript
+- a command-line program using C
+- a hardware-based application for which you program some device
+- a web-based application using Node.js
+- a game using Lua with LÖVE
+- …
+
+Combining Courses
+
+If taking some other course this semester that has a final project, you
+are welcome and encouraged to combine this course’s project and that
+course’s project into one, toward an end of applying lessons learned in
+CS50 to some other field, so long as the joint project satisfies this
+course’s and that course’s expectations. Before pursuing a joint
+project, though, you must disclose to both courses and receive approval
+from both courses.
+
+Apple Vision Pro
+
+Interested in using the Apple Vision Pro for your final project? We’d
+love to hear your ideas!
+
+Due to limited availability, students interested in developing for
+Vision Pro must first submit a short proposal.
+
+Want some inspiration? Check out the following:
+
+- Immersive and Interactive Stories for Apple Vision Pro
+- Creative Storytelling for Apple Vision Pro Immersive Video & Audio
+
+These presentations explore:
+
+- Creative ideas for Apple Immersive Video
+- Designing for spatial interaction
+- Using SharePlay to help people connect
+- Best practices for immersive audio and video
+- Insights from developers and creators like TARGO, BlackMagic,
+  ColorFront, SpatialGen, and Anton Tamy (director of The Weeknd’s Open
+  Hearts immersive music video)
+
+If you’d like to be considered for Vision Pro access, please indicate
+your interest via this form.
+
+Specifications
+
+Extensions on the final project are not granted, except in cases of
+emergency.
+
+Proposal
+
+Gradescope will not permit you to upload your proposal until
+2025-11-10T16:15:00-05:00.
+
+due by 2025-11-17T23:59:00-05:00
+
+The proposal is your opportunity to receive approval and counsel from
+the staff before you proceed to design.
+
+The staff will either approve your proposal or require modifications on
+your part for subsequent approval. Your proposal, even if approved, is
+not binding; you may alter your plan at any point, provided you obtain
+the staff’s approval for any modifications. Projects submitted without
+approval may not receive credit.
+
+What to Do
+
+1.  Go to CS50’s Gradescope page.
+2.  Select Final Project: Proposal.
+3.  Answer all questions therein.
+
+If you are collaborating with other students, it is incumbent on one
+member of the group to submit on behalf of everyone in the group (and
+everyone in the group is responsible for confirming they have a
+submission on file by the deadline). See these instructions to add group
+members to your Gradescope assignment submission.
+
+Status Report
+
+Note that there is no late deadline for this assignment!
+
+due by 2025-11-25T23:59:00-05:00
+
+Not only is the status report intended to keep the staff apprised of
+your progress, it is an opportunity to keep yourself on track.
+
+What to Do
+
+1.  Go to CS50’s Gradescope page.
+2.  Select Final Project: Status Report.
+3.  Answer all questions therein.
+
+If you are collaborating with other students, it is incumbent on one
+member of the group to submit on behalf of everyone in the group (and
+everyone in the group is responsible for confirming they have a
+submission on file by the deadline). If unsure how to add Group Members
+to your submission, follow the instructions from Gradescope.
+
+Implementation
+
+Gradescope will not allow you to upload your final implementation until
+after the Status Report deadline has passed.
+
+due by 2025-12-07T23:59:00-05:00
+
+Ultimately due are implementation and documentation of your final
+project. Your submission thereof must include all of the below.
+
+1.  Documentation for your project in the form of a Markdown file called
+    README.md. This documentation is to be a user’s manual for your
+    project. Though the structure of your documentation is entirely up
+    to you, it should be incredibly clear to the staff how and where, if
+    applicable, to compile, configure, and use your project. Your
+    documentation should be at least several paragraphs in length. It
+    should not be necessary for us to contact you with questions
+    regarding your project after its submission. Hold our hand with this
+    documentation; be sure to answer in your documentation any questions
+    that you think we might have while testing your work.
+2.  A “design document” for your project in the form of a Markdown file
+    called DESIGN.md that discusses, technically, how you implemented
+    your project and why you made the design decisions you did. Your
+    design document should be at least several paragraphs in length.
+    Whereas your documentation is meant to be a user’s manual, consider
+    your design document your opportunity to give the staff a technical
+    tour of your project underneath its hood.
+3.  Any and all files required to run your software (even if intended
+    for some infrastructure other than cs50.dev), including source code
+    as well as, if applicable, configuration files, Makefiles, sample
+    inputs, SQLite databases, and so forth. Needless to say, all source
+    code should be thoroughly commented.
+4.  A short video (that’s no more than 3 minutes in length) in which you
+    present your project to the world, as with slides, screenshots,
+    voiceover, and/or live action, ideally with you yourself appearing
+    in the video. Your video should somehow include your project’s
+    title, your name and year, your dorm/house and concentration, and
+    any other details that you’d like to convey to viewers. See CS1710’s
+    tips on how to make a “screencast” though you’re welcome to use a
+    phone or actual camera. Upload your video to YouTube as “public” or
+    “unlisted” and include the URL of the video in your README.md file.
+
+For your final project (and your final project only!) it is reasonable
+to use AI-based software other than CS50’s own (e.g., ChatGPT, Claude,
+Copilot, Gemini, et al.), but the essence of the work must still be your
+own. You’ve learned enough to use such tools as helpers. Treat such
+tools as amplifying, not supplanting, your productivity.
+
+How to Submit
+
+If your project requires (for execution and testing) hardware or
+software other than that offered by VS Code, be sure that the the staff
+are aware of and have approved your project’s needs.
+
+Step 1 of 2
+
+We recommend you upload your project at least once, prior to 11:00 PM
+ET. Even if you make a subsequent upload later, at least you have a
+submission on file if something goes wrong with the upload at the last
+minute.
+
+1.  Download a ZIP file of your final project by running
+    zip -r project.zip * within your project’s folder in VS Code. Find
+    the project.zip file in the file browser and right-click to choose
+    Download. (If you created your final project outside of VS Code, you
+    should still create a ZIP file of the project folder.)
+2.  Go to CS50’s Gradescope page.
+3.  Select Final Project: Implementation.
+4.  Drag and drop your ZIP file to the area that says “Drag & Drop”.
+5.  Click “Upload”.
+
+Trouble uploading to Gradescope? (e.g. due to large file count/large
+file size) Gradescope does have a soft file size limit when uploading
+(if it times out, Gradescope will reject it). We recommend your ZIP be
+no larger than 15MB if at all possible; you can probably help trend it
+in this direction by, if needed, omitting any large assets like images
+and any datasets that your project requires. At an absolute minimum, and
+only if none of the above options work, you may upload your README.md
+and DESIGN.md file to Gradescope, so long as your README.md includes a
+link to your code files publicly accessible on, e.g., Google Drive,
+Dropbox, GitHub (not to be edited after the deadline!), etc.
+
+You should see a message that says “Final Project: Implementation
+submitted successfully!”
+
+If you are collaborating with other students, it is incumbent on one
+member of the group to submit on behalf of everyone in the group (and
+everyone in the group is responsible for confirming they have a
+submission on file by the deadline). If unsure how to add Group Members
+to your submission, follow the instructions from Gradescope.
+
+Step 2 of 2
+
+All members of your group should complete the below! (Or just you, if
+you worked individually!)
+
+Submit this form!
+
+This last form is on the longer side, so no worries if you start it
+before the deadline but finish a bit after.
+
+And that’s it; you’ve finished. This was CS50!

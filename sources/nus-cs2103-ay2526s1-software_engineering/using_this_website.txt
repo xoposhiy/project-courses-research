@@ -1,0 +1,397 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+Course OverviewCourse Expectations
+
+Using this Website 
+
+The Weekly Schedule Page is your main source of information for
+CS2103/T. You will need to refer to it weekly. For an overview of the
+full semester's schedule, refer to the Full Timeline page.
+
+More details for the upcoming weeks will be added as the weeks progress.
+In general, information given for more than 1 week into the future
+should be treated as tentative.
+
+Browser compatibility
+
+Most of this will work on most mainstream Browsers, although some pages
+might not work well in small-screen devices.
+
+Information layers
+
+We try to layer information so that readers have the freedom to omit
+less important layers if they wish to. Some 'layering' techniques used
+are explained below:
+
+More important information are in bold or highlighted while less
+important information are dimmed or in collapsed panels such as the
+below.
+
+Some less important info in a minimized panel
+
+Some less important info in a boarder-less panel
+
+------------------------------------------------------------------------
+
+Some less important info in a panel
+
+------------------------------------------------------------------------
+
+You can use the button in a panel to open it as a new tab (it can be
+expanded in-place too). This feature is available only for panels
+containing another full page of the website (i.e., not available if the
+panel contains an extract of a page). e.g.,
+
+A panel that can be opened as another tab
+
+------------------------------------------------------------------------
+
+Tabs indicate alternative content (e.g., video vs text). You can choose
+the one you like and ignore the other tabs.
+
+Some textual description of X
+
+------------------------------------------------------------------------
+
+Video describing X
+
+------------------------------------------------------------------------
+
+Dotted underlines indicate (activated by hovering over it) and dashed
+underlines indicate modal windows (activated by clicking) containing
+additional information.
+
+the topic levels system indicates the progression of contents from
+basic/relevant topics to advanced/less-relevant topics. Open the panel
+below to see more details of that system.
+
+Admin Course Expectations → Topic Levels
+
+Conventions used
+
+Shorthand headings
+
+Meaning of some shortened headings:
+
+- What : the meaning of the concept in concern (example)
+
+- Why : the motivation behind the concept in concern (example)
+
+- How : the usage of the concept in concern (example)
+
+- When : the pros and cons of the concept in concern, when to use the
+  concept (example)
+
+Meaning of icons
+
+: additional info
+: warning
+: positive message
+or : important message
+: error or danger to avoid
+or : tip
+: definition or topic
+extra : tangential info, can be ignored if not interested
+: learning outcomes
+: examples
+: resources
+: exercises
+: printable version
+: preview/more info
+: video
+>_ : a command to be run in a terminal
+: textual description
+: slides
+: output produced by running code
+question without answer
+question with answer
+
+: tasks to do
+: lecture/briefing
+: tutorial
+: deadline
+
+Searching for keywords
+
+Use the search box in the top navigation bar to search for keywords in
+the website pages. If you cannot find the content related to a keyword,
+let us know by posting in the forum so that we can add the missing
+keyword to our search index.
+
+Saving as PDF files
+
+Follow this guide @SE-EDU/guides.
+
+Printing Textbook Content
+
+The Textbook page provides a printer-friendly and a study-friendly
+version — omitting non-examinable topics, and limiting to things more
+relevant to studying for the exam — for each chapter and the whole book
+(indicated by icon). You can use them for saving as pdf files or
+printing.
+
+Making this Website Better
+
+This website was generated using the MarkBind software developed at NUS.
+We welcome bug reports, suggestions, and contributions, to be submitted
+in the forum.
+
+Course OverviewCourse Expectations
+
+Using this Website ‎
+
+Browser compatibility‎ Information layers‎ Conventions used‎ Searching for
+keywords‎ Saving as PDF files‎ Printing Textbook Content‎ Making this
+Website Better‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

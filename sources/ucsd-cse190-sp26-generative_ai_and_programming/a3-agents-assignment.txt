@@ -1,0 +1,166 @@
+Agents Assignment
+
+- Initial submission: Friday, May 8
+- Review day: Tuesday, May 12
+- Reviews: Wednesday, May 13
+- Final submission: Friday, May 15
+
+Github Classroom: https://classroom.github.com/a/ENi36Lu9
+
+Assignment goals:
+
+- Use an agent API to provide a chat-based user interface
+- Design tools for an agent to interact with the world
+- Constrain an agent's behavior with guardrails
+- Explore how to test an agent
+
+LLMs Meet the Real World
+
+So far our GenAI systems have been pure "tokens in, tokens out": a
+prompt goes in, structured data or text comes out, and the rest of the
+program decides what to do with it. Agents extend that pattern by
+letting the LLM's output be interpreted as tool calls that the
+surrounding system then executes — running shell commands, editing
+files, calling APIs. The LLM is still "just" generating tokens; the
+agent system is what turns those tokens into actions in the world.
+
+For example, these notes walk through building an agent for interacting
+with git via natural language.
+
+This shift brings some interesting new challenges:
+
+- The same non-determinism we saw before now has real-world side
+  effects. A flaky receipt scanner produces a wrong label; a flaky agent
+  can delete your code, spend your money, or send an embarrassing email.
+  So we need to think very carefully about what the agent is allowed to
+  do without asking, what should require user confirmation, and what
+  should be disallowed entirely.
+- Testing gets trickier. There's no single "correct output" string to
+  compare against — an agent may take different paths to solve a
+  problem, and we need to be able to judge whether the solution is
+  acceptable. Moreover, agents are often expected to converse with the
+  user, which makes fully automated testing more challenging.
+
+Task and Examples
+
+Your task for this assignment is to build an agent that:
+
+- uses tools to interact with the outside world
+- is focused on one small set of tasks (do not re-implement Claude
+  Code!)
+- supports multi-turn interactions with the user
+- has guardrails that constrain its behavior
+
+Here are a few ideas to give you a sense of what we're looking for. As
+usual you are free to pick any project that satisfies the requirements
+below.
+
+- A research assistant that can search in one or more publication
+  databases (e.g. DBLP, arXiv) via their APIs, and create bibliography
+  files for you.
+- A tutor for learning UNIX terminal commands, equipped with tools for
+  inspecting the filesystem and checking that work is done correctly.
+- An agent that can pan and zoom around a map equipped with API like the
+  Google Maps API in response to text prompts to search for locations,
+  look for information on the map, and save places to your favorites.
+- A code refactoring assistant that uses the Language Server Protocol to
+  perform code refactors such as renaming variables, extracting
+  functions, and so on, in response to natural language prompts.
+- You could also add an agent-based interface to one of your past two
+  projects, turning the core functionality into an agent-based flow!
+
+Requirements
+
+- Your project should use an agent framework of some kind (e.g. the
+  OpenAI Agents SDK — don't roll one from scratch like we did in the
+  lecture notes).
+- Your agent needs to use tools to interact with something outside of
+  your program (e.g. the file system, web APIs, etc.)
+- Your agent should support multi-turn interactions with the user.
+  Multi-turn is a hard requirement because that's how real users
+  interact with agents; the single-turn focus in testing below is an
+  engineering concession to make evaluation tractable.
+- Some of your operations should come with guardrails. We expect you to
+  have three categories of operations:
+  - An operation that your agent can take safely on its own with no user
+    confirmation – reading data, making a query, etc.
+  - An operation that requires user confirmation – editing code, posting
+    a Google Maps review, performing destructive updates in git etc.
+  - An operation that is disallowed — something the agent could do using
+    its existing tools or by just generating text, but that you've
+    explicitly ruled out. The tutoring agent could simply print the
+    answer to the student; the research assistant could fabricate bib
+    entries when a search returns nothing; the UNIX command tutor could
+    try to delete files outside the directory it started in. None of
+    these should happen, even if the user asks.
+
+Engineering and Testing
+
+- You should include a test/evaluation dataset for your agent, which
+  includes:
+  - A set of tasks or scenarios that you expect your agent to be able to
+    handle.
+  - Each scenario should include an oracle or scorer that determines to
+    what extent the agent's behavior in that scenario is acceptable.
+  - For many tasks (e.g. judging a research summary's quality, or
+    whether a tutor's response was helpful) one possible practical
+    scorer is another LLM call — "LLM-as-judge". This is fine, but
+    judges have their own biases and inconsistencies, so spot-check the
+    judge's verdicts on a handful of examples before trusting it at
+    scale.
+- You can either build your own test harness to run the tests or use an
+  agent evaluation framework (like Inspect AI), as long as you have the
+  following:
+  - Reporting pass@k or another meaningful metric for each scenario
+  - The ability to inspect logs of previous runs
+  - The ability to compare different versions of your agent (e.g.
+    different models, different instructions, etc.)
+- Tests can focus on single-turn tasks. Multi-turn tasks can be tested
+  manually, or with a framework that drives the agent forward with some
+  general “proceed” responses.
+- Your README should describe your evaluation set and have a table with
+  pass@k metrics for at least two different agent configurations.
+
+A note on cost. pass@k × scenarios × configurations multiplies quickly.
+Develop and iterate against a cheap model (e.g. Haiku), and keep your
+eval set small enough that a full end-to-end run costs only a few
+dollars. You don't need hundreds of scenarios — a dozen well-chosen ones
+with n=5 trials is plenty to make the comparison meaningful.
+
+Metadata and Initial Submission
+
+As in the previous assignments, you should have your code ready on
+Github and also submit it via Gradescope. You can work in pairs
+(including grad-ugrad pairs), but you cannot pair with the same person
+you worked with on assignment 1 or assignment 2.
+
+The set of required deliverables is the same as in the previous
+assignments:
+
+- Your implementation
+- README.md that contains at least:
+  - An example interaction with your agent
+  - A description of your evaluation set and pass@k metrics for at least
+    two different agent configurations (as described in the requirements
+    above). A "configuration" could be:
+    - a different underlying model (e.g. Sonnet 4.6 vs. Haiku 4.5)
+    - a different system prompt
+    - a different toolset (e.g. with vs. without a particular tool)
+    - a different guardrail policy (e.g. with vs. without a confirmation
+      check)
+- DESIGN.md containing three important design decisions
+  - Hint: at least one of your decisions should probably be about the
+    guardrails!
+- 3 representative transcripts of interactions you had with agents in
+  transcripts/
+- A demo video
+
+For Review and Final Submission
+
+We aren't planning extra features required by us after initial
+submission for this assignment.
+
+For review:
+
+- Authors should prepare based on this session log template
+- Reviewers should plan to fill in this review template

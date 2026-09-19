@@ -1,0 +1,130 @@
+CSE 403 project: Final release
+
+Overview
+
+Finalize your product taking additional peer-review feedback into
+account and provide a demo of the final release of your system together
+with a group reflection on your project experience.
+
+Set up
+
+Work with your project team to (1) finalize your product; (2) prepare
+and present a live demo of your product and learnings; and (3) conduct a
+final project reflection/retrospective.
+
+Instructions
+
+1. Finalize your product (50%)
+
+- Complete the implementation of your product in your GitHub repository.
+  As with earlier releases, each group member must contribute to the
+  code base, demonstrate proper use of version control, and CI, and must
+  code review some contributions. Each contribution must be tested, well
+  commented, and reviewed. Fill in the Assignee field of each pull
+  request to provide clear visibility of who is the code reviewer. This
+  part of the assignment may be individually graded.
+
+- In the top-level README.md file, specify completed
+  features/functionality. Include the GitHub tag of the final release
+  (including documentation). If you used genAI to help with coding or
+  code reviews, be sure to provide attribution here.
+
+- Based on the provided instructions in the top-level README.md file,
+  anyone should be able to understand the purpose of the system and
+  easily find the user and developer documentation.
+
+- Address the feedback from the peer review comments and issues filed.
+  This release should reflect all the good software engineering
+  practices discussed during the quarter and build on those initiated in
+  your earlier releases.
+
+  Complete this in the main branch of your repository by the due date.
+
+2. Prepare and present a live demo (30%)
+
+- Demonstrate the final system and how a user interacts with it. Briefly
+  speak to your key learnings from the project.
+
+- See the instructions for a demo presentation but due to time
+  constraints, your presentation should include #1 intro, #2 demo, and
+  #6 reflection.
+
+- You will have 9 minutes, strictly enforced.
+
+  Save any slides used in the presentation as a PDF file named
+  ProjectName_FinalDemo.pdf.
+
+3. Conduct a team project retrospective (20%)
+
+As a team, provide a retrospective on the overall project. Your
+retrospective should address and reflect on the following major
+components. You should include what were the main lessons learned that
+you would take forward to your next project.
+
+- Features and cuts: Have you completed the major functionality and
+  features listed in your original requirements document? What about the
+  extra features (stretch goals) you listed? Did you add any additional
+  features during the project that were not listed in your original
+  requirements document? If you did not implement all features, why not?
+  What features did you cut to help you complete the project in time,
+  and why did you choose these to be cut?
+
+- Roles and responsibilities: What ended up being your team members’
+  roles the majority of the time? How does this differ from your
+  original expectations and specifications? Did you change how you
+  operated/interacted as a team during the quarter, to improve your
+  delivery?
+
+- Process and timeline: Was having a formal (vs ad hoc) software
+  development process useful? Did you change your software development
+  process throughout the quarter? What occupied the majority of your
+  team’s time and workload? How does this differ from your original
+  expectations and specifications? Where did you spend too much time,
+  and why? Where did you spend too little time, and why?
+
+- Testing and tooling: How much time did you spend on testing; how much
+  time did you spend on code reviews? Would you increase or decrease the
+  amount of time spent on each, and why? Did you find continuous
+  integration (CI) valuable, and why (or why not)? What would you change
+  to identify and address such issues earlier in the future?
+
+  Your project retrospective should be at most two (2) pages long. Save
+  your retrospective as a PDF file named
+  ProjectName_TeamRetrospective.pdf.
+
+Submit and present
+
+1.  Submit files for #2 and #3 to Canvas by due date.
+2.  Individually complete the form individual-status-and-contribution,
+    provided by your TA. This is a required part of each group milestone
+    assignment and contributes to your individual grade.
+
+Sign up for a demo time and plan to attend and learn from all three days
+of demos. When it is time to present, you will screen-share from zoom on
+your laptop.
+
+Clarifications
+
+- Can we use AI in this milestone? Please see the AI policy in the
+  course syllabus. You may be able to use AI tools for part of Part 1
+  (software development), but you may not use it for Parts 2 and 3.
+
+- How should we respond to peer feedback? Prioritize and address the
+  most important items first. For others, if you won’t respond to them
+  (due to they don’t align with your vision, or you don’t have time and
+  will cue them up for a future release) be sure to capture the items
+  somewhere in your github repo (e.g., file them as an issue). Future
+  developers will want to leverage this information.
+
+- Do we need slides for the presentation? The majority of your time
+  should be on the live demo. However you also are asked to briefly
+  speak to your key learnings from the project. You may want to use
+  slides to act as a backdrop for this part of your presentation.
+
+- Can you share more on the doc format of the project group
+  retrospective? The font and font size is up to you but please don’t
+  use anything smaller than Calibri 11pt. Single spaced is fine. You can
+  write shorter but no longer than 2 pages. Write meaningfully - make
+  your submission long enough to get your thoughts across. We are
+  looking for meaningful reflections and what were the main lessons
+  learned that you would take forward to your next project.

@@ -1,0 +1,13 @@
+Good team citizen (100) Needs improvement (90) Deficient (60)
+Unsatisfactory (40) No show (0)
+
+Team members: 3456
+
+                  Rated by Team member 1   Rated by Team member 2   Rated by Team member 3   Rated by Team member 4   Rated by Team member 5   Rated by Team member 6   Indiv. Avg.   Team Avg.   Grade adjustment
+  --------------- ------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------- ----------- ------------------
+  Team member 1                                                                                                                                                                                   
+  Team member 2                                                                                                                                                                                   
+  Team member 3                                                                                                                                                                                   
+  Team member 4                                                                                                                                                                                   
+  Team member 5                                                                                                                                                                                   
+  Team member 6                                                                                                                                                                                   

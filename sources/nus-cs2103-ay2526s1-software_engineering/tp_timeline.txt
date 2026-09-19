@@ -1,0 +1,399 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+tP: ExpectationstP: Constraints
+
+tP: Timeline 
+
+The tP spans ten weeks, and is to be done in breadth-first iterative
+fashion.
+
+The first portion of the tP will be spent of laying out the foundation
+for the iterations, as illustrated below. This portion of the tP is
+light because you will be doing the individual project (iP) in parallel
+during this time.
+
+[]
+
+Note: that the diagrams above show the relative size of tasks i.e.,
+smaller tasks are shown as shorter bars
+
+Week 3 Kickoff
+
+- ​
+  Form teams.
+- ​
+  Set weekly meeting times.
+
+Week 4 Set Direction
+
+- ​
+  Decide on a general direction for the project (i.e., target user
+  profile, and problem addressed).
+
+Week 5 Gather Requirements
+
+- ​
+  Gather requirements in the form of user stories.
+- ​
+  Decide which of them will go into the first version.
+
+Week 6 Define the MVP
+
+- ​
+  Decide how the MVP version of the product will look like (i.e., v1.3).
+
+The second portion of the tP is divided into multiple iterations, each
+of which is expected to produce a working version of the product by
+evolving the product delivered in the previous iteration.
+
+[]
+
+W7 Iter.1 [ Practice Iteration → v1.1 ]
+
+- ​
+  Learning outcome: Able to follow the workflow as a team.
+- ​
+  Product goal: Update some documents to match the new product
+  direction.
+- ​
+  Strategy: Practice the workflow while updating the documents.
+
+Aim to do 'just enough': Note how the Product goal (together with the
+Strategy) is simply a means to achieve the Learning outcome. Unlike in a
+real SE project, the product in the tP exists only to help you achieve
+the learning outcome. Hence, aim to do 'just enough' work on the product
+to achieve the intended learning outcome of the iteration (e.g., don't
+make features bigger than necessary) so that the tP doesn't add to your
+workload more than necessary.
+
+ W8  Iter.2 [ First Feature Increment → v1.2 ]
+
+- ​
+  Learning outcome: Able to update functional code while working in
+  parallel.
+- ​
+  Product goal: Take the first step towards an MVP by delivering at
+  least some functionality changes.
+- ​
+  Strategy: Define the smallest possible MVP (simplest versions of
+  must-have features only). Each member tries to merge at least one PR
+  that moves the product towards that MVP.
+
+ W9  Iter.3 [ MVP → v1.3 ]
+
+- ​
+  Learning outcome: Able to deliver a fully working product, on time.
+- ​
+  Product goal: Reach the .
+- ​
+  Strategy: Decide on a plan to meet the MVP delivery deadline. Reduce
+  risk by aiming for the smallest subset of must-have features.
+
+W10 Iter.4 [ Alpha Version → v1.4 ]
+
+- ​
+  Learning outcome: Able to tweak the product/project plan to match the
+  available time/resources.
+- ​
+  Product goal: Implement versions of all the features intended for
+  final release.
+- ​
+  Strategy: Add features based on priority, while maintaining a working
+  product. It is OK if the features are rough around the edges, as they
+  can be tweaked in the next iteration.
+
+W11 Iter.5 [ Release Candidate → v1.5 ]
+
+- ​
+  Learning outcome: Able to apply internal quality control.
+- ​
+  Product goal: Reach the release candidate (RC) version, ready for a
+  public beta testing (i.e., the product quality should be sufficiently
+  high e.g., no obvious bugs).
+- ​
+  Strategy: Do an internally, and refine features as necessary. Improve
+  tests, documentation, code quality.
+
+This version (i.e., v1.5) will undergo a limited beta testing (done by
+other teams) and you will receive the bug reports without any penalty.
+
+W12 Iter.6 [ Public Release → v1.6 ]
+
+- ​
+  Learning outcome: Able to put in final touches while minimizing
+  delivery risks i.e., risks of regressions or deadline overruns.
+- ​
+  Product goal: Reach the quality necessary for a public release.
+- ​
+  Strategy: Freeze features. Avoid code changes unless strictly
+  necessary.
+
+- This iteration is very short (just a few days).
+  Even minor/cosmetic changes to features are not allowed in this
+  iteration due to the feature freeze enforced.
+- This version will be subjected to an intensive peer testing (the
+  so-called practical exam). You will get credit for finding bugs in
+  others' tP deliverables and penalized for bugs found in your
+  deliverables.
+
+tP: ExpectationstP: Constraints
+
+tP: Timeline ‎
+
+Week 3 Kickoff‎ Week 4 Set Direction‎ Week 5 Gather Requirements‎ Week 6
+Define the MVP‎ W7 Iter.1 [ Practice Iteration → v1.1 ]‎  W8  Iter.2 [
+First Feature Increment → v1.2 ]‎  W9  Iter.3 [ MVP → v1.3 ]‎ W10 Iter.4 [
+Alpha Version → v1.4 ]‎ W11 Iter.5 [ Release Candidate → v1.5 ]‎ W12
+Iter.6 [ Public Release → v1.6 ]‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

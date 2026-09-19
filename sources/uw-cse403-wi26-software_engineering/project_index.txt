@@ -1,0 +1,165 @@
+Course Project
+
+The course project will provide you with hands-on software engineering
+experience, involving a team of typically 4-6 students. You will design
+and develop your product from the ground up in 9 weeks. The project is
+broken down into weekly milestones. Note that the milestone descriptions
+may be updated before they are officially assigned (see Calendar) to
+reflect current class material and discussions.
+
+- 01 Project proposal
+- 02 Requirements and plan
+- 03 Architecture and design
+- 04 Testing and continuous integration
+- 05 Beta release
+- 06 Gamma release
+- 07 Peer project review
+- 08 Final release
+- 09 Individual retrospective
+
+Each week you will submit deliverables required for each milestone,
+write reports and attend meetings -- just like in real software
+development projects. Mark your team calendar to:
+
+- Hold a weekly team meeting every Tuesday during section;
+- Submit a project milestone every Tuesday by 11:59pm;
+- Submit a weekly project status report every Wednesday by 11:59pm; and
+- Hold a weekly project meeting with your TA every Thursday during
+  section.
+
+GitHub
+
+We require that you use a GitHub (https://github.com) repository for
+version control, issue tracking, and continuous integration. This means
+that you will use Git (https://git-scm.com/) for distributed version
+control:
+
+- Git book
+- Git tutorial
+- Git quick reference (list of commands)
+- Version control concepts and best practices
+- How to create and review a GitHub pull request
+
+We recommend that you submit repository documentation as markdown files
+to become proficient in that format. Here is a good summary of the
+markdown syntax: GitHub markdown.
+
+You choose the toolset
+
+You will choose the toolset – programming languages, libraries,
+frameworks – that you use to implement your product. Regardless of your
+choice, your project must follow professional standards and best
+practices, such as separation of concerns, modularity, and abstraction;
+and use of style checking and automatic formatting.
+
+Your whole team should work together to survey, choose, understand, and
+use your tools – just like in industry. You should be or become
+comfortable with reading documentation that is sometimes incomplete or
+confusing, and with installing and using new software. These are skills
+that will stand you in good stead, no matter where your career takes
+you.
+
+You may use AI tools to assist with the coding of your group project
+milestone deliverables and for any AI-assisted features of your group
+project milestone deliverables. However you may not use AI tools for any
+other parts of the milestone deliverables. If you use AI tools (1) your
+group members must all agree to the use; and (2) you must clearly
+disclose the use in the turned-in material. See the Syllabus for more
+information on allowable use of AI in this class.
+
+Some students report that the opportunity to learn a new toolset was a
+particlarly rewarding part of CSE 403. Doing so may come with some extra
+work, however.
+
+Your team is ultimately responsible for choosing and learning these
+tools. That said, the staff wants to help you, so if you are stuck,
+please ask us! Note that we don’t know every tool or framework that you
+might choose.
+
+Revisions
+
+Each week, you will build on your work so far. Your TA will give you
+feedback. If your project suffers the same defect two weeks in a row
+(for example, you did not adequately address the TA feedback), then you
+will lose points from both submissions. Please attend to the feedback
+and improve your project.
+
+Weekly status reports
+
+Weekly status reports help to plan and reflect on tasks, and keep the
+staff and yourselves informed about your progress.
+
+1. Project status
+
+Each weekly project status report must include the following sections,
+with each section written in bullet points:
+
+- High level goal. Describe in one line the overarching goal of your
+  next release, which may take multiple weeks to achieve. Example:
+  Develop frontend to backend working software for the Beta Release,
+  showcasing feature X. This serves to keep everyone aligned with the
+  overall vision to which you're working.
+- Original goals for the week. This section should be an exact copy of
+  the last section from last week (i.e., goals from a week ago). It can
+  be empty for the first week.
+- Progress and issues. Report on progress and issues: what you did, what
+  worked, what you learned, where you had trouble, and where you are
+  blocked.
+- Questions for the product owner. List any questions for your TA to be
+  discussed in your Thursday project meeting.
+- Goals for next week. Outline your plans and goals for the following
+  week. Each bullet point should include a measurable task and a time
+  estimate (no longer than a week). We strongly recommend that you label
+  these with the student(s) who is responsible for the item, to promote
+  clarity and accountability within your team.
+
+Each weekly status report must be committed to your project git
+repository inside a top-level directory called Status Reports. Each
+weekly report should be in its own file named projectname-YYYYMMDD,
+using the date of the report, and be committed each Wednesday by
+11:59pm. We recommend using a markdown doc for your report, which is
+most popular with github, however you may use a filetype of your choice.
+
+2. Individual status and contribution reviews
+
+As part of each project milestone assignment, each team member must
+individually submit a brief individual status, indicating what they did
+and how they would rate their own contribution to the milestone, and a
+peer-review, indicating how they would rate each of their teammembers'
+contribution. A form will be provided that must be completed by the
+milestone deadline. This method of continuous feedback replaces surveys
+used in prior quarters, and allows the staff to better assist and reward
+student engagement in a timely fashion.
+
+Weekly team meetings
+
+Your team will meet at least once a week to discuss progress and issues,
+and/or work together. We have reserved Tuesday sections for this
+purpose. In-person meetings have been found most effective to past 403
+students, however you can also meet via Zoom or any other conferencing
+system if your team members agree. Successful teams often meet more than
+once per week and collaboratively write notes and define concrete action
+items.
+
+Weekly project meetings
+
+You will meet with your TA for 15 minutes during section on Thursday (or
+at another mutually agreed time). You may schedule additional meetings
+or use your TA's office hours.
+
+The course staff serves as both customer/product owner and senior
+manager. When you have a meeting with your TA, you are allowed to ask
+the TA to serve any of these roles, or even to switch roles during the
+meeting. As customer/product owner, the TA can help you to determine
+what a reasonable set of requirements are, and whether your documents
+and prototypes are compelling. As senior manager, the TA can help you to
+resolve conflicts or give suggestions about designs, teamwork, and
+tools.
+
+It is a bad idea to try to hide information from your customer/product
+owner. If things are going poorly or you are having trouble, be upfront.
+You may get good suggestions, and the customer/product owner won't feel
+blindsided if you are unable to resolve the problems on your own. It is
+a doubly bad idea to try to hide problems or conflicts from your senior
+manager. Instead, use your senior manager as a resource to help solve
+those issues.

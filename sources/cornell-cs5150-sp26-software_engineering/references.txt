@@ -1,0 +1,23 @@
+References
+
+[Glasses]
+
+Students are not required to purchase a textbook for this class; all
+required readings will be available for free in digital form. But there
+is much to learn about software engineering beyond what we can cover in
+lecture, and much of that knowledge is contained in books. Here are a
+few recommended references:
+
+Books
+
+- Software Engineering at Google. Titus Winters, Tom Manshreck, Hyrum
+  Wright. 2020.
+- Better Embedded System Software. Philip Koopman. 2010.
+- The Mythical Man-Month. Frederick P. Brooks, Jr. 1975.
+- Software Engineering, Tenth Edition. Ian Sommerville. 2015.
+- The Pragmatic Programmer, 20th Anniversary Edition. David Thomas,
+  Andrew Hunt. 2019.
+
+Online resources
+
+- Mozilla Developer Network Web Docs

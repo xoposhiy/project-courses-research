@@ -1,0 +1,304 @@
+Project 1: Personal Portfolio Website
+
+CMU 15-113: Effective Coding with AI
+
+← Back to Course Overview Getting Started Requirements Grading
+Submission FAQ
+
+Due Date: Sunday, January 25, 2026 at 8:00 PM
+Time Estimate: -4 hours
+
+Project Overview
+
+Goal: Build a professional portfolio website to showcase your work
+
+Context: Most students have never built a website before. This project
+teaches you to use AI as a learning tool to master new domains (HTML,
+CSS, JavaScript) while creating something immediately useful.
+
+Why This Matters: By the end of the semester, you'll have a complete
+showcase of your work. This portfolio will be invaluable for
+internships, jobs, and demonstrating your skills to potential employers.
+Your webpage will also be how you submit your future projects to us for
+15-113.
+
+Learning Objectives:
+
+- Learn HTML, CSS, and JavaScript fundamentals using AI assistance
+- Practice deploying websites using GitHub Pages
+- Develop skills in using AI tools effectively in unfamiliar domains
+- Create a professional online presence
+
+Project Outline
+
+Step 1: Set Up Your Development Environment
+
+Before you start coding, make sure you have:
+
+- A GitHub account (free) - you'll need this for deployment
+- A code editor like VS Code (recommended)
+- Basic familiarity with using AI tools like GitHub Copilot or ChatGPT
+  - Note: You can use browser-based AI tools like those on
+    https://chatgpt.com/, https://claude.ai/, or
+    https://gemini.google.com/, or you can use tools integrated with
+    your code editor
+  - We recommend using browser-based AI here unless you are already
+    familiar with integrated tools. You'll likely notice some
+    limitations and inconveniences from working in a limited chat
+    environment, but these are good to be aware of.
+  - Be mindful of your rate limits for whichever AI models you choose.
+    Check your usage regularly, spread out your work across a few days,
+    and be aware of when your rates reset.
+
+Pro Tip: Enable GitHub Pages on your repository from the start - it's
+easier to set up early! (We'll discuss some of this in lecture, but we
+won't always give you step-by-step instructions for each assignment, so
+you should use your resources (including but not limited to AI) to
+achieve your goals. We strongly recommend office hours if you get
+stuck.)
+
+Step 2: Plan Your Portfolio Structure
+
+Start with a simple sketch or outline of what you want your site to
+include. Here are a few example features that you will probably want,
+though you may wish to add more:
+
+- Navigation: You should have a navigation bar or other means of easily
+  traversing your page
+- Brief Introductory Section: Your name, brief intro, maybe a photo
+- About Section: More details about who you are, your interests, skills
+- Projects Section: Decide what information you want to include for each
+  project (Include a description, at least one screenshot, and a link to
+  the code when applicable)
+- Contact Section: Email, GitHub, optionally LinkedIn or any other
+  socials, maybe a contact form if you're feeling ambitious.
+
+Step 3: Build Incrementally
+
+Don't try to build and deploy everything at once. Follow this
+progression, and test locally as you go:
+
+1.  Basic HTML First: Create the basic structure and content
+2.  Styling (CSS etc.) Second: Make it look professional and responsive
+3.  (Optional) JavaScript: Add interactivity (animations, dark mode,
+    etc.)
+4.  Polish: Optimize the user experience and clean up your code
+
+Remember: Use AI to help with each step, but understand what the code
+does and modify it to fit your needs.
+
+Step 4: Deploy and Test
+
+Once you have a basic version working:
+
+- Push your code to GitHub
+- Enable GitHub Pages in your repository settings
+- Test your live site on different devices and browsers
+- Get feedback from classmates or friends
+
+Detailed Requirements
+
+Build and deploy a complete, professional portfolio website that meets
+the following requirements (at a minimum):
+
+Content Requirements
+
+- About You: Include your bio, photo, interests, and skills. Make it
+  personal and engaging.
+- Projects: Showcase your work. Start with placeholders for future
+  projects, but include this portfolio project itself.
+- Contact Information: Provide ways for visitors to reach you (email,
+  GitHub, LinkedIn, etc.)
+- Use a clean, modern design that's easy to read and navigate
+- Be sure to properly credit any sources for images or text or templates
+  you use
+
+Technical Requirements
+
+- Responsive Design: Must work well on desktop, tablet, and mobile
+  devices
+- Live Deployment: Hosted on GitHub Pages with a working URL
+- Code Quality: Code should be well-structured and readable by someone
+  with your level of experience
+
+AI Usage Requirements
+
+- Document AI Usage: Include comments in your code explaining where and
+  how you used AI
+- Understand Your Code: Be able to explain how your website works and
+  why you made certain technical choices
+- Modify AI Suggestions: Don't just copy-paste; adapt the code to fit
+  your vision
+
+Stretch goal: Add Interactive Features
+
+If you have time, consider trying these.
+
+- Attempt to add at least one JavaScript-powered feature (examples:
+  smooth scrolling, dark mode toggle, animated elements, contact form
+  validation)
+- Attempt to add an interactive code demo (for example, if you did a
+  15-112 project in CS Academy, you can get some HTML code that will
+  allow you to embed the canvas in your webpage)
+
+Important: Throughout the semester, you'll add each new project to your
+portfolio. By Week 14, you'll have a complete showcase of your work that
+you can share with future employers and applications.
+
+Grading Rubric
+
+Your project will be graded on a 100-point scale based on the following
+criteria:
+
+  -----------------------------------------------------------------------
+  Category                Description             Points
+  ----------------------- ----------------------- -----------------------
+  Required content        All of the Content      20
+                          Requirements listed     
+                          above are present and   
+                          demonstrate reasonable  
+                          effort.                 
+
+  Design & Aesthetics     Evidence of effort to   20
+                          create a a clean,       
+                          professional appearance 
+                          with consistent styling 
+
+  Technical               Valid HTML/CSS;         20
+  Implementation &        responsive design works 
+  Deployment              on multiple devices;    
+                          live on GitHub Pages;   
+                          all links work; site    
+                          loads properly; no      
+                          broken functionality    
+
+  AI Usage &              AI usage documented in  10
+  Documentation           code comments; code     
+                          shows understanding and 
+                          modification of AI      
+                          suggestions             
+
+  Pre-deadline Check-in   Go to office hours with 10
+                          a sketch or brief       
+                          written plan of your    
+                          website, or an early    
+                          draft, and get some     
+                          feedback from the TAs   
+                          or faculty prior to the 
+                          due date. See Ed for    
+                          more details. Note:     
+                          This replaces the       
+                          original reflection     
+                          component, which you    
+                          will no longer have to  
+                          do.                     
+
+  Presentation            Brief, informal         20
+                          5-minute presentation   
+                          to a TA and small group 
+                          of peers focusing on    
+                          the process used to     
+                          create the website, how 
+                          AI helped, and any      
+                          areas where it did not. 
+                          Stay tuned to Ed for    
+                          more details on how to  
+                          schedule these          
+                          presentations near the  
+                          deadline.               
+  -----------------------------------------------------------------------
+
+General Project Grading Notes:
+
+- Code doesn't need to be "production-perfect" by the deadline - focus
+  on learning and functionality, and then improve your website as the
+  semester progresses
+- Project grades are meant to reflect engagement with the project and
+  demonstration of self-directed learning
+- You do not need to understand how each line of code works, but you
+  must be able to explain what function it performs and why it is
+  present.
+- You must understand and be able to reasonably explain your design
+  choices
+- Late submissions will be penalized as described in the course syllabus
+
+Submission Instructions
+
+Submit your project by the due date by ensuring your website is live and
+that you have submitted the Project 1 google form HERE where you will
+share:
+
+- The public-facing URL for your completed website
+- A link to the github repository for your code, which must be
+  accessible to all TAs and faculty (either make the repository public,
+  or make it private and send collaborator invitations to each
+  TA/faculty)
+- This form will be how you tell us where your website is so it is very
+  important that you complete it on time!
+
+When you present your work, you should be prepared to discuss some or
+all of the following topics:
+
+- What you learned about web development
+- How you used AI tools in your process (and which ones you used)
+- Challenges you faced and how you overcame them
+- What you're proud of in your portfolio
+
+FAQ
+
+What if I don't have any projects to showcase yet?
+
+That's okay! If you have a 112 project, use that as your first example.
+Otherwise, include this portfolio website as your first project. You can
+add more as the semester progresses.
+
+How do I deploy my site to GitHub Pages?
+
+In short: Create a GitHub repository, push your code, go to Settings >
+Pages, select the main branch as source, and your site will be live at
+https://yourusername.github.io/repositoryname.
+
+If needed, you can find more detailed instructions online or we can help
+you in office hours.
+
+Can I use website templates or copy code, images, or text from other sources?
+
+You can use templates as a starting point, but you must understand and
+modify the code yourself. Document any AI or external help in your code
+comments. You do not need to cite help from Prof. Taylor or the 15-113
+TAs. Your page should include clearly visible citations for any images,
+text, or website templates.
+
+What if my site doesn't look good on mobile?
+
+It's ok if it doesn't look fantastic, but it should be reasonably
+functional, and AI can help with making your code responsive. Make sure
+to test on different devices and adjust for smaller screens if
+necessary.
+
+Do I need to know JavaScript for this project?
+
+No, JavaScript is optional for basic functionality. Focus on HTML and
+CSS first, and add JS for interactivity if you have time.
+
+What if I already have a portfolio website?
+
+That's great! You have two options:
+
+- Option 1: If your site meets all of the requirements for this
+  assignment, you may use it as a starting point, but you should make
+  some sort of major improvement to it with the help of AI. It is ok if
+  this site is not served from Github Pages, but the code must be on
+  Github somewhere and we must be able to easily find the repository
+  from your webpage.
+- Option 2: Make a new site from scratch that meets the requirements for
+  this assignment. (Naturally, it's up to you whether or not you wish to
+  use it as your main portfolio moving forward.)
+
+Need Help? Check the course resources page, attend office hours, or ask
+questions in class. Remember: this project is about learning, not
+perfection!
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science

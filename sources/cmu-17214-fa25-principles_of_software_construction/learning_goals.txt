@@ -1,0 +1,57 @@
+17-214/514
+
+Fall 2025
+
+- Course calendar
+- Schedule
+- Staff
+- Syllabus
+- Piazza
+
+Principles of Software Construction Objects, Design, and Concurrency
+
+Learning Goals
+
+After taking this course you should be able to...
+
+- Understand key concepts of object oriented programming (object
+  identity, dynamic dispatch/polymorphism)
+- Use modern development tools to design and implement nontrivial
+  programs
+  - Write programs of medium complexity
+  - Use standard tools expected of professional developers: IDEs,
+    refactoring, debugging, version control, static analysis, code
+    review
+  - Write simple user interfaces using command line or visual frontends
+- Design code that is easy to understand, maintain, and reuse
+  - Domain modeling, responsibility assignment
+  - Taming complexity: Patterns, types, abstraction, and reducing
+    coupling
+  - Design for change: Information hiding, contracts, subtype
+    polymorphism
+  - Design for reuse: Small scale: Delegation, inheritance, parametric
+    polymorphism (generics) Immutable data structures
+  - Structuring systems at different scale: methods, classes, modules,
+    subsystems (microservices)
+  - Understand and apply common design patterns (technically belongs to
+    the previous point)
+    - Understand the idea behind design patterns
+    - Evaluate when to use design patterns and apply them to solve
+      common design problems
+    - Understand common anti-patterns
+- Use and design libraries, frameworks, and APIs (design for reuse at
+  scale)
+- Program confidently with concurrency
+  - Challenges and modern solutions and patterns
+  - Basic understanding of distributed systems and RPC, client server,
+    microservice
+- Assess functional correctness with unit tests
+  - Competency in writing unit tests and integration tests
+  - Create tests using a dedicated testing strategy (boundary condition,
+    coverage, …)
+  - Design software to be testable, good test suite design
+  - Build and test automation, CI, test coverage
+  - Testing robustness, integration testing
+  - Ideas in unit testing: TDD, BDD, …
+  - Understand the tradeoffs between formal verification and testing
+    (and type checking and static analysis)

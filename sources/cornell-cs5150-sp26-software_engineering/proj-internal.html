@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><script src="/courses/CS5150/2026sp/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=courses/CS5150/2026sp/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Internal project options (CS 5150 Spring 2026)</title>
+  <style>
+    .w-33-md {
+      display: block;
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .w-33-md {
+        width: 33%;
+      }
+      .w-33-md.float-end {
+        margin-left: 12px;
+        margin-bottom: 12px;
+      }
+      .w-33-md.float-start {
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+    }
+    .card{
+      margin: 10px;
+    }
+    .icons a {
+      margin: 0 10px 0 0;
+    }
+    .card img {
+      padding: 5px;
+      padding-top: 15px;
+    }
+    a.nav-link.active {
+      background-color: #e9ecef;
+    }
+    .alert-imp {
+      background-color: orange;
+    }
+    .header{
+      border-bottom: 1px solid #a3a1a1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="display-4 text-center">CS 5150: Software Engineering (Spring 2026)</h1>
+    </header>
+    <nav class="nav nav-fill">
+      
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/">About</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/schedule.html">Schedule</a>
+      
+      <a class="nav-link active" href="/courses/CS5150/2026sp/projects.html">Projects</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/references.html">References</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/syllabus.html">Syllabus</a>
+      
+    </nav>
+    <hr />
+    <main>
+      
+<h1 class="display-5">Internal project options</h1>
+<p>The following projects consist of adding features to the code review tools
+mentioned on the <a href="../projects.html">projects</a> page.  Some projects
+may not apply to certain tools (for example, if the tool already supports the
+proposed feature). These are examples of possible features; you may propose 
+other features for other projects, subject to instructor approval.
+<!-- In all cases, you must document the architecture of the
+existing application and produce design documents (including user interface
+wireframes) for your changes.  Automated tests must exercise the new backend
+functionality. -->
+</p>
+
+<div class="row row-cols-1 row-cols-md-2">
+<!-- <div class="col">
+<div class="card mb-3">
+<h4 class="card-header">Paper trail</h4>
+  <div class="card-body">
+<p>The client would like the ability to export a printable copy of any code review.  This could be provided to auditors who otherwise do not have access to the online code review tool, or attached as supporting evidence in issue-tracking systems that cannot link to the online code review tool.  (It would also allow reviews to be conveniently uploaded to Gradescope, hint hint...)</p>
+<p>The printed version should contain the entire review history, including code patches for each revision, reviewer comments and approvals, and the status of automated checks.  HTML output (as a single long page) would be sufficient, but direct export to a PDF file would be nice too.</p>
+<p>The user should be able to configure several aspects of the output format, including whether patches are relative to the previous revision, whether comments attached to lines of code are shown inline or collected separately, and whether some revisions or files/directories should be filtered out.</p>
+<p>Some reviews (such as those for automated refactoring) may consist of very large patches that would be expensive to render.  The feature should warn the user in such situations (before hanging the server or their browser) and offer options for filtering the output.</p>
+<p>This capability may interact with the “multi-anchored comments” project.</p>
+  </div>
+</div>
+</div> -->
+
+<div class="col">
+<div class="card mb-3">
+<h4 class="card-header">Multi-anchored comments</h4>
+  <div class="card-body">
+<p>Reviewers can add comments attached to a specific line of code.  However, many kinds of comments apply to multiple lines of code (for example, they may suggest moving a line from one place to another, or they may spot the same defect in multiple files).  The client would like users to be able to “link” a single comment to multiple locations in files in the review.  This will reduce redundancy for authors responding to feedback without reducing thoroughness.</p>
+<p>When adding a new inline comment, the user should have the option to link to an existing comment in the review (possibly constrained to the same patchset/revision).  When browsing comments, they should list and hyperlink to all file locations that link to them.</p>
+<p>It would also be nice if comments could reference a range of lines in a file rather than just a single line (this is already supported by Review Board).</p>
+<!-- <p>This capability may interact with the “paper trail” and “comment on untouched files” projects.</p> -->
+  </div>
+</div>
+</div>
+
+<div class="col">
+<div class="card mb-3">
+<h4 class="card-header">Comment on untouched files</h4>
+  <div class="card-body">
+<p>One of the trickiest parts of reviewing code is identifying changes that are necessary but absent from the submitted patch.  Or sometimes it would be convenient to reference a pattern or bit of documentation that appears elsewhere in the codebase.  Unfortunately, many code-review tools limit comments to files and lines that were affected by the patch.  The client would like the ability to attach comments to other, currently unaffected lines and files.</p>
+<p>The first step is to support comments on files that are affected by the changeset under review, but attached to lines far away from those affected by the patch (this may already be supported by some code review tools).  Next, users should have the ability to introduce additional files to the review (with zero changes) for the purpose of commenting on them.  Given the number of files present in many codebases, the user interface for selecting the file deserves special attention.</p>
+<p>The review interface should clearly distinguish files that have no changes in a particular revision and are only referenced by comments.  And when viewing such files (or viewing comments in changed files far away from the changes), the interface should show some context around the comment(s), then “collapse” other code in the file, as it does between changed regions.</p>
+<p>This capability may interact with the “multi-anchored comments” project.</p>
+  </div>
+</div>
+</div>
+
+<div class="col">
+<div class="card mb-3">
+<h4 class="card-header">Reviewer read markers</h4>
+  <div class="card-body">
+<p>The client would like reviewers to have the ability to mark individual files (or even regions of files) as “read” at a particular revision of the review.  This helps them keep track of changes they have already looked over.</p>
+<p>If a subsequent revision does not change a file that was marked as “read,” then that file should be shown as “tentatively read” in the new revision (if the file was changed, it should be marked as “unread”).  The reviewer can change the status to “read” or “unread” (or back to “tentatively read”, if applicable) at any time.  The history of all changes to a file’s read status (at a particular revision) should be recorded, and there should be a way to view that history in the UI.</p>
+<p>The review interface should show the user what proportion of the code under review they have read (and tentatively read) at each revision.  If read markers are supported for regions within a file, then the file’s overall read status should be shown as a percentage.</p>
+<p>Read status should be stored separately for each reviewer.  By default, a reviewer should only see their own read markers, but there should be a way to view other reviewers’ read status as well.</p>
+  </div>
+</div>
+</div>
+
+<!-- <div class="col">
+<div class="card border-danger mb-3">
+<h4 class="card-header text-white bg-danger">Draft comments</h4>
+  <div class="card-body text-danger">
+<p>(This capability already exists in both Gerrit and Review Board; it is missing in many pull-request-based tools, though.)</p>
+<p>The client would like reviewers to be able to queue up drafts of comments so that they are visible only to themselves until they are published.  While a comment is a draft, the reviewer can return to it and edit it (old versions of draft comments do not need to be preserved).  Once a draft comment is published, it becomes a regular comment.</p>
+<p>The interface should provide a way for reviewers to see a list of all of their draft comments and to publish all of them (or a selected subset of them) at once.  Authors and other reviewers should be able to see whether a reviewer has draft comments queued (but not where they are anchored).  If a reviewer marks a review as “approved” while they still have draft comments queued, they should be presented with a warning.  A user should also be shown a warning if they attempt to merge the changeset while a reviewer has queued drafts and has not explicitly approved the review.</p>
+  </div>
+</div>
+</div> -->
+
+<div class="col">
+<div class="card mb-3">
+<h4 class="card-header">Inline edits</h4>
+  <div class="card-body">
+<p>The client would like reviewers to be able to propose their own small changes to code under review (such as fixing minor typos or rewording a comment).  The author would then have the ability to approve these suggestions, resulting in a new revision with the changes applied.  In a merge-based review, this could create a new commit.</p>
+<p>An additional desired feature is an interface for approving suggested changes as a batch, creating only a single new revision (and allowing the author to customize the commit message for a merge-based review).</p>
+<p>The user interface needs to be very streamlined – it should be quicker to make small changes using this feature than for the author to upload changes made in their editor in response to a comment.</p>
+  </div>
+</div>
+</div>
+
+<!-- <div class="col">
+<div class="card mb-3">
+<h4 class="card-header">Review commit messages</h4>
+  <div class="card-body">
+<p>(Only applies to Review Board; Gerrit already has this feature.)</p>
+<p>The client would like reviewers to be able to attach comments to lines of text in a commit message.  For a merge-based review, they should be able to comment on any of the commit messages.</p>
+  </div>
+</div>
+</div> -->
+
+<div class="col">
+<div class="card border-warning mb-3">
+<h4 class="card-header bg-warning">Merge-based reviews</h4>
+  <div class="card-body">
+<!-- <p>(Only applies to Gerrit; Review Board already has this feature.)</p> -->
+<p><strong>Challenge project!</strong>  This will likely be more difficult than the others.  Volunteers only.</p>
+<p>Gerrit, in Google tradition, only supports reviewing single “changesets.”  But developers who have used GitHub are used to reviewing “pull requests.”  Pull requests allow authors to bundle several related changes together for collective review while still separating independent changes in different commits.  They also allow reviewers to comment on what will become the commit history (suggesting different ways to split up the changes for ease of bisection, reverting, etc.).</p>
+<p>Supporting pull requests requires major changes to the core data model of Gerrit and would normally be well beyond the scope of a CS 5150 project.  However, a Gerrit maintainer actually proposed a proof-of-concept changeset supporting precisely this behavior; he even included design documentation!  Unfortunately, that was back in 2019, and it was not merged.  His work is described in <a href="https://groups.google.com/g/repo-discuss/c/92PqVTBTbXI/m/Y_MaYVOsAgAJ">this thread</a>.</p>
+<p>The client would like Gerrit to support merge-based reviews (a.k.a. pull requests).  While the client has strong opinions about how merge-based reviews should function, this project will start out as a feasibility exercise.  The development team is asked to update the proof-of-concept branch to work with the contemporary Gerrit codebase (this requires resolving dozens of merge conflicts, performing code archaeology along the way).  The team will then analyze the test coverage of the changes (improving it if necessary) and will demonstrate the capabilities to the client.  The client will then suggest tweaks based on the time remaining.</p>
+<p>This work will be conducted in a separate branch to avoid interactions with other projects.  If successful, merging these branches may be a task for a future semester.</p>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+    </main>
+    <hr />
+    <footer>
+    </footer>
+  </div>
+</body>
+</html>

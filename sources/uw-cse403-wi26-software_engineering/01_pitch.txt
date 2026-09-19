@@ -1,0 +1,208 @@
+CSE 403 project: Project proposal
+
+Overview
+
+1.  Develop an exciting product idea with one or two other students. As
+    you develop your vision, think about who is your customer, what is
+    the problem you are trying to solve, and what is your solution. The
+    project should be appropriate for a 6-person CSE 403 team to
+    complete in 8 weeks.
+2.  Write a 1-2 page proposal document.
+3.  Prepare a 4-slide slideshow, and present it to the whole class.
+4.  View other students’ proposals and rank them (including your own) by
+    which project you would prefer to work on. Also indicate your
+    preferred teammates.
+5.  The staff will use these rankings to organize project teams, taking
+    into account project and teammate preferences.
+
+Setup
+
+Select one or two other students to work together with you on a
+proposal. You can leverage the class Ed discussion board to find a
+partner, as well as attend section on Tuesday where the staff will help
+form partnerships. If you don’t have a partner after section on Tuesday,
+contact the 403 staff immediately so we can help connect you with
+another student. Signup your group on the Proposal group signup sheet
+(see Calendar) by Tues 1/6/2026, 11:59pm.
+
+Create your pitch
+
+First, develop an interesting product idea. You want to convince a
+venture capitalist that your product is worth funding, as well as
+convince other software engineers that they should sign up to build it
+with you. Do not make grandiose or unsubstantiated claims; be practical
+and factual.
+
+1. Write a 2 page proposal (PDF)
+
+Here is information that you should include in your document.
+
+- Title: Start with a short and catchy project title and your full names
+  and UW NetIDs.
+- Abstract: The first paragraph of your document must be an abstract (or
+  executive summary, or TL;DR) that explains your project at a high
+  level. If someone reads nothing but that one paragraph, what do you
+  want them to know?
+- Problem statement: What are you trying to do? For example, who are
+  your target customers, what problem will your product help them with?
+- Current practice: How is the task/problem solved today, and what are
+  the limits of current practice?
+- Your solution: How will your product solve the problem? What is new in
+  your approach and why do you think it will be more successful than
+  other approaches? Try not to reinvent the wheel or reimplement
+  something that already exists, unless your approach is different.
+- Impact: Who cares? If you are successful, what difference will it
+  make?
+- Technical approach: Briefly describe your proposed technical approach.
+  This may include what system architecture, technologies, and tools you
+  may use.
+- Risks: What is the single most serious challenge or risk you foresee
+  with developing your product on time? How will you minimize or
+  mitigate the risk? Don’t state generic risks that would be equally
+  applicable to any project, like “we might run out of time”.
+
+2. Create a 4-page slideshow presentation (PDF)
+
+- Present your project idea at a higher level compared to your proposal
+  document.
+- Start with your project name and your full names with your UW NetIDs.
+- Focus on the essentials. You have very little time, so don’t dive deep
+  into technical details.
+- Remember you have two goals: to convince the venture capitalists (the
+  CSE 403 staff) to approve the project, and to attract software
+  developers (other CSE 403 students) to join the project. Don’t include
+  details that do not pertain to those two goals.
+  Structure of the slide deck:
+- Your slide deck must have exactly 4 content slides, including the
+  title slide.
+- The first slide should start with the project title and your full
+  names and UW NetIDs. It may or may not contain other content.
+- Your slides must include at least one diagram or figure. Some examples
+  of possible diagrams or figures are: A mockup of a GUI, an
+  architectural diagram indicating the proposed components of the
+  system, an illustration of the problem being solved, a GUI,
+  architectural diagram, etc. of a competing product that highlights
+  deficiencies that you will address.
+
+3. Submit to Canvas.
+
+- Add your names to a Canvas "Proposal groups". One group member should
+  submit your files.
+- You will submit two PDF documents to Canvas.
+- Name your proposal document [projectname]_[last name]_[last name].pdf.
+- Name your slide deck [projectname]_[last name]_[last name]_slides.pdf.
+- If your slide deck has animation, please also submit the slides
+  version.
+
+Sign up for a presentation slot
+
+- The CSE403 staff will be putting together the schedule. Stay tuned.
+
+Present your proposal, and listen to other proposals
+
+- The proposals will be presented in class (see the Calendar).
+- All proposal members must participate in your presentation.
+- You will have about 3 minutes. The staff will cut you off at that time
+  if you have not finished. Practice your delivery beforehand to ensure
+  it fits the time!
+- You will have time at the end of class to reach out to other members
+  of the class for clarifications and/or to organize into a group.
+
+Rank your preferences
+
+- A link to the proposals will be provided for your review. You may find
+  it helpful to read some or all of the abstracts. You may want to reach
+  out to members of the class (e.g., after class or on the Ed message
+  board) for clarifications and discussions.
+- Rank project pitches by which project you would prefer to work on. You
+  can, but do not have to, include your own project as one you want to
+  work on.
+- You must fill all the blanks in the ranking. That is, you will have a
+  #1 choice, and a #2 choice, etc. Do not list just your two or three
+  most preferred projects, as they may not be the projects selected to
+  move forward.
+- Don’t choose a project that you do not have the resources to complete.
+  For example, don’t choose an iOS app if you don’t have a Mac and an
+  iPhone. Don’t choose an Android app if you don’t have an Android
+  phone.
+- You may request your preferred teammates. This must be a mutual
+  request, in other words, preferred teammates must request you.
+- Finally, each student must individually fill out and submit the form
+  of project and team preferences. Full instructions are in the form.
+  Due by Thurs 1/15/26 by 11:59pm.
+
+FAQ
+
+Will my grade depend on whether my project is chosen?
+
+- No. Your grade is not based upon whether your project is chosen (by
+  other students or by the 403 staff) to be implemented. Rather, your
+  grade is based on the quality of your materials and your presentation.
+  We will be evaluating whether you have addressed the identified
+  project elements, made reasonable judgments concerning them, and
+  organized and pitched your proposal well.
+
+Do I have to work on the project that I proposed?
+
+- No. Your ranking does not have to include your own pitch, if you are
+  more excited about other teams’ ideas. Also, you do not need to work
+  with your proposal partner.
+
+How many people can work together on a project?
+
+- We will aim for groups of 5-6 students per project. If a project
+  proposal is particularly popular, it is possible that more than one
+  group can work on the same project idea – with a different focus or
+  technical approach.
+
+How will you create the project groups?
+
+- We will try to give you one of your top project choices, based on your
+  project ranking.
+- If a set of students submitted identical group members and project
+  preferences, we will try to keep those students together.
+- We will select projects that we believe will be a good fit for the
+  class (scope, resources, etc.), and for which students are interested
+  in developing.
+- We will avoid assigning you a project that we think will not be
+  successful in the class, based on our experience.
+
+How should I describe current practice?
+
+- You should spend nearly as much time understanding what already exists
+  as you do coming up with something new. For example, don’t propose to
+  develop a web search engine without knowing that Google exists. You
+  could propose, however, some search engine features that you believe
+  would be useful and that Google doesn’t provide.
+- Clearly explain what differentiates your project from the
+  alternatives. Differentiate the top-level objectives, target
+  customers, scope, and technical approach of your product from
+  existing, alternative products. Indicate what is novel about your
+  proposed features. Don’t belabor features that are standard in
+  existing packages.
+- Also, indicate how the proposed project poses interesting design (or
+  other) challenges from a software engineering point of view.
+
+Any advice regarding writing and presentation?
+
+Excellent question! Here are some tips:
+
+- Clearly motivate the need for your product. Who are your customers and
+  what problem are you solving for them?
+- Be specific and give examples – whether you are explaining a problem
+  or a solution.
+- Include mockups if you are proposing a system with a GUI.
+- Make your slides simple and readable. Make sure your fonts are large
+  enough to be easily read from the back of the room; there is
+  sufficient contrast between the text and background color; and the
+  slides are free of distracting design elements (such as background
+  images or slide template graphics).
+- Put the take-home points on the slides, in telegraphic form (no full
+  sentences). You can use these as memory joggers during the
+  presentation. Your live presentation should go beyond what’s on the
+  slides (instead of reading the slides, expand on the points) - keep
+  your slides simple and readable.
+- Use color effectively, but be aware that some people do not see the
+  full color spectrum. Highlight the key points to draw the reader’s eye
+  and indicate what really matters about the slide. Use similar colors
+  for related things.

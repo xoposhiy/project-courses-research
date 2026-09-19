@@ -1,0 +1,211 @@
+HW2: Crossy Road with AI
+
+CMU 15-113: Effective Coding with AI
+
+← Back to Course Overview Requirements Instructions Tips
+
+Due Date: Sat. 1/31 at 8:00 PM
+Time Estimate: 1 hour + 15 minutes to add it to your website
+Deliverables: Python game code + prompt history file
+
+Assignment Overview
+
+Goal: Use AI tools strategically to recreate the game Crossy Road in
+Python, making as much progress as possible in exactly one hour.
+
+Context: This assignment asks you to choose a strategy and a set of
+tools that will yield the most progress insight a tight time constraint.
+
+Why This Matters: This is a chance to practice prompting AI effectively
+and thoughtfully to arrive at a desirable result quickly.
+
+Learning Objectives:
+
+- Practice choosing and executing a simple prompting strategy that works
+  under time pressure
+- Practice verifying that your code meets the reqirements you have
+  explicitly provided
+- Practice validating that your code meets the high-level goal of
+  mimicking Crossy Road
+- Practice prioritizing the most important features before details
+- Later, we'll compare and contrast different approaches and their
+  results
+
+Assignment Outline
+
+Coding task (1 Hour)
+
+Build a Crossy Road-inspired game in Python that captures the core
+mechanics and aesthetic of the original as closely as possible, given
+the time constraint.
+
+What is Crossy Road?
+
+Crossy Road is an arcade-style game where a character must cross and
+other hazards. The goal is to get as far as possible without being hit.
+We aren't going to list out all the features here, because we don't want
+you to just paste those as the entirety of your prompt. Instead, watch
+this short video to get a sense for the game if you haven't played it
+before.
+
+Ein Fehler ist aufgetreten.
+
+JavaScript kann nicht ausgeführt werden.
+
+And a very personal note from Mike: Back in MY day we called this
+FROGGER. For some of you old folks in the room who might not be familiar
+with Crossy Road, you might remember this, which is the same in its core
+respects:
+
+Ein Fehler ist aufgetreten.
+
+JavaScript kann nicht ausgeführt werden.
+
+Your Challenge: Build something that mimics Crossy Road Python as
+closely as possible within 1 hour. You may wish to aim somewhere between
+Frogger and Crossy Road, since attempting something fully 3D may make
+the task substantially more difficult. A 2D implementation is just fine
+here.
+You do not need to use cmu_graphics (though you can if you wish). Pygame
+or another game engine is totally acceptable as long as we can install
+it and run your code relatively easily.
+
+Note: You may turn in something that is entirely "vibe coded," or you
+may wish to debug or modify the code manually. Either approach is fine.
+You are not required to directly modify the code for this assignment,
+though making small targeted adjustments may speed up your development.
+
+Requirements & Scoring
+
+What You Must Submit
+
+- GitHub repository: Public repository containing your code and .txt
+  file
+  - Game code: A Python program that runs and implements as many of the
+    Crossy Road mechanics as you were able to achieve in 1 hour
+  - Prompt history file: A .txt file containing:
+    - Top section (1-2 sentences): Your high-level strategy for this
+      assignment, including which AI model(s) and tool(s) you used and
+      your approach to staying within the 1-hour limit
+    - Remainder: A log of the prompts you gave to AI during development
+      (include the key prompts that shaped the game)
+- Portfolio link: Add the project to your personal portfolio website's
+  projects section with a link to the GitHub repository. (You can call
+  this whatever you'd like, but if you call it something like "1-Hour
+  Crossy Road Challenge" then any non-113 viewers will know this may not
+  be a fully-featured game.)
+
+Grading
+
+You'll receive full points for this as long as you invest a thoughtful
+hour in the coding part of the assignment and then submit your code and
+the requisite text file (by putting it in a github repository and adding
+the link to your portfolio) on time. We'll expect that your prompt
+history will have at least a few exchanges, but some prompts might take
+a long time to run on some models, so don't worry too much about that.
+Do not exceed 1 hour creating the code that you submit by more than a
+few minutes. If you wish, you may keep developing your game further, but
+make sure that you've saved the 1-hour version for us to look at.
+
+Next week...
+
+Next week we'll share some of the submissions that were most successful
+within their hour. We'll focus on which prompting strategies worked best
+for a given AI model or tool (i.e. of those who used chatGPT, what
+worked best, and of those who used Claude, what worked best, etc.). You
+will not be graded or judged based on whether you used an extremely
+high-powered model, since not everyone has access to every option right
+now.
+
+Detailed Instructions
+
+Step 1: Build Your Game (1 hour)
+
+1.  Decide what model(s) and/or tools(s) you will use.
+2.  Decide what prompting strategy you will use (for example, maybe one
+    of the three from Monday's lecture)
+3.  Set a timer for 60 minutes and begin creating.
+4.  Keep a log of the prompts you use (most AI tools do this
+    automatically)
+5.  Stop when the timer runs out, even if the game isn't "complete"
+
+Step 2: Document Your Process
+
+1.  Create a file called PROMPT_HISTORY.txt in your repository
+2.  At the top, write 1-2 sentences describing:
+    - Your high-level strategy (e.g., "I focused on core movement and
+      car obstacles, skipped trains and rivers to save time. I used
+      ChatGPT and pygame.")
+    - Which AI tools you used
+3.  Below that, paste the prompts that shaped your game's development
+
+Step 3: Upload to GitHub
+
+1.  Create a new public repository on GitHub (name it something obvious
+    like 15113-hw2-crossy-road)
+2.  Push your game code and PROMPT_HISTORY.txt
+3.  If needed, you can include a brief README.md explaining how to run
+    the game
+
+Step 4: Add to Your Portfolio
+
+1.  Add a new project to your portfolio website
+2.  Include:
+    - The title of your code and brief description
+    - Screenshot or description of gameplay, if you wish
+    - Link to GitHub repository
+3.  Push your portfolio updates to GitHub and make sure they're live
+
+That's it! We should already have your portfolio website URL, so we
+don't anticipate a separate submission form at this time.
+
+Tips
+
+Choosing Your Scope
+
+Think strategically about what to build. Here are some scope options,
+from minimal to ambitious:
+
+- Minimal (MVP): Character on a grid; one type of obstacle; collision
+  detection; score
+- Moderate: Multiple obstacle types (cars, trains); scrolling terrain;
+  increasing difficulty
+- Ambitious: Smooth graphics; multiple levels; sound effects; animations
+
+Hint: Start with the core mechanics and add features if you have time. A
+working simple game is better than a broken complex one.
+
+Prompting ideas
+
+Some of these tips and partial strategies may help, but this is all up
+to you.
+
+- Be specific in your requests!
+- Understand the plan: You might consider asking for a plan first, or
+  providing a detailed plan that you wrote, or just asking the AI to
+  explain key decisions.
+- Ask for structure first: You might start with the main game loop and
+  class structure, then fill in details
+- Request incrementally: "Add collision detection for cars" is better
+  than asking for the whole game at once
+- Use follow-ups: "That's great, now make the cars move faster" or "Add
+  a score display?"
+
+Pitfalls to Avoid
+
+- Tunnel vision: Don't get absorbed in minor aesthetic bugs. Don't keep
+  adding features after time is up. Stop and submit what you have.
+- Letting the code get wild or disorganized: Sometimes small bugs are
+  easier to fix yourself, but this is only possible if you understand
+  the code enough to modify and debug it
+- Forgetting the prompt history: Save this before you close the chat!
+  (You can probably get it back if you do close it, but don't risk it.)
+- Not testing: Test as you go, and spend the last 5 minutes testing your
+  game to make sure it runs
+
+Questions? Ask in Ed, come to office hours, or email Mike. This is a fun
+assignment—embrace the challenge of working under time pressure with AI!
+
+CMU 15-113: Effective Coding with AI | Spring 2026
+
+Carnegie Mellon University | School of Computer Science

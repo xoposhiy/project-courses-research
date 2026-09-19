@@ -1,0 +1,37 @@
+Final presentation
+
+The final presentation must be given during the fifth development
+session. Your time is limited to 15 minutes. This time includes the time
+for demonstrations. There might be additional 2-5 minutes for questions.
+If a team member did not present during the midpoint presentation, then
+they must present a portion of the final presentation. Be sure to come
+prepared and rehearsed and to practice good presentation etiquette.
+
+An essential component of the final presentation is the demonstration of
+your operational system, ideally deployed in a staging environment. The
+demonstration should be interactive (not pre-recorded), and you should
+be prepared to explore “what-if” scenarios proposed by the client or
+course staff. Teams working on internal projects should coordinate with
+their client to deploy the system in an acceptance-testing environment
+(e.g., a laptop) prior to the presentation.
+
+For your demonstration, walk through scenarios related to your feature’s
+use cases. Be forthcoming about any gaps or weaknesses.
+
+Aside from your demo, the following topics would be appropriate for the
+final presentation:
+
+- Brief review of context, goals
+- Honest summary of achievements and misses
+- Summary of what is being delivered in your handoff package
+
+See the lecture 13 for an overview of presentation tips and
+expectations, as well as a reminder of the audience’s goals for this
+presentation. We want to know whether the system meets the client’s
+needs, whether it is ready for production, whether it is worth pursuing
+future enhancements, whether it will be maintainable in your absence,
+and what you have accomplished and learned.
+
+Teams working on external projects must invite the instructor to their
+presentation at a time when they are available. In-person presentations
+are preferred, and course staff can assist teams with finding a room.

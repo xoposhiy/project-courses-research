@@ -1,0 +1,57 @@
+Austin Z. Henley
+
+I build tools for people
+
+austin.henley@microsoft.com
+@austinzhenley
+github/AZHenley
+
+------------------------------------------------------------------------
+
+Home | Publications | Teaching | Blog
+
+------------------------------------------------------------------------
+
+Assessing students in the era of AI
+
+8/10/2025
+[]
+
+I've been talking with other professors about how they're handling AI
+use in their courses. Some are trying to AI-proof their homework while
+others are leaning into it. Here is a summary of what I have heard so
+far:
+
+Raise the bar. Since AI can unlock new abilities or speed up existing
+ones for students, assignments can be far more complex.
+
+Head in the sand. Some professors have either banned AI use on their
+assignments or said that if students want to rob themselves of learning,
+then they can do so.
+
+Underspecify. If you specify a programming assignment in great detail
+(e.g., expected inputs and outputs), it isn't surprising when AI can one
+shot it, leaving little of interest for the students to do. But if the
+assignment is open ended, it provides opportunities for students to
+think critically about the desired outcome and how to prompt the AI to
+get there. Credit to Michael Hilton after seeing him present on this
+approach.
+
+Paper assessments. Other faculty are moving back to in-class tests on
+paper without any electronic devices.
+
+Oral assessments. Students must come to office hours to talk about their
+solution. Can they convince the TA/professor that they understand their
+own code?
+
+Process, not results. Instead of grading the end result of an
+assignment, grade their adherence to a process. Team meetings, weekly
+PRs, code reviews, participation, presentations, etc.
+
+ChatGPT conversations. Some courses even require the use of ChatGPT for
+assignments. Students are graded in part on their conversation logs.
+Custom GPTs can make this interesting.
+
+------------------------------------------------------------------------
+
+What do you think would work?

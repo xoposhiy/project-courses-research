@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><script src="/courses/CS5150/2026sp/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=courses/CS5150/2026sp/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Setup: Review Board (CS 5150 Spring 2026)</title>
+  <style>
+    .w-33-md {
+      display: block;
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .w-33-md {
+        width: 33%;
+      }
+      .w-33-md.float-end {
+        margin-left: 12px;
+        margin-bottom: 12px;
+      }
+      .w-33-md.float-start {
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+    }
+    .card{
+      margin: 10px;
+    }
+    .icons a {
+      margin: 0 10px 0 0;
+    }
+    .card img {
+      padding: 5px;
+      padding-top: 15px;
+    }
+    a.nav-link.active {
+      background-color: #e9ecef;
+    }
+    .alert-imp {
+      background-color: orange;
+    }
+    .header{
+      border-bottom: 1px solid #a3a1a1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="display-4 text-center">CS 5150: Software Engineering (Spring 2026)</h1>
+    </header>
+    <nav class="nav nav-fill">
+      
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/">About</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/schedule.html">Schedule</a>
+      
+      <a class="nav-link active" href="/courses/CS5150/2026sp/projects.html">Projects</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/references.html">References</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/syllabus.html">Syllabus</a>
+      
+    </nav>
+    <hr />
+    <main>
+      
+<h1 class="display-5">Setup: Review Board</h1>
+<p>Review Board publishes official setup instructions on their <a href="https://reviewboard.notion.site/Getting-Started-da208d46de1d47d8b38e8b5ddcb3dd44">Getting Started</a> page (their wiki also covers special steps for Mac users running on Apple Silicon/M1).  For CS 5150, you will work on Review Board in the following way:</p>
+<ul>
+<li>Use upstream versions of Djblets and RBTools (if you think you need to modify code in these repositories, notify the instructor).</li>
+<li>Clone the <code>release-6.0.2</code> tag of the Review Board repository and use it as a starting point for your project. You may follow the version compatibility rules for the “in development” branch (in particular, the oldest version of Python you need to support is 3.7).</li>
+<li>Create an internally-hosted Review Board repository for your team on <a href="https://github.coecis.cornell.edu">Cornell&rsquo;s GitHub server</a> and share it with the course staff: <code>blp73</code>, <code>jxc6</code>, <code>pj257</code>, <code>sd977</code>, and <code>yy2282</code>.</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<p>Here are some streamlined instructions for getting Review Board running in a development environment running a Debian-based Linux distribution (tested on Ubuntu 20.04, whose system Python is version 3.8) or on a macOS system.</p>
+<ol>
+<li>
+<p>Install required system packages (several of these are missing from the official documentation and are not installed as part of <code>setup.py</code>):</p>
+<p>Linux:</p>
+<pre tabindex="0"><code>sudo apt-get install git patch gettext-base libffi-dev libssl-dev nodejs npm libsasl2-dev python3-dev python3-venv libldap2-dev python3-mysqldb python3-svn python3-subvertpy
+</code></pre><p>macOS (install <a href="https://brew.sh/">Homebrew</a> if necessary):</p>
+<pre tabindex="0"><code>brew install git gpatch libffi openssl node npm libsasl2 python python3 gettext openldap
+</code></pre></li>
+<li>
+<p>Create a directory to store your code in.  This example creates a <code>cs5150/rb</code> folder in your home directory, but you may store it elsewhere if you wish.</p>
+<pre tabindex="0"><code>mkdir -p ~/cs5150/rb
+</code></pre></li>
+<li>
+<p>Create a virtual environment.  The following instructions inherit the system Python installation, which is usually not recommended (but can be a big time-saver on an up-to-date host platform).  Unlike the official instructions, this only sets up a single Python version to test with; this is okay as long as compatibility testing is part of your continuous integration pipeline (which we hope will be the case for CS 5150’s repository in the near future).</p>
+<pre tabindex="0"><code>python3 -m venv --system-site-packages ~/cs5150/rb-venv
+
+# Run this every time you start work in a new shell
+source ~/cs5150/rb-venv/bin/activate
+</code></pre><p>The <code>~/cs5150/rb-venv</code> argument is the folder where your virtual environment is saved; you may move this elsewhere if you like.  Remember to run the <code>activate</code> command <em>every</em> time you start work in a new shell.</p>
+</li>
+<li>
+<p>Install Djblets dependency (from upstream):</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb
+git clone --branch release-4.x https://github.com/djblets/djblets.git
+pip install setuptools
+cd djblets &amp;&amp; ./setup.py develop
+</code></pre></li>
+<li>
+<p>Have one team member do this step. First, clone and set up the desired version of Review Board.</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb
+git clone --branch release-6.0.2 https://github.com/reviewboard/reviewboard.git
+cd reviewboard
+</code></pre><p>Then on the <a href="https://github.coecis.cornell.edu">Cornell GitHub</a>, have one group member create a new empty repository, <strong>making sure not to initialize the repository</strong> with a README. The following steps assume this repository is hosted at <code>https://github.coecis.cornell.edu/blp73/reviewboard</code>. You should modify the commands to reflect the URL of your own repository.</p>
+<p>Change the <code>origin</code> remote to this new empty repository and push the current state of the cloned repository.</p>
+<pre tabindex="0"><code>git remote set-url origin git@github.coecis.cornell.edu:blp73/reviewboard.git
+git checkout -b main
+git push -u origin main
+</code></pre></li>
+<li>
+<p>Once the Cornell-hosted repository is created, all group members can clone this repository and set it up.</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb
+git clone https://github.coecis.cornell.edu/blp73/reviewboard
+cd reviewboard
+./setup.py develop
+./contrib/internal/prepare-dev.py
+</code></pre></li>
+<li>
+<p>Install RBTools (from upstream).  By installing <code>rbt</code> in your virtualenv, you will be able to create and update reviews on your Review Board instance.</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb
+git clone https://github.com/reviewboard/rbtools.git
+cd rbtools &amp;&amp; make
+</code></pre></li>
+<li>
+<p>Start your Review Board server:</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb/reviewboard
+./contrib/internal/devserver.py
+</code></pre><p>Visit <a href="http://localhost:8080/">http://localhost:8080/</a> in your web browser and you should see Review Board running.  To stop the server, type <kbd>Ctrl+C</kbd> in the terminal where you started it.</p>
+</li>
+</ol>
+<h2 id="testing">Testing</h2>
+<p>Run Python unit tests:</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb/reviewboard
+./tests/runtests.py
+</code></pre><p>See <a href="https://reviewboard.notion.site/Running-Python-Tests-with-Nose-894dbb2e048c4d67af69de764a8c5f1b">Running Python Tests with Nose</a> for official documentation regarding tests, including how to generate coverage reports.</p>
+<p>Unfortunately, Review Board’s tests (like its code) require additional, undocumented Python dependencies; we have tried to include them in the system packages above.</p>
+<p>To run JavaScript tests, start the dev server and visit <a href="http://localhost:8080/js-tests/">http://localhost:8080/js-tests/</a>.  See <a href="https://reviewboard.notion.site/Running-JavaScript-Unit-Tests-f33a12444cb7420ead7f4c3d1a77a561">Running JavaScript Unit Tests</a> for more information.</p>
+<h2 id="administration">Administration</h2>
+<h4 id="add-a-repository">Add a repository</h4>
+<p>Before you can create a review, you must associate your code’s repository with Review Board.  For simplicity, we’ll assume that the repository is a local Git clone on your dev machine.  <em>Beware:</em> in this tutorial, we’ll use the same clone as both the “remote” (what Review Board’s server considers to be the centralized copy) and as a working copy (what RBTools looks at to post changes); this is not representative of production usage, but the flags we pass to <code>rbt</code> avoid any confusion.</p>
+<p>To associate a new repository with Review Board, start the development server and visit it in your web browser, select “Log in” (top-right), and log in using the credentials you chose during <code>prepare-dev.py</code>.  Then open the user menu (top-right) and select “Admin”.  In the left sidebar, under “Manage”, click the green ‘+’ next to “Repositories” (note: you may need to disable your ad blocker for Review Board’s admin pages to work properly).</p>
+<p>For this tutorial, we assume you have cloned the “scrambler” repository from the CS 5150 GitHub organization to <code>~/cs5150/scrambler</code>. First, you must run <code>rbt setup-repo</code> to generate a <code>.reviewboardrc</code> repository configuration file. Commit this file to the master branch of your repository that you want to add to ReviewBoard (in this case, <code>scrambler</code>). More details can be found in the documentation <a href="https://www.reviewboard.org/docs/rbtools/dev/rbt/configuration/repositories/">here</a>. So on the “Add Repository” page, enter “Scrambler” for the Name, leave Hosting service as “(None - Custom Repository)”, and select “Git” as the Repository type.  Enter <code>/home/&lt;username&gt;/cs5150/scrambler/.git</code> as the Path, then click “Save” (note: the <code>.git</code> subdirectory may be hidden by your file browser, but it does exist).  The next page should indicate that your repository was added successfully.</p>
+<h4 id="create-a-review">Create a review</h4>
+<p>To create a code review, you must first change some code.  In your scrambler repository, create a new branch (<code>git checkout -b my_first_review</code>), modify a file, then commit it (<code>git commit -a</code>).  To exercise Review Board’s multi-commit support, go ahead and make another change and commit it as well.</p>
+<p>Now, within your scrambler checkout, ensure that your <code>rb-venv</code> virtualenv is activated, then run the following command (entering your Review Board credentials if prompted):</p>
+<pre tabindex="0"><code>rbt post --server http://localhost:8080 --tracking-branch master
+</code></pre><p>Back in your web browser, go to “My Dashboard” and select “All” under “Outgoing”; you will see your review labeled as a “Draft”.  In order to publish it, you must first assign a reviewer, and to ensure that the reviewer is independent of the author, you need to create another user.</p>
+<h4 id="register-a-new-user">Register a new user</h4>
+<p>Open a separate web browser (or a private/incognito window, or a separate browser profile) and visit your Review Board server.  Select “Register” (top-right)  and create a new user (e.g. <code>reviewer</code>).</p>
+<p>Now return to your original web browser (logged in with your admin account), open your draft review, and enter your new user next to “People” under “Reviewers”.  On the top of the page you there should be a message that says “This review request is a draft. Be sure to publish when finished.”; click the “Publish” button to publish it.  Refresh your dashboard in your second web browser, and the review should appear under “Incoming”.</p>
+<h4 id="updating-a-review">Updating a review</h4>
+<p>In your scrambler checkout, make another change to the code and commit it to your <code>my_first_review</code> branch.  Then run:</p>
+<pre tabindex="0"><code>rbt post --server http://localhost:8080 --tracking-branch master -u
+</code></pre><p>Visit the review in your original web browser and select “Publish changes”.</p>
+<h2 id="style-guide">Style guide</h2>
+<p>While Review Board’s setup is rather finicky (common among Python projects, which rarely capture their dependencies accurately), its developer guides are quite thorough.  You should read all relevant guides before starting your own development.</p>
+<ul>
+<li><a href="https://reviewboard.notion.site/Writing-and-Maintaining-Clean-Code-4ea91efceecc493ebe893a005ee92127">Writing and Maintaining Clean Code</a></li>
+<li><a href="https://reviewboard.notion.site/Writing-Good-Change-Descriptions-10529e7c207743fa8ca90153d4b21fea">Writing Good Change Descriptions</a></li>
+<li><a href="https://reviewboard.notion.site/Keeping-Commit-Histories-Clean-0f717c4e802c4a0ebd852cf9337ce5d2">Keeping Commit Histories Clean</a></li>
+<li><a href="https://reviewboard.notion.site/Writing-Codebase-Documentation-e16312b5f061437cb73cbfa369ac3cb5">Writing Codebase Documentation</a></li>
+<li><a href="https://reviewboard.notion.site/Writing-Unit-Tests-50af64b5677a43c9abe86c0bddb88524">Writing Unit Tests</a></li>
+<li><a href="https://reviewboard.notion.site/Adding-Feature-Flags-ab779cea73ac47119defb121df40b762">Adding Feature Flags</a></li>
+<li><a href="https://reviewboard.notion.site/Accessibility-Standards-and-Tools-d03aa203a7c147868b3b2fe4d6e4b56d">Accessibility Standards and Tools</a></li>
+<li><a href="https://reviewboard.notion.site/Security-Best-Practices-b7e2cc6f5276495a8051502176976d6d">Security Best Practices</a></li>
+<li><a href="https://reviewboard.notion.site/Python-Coding-Style-Guide-f9a0e51ee0cf40379fcbbae40bbbec04">Python Coding Style Guide</a></li>
+<li><a href="https://reviewboard.notion.site/JavaScript-Coding-Style-Guide-ac566a0008cd458fb31d90c609a6b513">JavaScript Coding Style Guide</a></li>
+<li><a href="https://reviewboard.notion.site/CSS-LessCSS-Component-Style-Guide-ceb55ed87d954101a074f6601fc5deb2">CSS/LessCSS Component Style Guide</a></li>
+</ul>
+<p>Unfortunately, there does not appear to be an official configuration for a style-checking or reformatting tool, so <em>you</em> will be responsible for enforcing style guidelines during code review.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Supposedly, the following commands will generate HTML documentation in each subdirectory’s <code>_build</code> folder:</p>
+<pre tabindex="0"><code>cd ~/cs5150/rb/reviewboard/docs/codebase &amp;&amp; make html
+cd ~/cs5150/rb/reviewboard/docs/manual &amp;&amp; make html
+</code></pre><p>However, no list of dependencies is given, and the configuration appears to be incompatible with the current version of Sphinx (sadly, this kind of situation is quite common with Python-based projects; we recommended Gerrit for a reason…).  You must document your project (for both developers and users), and your client must be able to generate your documentation, so you will need to provide robust instructions for getting this working.</p>
+<h2 id="virtualization">Virtualization</h2>
+<p>A good way to avoid headaches during setup and to improve consistency is to use virtualized development environments—virtual machines or containers that are pre-configured for developing, testing, and running a particular project.  A popular tool for managing virtual dev environments is <a href="https://www.vagrantup.com/">Vagrant</a>.</p>
+<p>Python projects often suffer from version incompatibilities and undesirable interactions with the host system, making virtual dev environments highly appealing.  Unfortunately, the <code>npm</code> tool (as used by Review Board) does not work on VirtualBox shared filesystems, and VirtualBox does not run at all on Macs with Apple Silicon.  Therefore, we cannot provide the class with pre-configured virtual dev environments at this time.</p>
+
+
+    </main>
+    <hr />
+    <footer>
+    </footer>
+  </div>
+</body>
+</html>

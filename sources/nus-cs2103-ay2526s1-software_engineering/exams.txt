@@ -1,0 +1,648 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+ToolsParticipation Marks
+
+Exams 
+
+There is no midterm exam. Information about the final exam (which counts
+for 30% of the final grade) is given below.
+
+Video [Course Briefing Video] Final Exam (10 minutes)
+
+------------------------------------------------------------------------
+
+Exam admin info to note
+
+1.  Schedule/venue: The final exam will be as per the normal exam
+    schedule, which will be sent to you by the Registrar's Office (or
+    you can find via EduRec -> Academics -> Exams -> View exam
+    schedule). You can find the date/time from NUSMODS as well.
+2.  Scope:
+    - All topics in the textbook, excluding level 4 topics (i.e.,
+      optional topics), are examinable. For your convenience, you can
+      view the examinable portion of the textbook in this printable view
+      of the textbook.
+    - In addition, you are expected to be aware of SE-related things
+      (i.e., tools, techniques, concepts) encountered while doing the iP
+      and the tP e.g., Was testing technique X used in the tP?.
+      That is, you are expected to strengthen your SE knowledge (not
+      just hands-on skills) as you do the course projects -- in
+      particular, to be able to connect theory to practice.
+
+FAQ Is ____ in the scope of the exam?
+
+------------------------------------------------------------------------
+
+3.  Mode: F2F, using Examplify. You need to bring your own device (iPads
+    not suitable), which can connect to the NUS Wi-Fi network.
+    Please use these resources if you haven't used Examplify in the
+    recent past (the behavior may be different from the version you used
+    last semester):
+    - See NUS Guides on Examplify.
+    - Try a few practice exams provided in the above link.
+    - Write to NUS CIT (citbox25@nus.edu.sg) if you run into any
+      technical issues.
+    - If you do not have a working laptop for the exam, please contact
+      IT Care itcare@nus.edu.sg directly for a laptop loan (for exam
+      purpose only).
+4.  Examplify will use the full lock-down mode during the exam i.e., no
+    access Internet, and, no access any applications/files on your
+    computer during the exam .
+    Reason: Because of the risk of locally-installed LLMs affecting the
+    integrity of the exam, NUS recommends using full-lockdown mode.
+5.  This is a 'cheatsheet' exam: You are allowed the usual one A4 size
+    cheatsheet (both sides). There is no restriction on what it can
+    contain.
+    In addition,
+    - this exam-reference-sheet will be made available inside Examplify,
+      as an exam-wide PDF file attachment.
+    - Java and Git coding standards will be given as question-specific
+      attachments, if the question is related to either of them.
+6.  You need to check the exam-compatibility of your device early (as
+    given in the panel below) -- even if you have used Examplify for
+    other exams before, as the Examplify behaviour varies based on the
+    specific exam configuration -- and work with NUS CIT to resolve any
+    issues you encounter.
+    Issues encountered by past students include problems in viewing and
+    searching the exam reference PDF file inside Examplify.
+
+How to check the compatibility of your device
+
+- i.
+  Ensure you have Examplify installed in your exam device.
+- ii.
+  Download the mock exam we have provided. It has only three dummy
+  questions, for you to get familiar with the exam mode.
+- iii.
+  Do the mock exam (password: Hello123).
+  Confirm you are able to open/resize/navigate/search the PDF file we
+  have provided as an attachment inside Examplify (this file can be
+  accessed via the EXAM CONTROLS menu in the Examplify UI).
+
+Deadline to complete the compatibility check (including liaising with
+CIT): at least 10 days before the exam
+
+------------------------------------------------------------------------
+
+7.  You are not required to record the screen. Doing so can cause
+    problems (lag, crashes, lockout etc.).
+8.  Download all parts of the exam before you come to the exam (i.e.,
+    parts 1, 2). We'll give you the password for opening each part at
+    the exam, at the starting time of each part.
+    You will be notified when they are ready for download (typically,
+    around 24 hours before the exam start time).
+9.  If you have a doubt/query about a question, or want to make an
+    assumption about a question, please write it down in the 'NOTES'
+    text box. Do not try to communicate those with the invigilator
+    during the exam. (reason: at an exam of this scale, it is not
+    practical to clarify such doubts on-the-spot on a timely manner).
+    We'll take your doubt/query/assumption into account when grading.
+    For example, if many had queries about a specific question, we can
+    conclude that the question is unclear and omit it from grading.
+
+Submitting doubts/assumptions/feedback for a question:
+
+[]
+
+1.  Click on TOOL KIT.
+
+2.  Click on the NOTES tab, if it is not selected already.
+
+3.  Type in your doubt/assumption/query/feedback in the text box. e.g.,
+
+        Doubt: is there an error in this diagram?
+
+            
+            Copy
+            
+            
+
+            
+              
+            
+
+
+            
+            
+            
+            
+            Wrap Text
+            
+            
+
+            
+              
+            
+
+
+            
+            
+            
+
+        Assumption: no other entities are involved in this interaction.
+
+            
+            Copy
+            
+            
+
+            
+              
+            
+
+
+            
+            
+            
+            
+            Wrap Text
+            
+            
+
+            
+              
+            
+
+
+            
+            
+            
+
+4.  Tick the REQUEST FEEDBACK checkbox. If you don't, the note will not
+    be saved!!!
+
+------------------------------------------------------------------------
+
+9.  Bring your computer fully charged, although some charging points
+    will be available at the exam venue (so, bring the charger too).
+    NUS does not allow local LLMs in the exam device. Please uninstall
+    such tools before the exam.
+
+FAQ My laptop battery is weak. Can I be put in a seat near a charging
+point?
+
+------------------------------------------------------------------------
+
+10. You must start the exam within 5 minutes of receiving the password.
+
+Structure/format
+
+- The exam has 2 parts.
+- Although the official duration of the exam is 1.5 hours, note that the
+  actual exam might take up to 2 hours (due to technical issues). So,
+  please don't schedule anything important right after the exam.
+
+Final exam - part 1
+
+- You will be asked to draw some UML diagrams, to be hand-drawn on paper
+  (not on a tablet).
+  You may use pencils if you wish.
+- Duration: 20 minutes
+- The questions will be in Examplify.
+- Bring 1-2 sheets of A4 size papers when you come to the exam, for
+  drawing these diagrams.
+- These diagrams will not be graded directly. Instead, you will use them
+  when answering part 2 of the exam.
+  However, we may use the diagrams to give some consolation marks should
+  you score very low in the corresponding MCQ questions.
+  For that purpose, the papers will be collected at the end of the full
+  exam (i.e., after part 2 is over).
+- The question will be provided as a question-specific PDF attachment
+  (can be accessed through the TOOL KIT menu) while the exam reference
+  PDF will be provided as an exam-wide PDF attachment (can be accessed
+  through the EXAM CONTROLS menu). You can open both at the same time
+  and arrange them side-by-side. See teh panel below for an
+  illustration.
+
+Viewing question-specific and exam-wide PDF attachments
+
+[]
+
+------------------------------------------------------------------------
+
+Final exam - part 2
+
+- A quiz containing 32 MCQ questions. All questions are estimated to be
+  equal size/difficulty.
+- You only need to answer 30 questions correctly to get full marks. The
+  extra two questions are a cushion against careless mistakes or
+  misinterpreting a question.
+- Questions will appear in random order.
+- You will not be able to go back to previous questions.
+
+FAQ WHAT? Why aren't we allowed to go back to previous questions?
+
+------------------------------------------------------------------------
+
+- Duration: 70 minutes (recommended: allocate 2 minutes per question,
+  which gives you a 6-minute buffer)
+- Most MCQ question have a short-answer follow-up question.
+- Given below is an example question. The answer is a and the answer to
+  the follow-up question can be
+  OOP is only one of the choices for an SE project.
+
+Sample question 1
+
+Choose the incorrect statement.
+
+- a. Software engineering projects always use OOP.
+- b. Some software engineering projects can be large and complex.
+- c. Some software engineering projects can go on for many years.
+- d. Software projects can involve people who are not software
+  engineers.
+- e. Software engineering projects can deliver the end product
+  incrementally.
+
+Why is it incorrect? ______
+
+------------------------------------------------------------------------
+
+FAQ How is the follow-up question graded?
+
+------------------------------------------------------------------------
+
+FAQ What if I accidentally clicked Next before answering the follow-up
+question?
+
+------------------------------------------------------------------------
+
+- Here is another example question. Note the [SELECT ALL] at the start
+  of the question text, which tells you that this question can have
+  multiple correct answers, and you need to select all of them i.e., it
+  is a checkbox type question
+  The answer is C, D.
+
+Sample question 2
+
+[SELECT ALL] Which of these are UML diagrams depicting behavior (as
+opposed to structure)?.
+
+A. Class diagrams.
+B. Object diagrams.
+C. Activity diagrams.
+D. Sequence diagrams.
+E. Gantt charts.
+
+------------------------------------------------------------------------
+
+FAQ Do I get partial marks for checkbox style questions?
+
+------------------------------------------------------------------------
+
+- Some Part 2 questions will be based on the UML diagrams you drew in
+  Part 1. In case you need to refer back to Part 1 questions, they will
+  be provided as a PDF attachment in Part 2.
+- Diagrams/images in some questions will be repeated as an attachment
+  for some questions, so that you can see the top part and bottom part
+  of the question side-by-side, rather than repeatedly scrolling
+  up-and-down. You can close the attachment pane (using the
+  Close Toolkit button) if it is getting in your way. An example is
+  given below.
+
+A question with the diagram repeated as an attachment
+
+[]
+
+------------------------------------------------------------------------
+
+Exam preparation resources
+
+The following exam resources will be available from the start of week
+13.
+
+Video [Course Briefing Video] Final Exam (10 minutes)
+
+------------------------------------------------------------------------
+
+- A mock exam (consisting of just a few questions), via Examplify. You
+  can use it to get familiar with the quiz format that will be used for
+  the final exam. Password: Hello123
+  Model answers are in Canvas/files/handouts.
+- A practice exam of same format/length/difficulty^([see caveat]) as the
+  actual exam will be available at least one week before the exam.
+  You can use it to practice your timing/pace. Multiple attempts are
+  allowed.
+  - Recommended:
+    - Watch the exam briefing video and finish studying the topics
+      before you attempt the practice exam, to get its full benefit.
+    - Do the mock exam (to get used to the software and question
+      structure) before the practice exam.
+  - Where to find it: on Examplify.
+    - Part 1: Password Hello123 (Resume code: 68B783)
+    - Part 2: Password Hello123 (Resume code: 81BB06)
+  - Model answers are available on Canvas/files/handouts.
+
+CAVEAT about difficulty level of the practice exam
+
+Although the practice exam is meant to be the same difficulty as the
+actual exam, past students have commented that they found the actual
+exam slightly difficult than the practice exam. We have also noted that
+about a 1/3 of the exam questions are 'heavier' than their practice exam
+counterparts ('heavier' how? for example, while the practice question is
+based on a code fragment of 15 LoC, the actual exam question's code
+fragment might be 20 LoC.)
+
+So, ensure you can do the practice exam fairly comfortably within the
+given time.
+
+- Some extra practice questions for exam part 1 are in
+  Canvas/files/handouts -- look for the file
+  Additional practice questions for part 1.pdf
+- UML Worked Examples that you previously encountered (also given in the
+  panel below) too are a suitable tool to prepare for the exam. For
+  example, you can watch the first few minutes to see the code that will
+  the basis for the diagram, then draw the diagram yourself, and watch
+  the remainder of the video to compare your answer to the model answer.
+
+UML Worked Examples
+
+------------------------------------------------------------------------
+
+- All weekly quizzes will be reopened on Canvas Quizzes. You can retake
+  them to self-test your knowledge (note: retaking them will not affect
+  participation marks).
+- Recordings of all tutorial Zoom sessions should be available in a file
+  named Recordings.docx inside your tutorial group's MS Team (in the
+  'Files' section). Remind your tutor to update that file if recording
+  links are missing.
+- Recordings of all weekly briefings are available on the Canvas home
+  page.
+- The Topics Overview video given below explains how course topics fit
+  into a big picture, and as a bonus, touches on some exam-like
+  questions as well.
+
+Video [Course Briefing Video] Topics overview + some exam-like questions
+(19 mins)
+
+------------------------------------------------------------------------
+
+- Forum questions useful for exam preparations are listed here (marked
+  with the label suitableForExamPrep).
+  You are strongly encouraged to join those discussions -- it will help
+  with exam prep, and earn you forum participation credit as well.
+
+FAQ Can we have more past year papers and model answers?
+
+------------------------------------------------------------------------
+
+ToolsParticipation Marks
+
+Exams ‎
+
+Exam admin info to note‎ Structure/format‎
+
+Final exam - part 1‎ Final exam - part 2‎
+
+Exam preparation resources‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

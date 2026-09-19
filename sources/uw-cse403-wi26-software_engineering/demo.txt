@@ -1,0 +1,107 @@
+How to give a demo presentation
+
+Your presentation should include a slide deck and a demo.
+
+1.  Introduce and motivate of your project. What problem is it solving,
+    and in what way? How is it different and better than current
+    practice? This is often a single slide.
+
+2.  Demo your system. (This should occupy half, or a bit more, of your
+    talk slot.) Focus on the operational use cases — how a user
+    interacts with it — and highlight major accomplishments. If
+    appropriate to make your demo more realistic, pre-populate any
+    database or other data source with (possibly faked) data that a
+    typical user would see.
+
+3.  (Appropriate only for an intermediate demo, not for the final
+    release.) What challenges have you met to date and how did you
+    respond? What additional features do you plan to complete before the
+    final release?
+
+4.  Show your architecture. An architecture diagram has boxes and
+    arrows. A bullet list of components is not an architecture. Don’t
+    draw a diagram that is so detailed that the audience can not read
+    the small text, or the audience doesn’t have time to absorb and
+    appreciate all the detail.
+
+5.  Discuss anything that is interesting about your implementation
+    approach.
+
+6.  Reflect on your experience. (This should be more than one slide and
+    is a crucially important part of your presentation.) Discuss what
+    you have changed from your initial plans, and what you have learned.
+    What was surprising, that you didn’t initially expect? What advice
+    do you wish you had had before you started, and what evidence would
+    you have needed to heed that advice? Your reflection might touch on:
+    open challenges and problems; your process and timeline;
+    architecture and design; testing and tooling; and/or other topics.
+
+    Here are some examples of what you might discuss, especially for the
+    final presentation.Given time constraints, present only those
+    learnings that were most valuable:
+
+    - Features and cuts: Did you complete the functionality and features
+      in your original requirements document? What about the extra
+      features (stretch goals) you listed? Did you add any additional
+      features during the project that were not listed in your original
+      requirements document? If you did not implement all features, why
+      not? (For example, what features did you cut to help you complete
+      the project in time, and why did you choose these to be cut? How
+      much work do you estimate you saved by cutting these features?)
+
+    - Roles and responsibilities: What ended up being your team members’
+      current roles? How does this differ from your original
+      expectations and specifications?
+
+    - Process and timeline: Did you change your software developement
+      process model? What occupied the majority of each team member’s
+      time and workload? How does this differ from your original
+      expectations and specifications? Where did you spend too much
+      time, and why? Where did you spend too little time, and why?
+
+    - Testing and tooling: How much time did you spend on testing; how
+      much time did you spend on code reviews? Would you increase or
+      decrease the amount of time spent on each, and why? What issues
+      (bugs, invalid assumptions, etc.) did the peer-review process
+      reveal? What aspect of your development process would you change
+      to identify and address issue earlier in the future?
+
+Further requirements:
+
+- (For Beta and Final Release demos) Each group member must participate
+  in some way in the presentation.
+
+- (For Final Release milestone) You must submit a document that
+  addresses the reflection questions, most likely in more detail than
+  your presentation (see part 3 of the Final Release Milestone
+  assignment). A good way to create your presentation is to brainstorm
+  everything that you might say in reflection, then choose the most
+  important ones to present. The others can just be in the document.
+
+Tips
+
+Don’t waste time on anything that is obvious or that could be said
+identically by other teams. For example, which unit testing framework
+you are using is not very interesting, if you have chosen one of the
+most commonly cited ones on the web. As another example, don’t say in
+your reflection just that “We had some teammate communication problems
+at the beginning, but then we met more frequently and resolved them” or
+“We had trouble coming up to speed on the X framework.” Those statements
+could be said by almost any team. Instead, be more specific about
+concrete problems and actions.
+
+Your time in the presentation is limited. Focus on the most important or
+interesting issues. Don’t waste time on minor details.
+
+No slide should be a wall of text. You should use a large font, and your
+slides should be telegraphic, making the main points without being full
+sentences. If you write a lot of text, then the audience has to decide
+between reading the text and listening to your spiel. Either way, the
+audience will miss information and your presentation will not be as
+effective as it should be.
+
+As always, the first slide or top of a document should include all team
+members’ full names.
+
+Here is more advice about your presentation: How to give a technical
+presentation.

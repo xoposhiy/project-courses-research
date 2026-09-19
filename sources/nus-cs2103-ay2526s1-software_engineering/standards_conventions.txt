@@ -1,0 +1,290 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+Programming LanguageiP (Individual Project): Overview
+
+Standards/Conventions 
+
+Given below are the standards and conventions to follow in this course.
+
+FAQ What to do if a certain aspect is not covered by the Java/Git
+standard?
+
+------------------------------------------------------------------------
+
+Java
+
+- REQUIRED Follow the basic and intermediate rules in the SE-EDU Java
+  coding standard.
+- OPTIONAL Follow advanced rules.
+
+Git
+
+- REQUIRED Follow the Git commit message subject conventions in the
+  SE-EDU Git conventions.
+- CONDITIONAL Writing a commit message body is optional, but if you do
+  write one, follow at least basic conventions for the commit message
+  body.
+
+Markdown
+
+- OPTIONAL Follow Markdown style guide at SE-EDU.
+
+Documentation
+
+- OPTIONAL Follow Google developer documentation style guide.
+
+Programming LanguageiP (Individual Project): Overview
+
+Standards/Conventions ‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

@@ -1,0 +1,481 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+tP: Supervision/GuidanceTools
+
+Peer Evaluations 
+
+This course leverages peer feedback/evaluations in many ways. In
+particular, we do several rounds of peer evaluations using TEAMMATES.
+
+Admin Tools → TEAMMATES
+
+Submitting peer evaluations is compulsory. If you routinely miss
+submitting peer evaluations, you can lose participation marks.
+
+Asking others to reveal the feedback they submitted for you is against
+the course policies, irrespective of the motive behind the request.
+
+Session: Prelim Peer Evaluation
+
+- Objective: to give you a chance to give early feedback to team
+  members, but also, a chance to familiarize with the TEAMMATES tool.
+
+- Submission is compulsory. However, ratings/responses you receive will
+  not be considered for grading .
+  Although this is done early in the project timeline, we recommend that
+  you give sincere/accurate feedback to others as much as possible.
+
+- Held early in the semester.
+
+- The questions in this session are similar to the
+  Midterm Peer Evaluation, but has the following additional question:
+
+  Q How much do you plan to contribute to the team project?
+  - An equal share
+  - A bit more than an equal share
+  - A lot more than an equal share
+  - A bit less than an equal share (e.g., due to other commitments)
+  - A lot less than an equal share
+  - Can only do the bare minimum to pass
+
+Session: Midterm Peer Evaluation
+
+- This peer evaluation is mostly 'for your information only' -- i.e.,
+  for you to receive an early indication of what your team thinks about
+  your work. Any low ratings received in this session will not affect
+  your marks, provided they do not remain low in the final peer
+  evaluation.
+- Held about two weeks into the tP coding phase.
+
+Important questions included in the evaluation:
+
+Some of these questions (e.g., contribution to DG) are omitted from the
+midterm peer evaluation but are in the final peer evaluation (they are
+given here for your reference)
+
+Q The team members' contribution to the User Guide is,
+
+Uses the Equal Share +/- N% scale for the answer
+
+------------------------------------------------------------------------
+
+Q The team members' contribution to the Developer Guide is,
+
+Uses the Equal Share +/- N% scale for the answer
+
+------------------------------------------------------------------------
+
+Q The team members' contribution to the team-based tasks is,
+
+Uses the Equal Share +/- N% scale for the answer
+
+------------------------------------------------------------------------
+
+Q The team members' contribution to the product implementation
+(excluding UG, DG, and team-based tasks) is,
+
+Uses the Equal Share +/- N% scale for the answer
+
+------------------------------------------------------------------------
+
+Q The team members' conduct in the project and during tutorials,
+
+- Evaluated based on the following criteria, on a scale
+  Poor/Below Average/Average/Good/Excellent:
+
+Peer Evaluation Criteria: Professional Conduct
+
+- Professional Communication :
+  - Communicates sufficiently and professionally. e.g., Does not use
+    offensive language or excessive slang in project communications.
+  - Responds to communication from team members in a timely manner
+    (e.g., within 24 hours).
+- Punctuality: Does not cause others to waste time or slow down project
+  progress by frequent tardiness.
+- Dependability: Promises what can be done, and delivers what was
+  promised.
+- Effort: Puts in sufficient effort to, and tries their best to keep up
+  with the course/project pace. Seeks help from others when necessary.
+- Quality: Does not deliver work products that seem to be below the
+  student's competence level i.e., tries their best to make the work
+  product as high quality as possible within her competency level.
+- Meticulousness:
+  - Rarely overlooks submission requirements.
+  - Rarely misses compulsory course activities such as pre-course
+    survey.
+- Teamwork: How willing are you to act as part of a team, contribute to
+  team-level tasks, adhere to team decisions, etc. Honors all
+  collectively agreed-upon commitments e.g., weekly project meetings.
+
+Q The competency of the team member demonstrated in the project and
+during the tutorials,
+
+- Considered only for bonus marks, A+ grades, and tutor recruitment
+- Evaluated based on the following criteria, on a scale
+  Poor/Below Average/Average/Good/Excellent:
+
+Peer Evaluation Criteria: Competency
+
+- Technical Competency: Able to gain competency in all the required
+  tools and techniques.
+- Mentoring skills: Helps others when possible. Able to mentor others
+  well.
+- Communication skills: Able to communicate (written and spoken) well.
+  Takes initiative in discussions.
+
+Q [Optional] Any ANONYMOUS feedback you want to give the classmates you
+reviewed above?
+
+Q [Optional] Any CONFIDENTIAL comments about any team members?
+
+FAQ What if I don't agree with the tP peer evaluations I received for
+the midterm peer evaluation?
+
+------------------------------------------------------------------------
+
+Session: Final Peer Evaluation
+
+- Held at the end of the tP.
+- This peer evaluation is compulsory. Not only it will count for weekly
+  participation, those who don't submit will not get a chance to rebut
+  peer evaluations received.
+- This session includes all questions from the Midterm Peer Evaluation:
+
+Admin Peer Evaluations → Session: Midterm Peer Evaluation Questions
+
+- In addition, it contains these additional questions:
+
+Q Do you agree with the contributions claimed by team members, as stated
+in their PPP?
+You may omit this question for members who have not submitted the PPP.
+
+Q Rank team members based on their ability/potential to lead a software
+project team (rank 1 is strongest)
+
+Session: Responses to Peer Evaluations
+
+- This is a chance for you to submit your objections to the ratings you
+  received in the Final Peer Evaluation.
+
+How peer evaluations are used
+
+- Peer evaluations are rarely used directly to calculate marks. They are
+  mostly used to flag cases that need further investigation.
+- When investigating such cases to decide if and how much the marks
+  should be adjusted based on peer evaluations, we consider factors such
+  as the following:
+  - Is there a consensus among team members? We do not want an extreme
+    input from one team member to unduly affect the outcome. In many
+    cases, we discard the highest and lowest ratings received before
+    calculating the average.
+  - Do the other data points (e.g., LoC written, tutor feedback, commit
+    history) corroborates the peer evaluations?
+- In some cases, a lower contribution rating given by peers (even if
+  corroborated by other data) might not affect marks at all e.g., if the
+  lower contribution still meets the bar for earning full marks for that
+  component.
+
+Guidelines for giving peer feedback
+
+Giving constructive feedback to others is a valuable skill for software
+engineers. It is also an intended learning outcome of this course.
+Half-hearted/trivial feedback will not earn participation marks.
+
+Here are some things to keep in mind:
+
+- Assume you are giving feedback to a colleague, not a friend. Keep the
+  tone of your feedback reasonably professional. Do not use offensive
+  language or slang.
+- The feedback should be honest and consistent. Giving positive
+  qualitative feedback (e.g., Thanks for all the hard work! and negative
+  ratings (e.g., Equal share - 40%) to the same team member is not being
+  honest.
+- State your expectations early. All too often students give
+  positive/neutral feedback early (hoping that the team member will
+  improve later) and trash the team member in the final evaluation
+  (because he/she did not improve as expected). However, this could be
+  confusing to the recipient. It is better to give negative feedback
+  early so that the team member gets a clear signal that he/she needs to
+  improve.
+
+Guidelines for interpreting contribution ratings
+
+When you receive results of a peer evaluation question about
+contribution, use it mainly to compare the team view to your own view.
+
+- Example 1:
+  Your view (of your own contribution) : E+10% i.e., 10% more than an
+  equal share
+  Team view (of your own contribution): E+8%
+  Conclusion: The team's view is quite similar to yours.
+- Example 2:
+  Your view (of your own contribution) : E+15% i.e., 10% more than an
+  equal share
+  Team view (of your own contribution): E+3%
+  Conclusion: The team thinks you did significantly less than you
+  claimed you did.
+
+tP: Supervision/GuidanceTools
+
+Peer Evaluations ‎
+
+Session: Prelim Peer Evaluation‎ Session: Midterm Peer Evaluation‎
+
+Peer Evaluation Criteria: Professional Conduct‎ Peer Evaluation Criteria:
+Competency‎
+
+Session: Final Peer Evaluation‎ Session: Responses to Peer Evaluations‎
+How peer evaluations are used‎ Guidelines for giving peer feedback‎
+Guidelines for interpreting contribution ratings‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

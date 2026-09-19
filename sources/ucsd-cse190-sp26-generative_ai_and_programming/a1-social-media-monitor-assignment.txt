@@ -1,0 +1,230 @@
+Social Media Monitor Assignment
+
+You may work solo or in pairs. You can work with anyone in either course
+number for this assignment (e.g. ugrad/ugrad, ugrad/grad, and grad/grad
+pairs all allowed). Pair policies may be different on future
+assignments.
+
+Assignment goals:
+
+- Use basic LLM APIs for text processing
+- Learn to balance cost and quality by combining LLMs with cheaper
+  processing stages
+- Build an eval harness for an LLM-powered application
+
+Large-Scale Semantic Text Processing
+
+One of the most compelling capabilities of LLMs is their ability to work
+with text at a deep semantic level. This enables a new kind of
+automation: pipelines that perform non-trivial classification and
+filtering over large volumes of text.
+
+For example, this repository shows a short example of monitoring public
+posts on BlueSky to identify and collect original poetry.
+
+While hosted LLM APIs (such as the OpenAI API) make it easy to get a
+prototype of such a pipeline running, there are two fundamental
+challenges:
+
+- Cost. LLMs are expensive — both in dollar terms for hosted APIs and in
+  compute for self-hosted models — and more capable models cost more. To
+  process data at scale, you need a multi-stage pipeline that
+  progressively funnels the data through increasingly capable (and
+  expensive) filters.
+- Reliability. LLMs are imperfect and unpredictable, so you need an eval
+  harness to measure how well your pipeline performs and to
+  systematically improve it.
+
+  Using TritonAI? See the tritonai-starter repo for setup instructions!
+
+A Reliable Social Media Monitor
+
+Your task for this assignment is to build a social media monitoring
+system. You choose which platform or content source to monitor and what
+kind of content to look for. Our BlueSky poetry detector is just an
+example; other ideas include:
+
+- As a source, you could try Mastodon, HackerNews, Reddit, Telegram, or
+  even GitHub. BlueSky is particularly convenient because it has a
+  public firehose API that does not require an account or API key.
+- You might be interested in monitoring for:
+  - internship postings tailored to your interests
+  - academic paper announcements in a niche area
+  - event announcements in your city
+
+You may have your own ideas — please be creative!
+
+Monitoring can be either online (content is streamed in and relevant
+items are displayed as they appear) or offline (content is downloaded at
+regular intervals and filtered in batch). There are no requirements on
+the UI: it can be a CLI application (like our poetry detector) or it can
+collect results into a table or dashboard.
+
+No matter what you pick, there are some requirements for what you build:
+
+Multi-Stage Pipeline
+
+- Whether online or offline, your monitor should be designed to scale to
+  large amounts of content.
+- As a result, it won't be economical to send everything to a capable
+  LLM; you will need to build a multi-stage pipeline.
+- You can be creative with what stages you use — this will depend on
+  your domain. Common choices include (in order of increasing cost and
+  precision):
+  - Symbolic filtering by metadata (channel, language, location, etc.)
+  - Keyword filtering
+  - Embedding similarity (how close is this content to a set of known
+    positive examples); computing embeddings requires an API call, but
+    embeddings are orders of magnitude cheaper than LLM inference
+  - A cheap/small LLM targeting high recall (and low precision), e.g. by
+    tuning a classification threshold
+
+Evaluation and Tuning
+
+You need to build an eval harness that lets you measure your pipeline's
+performance and compare different configurations:
+
+- The eval harness should measure both quality (precision/recall) and
+  cost.
+- You will need a gold dataset of at least 50 labeled examples to
+  measure quality. Because your task and data source are unique to your
+  project, you will need to build this dataset yourself. These can be
+  real or synthetic examples that you create.
+- Invest in tooling that makes labeling data and comparing pipeline
+  configurations easy.
+- Once you have the eval harness and gold dataset, compare different
+  model parameters and prompting techniques (personas, few-shot
+  examples, explanations/CoT). Think about which metric to optimize for
+  your domain: F1 at a given max cost? Recall at a given minimum
+  precision and max cost? Cost at a given minimum recall? Different
+  metrics make sense for different applications.
+
+Deliverables
+
+Pairs share one repo and one submission. At review day, one partner
+demos while the other takes notes on feedback received.
+
+Repo setup. Accept the GitHub Classroom assignment link to create your
+repo. All work must be pushed there — this is how staff accesses your
+submission and how we set things up for review.
+
+------------------------------------------------------------------------
+
+Initial Submission — due Tuesday, Week 2, 11:59pm
+
+Push to your GitHub Classroom repo and submit on Gradescope:
+
+- Code that runs your pipeline and eval harness
+- README.md (see requirements below)
+- transcripts/ folder that contains 3 interesting exported chat logs
+  from any AI assistants (Claude, Copilot, Gemini, etc.) you used during
+  development. For example:
+  - GitHub Copilot: Save and export chat sessions
+  - Claude Code: /export command reference
+  - Search around (or ask your agent!) for other systems
+- DESIGN.md a file that includes descriptions of 3 cases where a design
+  decision was made. Describe the decision and how much you feel YOU
+  made it, vs an agentic coding tool.
+
+Your README must include:
+
+- Project description — what platform, what content, what you're looking
+  for (2–4 sentences)
+- Setup — step-by-step install and API key configuration; include a
+  .env.example showing required keys
+- How to run — commands to run the pipeline and the eval harness
+  separately
+- Demo video — YouTube unlisted link (3–5 min: pipeline running, eval
+  results, code/prompt walkthrough)
+- Eval results — table of precision, recall, and cost per stage and
+  end-to-end
+- Pipeline stages — brief description of each stage and why you chose it
+- AI transcripts — pointer to transcripts/ folder
+
+Before review day you must also complete the Session Log Github issue
+session log template.
+
+------------------------------------------------------------------------
+
+Review Day — Thursday, Week 2 (in class)
+
+Review group assignments and a seating chart will be posted Wednesday
+evening (Google Sheet linked from Piazza). Find your seat when you
+arrive — you'll spend the full 80 minutes with the same two other teams.
+
+Structure: 3 rounds of ~20 minutes each. Each round, one team presents
+while the other two review. You will present once and review twice.
+
+Presenting: Before review day, create a Session Log Issue on your repo
+using the session log template and pre-fill the "Prepared flow" section.
+During the session, run your system on your laptop and let your
+reviewers interact with it directly. Be ready to show your code and
+prompts, walk through your eval results, and discuss cost. Your demo
+video is a fallback if anything breaks.
+
+If your system doesn't run: show your demo video and walk through your
+code. Reviewers will note in their review what they couldn't verify
+live.
+
+Reviews – due Friday, Week 2, 11:59pm
+
+Reviewing: Take notes during the session. For each project you review,
+file a GitHub Issue using the review template by Friday, 11:59pm. You
+must also copy and paste your review into the Gradescope assignment
+(which we will use to assign grades).
+
+------------------------------------------------------------------------
+
+Revision — due Friday, Week 3, 11:59pm
+
+Push to your GitHub Classroom repo and submit on Gradescope:
+
+- Revised code reflecting changes made in response to feedback
+- At least 2 more transcripts of sessions with a coding agent to process
+  all the feedback
+- Updated README.md and DESIGN.md to reflect changes
+- FEEDBACK-RESPONSE.md — for each GitHub Issue you received, copy the
+  text of the reviews you received, including instructor feedback, state
+  what you did (fixed, partially addressed, or declined) and why, with
+  links to relevant commits.
+
+------------------------------------------------------------------------
+
+Stretch Goal
+
+As a stretch goal, try using prompt tuning frameworks (DSPy) or
+"semantic operator" frameworks (Lotus, Palimpzest) to implement your
+pipeline and compare its performance with your manually tuned version.
+You should look up these tools on your own and think through how they
+apply to your course.
+
+A Note on Content Moderation, This Class, Policies, and Professionalism
+
+In this assignment, we encourage you to work with public data sources.
+We used the BlueSky firehose API because it is clearly meant for public
+and educational use. Do a quick check on anything you work with to see
+if you're violating terms of service by scraping or accessing an API in
+bulk.
+
+You may end up using public data sources where you have little or no
+control over the content you see. In particular, you may end up seeing
+explicit or upsetting material (violence, profanity, slurs, nudity,
+ideological statements etc). It's social media, after all. There are a
+few things worth saying about this:
+
+1.  Content moderation is a real issue when using (and creating)
+    generative AI systems (also in social media), and typically it is
+    human workers who actually do confront and label this data for
+    training. So in the global sense, it's hard to get around this
+    problem.
+2.  The more “professional” and less “social” a resource is, the less
+    likely you are to encounter explicit material. So if you'd rather
+    not interact with this kind of material even accidentally, use a
+    source like Github's public API instead of a generic social media
+    firehose.
+3.  In this assignment (and in this class in general), don't aim for
+    shock value or trolling or trying to show upsetting content for your
+    peers, for a laugh or a reaction or otherwise. Treat your work and
+    others' attention with respect.
+4.  Take courses like CSE 291 with Professor Kumar or COGS 15 (more
+    recreational) for more information on these topics.

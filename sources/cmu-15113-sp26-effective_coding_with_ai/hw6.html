@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW6: Build a Database App | 15-113</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>HW6: Build a Database App</h1>
+        <p class="subtitle">CMU 15-113: Effective Coding with AI</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">&larr; Back to Course</a>
+            <a href="#overview">Overview</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#instructions">Instructions</a>
+            <a href="#concepts">Key Concepts</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div class="info-box">
+    <strong>Due Date:</strong> Sat. 3/14 at 8:00 PM<br>
+    <strong>Time Estimate:</strong> ~3 hours<br>
+    <strong>Deliverables:</strong> Code + README + prompt log on GitHub, brief form response + video
+</div>
+
+<h2 id="overview">Assignment Overview</h2>
+
+<div class="project-card">
+<p><strong>Goal:</strong> Build a small app that uses a <strong>SQLite database</strong> to store, retrieve, update, and delete data. You'll choose something personally interesting to track and build a working app around it using Python and AI tools.</p>
+
+<p><strong>Why This Matters:</strong> Almost every real-world application stores data in a database. Understanding how to create tables, insert records, query data, and modify entries is a foundational skill. In this assignment you'll learn to use SQL (Structured Query Language) to manage persistent data, and you'll see how AI tools can help you learn a new technology quickly.</p>
+
+<p><strong>Examples of what you might build:</strong></p>
+<ul>
+    <li>A reading log</li>
+    <li>A to-do list</li>
+    <li>A workout journal</li>
+    <li>A recipe collection</li>
+    <li>A budget tracker</li>
+    <li>A course planner</li>
+    <li>Or essentially anything else that interests you</li>
+</ul>
+
+<div class="note">
+    <strong>Build on prior work if you want!</strong> This assignment is designed as a fresh, standalone project that runs locally on your machine (and this will probably be the easiest path). However, if you'd prefer to add or improve database functionality to an existing project, that's perfectly fine&mdash;as long as your submission meets all the requirements below and as long as your git commits show your efforts this week.
+</div>
+</div>
+
+<h2 id="requirements">Requirements &amp; Scoring</h2>
+
+<div class="project-card">
+<h3>Core Requirements (your app must do all of these)</h3>
+
+<p>Your app must use a <strong>SQLite database</strong> with at least one table containing <strong>at least 4 columns</strong> (including an id column). Your app must support all four CRUD operations:</p>
+
+<table>
+    <tr>
+        <th>Operation</th>
+        <th>What It Means</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><strong>Create</strong></td>
+        <td>Add a new record to the database</td>
+        <td>Add a new book to my reading log</td>
+    </tr>
+    <tr>
+        <td><strong>Read</strong></td>
+        <td>Retrieve and display records</td>
+        <td>Show all books I've read this year</td>
+    </tr>
+    <tr>
+        <td><strong>Update</strong></td>
+        <td>Modify an existing record</td>
+        <td>Change a book's rating from 3 to 4 stars</td>
+    </tr>
+    <tr>
+        <td><strong>Delete</strong></td>
+        <td>Remove a record from the database</td>
+        <td>Remove a book I added by mistake</td>
+    </tr>
+</table>
+
+<p>Your <strong>Read</strong> functionality must include at least one query that <strong>filters or sorts</strong> the data based on user input (e.g., "show only 5-star books" or "show entries sorted by date").</p>
+
+<h3>Interface</h3>
+
+<p>Your app needs some kind of interactive user interface. You have three options, in order from simplest to most ambitious:</p>
+
+<ol>
+    <li><strong>Command-line interface (CLI):</strong> A terminal-based menu where the user types choices and sees text output. This is the simplest option and (because this assignment is focusing on database functionality) this is perfectly sufficient for full credit.</li>
+    <li><strong>Simple web interface:</strong> A Flask app with HTML pages for viewing and managing data (similar to HW4). This gives you more practice with web development.</li>
+    <li><strong>Graphical interface:</strong> A desktop app using a library like tkinter or PyQt. Only attempt this if you're comfortable or curious.</li>
+</ol>
+
+<div class="note">
+    <strong>Strongly recommended:</strong> Start with a CLI. It'll be fastest and easiest to get your database logic working and tested if you aren't simultaneously debugging a complex UI. If you finish early and want to add a web or graphical interface, go for it, but get the core database operations working first.<br>
+    Also, if you get the database and CLI working and you <i>unsuccessfully</i> attempt a graphical interface, you should revert your code (and any edits to your README) to a working CLI version before the deadline so that you can still get full credit. Your README should let us know how to run and/or access a working version of your app.
+</div>
+
+<h3>What You Must Submit</h3>
+
+<ul>
+    <li><strong>GitHub repository</strong> containing:
+        <ol>
+            <li><strong>Code:</strong> Your Python application (and any HTML/CSS/JS etc. if you built a web interface). The app should be runnable with clear instructions.</li>
+            <li><strong>README:</strong> Must be named <code>README.md</code> and located at the repository root (or inside the project folder if you placed the project in your portfolio repo). Include the following:
+                <ul>
+                    <li>What your app tracks and why you chose it (1&ndash;2 sentences)</li>
+                    <li>Your database schema: what table(s) you created, what columns they have, and the data types (a simple table or list is fine)</li>
+                    <li>How to run your app (what to install, what command(s) to use)</li>
+                    <li>A brief description of each CRUD operation and how a user performs it</li>
+                </ul>
+            </li>
+            <li><strong>Prompt log</strong> — titled <code>prompt_log.txt</code> or <code>prompt_log.md</code>, and located in the same folder as your README. It must list which AI model(s)/tools you used, document the development process from start to finish, and include important, non-trivial prompts (not just summaries). As a whole, this file should make it obvious that you invested roughly 3 hours of work.</li>
+        </ol>
+    </li>
+    <li><strong>Portfolio:</strong> Add a link to your project repository to your portfolio with a brief description.</li>
+    <li><strong>Short video:</strong> A short screen-recorded video that shows your app performing each CRUD operation and explains your technical/design choices; upload to YouTube/Drive and include the link in the Google form (and make sure anyone with the link can access it). This is a primary tool for us when grading your work, though it's also a good way to show off on your portfolio.</li>
+    <li><strong>Google form:</strong> <a href="https://forms.gle/Q9ZyHwEmoDrKoo836" target="_blank">Fill out this form</a> with your repo link, video link, and basic info.</li>
+</ul>
+
+<h3>Grading</h3>
+
+<table>
+    <tr>
+        <th>Grade</th>
+        <th>(Roughly) What We're Looking For</th>
+    </tr>
+    <tr>
+        <td><strong>A (90-100)</strong></td>
+        <td>All four CRUD operations work correctly. At least one filtered/sorted query. Clean, understandable code. Thoughtful README and prompt log. Evidence of ~3 hours of effort. Some creativity in what you chose to track or how you display it.</td>
+    </tr>
+    <tr>
+        <td><strong>B (80-89)</strong></td>
+        <td>All four CRUD operations work. README and prompt log present but less detailed. Functional but straightforward.</td>
+    </tr>
+    <tr>
+        <td><strong>C (70-79)</strong></td>
+        <td>At least Create and Read work. Some attempt at Update or Delete. Basic README.</td>
+    </tr>
+    <tr>
+        <td><strong>Below C</strong></td>
+        <td>Incomplete or non-functional submission.</td>
+    </tr>
+</table>
+<br>
+<p><em><b>Note:</b> We've seen a few prevalent shortcuts taken in previous assignments that seem to be backfiring on people, either by producing substandard results or circumventing your learning goals.  To that end, please avoid the following, and note that we may assess deductions for these:<ul>
+    <li><b>Do not try to build this app in a single prompt, and do not immediately provide this document to the AI as context.</b>  The latter may seem counterintuitive, but we have noticed a lack of prompt sophistication due to overreliance on the specifications we've already given you.  We want you to practice understanding and specifying the requirements yourselves, because the work you do in the future will not be as precisely described.  Implemend CRUD step-by-step, and debug as you go.  This will also help you reach a better outcome (and a better understanding of your project) in less time.</li>
+    <li><b>Likewise, don't completely rely on AI for your README and prompt_log.</b>  While we won't strictly prohibit you from using AI to create your README and prompt_log, we've recently seen some really nonsensical ones that were clearly AI-generated at an early stage in the project, and do not reflect the code that was actually given to us.  Sometimes it also includes erroneous or unhelpful AI-generated text.  You should <b>read</b> your own README and make sure it makes sense.  <b>A bad AI-generated README is a major red flag for employers who value reliability and precision.</b></li>
+</ul></em></p>
+
+</div>
+
+<h2 id="instructions">Step-by-Step Instructions</h2>
+
+<div class="card">
+<p>We recommend working through these steps in order. Each step builds on the previous one, and this order will help you make steady progress rather than getting stuck debugging too many things at once.  If you find that one of these steps is taking significantly longer than the time we specified here, or if you aren't confident on how to start, <i>please</i> ask on Ed or come to office hours!</p>
+
+<h3>Step 1: Choose What to Track (15 minutes)</h3>
+
+<p>Pick something you'd genuinely find useful or fun to track. Here are some ideas, but feel free to come up with your own:</p>
+
+<ul>
+    <li><strong>Reading log:</strong> title, author, genre, rating, date finished, notes</li>
+    <li><strong>Workout journal:</strong> exercise, duration, intensity, date, notes</li>
+    <li><strong>Recipe collection:</strong> name, cuisine, prep time, difficulty, ingredients, URL</li>
+    <li><strong>Budget tracker:</strong> item, amount, category, date, notes</li>
+    <li><strong>Music diary:</strong> song, artist, album, genre, rating, date listened</li>
+    <li><strong>Course planner:</strong> course name, department, units, semester, grade, status</li>
+    <li><strong>Movie/TV log:</strong> title, genre, rating, date watched, where you watched it</li>
+    <li><strong>Habit tracker:</strong> habit name, date, completed (yes/no), streak, notes</li>
+</ul>
+
+<p>Once you've picked a topic, write down 4&ndash;6 pieces of information (columns) you'd want to store for each entry. One of them should be an <code>id</code> that uniquely identifies each record.</p>
+
+<h3>Step 2: Design Your Database Schema (15 minutes)</h3>
+
+<p>Before writing any code, sketch out your table on paper, in a notes app, or by asking AI for help. For example, a reading log might look like:</p>
+
+<pre><code>Table: books
+-----------------------------------------
+| id | title | author | rating | date_finished | notes |
+-----------------------------------------
+</code></pre>
+
+<p>Decide on the <strong>data type</strong> for each column. The most common SQLite types are:</p>
+<ul>
+    <li><code>INTEGER</code> &mdash; whole numbers (good for id, rating, quantity)</li>
+    <li><code>TEXT</code> &mdash; strings (good for names, descriptions, dates as text)</li>
+    <li><code>REAL</code> &mdash; decimal numbers (good for prices, distances)</li>
+</ul>
+
+<div class="note">
+    <strong>AI tip:</strong> Try prompting: <em>"I want to create a SQLite database to track [your topic]. Here are the columns I'm thinking of: [list them]. Can you help me write a CREATE TABLE statement and suggest any columns I might be missing?"</em>
+</div>
+
+<h3>Step 3: Set Up Your Project and Create the Database (20 minutes)</h3>
+
+<p>Create a new folder and Python file for your project. Use Python's built-in <code>sqlite3</code> module (no installation needed!) to create your database and table. Here's the general pattern:</p>
+
+<pre><code>import sqlite3
+
+# Connect to (or create) a database file
+con = sqlite3.connect('my_tracker.db')
+cur = con.cursor()
+
+# Create your table (if it doesn't already exist)
+cur.execute('''
+    CREATE TABLE IF NOT EXISTS books (
+        id INTEGER PRIMARY KEY,
+        title TEXT NOT NULL,
+        author TEXT,
+        rating INTEGER,
+        date_finished TEXT,
+        notes TEXT
+    )
+''')
+con.commit()
+</code></pre>
+
+<p>Run your script and verify that the <code>.db</code> file is created. You can also ask AI to show you how to verify the table was created correctly.</p>
+
+<h3>Step 4: Implement Create (INSERT) (20 minutes)</h3>
+
+<p>Write a function that takes user input and inserts a new record into your table. For a CLI, this might look like asking the user for each field and then running an <code>INSERT INTO</code> statement. Test it by adding a few records.</p>
+
+<div class="note">
+    <strong>AI tip:</strong> <em>"Show me how to write a Python function that asks the user for [your fields] and inserts a new row into my [table name] table using sqlite3. Use parameterized queries to avoid SQL injection."</em>
+</div>
+
+<h3>Step 5: Implement Read (SELECT) (20 minutes)</h3>
+
+<p>Write a function that retrieves records from your table and displays them nicely. Start with showing all records, then add at least one way to filter or sort. For example:</p>
+<ul>
+    <li>Show all entries</li>
+    <li>Show entries matching a search term (e.g., books by a specific author)</li>
+    <li>Show entries sorted by a column (e.g., by rating, by date)</li>
+    <li>Show entries matching a condition (e.g., only 5-star ratings, only this month)</li>
+</ul>
+
+<h3>Step 6: Implement Update (UPDATE) and Delete (DELETE) (30 minutes)</h3>
+
+<p><strong>Update:</strong> Let the user pick a record (by id or by selecting from a list) and change one or more of its fields. For example, updating a book's rating after re-reading it.</p>
+
+<p><strong>Delete:</strong> Let the user remove a record by id. Consider asking for confirmation before deleting ("Are you sure?").</p>
+
+<div class="note">
+    <strong>Helpful pattern:</strong> For both Update and Delete, it's useful to first show the user the record they're about to modify or delete, so they can confirm they've selected the right one.
+</div>
+
+<h3>Step 7: Make the Interface (30 minutes)</h3>
+
+<p>If you're building a CLI (which we highly recommend), create a main menu loop that lets the user choose between operations, something like this:</p>
+
+<pre><code>--- My Reading Log ---
+1. Add a book
+2. View all books
+3. Search books
+4. Update a book
+5. Delete a book
+6. Quit
+
+Choose an option:
+</code></pre>
+
+<p>If you're building a web interface, make sure each operation has a corresponding page or form.</p>
+
+<p>Test the full flow: add several records, view them, update one, delete one, and verify everything works.</p>
+
+<h3>Step 8: Write Your README and Prompt Log (15 minutes)</h3>
+
+<p>Document your work as described in the requirements above (see "What you must submit").</p>
+
+<h3>Step 9: Record Your Video, Push to GitHub, Submit (15 minutes)</h3>
+
+<p>Make a short screencast (a minute or two is fine) showing yourself using the app: add an entry, view entries, search/filter, update one, and delete one. Push everything to GitHub, add it to your portfolio, and fill out <a href="https://forms.gle/Q9ZyHwEmoDrKoo836" target="_blank">the Google submission form</a>.</p>
+</div>
+
+<h2 id="concepts">Key Concepts</h2>
+
+<div class="card">
+<p>Here's a quick reference for the SQL and database concepts you'll need. We'll cover these in lecture, but this is here for you to refer back to.</p>
+
+<ul>
+    <li><strong>SQLite:</strong> A lightweight database that stores everything in a single file (like <code>my_tracker.db</code>). No server setup required&mdash;it's built right into Python.</li>
+    <li><strong>SQL (Structured Query Language):</strong> The language used to talk to databases. The four main operations are:
+        <ul>
+            <li><code>INSERT INTO table (columns) VALUES (values)</code> &mdash; adds a new record</li>
+            <li><code>SELECT columns FROM table WHERE condition</code> &mdash; retrieves records</li>
+            <li><code>UPDATE table SET column = value WHERE condition</code> &mdash; modifies records</li>
+            <li><code>DELETE FROM table WHERE condition</code> &mdash; removes records</li>
+        </ul>
+    </li>
+    <li><strong>Schema:</strong> The structure of your database&mdash;what tables exist and what columns they have.</li>
+    <li><strong>Primary key:</strong> A unique identifier for each row (usually <code>id INTEGER PRIMARY KEY</code>).</li>
+    <li><strong>Parameterized queries:</strong> Using <code>?</code> placeholders instead of string formatting to prevent <a href="https://en.wikipedia.org/wiki/SQL_injection" target="_blank">SQL injection attacks.</a> Example: <code>cursor.execute("SELECT * FROM books WHERE author = ?", (author_name,))</code></li>
+    <li><strong><a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" target="_blank">CRUD:</a></strong> Create, Read, Update, Delete&mdash;the four basic database operations.</li>
+</ul>
+</div>
+
+<h2 id="tips">Tips</h2>
+
+<div class="card">
+<ul>
+    <li><strong>Start with the database, not the interface.</strong> Get your CREATE TABLE, INSERT, and SELECT working in a simple test script before building out a menu or web page. You can even test queries interactively in the Python REPL.</li>
+    <li><strong>Keep it simple first, then add flair if you wish.</strong> A clean, working CLI with all four CRUD operations is worth more than a fancy web interface that's only half-working. Get the basics solid before adding extra features.</li>
+    <li><strong>A warning for dates:</strong> SQLite has no native date type. Dates are stored as plain text. This can be ok as long as you're consistent about format. We strongly recommend storing all dates as YYYY-MM-DD (e.g. "2026-03-09"). This format sorts and compares correctly as text, so queries like <code>WHERE date_finished > '2026-01-01'</code> will behave as you'd expect. If you use a different format (e.g. "March 8, 2026"), date comparisons and sorting will silently produce wrong results.</li>
+    <li><strong>NULL surprises:</strong> If a column is optional (e.g. book_notes), some rows may have no value, stored as NULL. Be aware that <code>WHERE notes != 'boring'</code> will not return rows where notes is NULL, because any comparison with NULL yields NULL, not TRUE or FALSE. Use <code>WHERE notes IS NULL</code> or <code>WHERE notes IS NOT NULL</code> to check for missing values explicitly.</li>
+    <li><strong>Ask AI to explain the SQL.</strong> After AI generates a query for you, ask it to break down what each part does. Understanding your queries is required&mdash;you should be able to explain any SQL in your code.</li>
+    <li><strong>Use parameterized queries.</strong> Always use <code>?</code> placeholders rather than f-strings or string concatenation when putting user input into SQL. This prevents SQL injection and avoids bugs with special characters. AI might sometimes generate code that uses f-strings in SQL&mdash;watch out for this and fix it.</li>
+    <li><strong>Don't forget <code>conn.commit()</code>.</strong> After INSERT, UPDATE, or DELETE operations, you need to call <code>conn.commit()</code> to save changes to the database file. SELECT queries don't need a commit.</li>
+    <li><strong>Inspect your database.</strong> You can use a free tool like <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a> to open your <code>.db</code> file and see your tables and data visually. This is great for debugging.</li>
+    <li><strong>Close your connection.</strong> When your app exits, call <code>conn.close()</code> to cleanly close the database connection. (Note: There are ways to use Python's <code>with</code> statement for automatic cleanup, and you may see this in AI-generated code. If done correctly, this approach is fine too; just be consistent.)</li>
+    <li><strong>Add your .db file to .gitignore (unless you have a good reason not to, but be careful in this case).</strong> Your database file contains your personal test data and will be recreated when someone runs your app. Add <code>*.db</code> to your <code>.gitignore</code> so it isn't pushed to GitHub. (Include a note in your README about how the database is created on first run.)</li>
+    
+    
+</ul>
+
+<div class="note">
+    <strong>AI tip:</strong> If you want an extra challenge, you might consider integrating an AI-powered feature that generates the queries itself... for example,
+    instead of a CLI that has the user select from a fixed number of options, the user types something like "Give me all of the books that I've read in the last 3 months."  That text gets sent to an AI with information about your database schema and it returns a runnable query. <i>This is potentially much harder and more error-prone than you would expect,</i> though, so proceed with extreme caution, and/or wait until Kian's lecture on Wednesday. 
+</div>
+
+<h3>Useful Resources</h3>
+
+<ul>
+    <li><a href="https://docs.python.org/3/library/sqlite3.html">Python sqlite3 documentation</a> &mdash; the official docs for Python's built-in SQLite module</li>
+    <li><a href="https://www.sqlitetutorial.net/">SQLite Tutorial</a> &mdash; beginner-friendly SQL tutorial with examples</li>
+    <li><a href="https://sqlitebrowser.org/">DB Browser for SQLite</a> &mdash; free visual tool for inspecting your database</li>
+</ul>
+</div>
+
+<div class="info-box">
+    <strong>Questions?</strong> Ask on Ed, or attend office hours!
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+    </div>
+</footer>
+
+</body>
+</html>

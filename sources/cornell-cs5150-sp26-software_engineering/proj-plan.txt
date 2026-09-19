@@ -1,0 +1,96 @@
+Project plan
+
+Every software engineering project needs a written development plan.
+There are many potential components of such a plan, and the plan will
+evolve over the course of the project. For CS 5150, your initial plan
+will likely run about 10 pages. It should include the following
+mandatory sections:
+
+- Name of project (should be descriptive, yet succinct; no “code
+  names”).
+- Client name and affiliation.
+- List of team members (including NetIDs), identifying point of contact
+  and any specialized team roles (if any).
+- List of contributing team members. This should include all team
+  members that contributed in developing the project plan (in class or
+  out of class). Members who did not contribute to the plan will miss
+  out on credit for this assignment.
+- Description of task to be undertaken, scope of task, including
+  preliminary requirements analysis and final deliverables. Clearly
+  identify what is in and out of scope for the project. Consider
+  different viewpoints of each feature you plan to implement (e.g.,
+  user, system, client).
+- Preliminary architecture. What existing systems will you interface
+  with? Will your work be largely self-contained (e.g. a plugin
+  component or service), or will it extensively modify existing code?
+  Are there known technical requirements? (e.g., deployment
+  infrastructure, existing frameworks). Point to code repository
+  locations that might be modified as/if applicable.
+- Development methodology and outline plan, showing schedule of
+  principal activities, milestones, and deliverables. Please present as
+  a table with dates, activities in each milestone, and deliverables.
+  You may use a Gantt chart or other visual representation if you
+  prefer, but please also include a textual table. Identify who is
+  responsible for each deliverable. (You will provide more detailed
+  schedules in later reports.)
+- Coordination plan. How will you provide visibility to the client? How
+  will the team communicate and conduct regular planning and reviews?
+  How will requirements, risks, and issues be tracked? Responsibilities
+  of individual team members, if any?
+- Risk analysis. What could go wrong (e.g., technical challenges,
+  resource limitations, usability concerns), and what is your plan to
+  reduce, mitigate, monitor, and respond?
+- (For external projects only) Discussion of business considerations,
+  including assignment of copyright, licensing terms, and any
+  non-disclosure agreements.
+- Integration plan: How will your work integrate with the existing
+  systems – how will it be integrated, tested, and deployed? Mention a
+  target date in milestones for completing integration.
+- Feasibility analysis: What are the constraints affecting the project?
+  (e.g., time, budget). Are the requirements likely to be met within
+  these constraints (i.e., does your schedule close), given the risks?
+  Should the project go ahead?
+  - You are allowed to recommend that a project not proceed if your
+    analysis suggests that it is not likely to be feasible. But try to
+    work with your client to reduce scope if your analysis trends that
+    way.
+
+The following sections are typically found in professional project plans
+but are not expected in CS 5150 teams’ initial plans, as we will not
+have covered the relevant topics in lecture yet):
+
+- Development process / quality plan. Beyond the high-level development
+  methodology, this would include requirements imposed on the source
+  code, including style guides, static analysis, peer review, test
+  coverage, and branch management. Some of these will be dictated by the
+  course.
+- Dependability, safety, and security plans. If you have non-functional
+  requirements in these areas, you will write such a plan after we have
+  covered the relevant material.
+
+For reference, here are some initial plans from past CS 5150 projects
+(published with their authors’ permission). They are very different in
+style and address an older set of section requirements, but each is an
+effective report.
+
+- Reference statistics for Olin Library
+- Mapping app for geo-referenced library materials
+- Report on MedSimAI project, Spring 2025
+
+In-Class Activity
+
+We will devote the lecture time on Thursday, February 5, 2026 to working
+on your project plans in class. Please come prepared with an outline of
+your plan and any questions you have. You will have time to work with
+your team and get feedback from the instructor and TAs. We expect all
+team members to attend this session. For external projects, you can
+either invite your client to attend or schedule a separate meeting with
+your client to review your plan. However, you are expected to submit
+your plan by the deadline below regardless of whether your client
+attends the in-class activity.
+
+Submission Instructions
+
+Please submit your project plan as a PDF file to the course Canvas site
+(see “Project Plan” assignment via Gradescope) by Thursday, February 5,
+2026 end of class.

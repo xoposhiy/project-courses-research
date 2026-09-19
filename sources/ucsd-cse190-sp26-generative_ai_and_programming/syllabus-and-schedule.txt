@@ -1,0 +1,235 @@
+[doodle]
+
+UCSD CSE190/291P SP26 Syllabus and Logistics
+
+- Nadia Polikarpova (Instructor, CSE291P)
+- Joe Gibbs Politz (Instructor, CSE190)
+
+Generative AI and Programming introduces you to the broad field of
+programming with generative AI tools. Prompting AI agents to write code
+for you only scratches the surface! We are even more motivated by
+identifying new kinds of applications that would be difficult or
+impossible to write without generative AI as a fundamental component. We
+want to bring our software engineering sensibilities to bear on building
+useful applications atop existing AI tools.
+
+ Basics
+
+- Lecture:
+  - Tue/Thu 9:30am, WLH2005
+  - both 190 and 291P students attend the same lectures!
+- Professor and staff office hours: See the calendar below
+- Q&A forum: Piazza
+- Course GitHub Org
+
+Calendar & Schedule
+
+Detailed Schedule
+
+  Date   Topic                                                 Released                   Due
+  ------ ----------------------------------------------------- -------------------------- ----------------------------------
+  3/31   Introduction + Semantic Text Processing (code, pdf)   A1: Social Media Monitor   
+  4/2    Semantic Text Processing (cont.)                                                 
+  4/7    Semantic Text Processing (cont.)                                                 A1 initial submission
+  4/9    A1 Review Day                                                                    A1 reviews (Fri 4/10)
+  4/14   Planning and Coding Applications with an Agent        A2: Document Scanner       A1 final submission (Fri 4/17)
+  4/16   Mixed-media and Richer Extraction                                                
+  4/21   User in the Loop Prompts                                                         
+  4/23   Agents and Agent APIs                                                            A2 initial submission (Fri 4/24)
+  4/28   A2 Review Day                                                                    A2 reviews (Wed 4/29)
+  4/30   Evaluating Agents                                     A3: Agents                 A2 final submission (Fri 5/1)
+  5/5    Making Agents Safe                                                               
+  5/7    Tool Design for Agents                                                           A3 initial submission (Fri 5/8)
+  5/12   A3 Review Day                                                                    A3 reviews (Wed 5/13)
+  5/14   Code Confidence (Allocators)                          A4                         A3 final submission (Fri 5/15)
+  5/19   Concurrent, Fast, and Trusted?                                                   A4 proposal
+  5/21   Concurrent, Fast, and Trusted? cont.                                             
+  5/26   Local Models and Agents                                                          
+  5/28   Confidence in LLM outputs                                                        A4 initial submission
+  6/2    A4 Review Day                                                                    A4 Pre-reviews (Mon 6/1)
+  6/4    Demo day!                                                                        
+  6/9                                                                                     A4 final submission
+
+Course Components
+
+There are three main parts of the course that have a grade: Assignments,
+Peer Review and Feedback, and Lecture Participation.
+
+Assignments and Reviews
+
+The course has several assignments that involve programming and writing.
+
+Each assignment will have three deadlines – an initial deadline, a
+deadline for reviews, and a post-review deadline. Specific assignments
+will have different rules for working individually or in groups.
+
+At the initial deadline, your goal is to produce a working
+implementation of the project description that you can demo, and others
+can try and give feedback on.
+
+Your work will then be shared, presented, or demoed (depending on the
+specific week), other groups will give feedback to you, and you will
+give feedback to other groups. This may include:
+
+- Code feedback
+- Bug reports
+- Feature requests
+
+Specific assignments will have precise rubrics for what to provide in
+reviews. The course staff may also provide feedback in this form.
+
+Then, for the post-review deadline, you should respond to the feedback.
+Again, we will develop specific requirements for each one of the
+assignments, but required responses may include fixing some or all of
+the repored bugs, adding one or more of the requested features, and
+describing or updating code that people were confused about.
+
+The course staff will combine the initial submission score and your
+response to the feedback into an overall 0-4 score for the assignment.
+
+Reviews you Write
+
+As described above, you will conduct reviews of other groups' work on a
+regular basis. These also form a part of your grade, and are expected to
+be thoughtful, thorough, and high-quality. We want them to represent
+your genuine human feedback on the programs you work with. Specific
+assignments will have specific instructions on review prompts,
+reflections, and feedback to give.
+
+In general, reviewing will start in-person on “review days” (even week
+Thursdays), and will be finished and submitted asynchronously by Friday
+evening. For reviews you write, we ask that you not use generative AI to
+generate your reviews. To motivate this, we will deduct substantial
+credit, including giving 0s, if we find obvious factual errors in
+reviews (AI hallucinated or otherwise).
+
+Reviewees (the students whose work is reviewed) will give a score for
+the usefulness and thoughtfulness of the feedback. The course staff will
+take this feedback-on-feedback into account when assigning a 0-4
+reviewing score on each reviewing pass.
+
+Missed and Late Work
+
+Review day requires that you have a submission to present and that you
+attend in person. Review day attendance is expected — you get live
+back-and-forth with reviewers, and your reviewers get to interact with
+your system directly. We acknowledge that genuine conflicts may occur.
+If you miss a review day or are not prepared for it, the following
+policy applies:
+
+1.  We will post a makeup sign-up thread so other students in the same
+    situation can find you.
+2.  Form a group of 3 teams (pairs if 3 teams are not available) and
+    conduct a recorded video call following the same review script used
+    in class. You must have your video on for the call. All teams must
+    have a submission to present by the time of the recorded session.
+3.  If no partner is available: sign up for a TA makeup slot (we'll hold
+    limited slots Friday–Monday).
+4.  Submit the recording along with your review Issues by Monday
+    11:59pm.
+
+If you don't complete a makeup session by then, you receive a 0 for the
+review score and your assignment grade is capped at 2/4.
+
+If one member of a team misses review day, the attending partner
+presents the project — your team still receives reviews as normal. The
+absent partner must still complete the makeup process for their
+reviewing obligation, and this counts as a makeup.
+
+The first makeup carries no grade penalty. Starting with the second,
+your assignment grade is capped at 3/4 even if the makeup is completed
+on time — attending review day is an important part of the course, and a
+pattern of absences affects your reviewers and reviewees, not just you.
+
+Lecture Participation
+
+In each lecture, we'll have a paper handout for review questions. These
+will be collected at some point during the lecture session. You get
+credit for answering questions on the handout with any reasonable
+answer; full correctness is not required. They are not quizzes; you can
+talk with people around you to complete them.
+
+Check-in Interviews
+
+The course staff may assign a student a grade of pending instead of 0-4
+on any assignment. If we do, that means we want to have a check-in
+interview with you about the work. In a check-in interview, we'll ask
+you to walk through your code and explain your design decisions, how
+things were generated, what your contributions were, and so on.
+
+Grading
+
+The two components of the course has a minimum achievement level to get
+an A, B, or C in the course. You must reach that achievement level in
+all of the categories to get an A, B, or C.
+
+- A achievement:
+  - ≥85% of assignment points (e.g. likely 4 assignments at 4 points
+    each, so 14/16 points)
+  - ≥85% of review and feedback points (e.g. likely 4 assignments at 4
+    points each, so 14/16 points)
+- B achievement:
+  - ≥75% of assignment points
+  - ≥75% of review and feedback points
+- C achievement:
+  - ≥60% of assignment points
+  - ≥60% of review and feedback points
+
+Below C achievement (in any category) is an F/No Pass.
+
+Lecture participation will be used to assign +/- modifiers to grades. If
+lecture participation is notably low (less than 1/2 of available
+classes), it drops the grade by one letter grade. The 1/2 of available
+classes threshold will probably be 8 (20 lectures - 4 review days = 16
+lectures with participation credit), but may change slightly because the
+second half of the class is less firmly scheduled.
+
+Requests to change this grading policy (for a specific student or
+class-wide) will be denied with a link to this syllabus section.
+Consider this: we may, as instructors, decide for academic reasons that
+the most accurate way of assigning letter grades in the class needs to
+change (and we tend to only make changes that improve letter grades
+relative to this starting policy). However, it would be inappropriate
+for us to do so in response to student requests: that could create an
+appearance that we give students the grades they ask for rather than the
+grades they earned.
+
+Other Policies
+
+Generative AI Use
+
+You are highly encouraged to use agentic coding or other generative
+tools for the programming parts of this course. We ourselves find them
+super useful for navigating the APIs of the various backend systems we
+used for the assignments. Use tools that credit the AI systems you use
+in commit messages (Claude Code does a good job of this by default, for
+example). Individual assignments have instructions for sharing how you
+used AI for learning and accountability purposes.
+
+Prose is more complex. It's fine to use generative AI “off to the side”
+to help brainstorm and draft, or to use as a proofreading tool, or for
+rote text in documentation. You should not use generative AI to create
+messages you send as part of reviews, as part of Piazza posts, in
+reflections like your DESIGN documents, and other human-to-human
+communication. These kinds of documents are meant for communication
+between humans. It is disengenuous to replace a participant with a
+computer, and it erodes confidence in human communication when our
+individual voices are flattened out into one provided by a major AI
+company. Alex Hillman has a great short piece on this; I think the key
+line is “don’t ask the recipients of your work to try harder than you
+did.”
+
+In all cases, you are responsible for the content you submit and send.
+Generative AI cannot be held responsible for a mistake in something that
+is published: the human author and publisher (you) is always and solely
+accountable.
+
+We will not use generative AI to write substantial communications with
+you, either. We do use Claude Code to help brainstorm and proofread this
+website, and to suggest formatting and structure, and we'll likely use
+it to do things like generate seating charts and other rote and
+mechanical parts of communication, but we confidently claim authorship
+of the content of these pages and our messages to you. Any mistakes are
+our responsibility (not Claude's) and we'd like to think that any
+well-written insights and well-communicated passages are ours, as well
+:-)

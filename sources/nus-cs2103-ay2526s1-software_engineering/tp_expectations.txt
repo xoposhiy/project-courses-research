@@ -1,0 +1,448 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+tP (team project): OverviewtP: Timeline
+
+tP: Expectations 
+
+project expectations
+
+Functionality Expectations
+
+The expected level of functionality is what you could achieve if each
+member puts in about 50% of the implementation effort they put into the
+iP (reason for setting it much less than 100%: even after adding the
+extra overheads of doing the project as a team, and working with an
+exising codebase, we don't want the tP to take more effort than the iP).
+This is the primary measure we will use when grading your tP
+implementation effort.
+Furthermore, we estimate that the above-mentioned bar is roughly
+equivalent to writing about 300-400 lines of functional code (excluding
+testing and documentation) per person. This is a secondary ballpark
+measure you can keep an eye on, in conjunction with the primary measure
+mentioned above.
+
+In case you happen to look at tP's of past batches (2023 and before) in
+order to gauge the required effort, note that the above reflects a
+drastically lower bar from those semesters. For reference, the bar given
+to previous batches was 'same as iP effort' (not half), and the median
+LoC of functional code written by a student was about 850 LoC.
+
+There are no extra marks for exceeding implementation effort bar stated
+above. Hence, effort is graded on mostly an S/U basis) -- it is the
+quality of the code that really determines the marks for implementation
+component (more info here). Try to avoid adding more features than
+necessary, unless you are doing it out of interest; you are better off
+spending more effort in improving other aspects of the project instead.
+As mentioned elsewhere, a functionality just the right size and of high
+quality will earn more marks than a functionality that is bigger (or
+more difficult, or more interesting/novel) but of lower quality.
+
+FAQ If our team implement features x, y, and z, is that enough?
+
+------------------------------------------------------------------------
+
+FAQ Is it a must to write at least 300 LoC?
+
+------------------------------------------------------------------------
+
+FAQ 300 LoC is with or without blank lines?
+
+------------------------------------------------------------------------
+
+FAQ Still, if I write 300 LoC, I get full marks for implementation?
+
+------------------------------------------------------------------------
+
+FAQ Is LoC graded in the tP?
+
+------------------------------------------------------------------------
+
+If you wish to add the following features to your app, we recommend (but
+not require) you to follow similar features in AB4 (not AB3) in order to
+reduce the effort required.
+
+- Undo/redo
+- Automated GUI tests
+
+ Team Expectations
+
+- Expectation Produce a cohesive product: i.e., ensure,
+  1.  features fit together to form a cohesive product,
+  2.  documentation follows a consistent style and presents a cohesive
+      picture to the reader
+- Expectation Maintain product integrity/quality: i.e., prevent breaking
+  other parts of the product as it evolves.
+- Expectation Manage the project: i.e., ensure workflow, code
+  maintenance, integration, releases, etc. are done properly.
+
+ Individual Expectations
+
+ Individual Expectations on Implementation
+
+- Expectation Contribute to the functional code of the product.
+  - User-visible features are preferred, but it is not a strict
+    requirement.:
+  - The enhancement(s) should fit with the rest of the software (and the
+    target user profile) and should have the consent of the team
+    members. You will lose marks if you go 'rogue' and add things that
+    don't fit with the product.
+
+Some example enhancements
+
+------------------------------------------------------------------------
+
+- Recommended: Contribute to all aspects of the project e.g., write
+  back-end code, front-end code, test code, user documentation, and
+  developer documentation. Reason: If you limit yourself to certain
+  aspects only, you could lose marks allocated for the aspects you did
+  not do. In addition, the final exam assumes that you are familiar with
+  all aspects of the project.
+
+- Recommended: Do all the work related to your enhancement yourself.
+  Reason: If there is no clear division of who did which enhancement, it
+  will be difficult to divide project credit (or assign responsibility
+  for bugs detected by testers) later.
+  In other words, we recommend that the work to be divided primarily
+  based on features/enhancements rather than components. The latter has
+  problems such as the following:
+  (a) Higher risk of a team member becoming a single point of failure
+  e.g., what if the person assigned to an important component doesn't
+  deliver on time?
+  (b) You become too reliant on other team members e.g., a feature can't
+  be delivered until all members have done their part
+  (c) Hard to keep tests passing i.e., tests break when one component is
+  updated without the others
+  (e) Integration become harder/riskier i.e., move from continuous
+  integration (safer) towards big-bang integration (riskier)
+  (f) Not aligned with breadth-first iterative i.e., evolving components
+  separately moves you towards depth-first iterative approach instead
+
+- Recommended: Divide the components of the product among team members.
+  Notwithstanding the above, you are still recommended to divide the
+  components of the product among team members so that each team member
+  is in charge of one or more components. While others will be modifying
+  those components to fit their features, your role as the in charge of
+  a component is to guide others modifying that component (reason: you
+  are supposed to be the most knowledgeable about that component) and
+  protect that component from degrading e.g., you can review others'
+  changes to your component and suggest possible changes.
+
+ Individual Expectations on Documentation
+
+- Objective: showcase your ability to write both user-facing
+  documentation and developer-facing documentation.
+- Expectation Update the User Guide (UG) and the Developer Guide (DG)
+  parts that are related to the enhancements you added.
+- Optional: If the UG/DG updates for your enhancements are not enough to
+  reach the above requirements, you can make up the shortfall by
+  documenting 'proposed' features and alternative
+  designs/implementations.
+
+ Individual Expectations on Testing
+
+- Expectation Write some automated tests so that there is evidence that
+  you can write automated tests.
+
+🤔 How much testing is enough? We expect you to decide. As you learn
+different types of testing and what they try to achieve, you should
+decide how much of each type is worth having. Similarly, you can decide
+to what extent you want to automate tests, depending on the benefits and
+the effort required.
+There is no requirement for a minimum test coverage level. Note that in
+a high-end production environment you might be required to have high
+levels of test coverage (e.g., 90%). In this project, it can be less.
+Caveat: The weaker your tests are, the higher the risk of undetected
+bugs/regressions, which will cost you marks if not detected/fixed before
+the final submission.
+
+ Individual Expectations on Teamwork
+
+- Expectation Do a non-trivial share of the team-tasks.
+
+Team-tasks are the tasks that someone in the team has to do.
+
+Examples of team-tasks
+
+------------------------------------------------------------------------
+
+- Expectation Carry a non-trivial share of project roles and
+  responsibilities.
+
+Roles indicate aspects you are in charge of and responsible for. E.g.,
+if you are in charge of documentation, you are the person who should
+allocate which parts of the documentation is to be done by whom, ensure
+the document is in right format, ensure consistency etc.
+
+Example roles and responsibilities
+
+------------------------------------------------------------------------
+
+Ensure each of the important roles are assigned to one person in the
+team. It is OK to have a 'backup' for each role, but for each aspect
+there should be one person who is unequivocally the person responsible
+for it. Reason: when everyone is responsible for everything, no one is.
+
+- Expectation Review each others work. Reason: reviewing skills is a
+  learning outcome, and it is mutually beneficial.
+
+tP (team project): OverviewtP: Timeline
+
+tP: Expectations ‎
+
+Functionality Expectations‎ Team Expectations‎ Individual Expectations‎
+
+Individual Expectations on Implementation‎ Individual Expectations on
+Documentation‎ Individual Expectations on Testing‎ Individual Expectations
+on Teamwork‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

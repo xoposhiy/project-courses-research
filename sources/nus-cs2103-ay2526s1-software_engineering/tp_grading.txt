@@ -1,0 +1,582 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+tP: Practical ExamtP: Supervision/Guidance
+
+tP: Grading 
+
+Note that project grading is not competitive (not bell curved). CS2103T
+projects will be assessed separately from CS2103 projects. Given below
+is the marking scheme.
+
+Total: 50 marks ( 45 individual marks + 5 team marks)
+
+See the sections below for details of how we assess each aspect.
+
+1. Project Grading: Product Design [ 5 marks]
+
+Evaluates:
+
+- how well your features fit together to form a cohesive product
+  (not how many features or how big/novel/interesting/difficult the
+  features are)
+- how well it matches the target user
+
+Evaluated by:
+
+- the teaching team (based on product demo and user guide)
+- peers from other teams (based on peer testing and user guide)
+
+Admin tP → PE → Grading Instructions for Product Design
+
+In addition, feature flaws reported in the PE will be considered when
+grading this aspect.
+
+These are considered feature flaws:
+The feature does not solve the stated problem of the intended user i.e.,
+the feature is 'incomplete'
+Hard-to-test features
+Features that don't fit well with the product
+Features that are not optimized enough for fast-typists or target users
+Violations of given project constraints
+
+2. Project Grading: Implementation [ 15 marks]
+
+2A. Code quality
+
+Evaluates: the quality of the parts of the code you claim as written by
+you
+
+Evaluation method: manual inspection by tutors + automated-analysis by a
+script
+
+Criteria:
+
+- At least some evidence of these (see here for more info)
+
+  - logging
+  - exceptions
+  - assertions
+  - defensive coding
+
+- No coding standard violations e.g., all boolean variables/methods
+  sounds like booleans. Checkstyle can prevent only some coding standard
+  violations; others need to be checked manually.
+
+- SLAP is applied at a reasonable level. Long methods or deeply-nested
+  code are symptoms of low-SLAP.
+
+- No noticeable code duplications i.e., if there multiple blocks of code
+  that vary only in minor ways, try to extract out similarities into one
+  place, especially in test code.
+
+- Evidence of applying code quality guidelines covered in the course.
+
+2B. Effort
+
+Evaluates: how much value you contributed to the product
+
+Evaluation method:
+
+- Step 1: Evaluate the effort for the entire project. This is evaluated
+  by peers who tested your product, and tutors.
+
+Admin tP → PE → Questions used for Implementation Effort
+
+- Step 2: Evaluate how much of that effort can be attributed to you.
+  This is evaluated by team members, and tutors. Cross-validated against
+  Git and GitHub data.
+
+Admin Peer Evaluations → Questions used for Evaluating Implementation
+Effort
+
+- Baseline: If your team received a value higher than 5 in step 1 and
+  the team agrees that you did roughly an equal share of implementation
+  work, you should receive full marks for effort.
+
+3. Project Grading: QA [ 10 marks]
+
+3A. Developer Testing:
+
+Evaluates: How well you tested your own feature
+
+Based on:
+
+1.  functionality bugs in your work found by others during the Practical
+    Exam (PE)
+2.  your test code (note our expectations for automated testing)
+
+These are considered functionality bugs:
+Behavior differs from the User Guide
+A legitimate user behavior is not handled e.g., incorrect commands,
+extra parameters
+Behavior is not specified and differs from normal expectations e.g.,
+error message does not match the error
+
+3B. System/Acceptance Testing:
+
+Evaluates: How well you can system-test/acceptance-test a product
+
+Based on: bugs you found in the PE. In addition to functionality bugs,
+you get credit for reporting documentation bugs and feature flaws.
+
+Grading bugs found in the PE
+
+- Marks for finding bugs in the PE: 3 marks. If you found 'enough' bugs
+  (depends on how buggy the product was), you get full marks.
+  Bugs found in your product: determines 7 marks under the QA component,
+  but in addition, also affect other components of the tP grade (e.g.,
+  documentation bugs affect the documentation component of the tP
+  grade).
+- Bugs not accepted by the dev team, if the non-acceptance is approved
+  by the teaching team, will not affect marks of the tester or the
+  developer.
+- The penalty/credit for a bug varies based on the severity of the bug:
+  severity.High > severity.Medium > severity.Low > severity.VeryLow
+- The three bug types (i.e., type.FunctionalityBug,
+  type.DocumentationBug, type.FeatureFlaw) are counted for three
+  different grade components. The penalty/credit can vary slightly based
+  on the bug type, but you may consider them as roughly equivalent. So,
+  always choose the most suitable type for a bug rather than try to
+  choose a type that benefits your grade.
+- The penalty for a bug is divided equally among .
+- Developers are not penalized for duplicate bug reports they received
+  but the testers earn credit for duplicate bug reports they submitted,
+  provided the duplicates are not submitted by the same tester.
+  However, earn less credit for the tester.
+- Excessive incorrect downgrading/rejecting/, if deemed an attempt to
+  game the system, will be penalized.
+
+FAQ So, those who write more code will be hit with more bugs? How's that
+fair?
+
+------------------------------------------------------------------------
+
+FAQ Some students will be testing less/more buggy products than others?
+Isn't that unfair?
+
+------------------------------------------------------------------------
+
+FAQ What if the product I tested has hardly any bugs?
+
+------------------------------------------------------------------------
+
+FAQ Am I expected to find the 6 highest severity bugs in the entire
+product, among all bugs in the product?
+
+------------------------------------------------------------------------
+
+4. Project Grading: Documentation [ 10 marks]
+
+Evaluates: your contribution to project documents
+
+Method: Evaluated in two steps.
+
+- Step 1: Evaluate the whole UG and DG. This is evaluated by peers who
+  tested your product, and tutors.
+
+Admin tP → PE → Grading Instructions for User Guide
+
+Admin tP → PE → Grading Instructions for Developer Guide
+
+- Step 2: Evaluate how much of that effort can be attributed to you.
+  This is evaluated by team members, and tutors. Cross-validated against
+  Git and GitHub data.
+
+Admin Peer Evaluations → Questions used for Evaluating the Contribution
+to the UG
+
+Admin Peer Evaluations → Questions used for Evaluating the Contribution
+to the DG
+
+- In addition, UG and DG bugs you received in the PE will be considered
+  for grading this component.
+
+These are considered UG bugs (if they hinder the reader):
+
+Use of visuals
+
+- Not enough visuals e.g., screenshots/diagrams
+- The visuals are not well integrated to the explanation
+- The visuals are unnecessarily repetitive e.g., same visual repeated
+  with minor changes
+
+Use of examples:
+
+- Not enough or too many examples e.g., sample inputs/outputs
+
+Explanations:
+
+- The target user for the product and/or the value proposition is not
+  specified clearly.
+- The explanation is too brief or unnecessarily long.
+- The information is hard to understand for the target audience. e.g.,
+  using terms the reader might not know
+
+Neatness/correctness:
+
+- looks messy
+- not well-formatted
+- broken links, other inaccuracies, typos, etc.
+- hard to read/understand
+- unnecessary repetitions (i.e., hard to see what's similar and what's
+  different)
+
+These are considered DG bugs (if they hinder the reader):
+
+Those given as possible UG bugs ...
+
+------------------------------------------------------------------------
+
+Architecture:
+
+- Symbols used are not intuitive
+- Indiscriminate use of double-headed arrows
+-  diagrams contain lower-level details
+- Description given are not sufficiently high-level
+
+UML diagrams:
+
+- Notation incorrect or not compliant with the notation covered in the
+  course.
+- Some other type of diagram used when a UML diagram would have worked
+  just as well.
+- The diagram used is not suitable for the purpose it is used.
+- The diagram is too complicated.
+
+Code snippets:
+
+- Excessive use of code e.g., a large chunk of code is cited when a
+  smaller extract would have sufficed.
+
+Problems in User Stories. Examples:
+
+- Incorrect format
+- All three parts are not present
+- The three parts do not match with each other
+- Important user stories missing
+
+Problems in Use Cases. Examples:
+
+- Important use cases missing
+- Formatting/notational errors
+- Incorrect step numbering
+- Unnecessary UI details mentioned
+- Missing/unnecessary steps
+- Missing extensions
+
+Problems in NFRs. Examples:
+
+- Not really a Non-Functional Requirement
+- Not scoped clearly (i.e., hard to decide when it has been met)
+- Not reasonably achievable
+- Highly relevant NFRs missing
+
+Problems in Glossary. Examples:
+
+- Unnecessary terms included
+- Important terms missing
+
+5. Project Grading: Project Management [ 5 + 5 = 10 marks]
+
+5A. Process:
+
+Evaluates: How well you did in project management related aspects of the
+project, as an individual and as a team
+
+Based on: tutor/grading-script observations of project milestones and
+GitHub data
+
+Grading criteria:
+
+- Project done iteratively and incrementally (opposite: doing most of
+  the work in one big burst)
+
+- Project tasks done on time (to get a good grade for this aspect,
+  finish at least 75% of the tasks by the deadline).
+
+- Good use of these GitHub mechanisms:
+
+  - milestones
+  - releases
+  - issue tracker (with good task definition, assignment, and tracking)
+  - PRs, and PR reviews
+
+- Good version control, based on the repo.
+
+- Reasonable attempt to use the prescribed workflows.
+
+- Good use of buffers (opposite: everything at the last minute).
+
+5B. Team-tasks:
+
+Evaluates: How much you contributed to team-tasks
+
+Admin tP → Expectations: Examples of team-tasks
+
+Based on: peer evaluations, tutor observations
+
+Grading criteria: Do the following to get a good grade for this aspect:
+
+- Do close to an equal share of the team tasks.
+- Have commits in four of weeks 7, 8, 9, 10, 11, 12
+
+tP: Practical ExamtP: Supervision/Guidance
+
+tP: Grading ‎
+
+1. Project Grading: Product Design [ 5 marks]‎ 2. Project Grading:
+Implementation [ 15 marks]‎ 3. Project Grading: QA [ 10 marks]‎ 4. Project
+Grading: Documentation [ 10 marks]‎ 5. Project Grading: Project
+Management [ 5 + 5 = 10 marks]‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

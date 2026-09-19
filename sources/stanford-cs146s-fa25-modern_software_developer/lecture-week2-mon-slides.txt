@@ -1,0 +1,46 @@
+# Lecture slides, week2-mon, CS146S Fall 2025 (text extracted from the Google Slides PDF export on 2026-09-18; images not included)
+
+--- slide 1 ---
+The Modern Software 
+Developer
+CS146S Stanford University, Fall 2025Mihail Eric
+themodernsoftware.dev
+--- slide 2 ---
+Building a Coding Agent From 
+Scratch
+themodernsoftware.dev
+--- slide 3 ---
+themodernsoftware.dev
+It’s that simple
+--- slide 4 ---
+Terminology
+● System prompt
+○ Define the behavior and some directives for the overall LLM
+● User prompt
+○ Custom user requests
+● Assistant prompt
+○ LLM’s response
+themodernsoftware.dev
+--- slide 5 ---
+Steps
+● Read in terminal and keep appending to conversation
+● Tell LLM what tools are available
+○ It asks for tool use at appropriate time
+○ You execute tool oﬄine and return response
+○ “Read_file”
+○ “List_dir”
+○ “Edit_file”
+● Create a new file, edit a new file
+themodernsoftware.dev
+--- slide 6 ---
+Let’s build a coding agent from scratch!
+themodernsoftware.dev
+--- slide 7 ---
+The “Secret” Sauce
+● Looking under the hood of Claude
+○ Front-load context with tiny targeted prompts
+○ System reminders everywhere including system/user prompts, tool calls, tool 
+results to prevent drift (<system-reminder> tags)
+○ Command prefix extraction
+○ Spawns sub agents (likely to help with preventing context overloading)
+themodernsoftware.dev

@@ -1,0 +1,138 @@
+CSE 403 project: Peer project review
+
+Overview
+
+Peer-review another team’s project and provide suggestions for
+improvements. This helps the other team by providing a fresh perspective
+and giving them outside feedback. It also helps you and your team: you
+will see how another team is approaching a problem, which can give you
+ideas of what to do or what to avoid. We expect all team members to
+participate in this review.
+
+Setup
+
+As a team, peer-review the project assigned to your team for review. To
+find the project to review, open this milestone assignment in Canvas and
+find the project name associated with your team in the table.
+Immediately contact that team to get access to their GitHub repo for
+each of your team members. If their repo is private, you will need to
+provide your GitHub usernames to them.
+
+Provide access to your repo to the students peer reviewing your project.
+Access is required by Wed 11:59pm so the students can get started on
+their review. Also provide any keys the students may need to build and
+run your system. They may benefit from seeing your Gamma video.
+
+We encourage you to book some extra team meetings so you can do the
+review in real time with each other, to discuss your experiences and
+feedback.
+
+Instructions
+
+1. Review your assigned project and file issues for any encountered problems
+
+- Read the developer guidelines, then build and test the product.
+- Read the user documentation, then run the product.
+- If you are blocked while trying to do these things, open an issue
+  immediately indicating that you are blocked. If another team opens
+  such an issue on your repository, resolve it immediately.
+- You should open other issues as appropriate.
+- You may open a pull request with suggested improvements if you see how
+  to resolve an issue that you raised.
+
+2. Write and submit a review
+
+You will submit a single document, consisting of the review list below,
+your experience, and issue URLs for any bugs, improvements, general
+feedback encountered. While we expect you to review the project as a
+team, we will be looking for evidence that every team member has engaged
+equally, and we require each team member to write up at least one
+bug/issue/feedback item discussed in the tracker or an update with a
+pull-request.
+
+Review list including notes on experience and URLs (50%)
+
+Developer guidelines
+
+- There are developer guidelines, which I could easily find in the
+  repository.
+- The developer guidelines are self-contained and well structured.
+- The description of the repository structure is clear and makes sense
+  to me.
+- The instructions for how to add a new test case are clear and make
+  sense to me.
+- I could build the software, following the provided instructions, on a
+  machine matching the prerequisites mentioned in the instructions.
+- I could test the software, following the provided instructions.
+- The continuous integration (CI) setup makes sense to me, and I could
+  find the build history.
+
+User manual
+
+- There is a user manual, which I could easily find in the repository.
+- The high-level description of the system is clear.
+- The user manual is self-contained, well structured, and comprehensive.
+- The user manual contains all instructions required to use the system.
+- I could install the software, following the provided instructions.
+- I could run the software, following the provided instructions.
+- I could use the software, executing the functionality described in the
+  manual.
+- The instructions for filing a bug report are clear and sufficient.
+
+Provide your review results in your document under the heading, Review
+List. For any item in this list that you do not agree with or that could
+be improved, open an issue in their repository. Use a table to format
+your results, with columns: review item, experience, issue title, issue
+url.
+
+Feedback (50%)
+
+After completing the review checklist, add a section of high-level
+feedback and constructive criticism focusing on their implementation,
+descriptive writing, or technical setup. Create issues for your major
+points of feedback. Also open one issue with praise: point out aspects
+of their project that you appreciated or found to be well-done. Provide
+the issue URLs, with their titles, in your document under the heading,
+Feedback.
+
+The final document will be shared with the team whose project you are
+evaluating, for their reference as well as the entries you filed in
+their issue tracker.
+
+Submit
+
+1.  Submit this review as a document to Canvas by due date. Include your
+    names as well as the name of the project that you are reviewing. The
+    document should include the review list and feedback with
+    corresponding titles of issues or pull requests and their URLs in
+    the GitHub issue tracker. The major content should be found in the
+    issue tracker.
+2.  Individually complete the form individual-status-and-contribution,
+    provided by your TA. This is a required part of each group milestone
+    assignment and contributes to your individual grade.
+
+Clarifications
+
+Can we use AI for this milestone?
+
+You can use AI tools only for the coding (such as an AI code review of
+project source code) pieces of the milestone, as outlined in the AI
+policy in the course syllabus.
+
+What if I need to file an issue but there are no instructions provided for how to do so, or the instructions are unclear?
+
+In this case, still open an issue on GitHub and, additionally, explain
+why the instructions are insufficient in your review.
+
+How would I provide a pull request to fix an issue?
+
+Pull requests are optional. If you choose to make a pull request, here
+are instructions:
+
+1.  Open the repository of the reviewed system on GitHub.
+2.  Click “Fork”, which will create a clone of the repository under your
+    account.
+3.  Clone the forked repository (under your account) to your computer;
+4.  Create a branch in the forked repository.
+5.  Make changes in the branch, then push them.
+6.  Open a pull request on GitHub into the original repository.

@@ -1,0 +1,531 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+tP: TimelinetP: Forming Teams
+
+tP: Constraints 
+
+Your project should comply with the following constraints. Reason: to
+increase comparability among projects and to maximize applicability of
+course learning outcomes in the project.
+
+ Constraint-Brownfield
+
+The final product should be a result of evolving the given codebase.
+However, you are not barred from doing major changes to the code,
+provided it is done incrementally. e.g., done in small steps, each
+producing a working product
+Reason: To simulate a brownfield project.
+
+ Constraint-Typing-Preferred
+
+The product should be targeting users who can type fast and prefer
+typing to other means of input.
+Reason: by enforcing some similarity among target users of the projects,
+we hope to make the projects more comparable with each other.
+
+ Constraint-Single-User
+
+The product should be for a single user i.e., (not a multi-user
+product).
+Not allowed: Application running in a shared computer and different
+people using it at different times.
+Not allowed: The data file created by one user being accessed by another
+user during regular operations (e.g., through a shared file storage
+mechanism).
+Reason: multi-user systems are hard to test, which is unfair for peer
+testers who will be graded based on the number of bugs they find.
+
+ Constraint-Incremental
+
+The product needs to be developed in a breadth-first incremental manner
+over the project duration. While it is fine to do less in some weeks and
+more in other weeks, a reasonably consistent delivery rate is expected.
+For example, it is not acceptable to do the entire project over the
+recess week and do almost nothing for the remainder of the semester.
+Reasons: 1. To simulate a real project where you have to work on a
+codebase over a long period, possibly with breaks in the middle. 2. To
+learn how to deliver big features in small increments.
+
+ Constraint-Human-Editable-File
+
+The data should be stored locally and should be in a human editable text
+file.
+Reason: To allow advanced users to manipulate the data by editing the
+data file.
+
+FAQ Is it OK to encrypt the data file?
+
+------------------------------------------------------------------------
+
+ Constraint-No-DBMS
+
+Do not use a to store data.
+Reason: Using a DBMS to store data will reduce the room to apply OOP
+techniques to manage data. It is true that most real world systems use a
+DBMS, but given the small size of this project, we need to optimize it
+for CS2103/T course learning outcomes; covering DBMS-related topics will
+have to be left to database courses or level 3 project courses.
+
+ Constraint-OO
+
+The software should follow the Object-oriented paradigm primarily (but
+you are allowed to mix in a bit other styles when justifiable).
+Reason: For you to practice using OOP in a non-trivial project.
+
+ Constraint-Platform-Independent
+
+The software should work on the Windows, Linux, and OS-X platforms. Even
+if you are unable to manually test the app on all three platforms,
+deliberately avoid using OS-dependent libraries and OS-specific
+features.
+Reason: Peer testers should be able to use any of these platforms.
+
+ Constraint-Java-Version
+
+The software should work on a computer that has version 17 of Java i.e.,
+no other Java version installed.
+
+ Constraint-Portable
+
+The software should work without requiring an installer.
+Reason: Testers may not want to install your product on their computer.
+
+ Constraint-No-Remote-Server
+
+The software should not depend on your own remote server.
+Reason: Anyone should be able to use/test your app any time, even after
+the semester is over.
+
+ Constraint-External-Software
+
+The use of third-party frameworks/libraries/services is allowed but only
+if they,
+
+- are free, open-source (this doesn't apply to services), and have
+  permissive license terms (E.g., trial version of libraries that
+  require purchase after N days/uses are not allowed).
+- do not require any installation by the user of your software.
+  In case of services, requiring the user to create an account on a
+  third-party service is strongly discouraged as it can result in your
+  product for 'low testability'.
+- do not violate other constraints.
+
+and is subjected to prior approval by the teaching team.
+Reason: We will not allow third-party software that can interfere with
+the learning objectives of the course.
+
+Please post in the forum your request to use a third-party
+libraries/services before you start using the library. Once a specific
+software has been approved for one team, other teams may use it without
+requesting permission again.
+Reason: The whole class should know which external software are used by
+others so that they can do the same if they wish to.
+
+ Constraint-Screen-Resolution
+
+The GUI should work well (i.e., should not cause any resolution-related
+inconveniences to the user) for,
+
+- standard screen resolutions 1920x1080 and higher, and,
+- for screen scales 100% and 125%.
+
+In addition, the GUI should be usable (i.e., all functions can be used
+even if the user experience is not optimal) for,
+
+- resolutions 1280x720 and higher, and,
+- for screen scales 150%.
+
+ Constraint-Single-File
+
+Package everything into a single JAR file.
+Reason: Requiring the users to download more files can cause
+complications in the final peer testing session.
+
+If you are unable to package everything into a JAR file, package the JAR
+file and other files needed into a single zip file.
+
+ Constraint-File-Size
+
+The file sizes of the deliverables should be reasonable and not exceed
+the limits given below.
+
+Reason: It is hard to download big files during the practical exam due
+to limited Wi-Fi bandwidth at the venue. Plus, there is no reason to use
+space/bandwidth without a proportional benefit.
+
+- Product (i.e., the JAR/ZIP file): 100MB (Some third-party software --
+  e.g., Stanford NLP library, certain graphics libraries -- can cause
+  you to exceed this limit)
+
+- Documents (i.e., PDF files): 15MB/file (Not following the recommended
+  method of converting to PDF format can cause big PDF files. Another
+  cause is using unnecessarily high resolution images for screenshots).
+
+In addition, do ensure that the final JAR/PDF files are not bloated
+unnecessarily. Such bloat can be reported as a bug. Some suggestions:
+
+- Check if the assets (e.g., images, audio, data) included in the JAR
+  files are all strictly necessary and the quality is not unnecessarily
+  high (e.g., images with higher resolution than necessary).
+- Check if the third-party libraries in the JAR file are strictly
+  necessary or whether they have lighter versions that are still enough
+  for your purpose.
+
+Using JavaFX WebView allows you to display a Web page within your
+application, but it is very likely to cause you to violate this
+constraint. If you decide to use that library, ensure the benefit is
+worth the increase in size (in particular, using it just to show an HTML
+view of the User Guide is not worth the increase in size it causes).
+
+ Constraint-PDF-Friendly
+
+The DG and UG should be PDF-friendly. Don't use expandable panels,
+embedded videos, animated GIFs etc.
+
+Reason: The UG and DG used in the final grading will be in PDF format
+
+------------------------------------------------------------------------
+
+In addition, you are strongly encouraged to follow these recommendations
+as they can help increase your project score.
+
+ Recommendation-Minimal-Network
+
+It is OK to use a reliable public API e.g., Google Search, but we
+recommend that you have a fallback mechanism (e.g., able to load data
+using a data file if the network is down).
+Reason: During the mass peer-testing session, the network access can be
+intermittent due to high load. If your feature cannot be tested due to
+lack of Internet, that will have to be counted as a major bug, to be
+fair to those whose app is being tested and bugs found being penalized.
+If you use NUS data (e.g., scrape data from an NUS website), please work
+with NUS IT directly to get their approval first. Even well-intentioned
+use of NUS data without approval can get you into serious trouble (has
+happened before). The teaching team will not be able to get approval for
+you as the use of NUS data is not a course requirement.
+
+ Recommendation-Testability
+
+Avoid implementing hard-to-test (both for manual testing as well as
+automated testing) features or features that make your product
+hard-to-test.
+Reason: testability is a grading criterion. If you choose to implement
+such a feature, you will need to spend an extra effort to reach an
+acceptable level of testability. Here are some examples of features that
+are hard-to-test:
+
+- Features that depend heavily on remote APIs: Those APIs can block your
+  access if they mistake your automated tests as a bot attack. Some
+  remote APIs require setting up accounts, keys, login etc., that will
+  irritate the testers of your product and give a low rating to the
+  testability of your work.
+- Audio-related features: The peer testing of your product is done under
+  exam conditions where it is not appropriate to play audio.
+- Features that require creating user accounts, login, logout etc.
+
+ Recommendation-CLI-First
+
+Following from the Constraint-Typing-Preferred, if the app is optimized
+for the target user (graded under the product design criterion), a user
+who can type fast should be able to accomplish most tasks faster via a
+command line interface (CLI), compared to a hypothetical GUI-only
+version of the app. For example, adding a new entity via the CLI should
+be faster than entering the same data through a GUI form.
+Therefore, the input to the app needs to be primarily CLI. The GUI is
+used primarily to give visual feedback to the user. This does not mean
+the app need to have a text UI (CLI is not the same as text UI) or it
+needs to work in a command console -- it simply means the input to the
+app should be a text command, which can even be entered using a GUI
+(similar to how AB3 does it). While we don't prohibit non-CLI inputs
+(e.g., clicking of a button), note that such inputs will reduce the
+suitability of the product to target users. Therefore, give CLI
+alternatives to mouse/GUI inputs, if applicable.
+Also keep in mind:
+
+- Regular typing is usually faster than using key combinations.
+-  are faster over . If you provide a multistep command to help new
+  users, it is recommended that you also provide a one-shot equivalent
+  for regular/expert users.
+
+FAQ Why not allow user to input the command one field at a time?
+
+------------------------------------------------------------------------
+
+ Recommendation-Realistic
+
+Keeping the target usage of the application 'realistic' can be helpful
+when making product design decisions later. For example, a patient
+tracking app for a big hospital is not realistic usage scenario because
+a big hospital is unlikely to use a small standalone desktop application
+for that purpose. However, it is more realistic for an independent
+home-based healthcare worker (e.g., a physical therapist) to use such an
+app to keep track of his/her patients.
+
+If you are not sure if your product complies with a certain
+constraint/recommendation, please seek clarification by posting in the
+forum (preferred) or email prof.
+
+tP: TimelinetP: Forming Teams
+
+tP: Constraints ‎
+
+Constraint-Brownfield‎ Constraint-Typing-Preferred‎ Constraint-Single-User‎
+Constraint-Incremental‎ Constraint-Human-Editable-File‎ Constraint-No-DBMS‎
+Constraint-OO‎ Constraint-Platform-Independent‎ Constraint-Java-Version‎
+Constraint-Portable‎ Constraint-No-Remote-Server‎
+Constraint-External-Software‎ Constraint-Screen-Resolution‎
+Constraint-Single-File‎ Constraint-File-Size‎ Constraint-PDF-Friendly‎
+Recommendation-Minimal-Network‎ Recommendation-Testability‎
+Recommendation-CLI-First‎ Recommendation-Realistic‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

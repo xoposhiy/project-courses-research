@@ -1,0 +1,97 @@
+Project report #1
+
+The content of your intermediate reports will depend on your selected
+development methodology and on the milestones you laid out in your
+project plan. Remember that their purpose is to provide visibility to
+the client and demonstrate whether or not your project is on track. To
+that extent, these reports should always address the status of any
+milestones whose target dates have passed and include updates to the
+project plan if changes are required. They should also include or
+account for any deliverables ready by the report deadline (including
+summaries and takeaways from client demos). For heavyweight
+methodologies, these reports may be a natural place to request client
+approval of gating deliverables. Only include items related to Sprint 1
+(Ending Feb 26) in this report.
+
+Here are some strongly recommended elements to include in your second
+report for methodologies commonly used by CS 5150 projects:
+
+- Summary of project progress since last report, including any client
+  feedback received and how it has been addressed.
+
+- Milestone table with status updates.
+
+- 
+
+  Modified waterfall
+      Formal requirements document, including supporting documentation
+      (e.g. scenarios)
+      For examples of formal requirements documents, see the optional
+      reading from Lecture 6.
+
+  Iterative refinement
+      First draft of requirements, provisional design, demo of first
+      prototype
+
+  Agile
+      Collection of user stories, system-level design, first sprint plan
+      (this must be more detailed than the high-level plan in your
+      project plan, and should include specific user stories to be
+      implemented in the first sprint, along with acceptance criteria
+      for each story). You may also include a demo of a first prototype
+      if you have one ready by the report deadline.
+
+- Document the architecture of the pre-existing system you are
+  enhancing. This documentation should include:
+
+  - Deployment diagrams for client deployments (may include production
+    deployments, staging areas, and/or acceptance test setups)
+  - Component diagrams showing which services/components/subsystems you
+    expect to be interfacing with or modifying in order to implement
+    your enhancements
+
+  You may find that architecture documentation and diagrams already
+  exist for your host application. You should of course reference these,
+  but what you submit with your report must be your own work tailored to
+  this semester’s project.
+
+- Code Information: If you have started development, you should include
+  information about the code you have written so far, including links to
+  your code repository and any relevant documentation. You should also
+  include a summary of your development process so far, including any
+  challenges you have encountered and how you have addressed them.
+  Ideally include commit/pull request information to show the work you
+  have done so far, and to demonstrate that all team members are
+  contributing to the project. If you have not started development yet,
+  you should include a plan for when you will start and how you will
+  ensure that development stays on track.
+
+- Updated risk analysis, including any new risks that have been
+  identified since the last report and how you plan to mitigate them.
+
+- Team Roles: Add a table of team members and the tasks they were
+  responsible for in this sprint.
+
+Please discuss with your client whether there are other things that you
+should include in this report.
+
+Grading: This report will be graded based on the completeness and
+quality of the above elements, as well as the overall clarity and
+professionalism of the report. The report should be well-organized,
+clearly written, and free of spelling and grammatical errors. It should
+also demonstrate a clear understanding of the project and its goals, as
+well as a thoughtful approach to project management and risk mitigation.
+We will also be looking for evidence of progress towards your milestones
+and deliverables, as well as a clear plan for how you will continue to
+make progress in the next phase of the project. You may lose points if
+your report does not include all of the above elements, if it is poorly
+organized or written, or if you did not achieve your milestones or
+deliverables without a clear explanation of why and how you plan to get
+back on track, or if your code repository contributions do not follow
+proper software engineering practices (e.g., if they do not include
+clear commit messages, if they do not demonstrate that all team members
+are contributing, or if they do not follow the branching strategy
+outlined in your project plan). You may also lose points if you did not
+address any client feedback received since the last report, or if you
+did not update your risk analysis to reflect any new risks that have
+been identified since the last report.

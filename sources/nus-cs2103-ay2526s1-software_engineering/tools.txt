@@ -1,0 +1,471 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+Peer EvaluationsExams
+
+Tools 
+
+[]
+
+Tool: Learning Management System
+
+This course website is the main source of information for the course. In
+addition, we use Canvas for some things (e.g., announcements, file
+submissions, grade book, ...).
+
+Tool: Zoom (for weekly briefings)
+
+Install Zoom on your computer. Installation and login instructions are
+here. Remember to login using your NUSNET account.
+
+Tool: GitHub (for code hosting)
+
+You are required to use GitHub as the hosting and collaboration platform
+of your project (i.e., to hold the Code repository, Issue Tracker,
+etc.).
+
+Preparation:
+
+Create a GitHub account (if you don't have one yet), as explained in the
+panel below.
+
+Admin Appendix E - GitHub: Creating an Account
+
+More info: See Appendix E - Using GitHub.
+
+Tool: Git (for revision control)
+
+You are required to use Git. Installing and configuring Git is covered
+in this lesson of the Git Learning Trail.
+
+Tools: for communication
+
+ Course email (for course related queries, etc.)
+
+- Send all course-related emails to cs2103[at]comp.nus.edu.sg.
+  Even if your course code is CS2103T, the email to use is cs2103@...
+  (i.e., not cs2103t@...).
+
+ Forum (for discussions, asking admin questions, seeking help, etc.)
+
+- The preferred channels for course-related communication is the forum
+  on GitHub https://github.com/nus-cs2103-AY2526S1/forum/issues (not the
+  Canvas forum)
+- When communicating with instructors, use the forum. Use private
+  channels (e.g., emails, private messages, face-to-face, private chat
+  groups) only when the forum is not suitable. Rationale: 1. More
+  classmates can benefit from the discussions, 2. It is also safer
+  because the prof can monitor information you receive for accuracy.
+
+- You are encouraged to help others in the forum (e.g., share tips, help
+  with technical problems). We consider forum participation for grading
+  (for participation) and when recruiting tutors.
+
+Preparation:
+
+We encourage all to watch the forum to get alerts when new
+issues/comments are posted [image]
+
+ MS Teams (for tutorials)
+
+- MS Teams is used in our tutorials.
+  Install MST on your computer. Installation and login instructions are
+  here. Remember to log in using your NUSNET account.
+
+All admin questions and technical help requests should be sent to the
+course email or posted in the forum. Tutors are not allowed to respond
+to admin questions and technical help requests. See the panel below for
+more details.
+
+Admin Policies → Policy on admin questions
+
+Tool: The IDE
+
+IntelliJ IDEA is the recommended IDE for course-related programming
+work. Using an IDE is strongly recommended but is not compulsory.
+
+Our Intellij IDEA resources can be found at se-edu/guides.
+
+Use other IDEs at your own risk, because,
+a) course materials are optimized for IntelliJ, and,
+b) we won't be able to help you if you run into problems while using any
+other IDE.
+
+That said, we have also provided a good amount of resources for VS Code
+at se-edu/guides.
+
+Preparation:
+
+- Install the IDE on your computer. You may use the IntelliJ community
+  edition (free) or the ultimate edition (free for students).
+- If you have an older version of the IDE, we recommend updating to the
+  latest version.
+
+Tool: RepoSense (for authorship tracking)
+
+[]
+
+We will be using a tool called RepoSense to make it easier for you to
+see (and learn from) code written by others, and to help us see who
+wrote which part of the code.
+
+[RepoSense report screenshot]_(Figure: RepoSense Report Features)
+
+Viewing the current status of code authorship data:
+
+- The reports generated by the tool for the individual and team projects
+  will be made available in the course website at some point in the
+  semester. The feature that is most relevant to you is the Code Panel
+  (shown on the right side of the screenshot above). It shows the code
+  attributed to a given author.
+- Click on your name to load the code attributed to you (based on Git
+  blame/log data) onto the code panel on the right.
+- If the code shown roughly matches the code you wrote, all is fine and
+  there is nothing for you to do.
+
+If the code does not match the actual authorship: Given below are the
+possible reasons for the code shown to mismatch the code you wrote.
+
+- Reason 1: the Author name of some of your commits is not known to
+  RepoSense -- this is a result of not setting the git.username property
+  as instructed in our Git setup instructions.
+  How to check: Find the Author name of your commits that are missing
+  (you can use Sourcetree or the git log command for that -- it's not
+  possible to do that using the GitHub interface though).
+  Check if that author name is included in the RepoSense config for the
+  iP or the RepoSense config for the tP (whichever the applicable one)
+  Remedy: Send the missing author name(s) to the prof so that the
+  RepoSense configuration can be updated accordingly.
+
+- Reason 2: The actual authorship does not match the authorship
+  determined by git blame/log e.g., another student touched your code
+  after you wrote it, and Git log attributed the code to that student
+  instead.
+  Remedy: You can add @@author annotations as explained in the panel
+  below:
+
+Adding @@author tags to indicate authorship
+
+------------------------------------------------------------------------
+
+- Reason 3: Some commits should not be included in the authorship
+  analysis e.g., you committed the code of a third party library by
+  mistake.
+  Remedy: Let us know the hashes of the commits that need to be omitted
+  from the analysis.
+
+If none of the above works, please please post in the forum or contact
+us via cs2103@comp.nus.edu.sg so that we can advise you what to do.
+
+We recommend you ensure your code is RepoSense-compatible by v1.5
+
+Tool: TEAMMATES (for Peer Evaluations)
+
+We use the TEAMMATES online peer evaluation system. TEAMMATES is a
+project run by NUS SoC students and used by over a million users from
+over 1500 universities.
+
+Preparation: When the first feedback session is open on TEAMMATES, you
+will receive an email from TEAMMATES. There is nothing for you to do
+until then.
+
+When you receive that email, it will include a unique link that lets you
+access TEAMMATES without logging in. Logging in with a Google account is
+optional, but doing so allows you to view all your TEAMMATES sessions on
+one page.
+
+Tool: WATcher (for monitoring tP work distribution)
+
+You can use WATcher to see a dashboard view of the tP work distribution
+(e.g., number of issues/PRs done by each member). It can also help you
+easily spot workflow oversights (e.g., issues/PRs not assigned to a
+person/milestone).
+
+Steps to use:
+
+1.  Go to the tP teams list page. Locate your team, and click the icon
+    for your team.
+2.  When prompted, choose to access public repos only and login using
+    your GitHub account.
+    []
+3.  After the login is complete, you will be able to see the WATcher
+    dashboard showing the Currently active milestone of your tP.
+    []
+    This view shows issues/PRs relevant to the most recent/current
+    milestone, each column showing issues/PRs assigned to a specific
+    team member.
+    This view also helps you spot oversights. e.g., it indicates ongoing
+    issues/PRs not assigned to any milestone as [] ???.
+4.  You can switch the view from Currently active to Contributions to
+    view all issues/PRs contributed by each member for the entire
+    project.
+5.  The filters at the top of the dashboard can be used to tweak the
+    view further.
+    The page URL changes to match the view, which means you can
+    share/bookmark the current view using the current URL of your
+    Browser.
+
+WATcher is a tool created by past students, and still in early preview
+state.
+Bugs/queries/suggestions, please post in the WATcher issue tracker.
+
+Peer EvaluationsExams
+
+Tools ‎
+
+Tool: Learning Management System‎ Tool: Zoom (for weekly briefings)‎ Tool:
+GitHub (for code hosting)‎ Tool: Git (for revision control)‎ Tools: for
+communication‎ Tool: The IDE‎ Tool: RepoSense (for authorship tracking)‎
+Tool: TEAMMATES (for Peer Evaluations)‎ Tool: WATcher (for monitoring tP
+work distribution)‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

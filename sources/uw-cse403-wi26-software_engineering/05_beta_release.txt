@@ -1,0 +1,72 @@
+CSE 403 project: Beta release
+
+Overview
+
+Solidify your toolchain and processes, implement the first version of
+your system’s core components, and demo at least one major use case of
+your product.
+
+Instructions
+
+1. Solidify your toolchain, processes, and instructions (40%)
+
+- All technical processes (version control, bug tracking, build system,
+  testing and CI) must be functioning and documented. We expect a
+  code-coverage tool to be part of your CI flow.
+
+- Your GitHub repository must provide a top-level README with:
+
+  - Clearly labeled instructions for how to build and test the system.
+    Strive for a high degree of automation.
+  - Clearly labeled instructions for how to run the system.
+  - A GitHub tag (id) for this release. This is an identifier to use to
+    on a “git checkout” to get the commits that comprise the beta
+    release of your software. See: Git-Basics-Tagging.
+
+- Based on the provided instructions, the course staff must be able to
+  build and test the system without issues.
+
+Complete this in the main branch of your repository by due date.
+
+2. Implement and integrate first versions of all your system’s major components (40%)
+
+- Implement and demo a first release of working software. At least one
+  major use case that touches all major components of your system must
+  be operational. For example, in the case of a client-server web
+  application, a user command invoked from the front end should be able
+  to return data from the back end.
+
+- The top-level README in your repository must reflect which use case(s)
+  are operational. You do not need to have all features implemented but
+  at least one core feature/core use case should be minimally
+  operational to show that the basic components of your system are
+  implemented, integrated, and working.
+
+- We expect proper use of version control, including coherent commits
+  with descriptive commit messages. We expect proper use of pull
+  requests and constructive code reviews.
+
+Complete this in the main branch of your repository by due date.
+
+3. Present your demo and reflection (20%)
+
+- The presentations will take place in class, and you have a maximum of
+  9 minutes in total. This includes time for taking questions.
+
+- See the instructions for a demo presentation for tips. However,
+  because of the short time available, focus on #1-#3 in that list: the
+  introductory slides, the demo itself, and a short discussion of any
+  challenges and learnings to date and your plans forward.
+
+- You will present your slides and do your demo from your own laptop.
+  However, you will not plug your laptop into a projector, because that
+  takes too long. Instead you will connect to a Zoom link and show your
+  demo by sharing your screen.
+
+Submit
+
+1.  Export a PDF snapshot of your slide deck named [project name]_m5.pdf
+    and submit it to Canvas.
+2.  Individually complete the form individual-status-and-contribution,
+    provided by your TA. This is a required part of each group milestone
+    assignment and contributes to your individual grade.

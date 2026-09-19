@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW9: Your First Mobile App | 15-113</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>HW9: Your First Mobile App</h1>
+        <p class="subtitle">CMU 15-113: Effective Coding with AI</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">&larr; Back to Course</a>
+            <a href="#overview">Overview</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#instructions">Instructions</a>
+            <a href="#concepts">Key Concepts</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div style="background-color: #ffe6e6; border: 2px solid #d32f2f; border-radius: 4px; padding: 15px; margin-bottom: 20px;">
+    <strong style="color: #d32f2f;">⚠️ Heads-up:</strong> We've updated this assignment to strongly recommend that you either use an Android phone if you have one, or an iPhone simulator otherwise.  <br><br>You <em>may</em> attempt to use an actual iPhone if you have one and also have a mac (by either following the <a href="https://docs.expo.dev/develop/development-builds/create-a-build/#build-locally-without-eas" target="_blank">Development Build without EAS</a> option in Expo, or if you have a paid Apple Developer Account you can probably use Expo Go) but these routes are substantially harder, and we can't make the instructions online any more concise or robust. We did put together a repo with some Claude-generated instructions for iPhones without a paid developer license (and for Android simulators), but we haven't been able to test them on fresh devices so they may have bugs. I've put those and the Expo-related Claude skills <a href="https://github.com/mtaylor-create/useful-hw9-things/blob/main/expo-iphone-guide.md" target="_blank">here in this repo.</a>  
+</div>
+
+<div class="info-box">
+    <strong>Due Date: Wed. 4/8 at 8:00 PM</strong> (Note: This is updated from the original Tue. 4/7 date)<br>
+    <strong>Time Estimate:</strong> 3&ndash;4 hours (up to 6 if you go ambitious)<br>
+    <strong>Deliverables:</strong> Code + README + prompt log on GitHub, short video, <a href="https://forms.gle/HyotrFK1675Xwve47" target="_blank">Google form submission</a>, portfolio entry
+</div>
+
+<h2 id="overview">Assignment Overview</h2>
+
+<div class="project-card">
+<p><strong>Goal:</strong> Build a mobile app capable of running on an actual <strong>phone or simulator.</strong> You'll use <strong>React Native</strong> with <strong>Expo</strong>, a framework that lets you build real iOS and Android apps using JavaScript. To do this assignment successfully in a reasonable amount of time, you <strong>must leverage AI thoughtfully.  We strongly recommend an agentic workflow similar to what you did in <a href="hw8.html">HW8</a>.</strong> By the end of this assignment, you'll be able to show off a real app that you created.</p>
+<br>
+<p><strong>Why This Matters:</strong> Mobile apps are everywhere, and "I built a mobile app" is one of the most impressive things you can put on a portfolio. Mobile development has traditionally had a very steep learning curve, including specialized languages and complex build tools that differ between Android and iOS.  After setting up your environment, using AI tools and React Native with Expo will allow you to build a working app on your phone in as little as an hour. This is still a challenging project, however, and you will be unlikely to succeed unless you practice attention to detail and use the strategies you have learned in class so far.</p>
+
+<p><strong>Examples of what you might build:</strong></p>
+<ul>
+    <li><strong>Flashcard study app</strong> &mdash; Create, review, and track your progress on flashcard decks for any subject</li>
+    <li><strong>Mood tracker</strong> &mdash; Log your mood each day with notes and see trends over time</li>
+    <li><strong>Countdown collection</strong> &mdash; Track countdowns to events you're excited about (spring break, graduation, concerts, etc.)</li>
+    <li><strong>Workout logger</strong> &mdash; Log exercises, sets, reps, and see your recent history</li>
+    <li><strong>Personal AI assistant</strong> &mdash; A mobile chatbot powered by Claude or GPT (requires a backend, similar to HW4)</li>
+    <li><strong>Daily quote/affirmation app</strong> &mdash; A fresh inspirational quote each day with the ability to save favorites</li>
+</ul>
+<p>You're welcome to come up with your own idea! The key is that it should be something you'd actually want on your phone as more than just a webpage or webapp, and something you'd be excited to show other people. <strong>Start simple for this assignment!</strong> If you have a bigger idea, that could be a perfect choice for your capstone project.</p>
+
+<div class="note">
+    <strong>Hardware challenges:</strong> Part of the barrier to app development is that certain phones (specifically iPhones) require a fee in order to install your app on your phone. Because of that, you are <em>not</em> required to run your app on an actual phone, and it's ok to use a simulator instead.  We recommend developing on a physical Android phone if you have one, and on an iPhone (or Android) simulator if you have an iPhone.
+</div>
+
+<div class="note">
+    <strong>Learning with AI:</strong> This assignment is as much about <em>learning a new framework with AI</em> as it is about the final product. React Native and the Expo framework will almost certainly be completely new to you, and that's the point. When AI generates code using unfamiliar patterns (components, hooks, state, navigation), ask it to explain what unfamiliar parts do and why. Your prompt log should show thoughtful engagement with the code and the AI.
+</div>
+</div>
+
+<h2 id="requirements">Requirements &amp; Scoring</h2>
+
+<div class="project-card">
+<h3>Core Requirements</h3>
+<ul>
+    <li><strong>Multiple screens:</strong> Your app must have at least <strong>2 screens</strong> with navigation between them (e.g., a home screen and a detail screen, or a list screen and an "add new item" screen).</li>
+    <li><strong>User input:</strong> Your app must accept meaningful user input in some form&mdash;text fields, buttons, toggles, pickers, sliders, etc. The app should respond to this input in a useful way.</li>
+    <li><strong>Data persistence:</strong> Your app must save at least one piece of data locally so that it survives closing and reopening the app. (You'll use AsyncStorage or a similar local storage solution for this.  AI will help you set it up.)</li>
+    <li><strong>Can be demoed:</strong> You must demo your app running on an actual phone or a simulator. There are multiple paths to making each of these happen.</li>
+    <ul><li><strong>Note:</strong> Either path is valid; choose whatever hardware/environment works for you, and document which path you used in your README and video.</li></ul>
+    <li><strong>Looks intentional:</strong> Your app doesn't need to be beautiful, but it should look like you made design choices: consistent colors, readable text, reasonable spacing. A few minutes of styling goes a long way.</li>
+</ul>
+
+<h3>Optional Enhancements (for extra ambition, not required)</h3>
+<ul>
+    <li>Integrate an AI API (Claude or OpenAI) to add intelligence to your app (this will require a backend, similar to HW4)</li>
+    <li>Use a device feature like the camera, location services, haptic feedback, or push notifications</li>
+    <li>Add animations or gesture-based interactions</li>
+    <li>Build more than 2 screens with a tab-based or drawer navigation</li>
+</ul>
+
+<div class="note">
+    <strong>Scope advice:</strong> A simple, polished 2-screen app is better than a buggy 5-screen app. Get the basics working first, then add features if you have time. Many often underestimate how satisfying a clean, simple app can be when it actually runs on your phone. Be aware that using external APIs, phone sensors, and other sophisticated
+    features may make it very hard to achieve a working app without a reasonable understanding of the code and how the Expo framework works. 
+</div>
+
+<h3>What You Must Submit</h3>
+<ul>
+    <li><strong>GitHub repository</strong> containing (at a minimum):
+        <ol>
+            <li><strong>Code:</strong> Your complete Expo project. It should be runnable by cloning the repo, running <code>npm install</code>, and then <code>npx expo start</code>. (More info on these commands below.)</li>
+            <li><strong>README.md:</strong> Located at the repository root. Include:
+                <ul>
+                    <li>What your app does and why you chose this idea (1-2 sentences). Don't use AI to write this.</li>
+                    <li>A description of each screen and what the user can do on it. Don't use AI to write this.</li>
+                    <li>How to set up and run the app (any extra dependencies or API keys needed). You may use AI to write this piece but you are responsible for its accuracy.</li>
+                    <li>One thing you learned about mobile development that surprised you. Don't use AI for this.</li>
+                </ul>
+            </li>
+            <li><strong>Prompt log</strong> (titled <code>prompt_log.txt</code> or <code>prompt_log.md</code>): Which AI tools you used, and the key prompts that shaped your work. Remember, share your actual prompts, verbatim, and not just summaries (AI generated or otherwise).<strong>For this assignment, we especially want to see prompts where you asked AI to explain React Native concepts</strong>&mdash;not just "build me a screen," but "what does <code>useState</code> do?" or "why do I need <code>SafeAreaView</code>?"</li>
+            <li><strong>If you use an agentic development process,</strong> which we very very strongly recommend, you should also include your SPEC.md and REVIEW.md files.</li>
+        </ol>
+    </li>
+    <li><strong>Portfolio:</strong> Add a link to your project repository on your portfolio with a brief description and a screenshot of the app running on your phone.</li>
+    <li><strong>Short video:</strong> A screen recording or phone recording (1-2 minutes) showing the app running on your phone or simulator. Walk through each screen, demonstrate the user input and data persistence (e.g., add something, close the app, reopen it, show it's still there). Upload to YouTube or Google Drive with appropriate view permissions so that we can see it.</li>
+    <li><strong>Google form:</strong> <a href="https://forms.gle/HyotrFK1675Xwve47" target="_blank">Fill out this form</a> with your repo link, video link, and basic info before the deadline.</li>
+</ul>
+
+<h3>Grading</h3>
+
+<table>
+    <tr>
+        <th>Grade</th>
+        <th>(Roughly) What We're Looking For</th>
+    </tr>
+    <tr>
+        <td><strong>A (90-100)</strong></td>
+        <td>App can be demoed and has at least 2 screens with navigation, meaningful user input, and data persistence. Looks intentional and polished. Clean README and prompt log that meet the assignment specifications and show learning (asking AI to explain, not just generate). Evidence of 3-4 hours of effort and some creativity in the concept. Video clearly demonstrates the app.</td>
+    </tr>
+    <tr>
+        <td><strong>B (80-89)</strong></td>
+        <td>App runs and has most core features working (screens, input, persistence). Functional but may look rough around the edges. README and prompt log present but less detailed. Video might be a little unclear.</td>
+    </tr>
+    <tr>
+        <td><strong>C (70-79)</strong></td>
+        <td>App runs but may be missing one core feature (e.g., no persistence, or only one screen). Basic README, prompt log, and video. Limited evidence of the learning process.</td>
+    </tr>
+    <tr>
+        <td><strong>Below C</strong></td>
+        <td>App does not run, or submission is incomplete.</td>
+    </tr>
+</table>
+</div>
+
+<h2 id="instructions">Step-by-Step Instructions</h2>
+
+<div class="card">
+<p>Follow these steps in order, and <strong>read carefully</strong>. Each one builds on the last, and this sequence is designed to minimize the time you spend stuck. <strong>If any step takes significantly longer than the time listed, <em>please</em> ask on Ed or come to office hours!</strong></p>
+
+<h3>Step 1: Set Up Your Environment (20 minutes)</h3>
+
+<strong>For iPhone / iPhone simulator only:</strong>
+<p>If you're on a Mac, you'll need to install XCode on your laptop from the App Store, and this may take about an hour to download. You should start doing that right now.</p>
+
+<strong>For Android:</strong>
+<p>Search for "Expo Go" in the Google Play Store and install it. Alternatively you can download a beta version of the Expo Go app if you wish to use the very latest version, but we don't recommend this since you'll probably have to unlock dev options on your phone.</p>
+
+<strong>For Everyone:</strong>
+<p>You need Node.js on your computer, and an AI-enabled code editor (you probably already have VS Code or Cursor). </p>
+
+<ol>
+    <li><strong>Install Node.js</strong> (if you don't already have it): Download the LTS version from <a href="https://nodejs.org" target="_blank">nodejs.org</a>. After installing, verify it works by running <code>node --version</code> in your terminal. You should see a version number (18 or higher).</li>
+    <li><strong>Read and follow the <a href="https://docs.expo.dev/get-started/create-a-project/" target="_blank">Expo "Create a Project" tutorial</a>:</strong>
+        <ul>
+            <li><strong>IMPORTANT:</strong> The latest phone apps on the App Store and Play Store may be version 54, which is a step behind the dev tools.  This means your phone might not be able to use your project unless you replace the 55 with a 54 in the first command of the tutorial: <br><code>npx create-expo-app@latest --template default@sdk-54</code></li>
+            <li>Be sure to select either <strong>"Android Device"</strong> or </strong>"iOS Simulator"</strong> on the second tutorial screen. You should also select "Expo Go" instead of "Development build" to start with, though you may optionally do a Development build later if you wish. (You may attempt to make this work on your real iPhone, but the process will either be expensive and easy with Expo Go or free and difficult with a development build, so we don't recommend this right now.) </li>
+            <li>You will be running commands in your computer's terminal.  For Windows this is the Command Prompt, and for macs this will be the Terminal.  We don't recommend trying to run these in VS Code.  These are <i>not</i> Python commands!</li>
+            <li>Note: When you reach the step where you run <code>npx expo start</code> in your terminal, it will take a moment to load, and then it will show a QR code in your terminal. <strong>If you are developing on an Android phone:</strong> Make sure your phone is on the same wifi network. Scan the code with your phone camera or the Expo Go app (Android). You should see a default "Welcome to Expo" screen appear on your phone. <strong>If you are developing on an iPhone sim:</strong> As long as you have XCode and the simulator installed, you should be able to press 'i' to open the simulator with your app.</li>
+            <li>You should read and follow the instructions up through the Next Steps page, and <strong>stop</strong> before running <code>npm run reset-project</code> since this will remove the demo code.</li>
+        </ul>
+    </li>
+</ol>
+
+<div class="note">
+    <strong>Important:</strong> Your phone and computer must be on the same Wi-Fi network for Expo Go to connect. If you're on campus, <strong>CMU-SECURE</strong> should work. If the QR code doesn't connect, try the "tunnel" option: press <code>s</code> to switch to Expo Go, then try pressing <code>shift+t</code> to switch the connection to tunnel mode. Ask on Ed if you're stuck&mdash;this is a common setup hiccup.
+</div>
+
+<div class="note">
+    <strong>We very very strongly recommend using AI within your IDE, like Copilot, Claude Code, Cursor, etc.</strong>  You'll have an extremely bad time if you have to constantly copy things into your browser.<br><br>
+    <strong>Optional but extremely useful:</strong> Try to install the <strong>Expo AI skills</strong> found <a href="https://docs.expo.dev/skills/" target="_blank">here.</a>  I (Mike) had some trouble with installing the skills to Claude initially, but I asked AI to look a the <a href="https://github.com/expo/skills.git" target="_blank">github repo with the skills</a> and to modify CLAUDE.md so that it has access to them.  It created a .claude directory with the cloned skills inside. You can find <a href="https://github.com/mtaylor-create/useful-hw9-things" target="_blank">my CLAUDE.md and claude directory here.</a><br>
+    These skills are not strictly necessary, but they're documentation and resources that your AI can use to research how to implement many of the features that you might want. The installation process will vary for each AI.
+</div>
+
+<h3>Step 2: Understand the Basics with AI (10 minutes)</h3>
+
+<p>Before you reset the project and start building, spend a few minutes getting oriented. Open the <code>App.js</code> (or <code>App.tsx</code>) file that was generated and ask AI some questions:</p>
+
+<ul>
+    <li><em>"I'm brand new to React Native. Can you explain at a high level how these files create a working app?"</em></li>
+    <li><em>"What's the difference between React Native and a regular website? How is a <code>View</code> different from a <code>div</code>?"</em></li>
+    <li><em>"How do I add a button and a text input to a React Native screen? Show me a simple example and explain the <code>useState</code> hook."</em></li>
+</ul>
+
+<p>Try making a small change to the app, like changing the text or a color, and watch it update on your phone in real time. (If it does not update immediately, you can go to your terminal and press 'r' to reload the app.)</p>
+
+<!-- <div class="note">
+    <strong>Key React Native concepts you'll encounter</strong> (AI will help you with all of these):
+    <ul>
+        <li><strong>Components:</strong> Building blocks of your app (<code>View</code>, <code>Text</code>, <code>Button</code>, <code>TextInput</code>, etc.)</li>
+        <li><strong>State (<code>useState</code>):</strong> How your app remembers things while it's running (similar to variables, but they trigger the screen to update when they change)</li>
+        <li><strong>StyleSheet:</strong> How you style your app (similar to CSS, but as a JavaScript object)</li>
+        <li><strong>Navigation:</strong> How you move between screens (you'll install a library for this)</li>
+    </ul>
+</div> -->
+
+<h3>Step 3: Write Your App Specification (30 minutes)</h3>
+
+<p>Before you write any code, review the agentic process you used in <a href="hw8.html">HW8</a>. If you choose to use an agentic process for this assignment (which we recommend), write a detailed specification for your app in a file called <code>SPEC.md</code>. <strong>This is the most important step.</strong> As before, <strong>write this spec yourself</strong> and be thorough.  This will help ensure that the app matches your vision and works well.</p>
+
+<p>Keep your app idea simple: two screens, one or two key interactions, and one type of data to persist is plenty.</p>
+
+<div class="note">
+    <strong>Useful SPEC.md template:</strong> I created this <a href="downloadables/SPEC.md" download>blank SPEC.md template</a> to help 
+    me with this step, and I found it very useful.  You may not need all of these fields, but 
+    we recommend you start by copying this template and then modifying it to suit your needs.
+</div>
+
+<h3>Step 4: The Agentic Build (45 minutes)</h3>
+
+<p>Assuming you use an agentic process (which is a very good idea) you'll now hand your spec to your agent of choice (Copilot, Claude Code, Cursor, etc.) and let it build. Refer to <a href="hw8.html">HW8</a> for guidance on the agentic process.</p>
+
+<h4>Setup</h4>
+<ol>
+    <li>Add your <code>SPEC.md</code> into the project folder, add the folder to Github (in Github Desktop, click the current repository, click add, and click "add existing repository", and select your project folder) and make your first commit and push. <strong>Verify that you can see the app on github.com</strong> before proceeding.</li>
+    <li>If you're lost, make sure you've completed the environment setup from Steps 1 and 2.</li>
+    <li>Open the project folder in VS Code or Cursor or another AI-enabled IDE.</li>
+</ol>
+
+<h4>The Prompt</h4>
+<p>You might want to set your Agent to its most powerful setting for this step (bearing your usage limits in mind).  Give your agent a prompt like this (adapt it to your actual spec):</p>
+<pre>Read SPEC.md in this project. Implement the full mobile app exactly as specified. 
+Create all necessary files, components, and navigation. Make sure that appropriate data is persistent. 
+Avoid security risks for sensitive data.  Include proper error handling. 
+Make sure the app starts without errors and displays the home screen correctly.</pre>
+<br>
+<h4>Reminders</h4>
+<ul>
+    <li><strong>Hands off (as much as possible).</strong> Let the agent work. You will likely need to accept some file creation and terminal command prompts. Your goal is to see how far it gets without your intervention.</li>
+    <li><strong>Test frequently on your phone.</strong> After the agent finishes, run <code>npx expo start</code> (or press 'r' to refresh the app if it is already running) and test the app on your phone.</li>
+    <li><strong>Commit the raw result.</strong> After the agent finishes (or you decide it's done), commit everything with a message like <code>"Raw agentic build output"</code>. Don't fix anything before that commit.  We want to see what the agent produced.</li>
+</ul>
+
+<h3>Step 5: The AI Review (45 minutes)</h3>
+<h4>Review Setup</h4>
+<ol>
+    <li>Open a <strong>new chat session</strong> and make sure you're in <strong>Agent mode</strong>.</li>
+</ol>
+
+<h4>The Review Prompt</h4>
+<p>Give this new agent a prompt like:</p>
+<pre>Review the React Native/Expo code in this project against the spec in SPEC.md. 
+For each acceptance criterion in the spec, verify whether the code actually implements it correctly. 
+Also check for:
+- Bugs or logic errors
+- Missing error handling
+- Code quality issues (unclear naming, repeated code, etc.)
+- Best practices for React Native or other technologies
+
+Format your review as a numbered list of findings, each marked as [PASS], [FAIL], or [WARN]. 
+Be specific. Reference file names and line numbers. 
+Export the review as REVIEW.md at the root of the project.</pre>
+<br>
+<h4>Act on the Review</h4>
+<ul>
+    <li>Read the review carefully. Do you agree with its findings? Are there issues it missed?</li>
+    <li><strong>Save the REVIEW.md file in your repository.</strong> (Ask the agent to export it, or copy it manually.)</li>
+    <li>Fix real issues flagged as [FAIL] or critical [WARN] items. You can use AI to help, but you're responsible for the fixes.</li>
+    <li>Commit the fixes, with a commit message like <code>"Fixes after AI review"</code>.</li>
+</ul>
+
+<h3>Step 6: Polish, Test, and Verify (30 minutes)</h3>
+
+<p>With the core features working, now polish your app:</p>
+<ul>
+    <li><strong>Visual polish:</strong> Choose a consistent color scheme (2-3 colors), ensure text is readable, add clear titles/headers to each screen, make buttons look tappable.</li>
+    <li><strong>Thorough testing:</strong> Walk through every acceptance criterion and verify each one works on your phone. Test edge cases.</li>
+    <li><strong>Verify data persistence:</strong> Add data, close Expo Go completely, reopen it, and confirm the data is still there.</li>
+    <li>Make any final adjustments needed.</li>
+    <li>Commit with a message like <code>"Polish and final adjustments"</code>.</li>
+</ul>
+
+<h3>Step 7: Document and Submit (30 minutes)</h3>
+
+<p>Write your README and prompt log, record your video, add the project to your portfolio, push to GitHub, and fill out the <a href="https://forms.gle/HyotrFK1675Xwve47" target="_blank">Google form</a>.</p>
+
+<p>For the video, the easiest approach is to screen-record your phone or simulator, or to simply record your phone screen with another device. Walk through each screen, show the user interactions, and demonstrate data persistence.</p>
+
+<p><strong>Important:</strong> Your prompt log should include actual prompts, verbatim. Some recommended examples include:</p>
+<ul>
+    <li>Your initial build prompt to the agent</li>
+    <li>Your review prompt to the second agent</li>
+    <li>Any follow-up prompts or clarifications during the phases</li>
+    <li>Prompts where you asked AI to explain React Native or Expo concepts</li>
+    <li>Notes on any manual interventions you made and why</li>
+</ul>
+</div>
+
+<h2 id="concepts">Key Concepts</h2>
+
+<div class="card">
+<p>Here's a reference for the new concepts in this assignment. AI will help you with all of these, but it's useful to know what you're working with.</p>
+<ul>
+    <li><strong>React Native:</strong> A framework for building mobile apps using JavaScript. Unlike a web app, React Native produces <em>real</em> native mobile components (not a website in a wrapper). The code you write looks similar to web React, but instead of <code>&lt;div&gt;</code> and <code>&lt;p&gt;</code>, you use <code>&lt;View&gt;</code> and <code>&lt;Text&gt;</code>.</li>
+    <li><strong>Expo:</strong> A platform that simplifies React Native development. It handles the complex build process, provides a library of pre-built features (camera, location, notifications, etc.), and gives you Expo Go for instant testing on your phone. Think of Expo as "React Native made easy."</li>
+    <li><strong>Expo Go:</strong> The app on your phone that runs your project during development. When you scan the QR code, Expo Go downloads your latest code and runs it. No app store publishing needed.</li>
+    <li><strong>Components:</strong> The building blocks of a React Native app. Everything on screen is a component: <code>View</code> (a container, like a <code>&lt;div&gt;</code>), <code>Text</code> (displays text), <code>TextInput</code> (text field), <code>Button</code> (a button), <code>FlatList</code> (a scrollable list), <code>Image</code> (displays images), etc.</li>
+    <li><strong>State (<code>useState</code>):</strong> The way React Native tracks data that can change. When state updates, the screen automatically re-renders to reflect the new data. Example: <code>const [count, setCount] = useState(0);</code> creates a <code>count</code> variable and a <code>setCount</code> function to update it.</li>
+    <li><strong>Props:</strong> Data passed from a parent component to a child component. For example, when you write <code>&lt;Text style={{color: 'red'}}&gt;Hello&lt;/Text&gt;</code>, <code>style</code> is a prop being passed to the <code>Text</code> component.</li>
+    <li><strong>Navigation:</strong> The system for moving between screens. React Navigation is the most popular library. A "stack navigator" works like a stack of cards&mdash;you push a new screen on top, and you can go back to the previous one.</li>
+    <li><strong>AsyncStorage:</strong> A simple, persistent key-value storage system for React Native. Works like a mobile version of <code>localStorage</code> in web browsers. Data survives app restarts.</li>
+    <li><strong>Hot reload:</strong> When you save a file, Expo automatically updates the app on your phone within seconds. This makes development fast and iterative.</li>
+</ul>
+</div>
+
+<h2 id="tips">Tips</h2>
+
+<div class="card">
+<ul>
+    <li><strong>Get the "Hello World" running first.</strong> Before writing any real code, make sure that you can get the example app working on your phone or simlator. If setup takes longer than 20 minutes (aside from installing XCode on macs, which will take while to download), ask on Ed or in office hours. We predict that setup problems will be the #1 time sink on this assignment, and we can usually resolve them quickly.</li>
+    <li><strong>Build incrementally.</strong> After the initial build, add one feature at a time and test on your phone after each change. React Native's hot reload makes this fast. If something breaks, you'll know exactly what caused it. Trying to do too much all at once will likely be the #2 source of trouble.</li>
+    <li><strong>Use AI to learn, not just to generate.</strong> You should come out of this with at least some insight into how an app is structured in Expo.  This is the learning goal of the assignment, and your prompt log should show it.</li>
+    <li><strong>Don't fight the styling system.</strong> React Native uses Flexbox for layout (similar to CSS Flexbox). If positioning is driving you crazy, ask AI: <em>"How does Flexbox layout work in React Native? I'm trying to put X above Y with Z on the right."</em> A few minutes understanding Flexbox will save you a lot of trial and error.</li>
+    <li><strong>Keep your app idea simple.</strong> Two screens, one main feature, and local data persistence is a very solid app. You can always add more if you finish early, but you can't get time back from an overly ambitious plan. Some of the best apps are simple apps that do one thing well.</li>
+    <li><strong>Restart the development server if things get weird.</strong> If your app starts behaving unexpectedly, stop the Expo server (Ctrl+C in the terminal) and restart it with <code>npx expo start</code>. Also try shaking your phone in Expo Go to access the developer menu, where you can reload the app.</li>
+    <!-- <li><strong>Watch out for <code>async</code>/<code>await</code>.</strong> AsyncStorage operations are asynchronous (they return Promises). AI will likely generate code using <code>async</code>/<code>await</code>. If this is new to you, ask AI to explain: <em>"What does <code>async/await</code> mean in JavaScript? Why do I need it for AsyncStorage?"</em></li> -->
+</ul>
+
+<h3>Setup Resources</h3>
+<ul>
+    <li><a href="https://nodejs.org" target="_blank">Node.js download</a> &mdash; Install the LTS version</li>
+    <li><a href="https://expo.dev/go" target="_blank">Expo Go</a> &mdash; Download for iOS or Android</li>
+    <li><a href="https://docs.expo.dev/get-started/create-a-project/" target="_blank">Expo: Create your first app</a> &mdash; Official getting-started guide</li>
+    <li><a href="https://github.com/mtaylor-create/useful-hw9-things">Mike's repo of Claude skills + Claude-generated setup instructions for running on actual iPhones or Android sims.</a></li>
+</ul>
+
+<h3>React Native Resources</h3>
+<ul>
+    <li><a href="https://reactnative.dev/docs/getting-started" target="_blank">React Native documentation</a> &mdash; Official docs with explanations of every component</li>
+    <li><a href="https://reactnavigation.org/docs/getting-started" target="_blank">React Navigation</a> &mdash; The library you'll use for moving between screens</li>
+    <li><a href="https://react-native-async-storage.github.io/async-storage/docs/usage/" target="_blank">AsyncStorage documentation</a> &mdash; How to save and load data locally</li>
+    <li><a href="https://docs.expo.dev/versions/latest/" target="_blank">Expo SDK documentation</a> &mdash; Camera, location, notifications, and many more device features</li>
+</ul>
+
+<h3>Troubleshooting</h3>
+<ul>
+    <li><strong>"I can't connect to my phone"</strong> &mdash; Make sure both devices are on the same Wi-Fi network. Try tunnel mode by pressing <code>shift+t</code> in the Expo terminal. On campus, use CMU-SECURE.</li>
+    <li><strong>"My app crashes when I open it"</strong> &mdash; Check the terminal for error messages. The most common cause is a syntax error or a missing import. AI is very good at diagnosing React Native error messages. Paste the error and ask.</li>
+    <li><strong>"npm install is failing"</strong> &mdash; Try deleting the <code>node_modules</code> folder and <code>package-lock.json</code> file, then running <code>npm install</code> again. If that doesn't work, ask on Ed with the exact error message.</li>
+    <li><strong>"I don't have a smartphone"</strong> &mdash; You can use an emulator (Android Studio's emulator or Xcode's simulator on Mac). Ask on Ed and we'll help you set one up.  You can also use <a href="https://snack.expo.dev" target="_blank">Expo Snack</a>, an online editor that includes a phone simulator in the browser. We'd still like you to get a simulator locally installed, but this might work in a pinch.</li>
+</ul>
+</div>
+
+<div class="info-box">
+    <strong>Questions?</strong> Ask on Ed, attend office hours, or email the instructor. Consult the course AI usage and collaboration policies on the <a href="index.html">course homepage</a>.
+</div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+    </div>
+</footer>
+
+</body>
+</html>

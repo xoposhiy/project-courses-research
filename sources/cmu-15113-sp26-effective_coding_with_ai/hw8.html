@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW8: The Agentic Build | 15-113</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>HW8: The Agentic Build</h1>
+        <p class="subtitle">CMU 15-113: Effective Coding with AI</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">&larr; Back to Course</a>
+            <a href="#overview">Overview</a>
+            <a href="#build">What You'll Build</a>
+            <a href="#phases">Detailed Instructions</a>
+            <a href="#deliverables">Deliverables</a>
+            <a href="#reflection">Reflection</a>
+            <a href="#grading">Grading</a>
+            <a href="#tips">Tips</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div class="info-box">
+    <strong>Due Date:</strong> Sun. 3/29 at 8:00 PM<br>
+    <strong>Time Estimate:</strong> ~3 hours outside class<br>
+    <strong>Deliverables:</strong> GitHub repo (link submitted through <a href="https://forms.gle/KAQXG3QD9KNRQbj89", target="_blank">Google form</a>), working app, spec, review, reflection, portfolio entry
+</div>
+
+<h2 id="overview">Assignment Overview</h2>
+<div class="project-card">
+<p>
+  <strong>Goal:</strong> So far in 15-113, you've mostly used AI as a conversational partner: you ask it to help you
+  build something, it gives you code, you copy/paste/modify, and repeat. In this assignment, you'll try a more <strong>structured, agentic approach</strong>:
+  instead of chatting back and forth, you'll write a detailed plan <em>first</em>,
+  hand it off to Copilot's Agent Mode (or Cursor, or any other tool with agentic capabilities) to implement with minimal hand-holding, and then
+  use Copilot <em>again</em> with a <strong>new agent as a code reviewer</strong>
+  that checks the first agent's work. This mirrors how software engineers increasingly work
+  with AI in industry, with less "pair programming" and more "delegating and reviewing."
+</p>
+<br>
+<p><strong>Why This Matters:</strong> After experiencing the difference between conversational AI coding and
+  a multi-agent plan-delegate-review workflow, you should begin to develop your own opinion about when each
+  approach works best.
+</p>
+</div>
+<h2 id="build">What You'll Build</h2>
+<p>
+  A <strong>command-line Python quiz app</strong> with a local login system that reads questions from a JSON file,
+  quizzes users, tracks scores and performance statistics securely (in a non-human-readable format),
+  allows users to provide feedback on questions to influence future quiz selections, and saves results.
+  You'll extend it with one additional feature of your choice.
+</p><br>
+<p>While this might not be the most "original" app, it's complex enough to be interesting (file I/O, data structures,
+  user interaction, error handling) and scoped enough that an AI agent can realistically
+  build most of it from a good spec. Perhaps most importantly, it also produces <strong>clearly testable output,</strong> which
+  makes the review phase meaningful.</p>
+
+<h2 id="phases">Detailed Instructions</h2>
+
+<div class="card">
+  <h3>Phase 1: Write the Spec <span class="badge">~45 min</span></h3>
+  <p>
+    Before you touch Copilot, write a detailed specification for the quiz app in a file
+    called <code>SPEC.md</code>. <strong>This is the most important phase. A good spec leads to
+    a good agentic result; a vague spec leads to a mess.</strong>
+  </p>
+  <p>Your spec must include:</p>
+  <ul>
+    <li><strong>Behavior description:</strong> What does the app do, step by step, from the
+      user's perspective? (e.g., "The app greets the user, asks how many questions they want,
+      randomly selects that many from the question bank…")</li>
+    <li><strong>Data format:</strong> Your question bank should be a JSON file using the
+      format below. Include at least 5 sample questions in your spec. (You may add more questions 
+      if you wish, but we would recommend waiting to do this until you have run one review pass 
+      (verification) and then manually assessed whether the quiz app is satisfactory (validation)).<br>
+      You may extend
+      this format for your extension feature (e.g., adding a <code>"difficulty"</code>
+      or <code>"hint"</code> field), but keep the base structure.
+      <pre>{
+  "questions": [
+    {
+      "question": "What keyword is used to define a function in Python?",
+      "type": "multiple_choice",
+      "options": ["func", "define", "def", "function"],
+      "answer": "def",
+      "category": "Python Basics"
+    },
+    {
+      "question": "A list in Python is immutable.",
+      "type": "true_false",
+      "answer": "false",
+      "category": "Data Structures"
+    },
+    {
+      "question": "What built-in function returns the number of items in a list?",
+      "type": "short_answer",
+      "answer": "len",
+      "category": "Python Basics"
+    }
+  ]
+}</pre></li>
+    <li><strong>File structure:</strong> What files should exist and what does each one do?</li>
+    <li><strong>Error handling:</strong> What happens if the JSON file is missing? If the
+      user enters invalid input? Specify at least 3 error cases.</li>
+    <li><strong>Required features:</strong><ul>
+      <li>A local login system that prompts users for a username and password (or allows them to enter a new username and password).  The passwords should not be easily discoverable.</li>
+      <li>A score history file that tracks performance and other useful statistics over time for each user.  This file should <em>not be human-readable</em> and should be relatively secure. (This means someone could look at the file and perhaps find out usernames but not passwords or scores.)</li>
+      <li>Users should somehow be able to provide feedback on whether they like a question or not, and this should inform what questions they get next.</li>
+      <li>The questions should exist in their own human-readable .json file so that they can be easily modified. (This lets you use the project for studying other subjects if you wish; all you have to do is generate the question bank.)</li>
+      <li><strong>Note: None of this requires a backend, HTML, CSS, a graphical user interface, or the use of any APIs.</strong>  Everything is local. If your project uses any of these things, you migth be over-engineering it.</li>
+    </ul></li>
+    <li><strong>One extension feature</strong> of your choice. Examples:
+      <ul>
+        <li>Timed questions (user has N seconds to answer)</li>
+        <li>A "streak bonus" system that rewards consecutive correct answers</li>
+        <li>Difficulty levels that affect scoring</li>
+        <li>A "hint" system that costs points</li>
+        <li>Category-based filtering</li>
+        <li>… or your own idea!</li>
+      </ul>
+    </li>
+    <li><strong>Acceptance criteria:</strong> A checklist of 5-8 specific things you'll
+      check to decide if the implementation is "done." (e.g., "Running the app with an
+      empty question bank prints a friendly error and exits with code 1.")</li>
+  </ul>
+
+  <div class="note">
+    <strong>Important:</strong> Write this spec yourself, without AI assistance.
+    The whole point of this assignment is to see how the quality of your
+    <em>planning</em> affects the quality of the AI's <em>output</em>. Using AI to
+    write the spec defeats the purpose. (You <em>can</em> use AI to help you understand
+    what a good spec looks like, but the actual content should be yours.)
+  </div>
+</div>
+
+<div class="card">
+  <h3>Phase 2: The Agentic Build <span class="badge">~60 min</span></h3>
+  <p>
+    Now hand your spec to Copilot and let it build. Here's how:
+  </p>
+
+  <h3>Setup</h3>
+  <ol>
+    <li>Create a new project folder and initialize a git repo (<code>git init</code>).
+      Commit your <code>SPEC.md</code> as the first commit.</li>
+    <li>Open the folder in VS Code with the GitHub Copilot extension active.</li>
+    <li>Open the <strong>Copilot Chat panel</strong> (Ctrl+Shift+I or Cmd+Shift+I) and
+      switch to <strong>Agent mode</strong> (click the mode selector at the top of the
+      chat panel. It should say "Agent" rather than "Ask" or "Edit").</li>
+  </ol>
+
+  <h3>The Prompt</h3>
+  <p>Give Copilot a prompt like this (adapt to your own spec):</p>
+  <pre>Read SPEC.md in this project. Implement the full quiz application
+exactly as specified. Create all necessary files. Include the sample
+questions from the spec in the question bank JSON file. Make sure
+error handling matches what the spec describes. After creating the
+files, run the app to verify it starts without errors.</pre>
+
+  <h3>Rules for Phase 2</h3>
+  <ul>
+    <li><strong>Hands off (as much as possible).</strong> Let the agent work. Accept its
+      file creation and terminal command prompts (to the extent that you are comfortable doing so). Your goal is to see how far it gets
+      <em>without</em> your intervention.</li>
+    <li><strong>Track your interventions.</strong> If you <em>do</em> need to step in
+      (to fix something, clarify something, or nudge it in a different direction),
+      note each intervention in your log (see Deliverables). Interventions include
+      follow-up prompts, manual code edits, or re-running something yourself.</li>
+    <li><strong>Commit the raw result.</strong> After Copilot finishes (or you decide it's
+      done), commit everything as-is with a message like
+      <code>"Phase 2: Raw agentic build output"</code>. Don't fix anything first —
+      we want to see what the agent produced.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Phase 3: The AI Review <span class="badge">~45 min</span></h3>
+  <p>
+    Now switch roles. Instead of using Copilot as a <em>builder</em>, use it as a
+    <em>reviewer</em> — an independent check on the code it just wrote.
+  </p>
+
+  <h3>Review Prompt</h3>
+  <p>Open a <strong>new Copilot Chat session</strong> (click "+" to start fresh — this
+    is important so the reviewer doesn't have the builder's context). Then make sure you are in <strong>agent mode</strong> and give it a prompt similar to this (but probaby not exactly; e.g. you might want to check for usability / UX issues too):</p>
+  <pre>Review the Python code in this project against the spec in SPEC.md.
+For each item in the acceptance criteria, check whether the code
+actually implements it correctly. Also check for:
+- Bugs or logic errors
+- Missing error handling
+- Code quality issues (unclear naming, repeated code, etc.)
+- Security concerns (e.g., unsafe file handling)
+
+Format your review as a numbered list of findings, each marked as
+[PASS], [FAIL], or [WARN]. Be specific — reference file names and
+line numbers.</pre>
+  <br><p><strong>Important: Save this review as <code>REVIEW.md</code></strong> and add it to your repository!</p>
+
+  <h3>Act on the Review</h3>
+  <ul>
+    <li>Read the review carefully. Do you agree with its findings? Are there issues it
+      missed? Are any of its criticisms wrong?</li>
+    <li>Fix the real issues (you can use Copilot to help fix them).</li>
+    <li>Commit the fixes: <code>"Phase 3: Fixes after AI review"</code>.</li>
+  </ul>
+  <p><strong>Note: It is very important that you make multiple, frequent commits, at the very 
+    least at the points specified above.</strong>  This is largely how we will know 
+    that you followed the correct process for this assignment.</p>
+</div>
+
+
+<h2 id="deliverables">Deliverables</h2>
+<div class="table-container">
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Where</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td><strong>GitHub repo submitted through Google form</strong></td>
+    <td>Submitted through <a href="https://forms.gle/KAQXG3QD9KNRQbj89", target="_blank">Google form</a></td>
+    <td>Must show at least 3 commits (spec, raw build, post-review fixes with REVIEW.md)</td>
+  </tr>
+  <tr>
+    <td><strong>Working quiz app</strong></td>
+    <td>In repo</td>
+    <td>Should run with <code>python quiz.py</code> (or similar)</td>
+  </tr>
+  <tr>
+    <td><strong>SPEC.md</strong></td>
+    <td>In repo</td>
+    <td>Your spec, written without AI</td>
+  </tr>
+  <tr>
+    <td><strong>REVIEW.md</strong></td>
+    <td>In repo</td>
+    <td>Copy of the AI review output from Phase 3</td>
+  </tr>
+  <tr>
+    <td><strong>REFLECTION.md</strong></td>
+    <td>In repo</td>
+    <td>Your reflection (see below). Write this yourself — do not use AI.</td>
+  </tr>
+  <tr>
+    <td><strong>Portfolio</strong></td>
+    <td>Your website</td>
+    <td>Add a short entry for this project (screenshot, description, link)</td>
+  </tr>
+</table>
+</div>
+
+<h2 id="reflection">Reflection</h2>
+<p>In <code>REFLECTION.md</code>, answer the following. Be honest and specific; there
+  are no wrong answers here, but you must <strong>write this yourself, without AI.</strong> (Approx. 250-500 words total.)</p>
+<ol>
+  <li><strong>How far did the agent get?</strong> Did it fully implement your spec?
+    What percentage of your acceptance criteria passed on the first try?</li>
+  <li><strong>Where did you intervene?</strong> List each time you had to step in
+    during Phase 2. Why was the intervention needed? Could a better spec have
+    prevented it?</li>
+  <li><strong>How useful was the AI review?</strong> Did it catch real bugs? Did it
+    miss anything important? Did it flag things that weren't actually problems?</li>
+  <li><strong>Spec quality → output quality:</strong> In hindsight, what would you
+    change about your spec to get a better result from the agent?</li>
+  <li><strong>When would you use this workflow?</strong> Based on this experience,
+    when do you think plan-delegate-review is better than conversational back-and-forth?
+    When is it worse?</li>
+</ol>
+
+
+
+<h2 id="grading">Grading</h2>
+<div class="table-container">
+<table>
+   <tr>
+        <th>Grade</th>
+        <th>(Roughly) What We're Looking For</th>
+    </tr>
+    <tr>
+        <td><strong>A (90-100)</strong></td>
+        <td>High spec quality (clear, complete, specific acceptance criteria), app works reasonably well and includes required features + an extension, no egregious security concerns, 3+ commits showing the assignment phases, interventions are logged, and the reflection is honest, specific, and thoughtful. All submission requirements met.</td>
+    </tr>
+    <tr>
+        <td><strong>B (80-89)</strong></td>
+        <td>Good spec quality (clear, complete, specific acceptance criteria), app includes required features + an extension, and runs with few-or-no-bugs or security concerns, 2+ thoughtful commits documenting the assignment phases, interventions are logged, and the reflection is honest/thoughtful if a little vague. All or almost all submission requirements met.<br>(If some required features do not yet work, it may be possible to achieve this grade with an exceptionally thoughtful reflection on what went wrong.)</td>
+    </tr>
+    <tr>
+        <td><strong>C (70-79)</strong></td>
+        <td>Assignment mostly complete but shallow or with less attention to detail.  Spec quality is likely substandard or the instructions were either ignored or followed but not documened. May be missing a component, like the REVIEW.md file.</td>
+    </tr>
+    <tr>
+        <td><strong>Below C</strong></td>
+        <td>Incomplete submission or insufficient thoughtfulness in key components/phases (for example, a poor spec or reflection, multiple misdocumented items, or clear use of AI to produce the SPEC.md or REFLECTION.md files).</td>
+    </tr>
+</table>
+</div>
+
+<div class="info-box">
+  <strong>Grading philosophy reminder:</strong> We're grading your <em>process and
+  learning</em>, not the perfection of the final code. An honest reflection that says
+  "the agent completely botched feature X and here's why" is more valuable than a
+  perfect app with a vague reflection.
+</div>
+
+<h2 id="tips">Tips</h2>
+<ul>
+  <li><strong>Specificity is key.</strong> "Handle errors gracefully" is vague.
+    "If the JSON file is missing, print 'Error: questions.json not found. Please create
+    a question bank file.' and exit with code 1" is specific. Agents do much better with
+    the second kind of instruction.</li>
+  <li><strong>Acceptance criteria are how you reliably reach the result you want.</strong> Think of them as a
+    contract: if these things are true, the project is done. The more testable and
+    concrete these are, the easier it is for both the agent and the reviewer to do
+    their jobs.</li>
+  <li><strong>Fresh context for the review.</strong> Starting a new chat session for
+    Phase 3 matters. If the reviewer has the builder's conversation history, it's
+    essentially grading its own homework. A fresh session gives you a more independent
+    review.<ul><li>As a maybe-interesting side-note, when Prof Kosbie and I make quizzes for
+      15-112, one of us makes the first draft, then the other one of us carefully reviews that draft and makes
+      necessary high-level changes.  Finally, we pass it off to our best TAs to scrutinize every detail.  This is
+      <em>necessary</em> because one cannot effectively review one's own work with the reliability of someone who 
+      does not have an existing mental model of the artifact.   
+    </li></ul></li>
+  <li><strong>Don't panic if Phase 2 goes sideways.</strong> Part of the learning is
+    seeing where agentic workflows break down. If the agent produces garbage, that's
+    a great reflection topic. Fix what you can in Phase 3 and write about it.</li>
+</ul>
+
+<h2>Optional Challenge: Multi-Reviewer</h2>
+<p>
+  If you finish early and want to explore further, try running <em>multiple</em>
+  review passes with different prompts — one focused on bugs, one on code style,
+  one on security. Compare what each reviewer catches. This is a simplified version
+  of how agentic code review systems work in industry (parallel specialized reviewers).
+  Document your findings in your reflection if you try this.
+</p>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+    </div>
+</footer>
+
+</body>
+</html>

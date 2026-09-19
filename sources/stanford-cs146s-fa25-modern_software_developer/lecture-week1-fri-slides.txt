@@ -1,0 +1,274 @@
+# Lecture slides, week1-fri, CS146S Fall 2025 (text extracted from the Google Slides PDF export on 2026-09-18; images not included)
+
+--- slide 1 ---
+The Modern Software 
+Developer
+CS146S Stanford University, Fall 2025Mihail Eric
+themodernsoftware.dev
+--- slide 2 ---
+LLM Power Prompting
+themodernsoftware.dev
+--- slide 3 ---
+Prompting background
+● Prompts are the lingua franca for getting LLMs to do what we want and also 
+effectively programming them
+Courtesy of 
+Andrej Karpathy
+themodernsoftware.dev
+--- slide 4 ---
+An analogy
+● Look to how we’ve changed our search engine interactions
+themodernsoftware.dev
+--- slide 5 ---
+Prompting Background
+● Prompting is both an art and a science 
+● Black-box nature of LLMs means there’s some magic to LLM-whispering 
+effectively
+● …but there are established techniques that have empirically improved LLM 
+performance
+ themodernsoftware.dev
+--- slide 6 ---
+Zero-shot prompting
+● Ask the LLM to do a thing
+○ no support
+○ no examples
+themodernsoftware.dev
+Write me a Rust for-loop that iterates over a list of strings 
+for every, printing every value in an even index
+--- slide 7 ---
+K-shot prompting
+● Ask the LLM to do the thing but give it some examples of how to do it
+○ Sometimes called in-context learning
+● k-shot
+○ 1, 3, 5 (some empirical results justify these numbers)
+● Ideal for tasks that don’t have too many reasoning steps
+themodernsoftware.dev
+--- slide 8 ---
+Write a for-loop iterating over a 
+list of strings using the naming 
+convention in our repo.
+Write a for-loop iterating over a list of 
+strings using the naming convention 
+in our repo. Here are some examples 
+of how we typically format variable 
+names.
+<example>
+var StRaRrAy = [‘cat’, ‘dog’, ‘wombat’]
+</example>
+<example>
+def func CaPiTaLiZeStR = () => {}
+</example>
+themodernsoftware.dev
+--- slide 9 ---
+Chain-of-Thought Prompting
+● Show reasoning steps for a given task
+○ Multi-shot CoT
+■ Work out reasoning traces
+○ Zero-shot CoT
+■ “Let’s think step-by-step”
+○ Prompt for reasoning in explicit <reasoning> tags
+● Best for steps with multiple logical steps
+○ Programming
+○ Math
+themodernsoftware.dev
+--- slide 10 ---
+Write a function to check if a 
+number is a perfect cube and a 
+perfect square.
+I want to write a function to check if a 
+number is a perfect cube and a perfect 
+square. Make sure to provide your 
+reasoning first. Here are some examples 
+of how to  provide reasoning for a coding 
+task.
+<example>
+Write a function that finds the maximum 
+element in a list.
+Steps: Initialize a variable with the first 
+element. Traverse the list, comparing…
+</example>
+<example>
+Write a function that checks is a number 
+is a palindrome
+Steps: Take the number. Reverse the 
+elements in the numbers. Check if …
+</example>
+themodernsoftware.dev
+Multi-shot CoT
+--- slide 11 ---
+Write a function to find the 
+longest increasing subsequence 
+in an array.
+Write a function to find the longest 
+increasing subsequence in an array.
+Think step by step about the 
+subproblems before coding. Include 
+worked out examples of subarrays 
+you are considering as you answer 
+this question.
+themodernsoftware.dev
+Zero-shot CoT
+--- slide 12 ---
+Self-consistency Prompting
+● Sample multiple times from output (typically with CoT) and aggregate most 
+common results
+● Reduces hallucinations/incorrect answers via a form of model ensembling by 
+sampling diverse reasoning paths
+themodernsoftware.dev
+--- slide 13 ---
+What’s the root cause for this 
+error: 
+Traceback (most recent call last):
+  File "example.py", line 3, in 
+<module>
+    print(nums[i])
+IndexError: list index out of range
+What’s the root cause for this error: 
+Traceback (most recent call last):
+  File "example.py", line 3, in 
+<module>
+    print(nums[i])
+IndexError: list index out of range
+Prompt 5x
+Take majority result
+themodernsoftware.dev
+--- slide 14 ---
+Tool Use
+● Allow LLM to defer to an external system that it needs to interact with
+● One of the most important techniques for reducing hallucinations and 
+enabling the autonomy of LLMs
+themodernsoftware.dev
+--- slide 15 ---
+After you have fixed this 
+IndexError can you ensure that 
+the CI tests still pass?
+Fix the IndexError. Ensure the CI 
+tests still pass once you have made 
+the fix. Here are the available tools. 
+<tools>
+pytest -s /path/to/unit_tests
+pytest -v /path/to/integration_tests
+</tools>
+themodernsoftware.dev
+--- slide 16 ---
+Retrieval Augmented Generation
+● Infuse the LLM with contextual data
+● Keeps LLMs up-to-date (without retraining)
+○ Faster iteration
+● You get interpretability and citations for free
+● Reduces hallucinations
+themodernsoftware.dev
+--- slide 17 ---
+Extend the UserAuthService 
+class to check that the client 
+provides a valid OAuth token.
+I want to extend the UserAuthService 
+class to check that the client provides a 
+valid OAuth token. 
+Here is how the UserAuthService works 
+now:
+<code_snippet>
+def issue_oauth_token():
+….
+</code_snippet>
+Here is the path to the requests-oauthlib 
+documentation:
+<url>
+https://requests-oauthlib.readthedocs.io/en/
+latest/
+</url>
+themodernsoftware.dev
+--- slide 18 ---
+Reflexion
+● Make the LLM reflect on its output
+● Verbal feedback from environment signals are reincorporated into the LLM by 
+augmenting the context
+● After an action is taken in an environment and an observation made, add a 
+prompt suﬃx:
+○ “Now critique your answer. Was it correct? If not, explain why and try again.”
+● Multi-turn prompting
+○ Turn 1: Model gives a first try.
+○ Turn 2: You ask “Was that correct? Reflect and revise if needed.”
+themodernsoftware.dev
+--- slide 19 ---
+Ensure that the 
+company_location column can 
+handle string and json 
+representations.
+Extend the logic for company_location to be able 
+to handle string and json representations
+The unit tests for the company_location type aren’t 
+passing.
+It appears that the unit tests for company_location are 
+throwing a JSONDecodeError. 
+I am extending the company_location column.
+I must ensure that when a string is provided as 
+input it doesn’t throw a JSONDecodeError.
+observe
+reflect
+Extend prompt 
+themodernsoftware.dev
+--- slide 20 ---
+Additional Terminology
+● System prompt
+○ First message provided to LLM (usually not seen by end user)
+○ Provides persona, rules about LLM output, style
+themodernsoftware.dev
+--- slide 21 ---
+themodernsoftware.dev
+…
+--- slide 22 ---
+themodernsoftware.dev
+…
+--- slide 23 ---
+Additional Terminology
+● User prompt
+○ The actual ask or instruction from a human
+○ Basically all of our examples so far
+● Assistant 
+○ What the LLM actually generates
+themodernsoftware.dev
+--- slide 24 ---
+themodernsoftware.dev
+System prompt
+User prompt
+Assistant prompt
+--- slide 25 ---
+Best Practices
+● Prompt improvement
+○ https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-improver
+● Clear prompting
+○ Give prompt to someone with minimal context and if they’re confused an LLM will be too
+● Use role prompting aggressively to make system prompts more powerful
+themodernsoftware.dev
+--- slide 26 ---
+themodernsoftware.dev
+You are a helpful assistant that loves programming at the level of a 
+senior software developer and is very detailed and pedantic in your 
+answers.
+--- slide 27 ---
+themodernsoftware.dev
+--- slide 28 ---
+themodernsoftware.dev
+You are a Gen Z digital bestie. Always sound like you’re texting on 
+Snapchat at 2am.
+--- slide 29 ---
+● Prompts should be formatted with structure
+Best Practices
+themodernsoftware.dev
+Here are the logs:
+<log>
+LOG MESSAGE
+<log> and the stack trace:
+<error>
+STACK TRACE
+<error>
+--- slide 30 ---
+Best Practices
+● Be explicit about what you want (languages, tech stacks, libraries, 
+constraints)
+● Decompose tasks
+themodernsoftware.dev
+--- slide 31 ---
+themodernsoftware.dev
+Questions?

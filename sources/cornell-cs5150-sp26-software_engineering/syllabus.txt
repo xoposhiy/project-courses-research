@@ -1,0 +1,233 @@
+Syllabus
+
+Course description
+
+Introduction to the practical problems of specifying, designing,
+building, testing, deploying, and maintaining reliable software systems.
+Emphasis on team-based development integrating with moderately large,
+existing systems. Topics include design patterns, issue tracking,
+version control, code review, dependency management, continuous
+integration, and release management. As a central part of the course,
+student teams will add large features to real software systems,
+following an agile development process.
+
+Prerequisites
+
+Minimum: CS 2110 or equivalent experience programming in Java or C++. CS
+3110 or CS 4410/4414 strongly recommended for Cornell undergraduates.
+Sufficient maturity to design, code, and debug large programs and to
+learn new programming languages and tools.
+
+Instructor
+
+Saikat Dutta
+Lecturer, Computer Science
+Gates Hall 438
+saikatd@cornell.edu
+Office Hours: Mondays 1 PM - 2 PM, Gates 438 or by Appointment
+
+Teaching Assistants
+
+Joonhwan Yoo
+jy2249@cornell.edu
+Stephen Shen
+zs435@cornell.edu
+Junkai Huang
+jh2973@cornell.edu
+Kabir Anirudh Samsi
+kas499@cornell.edu
+Harsh Patel
+hhp26@cornell.edu
+Kaityln Lu
+kl995@cornell.edu
+
+TA Office Hours: Wednesdays 1-2 PM; Room: 441 Statler Hall
+
+Meeting times
+
+Lectures are held Tuesdays and Thursdays from 1:25pm to 2:40pm,
+beginning on January 20 and ending on May 5. Attendance and
+participation are expected. In-person lectures take place in Gates G01
+(see Class Roster).
+
+Project Teams will need to arrange meeting times outside of class to
+conduct reviews with all members in attendance.
+
+Personal technology
+
+Engagement during lectures will be facilitated with Poll Everywhere
+polls. Responding to polls requires an Internet-connected mobile device
+(laptop, tablet, or smartphone). However, multitasking on such devices
+during lecture is known to impede learning and lower grades for both you
+and your neighbors, so we ask that you only use these devices for poll
+responses, notetaking, and following along with demos. Students who are
+nevertheless prone to multitask should sit in the back of the classroom
+(and classmates should not hesitate to ask distracting students to
+relocate there).
+
+Materials & services
+
+At a minimum, students will require the following in order to
+participate in the course:
+
+- Access to a computer programming environment (editor, compiler, Git)
+- Ability to browse contemporary websites and read PDF documents
+
+Students are not required to purchase a textbook; all required readings
+will be available for free in digital form. Several readings will be
+from the book Software Engineering at Google, which is also available in
+paperback.
+
+The course will utilize the following online services, most of which you
+can access with your Cornell account once you are logged into Canvas:
+
+- Course website (lecture materials and assignments; accessible to
+  public)
+- Canvas (restricted materials and links, quizzes and surveys, virtual
+  lecture recordings)
+- Zoom (virtual lectures when required by university, virtual office
+  hours)
+- Ed Discussion (class discussion board)
+- Poll Everywhere (lecture polls)
+- Gradescope (exam feedback)
+- Cornell GitHub (version control, issue tracking, code reviews)
+
+Learning objectives
+
+By the end of this course, students will be able to:
+
+- Apply software engineering techniques and tools to real-world projects
+- Work effectively in teams to develop features in a large software
+  codebase
+- Describe technical concepts related to software engineering clearly
+  and effectively
+
+Assessment/Grading
+
+Performance on the following elements will factor into a student’s
+course grade:
+
+- In-class exams
+- Team project deliverables
+- Assignments
+- Attendance and Participation: Polls (only graded for completeness),
+  In-class activities, Quizzes, etc.
+
+These components are weighted at the discretion of the instructor, but
+performance on the group project (that is, consistent application of the
+techniques taught in class towards a viable, best-effort deliverable) is
+the most significant factor.
+
+Exams: This class will not have a centrally-scheduled prelim or final;
+all exams will be given in class. There will be two in-class exams,
+weighted equally.
+
+Project Scoring Rubrics: These are the high-level components that will
+be evaluated to determine your project grade. These components are
+weighted at the discretion of the instructor (but assume equal weightage
+unless otherwise specified).
+
+- Client Meetings: At least one per sprint
+- Project Reports: Project plan, sprint reports, and final report
+- Presentations (2): Midpoint and Final
+- Peer Evaluations: Your contributions evaluated by teammates
+- Code and Product Quality
+
+Grade Breakdown
+
+- Project: 60%
+- In-class exams (2): 20%
+- Attendance/In-class activities: 10%
+- Assignments: 10%
+
+Grade Boundaries: The actual grade boundaries have not been decided yet
+because there are many moving components in the course and they change
+every year. However, to manage your expectations, we can guarantee that:
+Scores above 90% will receive at least A-, Scores above 80% will receive
+at least B-, and scores above 65% will receive at least C-.
+
+Communication
+
+The primary mode of communication for this course will be via Canvas.
+The course website contains the most up-to-date information about the
+schedule. We will use Ed for discussions. We will use Gradescope and
+CMSX for assignments and grading. For any special circumstances, please
+contact the course staff via email.
+
+AI usage
+
+You may use AI tools to assist with coding, but you must clearly
+disclose any AI-generated content in your report and ensure that all
+submitted work meets the course's academic integrity standards. You may
+not use AI tools for any in-class exams or in-class activities unless
+explicitly permitted by the instructor. If you have any questions or
+concerns, please contact the course staff.
+
+Late Assignment
+
+For each assignment or report, students can submit after the due date.
+Each late day will be penalized by a maximum of 10% per day (at the
+discretion of course staff). Longer grace periods without penalty for
+assignments/reports are subject to approval by the instructor and will
+only be allowed due to any extenuating/extreme, unavoidable
+circumstances. Late submission for final project report is not allowed.
+
+Attendance
+
+Engaging in classroom activities both improves your learning and creates
+a more vibrant learning environment for your peers, so we want to reward
+you for it. Class participation will largely be assessed via Poll
+Everywhere responses. Students do not need perfect attendance or
+perfectly correct responses to maximize the participation component of
+their grade! (Such a policy creates perverse incentives, such as
+rewarding coming to class when ill, which we do not want.) Please do not
+contact the staff asking to be excused for an absence – we trust you to
+manage your health and commitments wisely and will not penalize you for
+missing class occasionally. If habitual absence causes you to miss more
+than a third of lectures, that is when you should seek advice from the
+staff.
+
+Unless the university mandates a move to virtual instruction (such as
+for the first two weeks of the semester), lectures are offered
+exclusively in person and are not recorded. But be mindful of public
+health – if you do not feel well, please stay home. Posted materials,
+our discussion board, and your teammates are all available to help you
+get caught up after an absence.
+
+Community of learning and professionalism
+
+We aim to create an inclusive learning environment where diversity and
+individual differences are respected and appreciated, and we expect
+students in this class to demonstrate diligence in understanding how
+others’ perspectives may be different from their own. Behaviors that
+contribute positively to our community of learning include:
+
+- Recognize that everyone is starting from different bases of knowledge.
+  Be respectful and constructive when pointing out mistakes.
+- Listen to one another and, especially during group work, actively
+  encourage everyone to contribute.
+- Help build a lively and active online learning environment. Ask and
+  answer questions on our discussion board, always remembering to be
+  respectful and constructive.
+
+Accommodations
+
+We provide accommodations for disabilities. Students with disabilities
+can contact Student Disability Services at 607-254-4545 or the
+instructor for a confidential discussion of their individual needs. If
+you experience personal or academic stress or need to talk to someone
+who can help, contact the instructor or:
+
+- Engineering Academic Advising at 607-255-7414
+- Learning Strategies Center at 607-255-6310
+- Let's Talk Drop-in Counseling at Gannett - 607-255-5155
+- Empathy Assistance and Referral Service at 607-255-3277
+
+Academic integrity
+
+Integrity is a cornerstone of both our learning community and
+professional life. Much of the work in this course is collaborative, but
+all documents and code submitted must be written solely by the student
+or team members submitting it, and ideas or feedback from others must be
+properly attributed. Always abide by Cornell’s Code of Academic
+Integrity and any course-specific rules regarding its interpretation.

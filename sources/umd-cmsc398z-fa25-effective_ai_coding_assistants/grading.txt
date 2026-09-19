@@ -1,0 +1,88 @@
+Grading for CMSC 398z
+
+Graded assignments
+
+Students will be graded on:
+
+- Learning log and check-in
+- Classroom participation and engagement
+- Submission of coding assignments for review
+
+In each category, the lowest grade will be dropped.
+
+Learning Log and check-in
+
+Each week there will be two written assignments. One due by noon the
+following Tuesday, and another and due at noon on Friday, 2 hours before
+class. The one due on Tuesday will cover what you worked on the previous
+class, the one due on Friday will be on the assigned reading for that
+upcoming class. These assignments are designed to help you reflect on
+your work from the previous class and prepare for the upcoming one. It
+is a space to document your project work, challenges you encountered,
+and your engagement with the course readings.
+
+These consist of some short-answer and multiple-choice questions. They
+are graded on thoughtful completion, not on correctness. Your honest
+reflections are crucial, as they provide valuable feedback that will
+help us understand student experiences in working with GenAI and improve
+the course. Completing them promptly will allow us to take them into
+account in preparing for the following week.
+
+Each week's writing assignments will be graded on a scale of 1-6, with a
+zero for an unexcused missing assignment. Any grade of 4 or less will be
+promptly discussed with the student. Submissions 1-3 days late will be
+given a 1 point penalty, 4-7 days late a 2 point penalty, more than 7
+days late a 3 point penalty (penalties cannot reduce a grade to less
+than 1).
+
+A draft of the submission forms for the first week learning log will be
+made available before class so students can understand the typical work
+required to complete each weeks learning log.
+
+Classroom participation and engagement
+
+Graded each class based on instructor observation in the classroom
+during pair and group work. Graded on a scale of 0-10, with the
+expectation that most students will get a 10 each week. If a student
+doesn't attend a class, they will get a score of 0 for class
+participation for that week; it is not possible to submit something late
+to be counted for classroom participation. Excused absences are not
+graded and not included in the grade calculation.
+
+- 0: No participation in class activities.
+- 6: Significant time not on task
+- 8 Not participating significantly with others or otherwise proving a
+  challenge to their group
+- 10 working well in pair and/or groups
+
+Code submitted for review
+
+Each assignment will be graded on a scale of 1-6, with a zero for an
+unexcused missing assignment. We will ask students to submit the code
+they worked on during class or after class. Grading will be based on an
+assessment of whether students made a good faith attempt to work on the
+assignment with an appropriate amount of time on task and provides
+context for their learning log and check-in. A good faith attempt that
+wasn't successful at achieving the desired functional outcomes can still
+get a top grade.
+
+Grading calculation
+
+- 40% - Weekly learning log and check-in
+- 40% - Class participation
+- 20% - Code submitted for review
+
+Grading curve:
+
+No A+ grades will be given. Given the design of the course, we don’t
+have a way to objectively identify exceptional work.
+
+- 90: A
+- 88: A-
+- 86: B+
+- 84: B
+- 82: B-
+- 79: C+
+- 76: C
+- 70: C-
+- 60: D

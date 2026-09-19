@@ -1,0 +1,247 @@
+Projects
+
+Software engineering concerns the production of software by teams of
+developers for use by others. Therefore, a major component of CS 5150 is
+a semester-long team project whose requirements must be extracted from
+clients. The main constraints are:
+
+- Teams should consist of 4–5 students
+- Students may form their own teams (or partial teams) around a project,
+  or they may complete a survey to be matched with others. The course
+  staff will make the final decisions regarding team compositions.
+- Teams may work on a pre-approved internal project (described below),
+  or they may propose a different feature on an internal project or a
+  different project with an external client. In each case, please get
+  approval from the instructor/course staff before proceeding. We will
+  prioritize projects that are feasible within the time constraints of
+  the course (but are not too simple) and that provide sufficient
+  learning opportunities for all team members. We will also try to
+  ensure that each team works on a unique project.
+- See Ed Discussion for students recruiting teams.
+
+Project Deliverables
+
+Teams have some freedom to define their own milestones and intermediate
+deliverables, but several reports and presentations are required at
+predefined intervals (typically once per three-week development
+session). Reflections and peer evaluations will also be collected at
+these times.
+
+1.  Project pitch and Team Formation (due Jan 29)
+2.  Project plan (due Feb. 5)
+3.  Report #1 (due Feb 28)
+4.  Report #2 (due March 28)
+5.  Report #3 (due April 27)
+6.  Final delivery (due May 15)
+
+Presentations must be given to clients and instructors during sessions 3
+& 5.
+
+1.  Midpoint presentation (March 12, March 17, in-class)
+2.  Final presentation (April 30)
+
+The contents of the intermediate reports will largely depend on a team’s
+selected methodology, but some common elements will be required of all
+teams.
+
+Requirements
+
+GitHub
+
+We require you to use a public Github repository for version control,
+issue tracking, code review, and continuous integration. This means you
+will use Git for all source code management.
+
+You may need to learn advanced Git techniques and workflows to
+effectively collaborate on your project. Git is a powerful tool that
+supports branching, merging, rebasing, and more, which are essential for
+managing complex projects with multiple contributors, and is heavily
+used in the software industry. So, learning it is a valuable skill. Some
+Git resources:
+
+- Git Book
+- Git Documentation
+- Version Control Advice
+
+When working on an internal project, please create a "fork" of the
+repository and continue making changes there. Please add the course
+staff as a member to your GitHub repo.
+
+Client Meetings
+
+Teams are expected to meet with their client on a regular basis, ideally
+once a week or at minimum once per sprint. The meeting frequency will be
+mutually agreed upon by the teams and their client.
+
+Teams must be well prepared for each meeting with clear agendas and
+objectives to ensure productive discussions and progress tracking.
+
+After each meeting, the client will submit a gradesheet scoring their
+interaction with the team members. Team members will be scored on their
+professionalism, participation, and preparedness.
+
+Role of Course Staff
+
+The course staff will serve as both a client and manager for your
+projects. When meeting with the TAs, you can ask them to serve in any of
+these roles. As a manager, the TA will provide useful suggestions and
+guidance to help your team succeed.
+
+You are expected to get familiar with all the tools and languages used
+in your project -- just like in the real world. While the course staff
+can provide guidance and may be familiar with some of these tools, the
+primary responsibility for learning and mastering these tools lies with
+you and your team.
+
+Some students report that the opportunity to learn new tools and
+technologies is one of the most valuable aspects of this course!
+
+Code Quality/Software Engineering Practices
+
+Teams are expected to follow best practices in code quality and software
+engineering throughout the project lifecycle. This includes writing
+clean, maintainable code, conducting thorough code reviews, adhering to
+agreed-upon coding standards, maintaining modularity and abstraction.
+
+Each team may be required to incorporate automated style checking and CI
+tools into their development workflow to ensure code quality and
+consistency.
+
+Teams must follow a rigorous code review process to ensure high-quality
+contributions and maintain project standards.
+
+We will strongly evaluate these practices in the final grading.
+
+Project Timeline
+
+- Week 1: Project Pitch and Selection (Jan 22)
+- Week 2: Finalize Project Teams (Jan 29)
+- Week 3: Submit Project Plan (Feb 5)
+- Weeks 4-6: First Sprint
+- Week 6: Submit First Sprint Report #1 (Feb 26)
+- Weeks 7-10: Sprint 2
+- Weeks 7-9: Midpoint Presentation
+- Week 10: Submit Second Sprint Report #2 (Mar 26)
+- Weeks 11-14: Sprint 3
+- Week 14: Submit Third Sprint Report #3 (Apr 23)
+- Weeks 15-16: Sprint 4
+- Weeks 15-16: Final Presentation
+- Week 16: Submit Final Report and Deliverables (May 15 (Tentative))
+
+Sprint Dates
+
+- Sprint 1: Feb 5 - Feb 26 (Understanding codebase architecture)
+- Sprint 2: Feb 27 - Mar 26 (Work towards first simplest
+  prototype/Midpoint PPT)
+- Sprint 3: Mar 27 - Apr 23 (Rapid feature development/testing)
+- Sprint 4: Apr 24 - May 15 (Acceptance testing/User Testing/Final PPT)
+
+External projects
+
+External projects must meet certain requirements to be eligible for CS
+5150.
+
+Business considerations
+
+External projects must take into account potential concerns regarding
+copyright, patents, trade secrets, data stewardship, and conflicts of
+interest. Included with your project plan should be a signed agreement
+between the client and your team addressing any relevant considerations.
+The client must be allowed to use and extend your software after it is
+delivered, so at a minimum you must decide how this permission will be
+granted (typically by either transferring copyright to the client or by
+providing the client with an unrestricted license).
+
+See copyright for external projects for examples of external client
+agreements from previous semesters.
+
+Internal projects
+
+Teams in CS 5150 may add features to one of the following open-source
+projects. These host projects are all collaboration tools, allowing
+everyone to be familiar with the problem domain (this also allows you to
+incorporate dogfooding into your development process).
+
+Gerrit
+
+A code review tool maintained by Google to facilitate their
+contributions to open-source projects in Git repositories (such as
+Android).
+
+Website
+    www.gerritcodereview.com
+
+Backend
+    Java 11
+
+Frontend
+    Polymer, TypeScript
+
+------------------------------------------------------------------------
+
+Official setup instructions
+
+Airflow
+
+An open-source tool for orchestrating complex computational workflows
+and data processing pipelines.
+
+Website
+    https://airflow.apache.org/
+
+Backend
+    Python
+
+Frontend
+    Typescript, Javascript, CSS, HTML
+
+------------------------------------------------------------------------
+
+Official setup instructions
+
+Mattermost
+
+An open-source, self-hosted collaboration platform that offers chat,
+workflow automation, voice calling, screen sharing, and AI integration.
+
+Website
+    https://mattermost.com/
+
+Backend
+    Go
+
+Frontend
+    Typescript, Javascript, HTML, CSS
+
+------------------------------------------------------------------------
+
+Official setup instructions
+
+Zulip
+
+An open-source team chat tool
+
+Website
+    zulip.com
+
+Backend
+    Python,
+
+Frontend
+    Typescript, Javascript, CSS, HTML
+
+------------------------------------------------------------------------
+
+Official setup instructions
+
+See internal project options for a list of capabilities that course
+staff would like to see added to the above applications.
+
+Stakeholders
+
+Ideally, the clients requesting these features would be distinct from
+the course staff, but that arrangement is not feasible for this offering
+of the course. Therefore, in order to keep discussions of “class
+mechanics” (grades, lecture material) out of your client interactions,
+please reserve such topics for office hours. For scheduled meetings,
+course staff will always assume a client role.

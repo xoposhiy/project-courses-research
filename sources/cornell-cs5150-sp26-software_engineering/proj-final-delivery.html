@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><script src="/courses/CS5150/2026sp/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=courses/CS5150/2026sp/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Final delivery (CS 5150 Spring 2026)</title>
+  <style>
+    .w-33-md {
+      display: block;
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .w-33-md {
+        width: 33%;
+      }
+      .w-33-md.float-end {
+        margin-left: 12px;
+        margin-bottom: 12px;
+      }
+      .w-33-md.float-start {
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+    }
+    .card{
+      margin: 10px;
+    }
+    .icons a {
+      margin: 0 10px 0 0;
+    }
+    .card img {
+      padding: 5px;
+      padding-top: 15px;
+    }
+    a.nav-link.active {
+      background-color: #e9ecef;
+    }
+    .alert-imp {
+      background-color: orange;
+    }
+    .header{
+      border-bottom: 1px solid #a3a1a1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="display-4 text-center">CS 5150: Software Engineering (Spring 2026)</h1>
+    </header>
+    <nav class="nav nav-fill">
+      
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/">About</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/schedule.html">Schedule</a>
+      
+      <a class="nav-link active" href="/courses/CS5150/2026sp/projects.html">Projects</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/references.html">References</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/syllabus.html">Syllabus</a>
+      
+    </nav>
+    <hr />
+    <main>
+      
+<h1 class="display-5">Final delivery</h1>
+<p>In addition to your <a href="presentation-2.html">final presentation</a> and demonstration of the completed system, you must prepare a handover package to deliver to your client.  The package consists of a brief report reflecting on the final development session, the source code for the software itself, and an index to other deliverables (which may be stored in your code repository or its associated GitHub Wiki).</p>
+<h2 id="report">Report</h2>
+<p>Much like previous reports, you should discuss your team’s progress during the final session: how did work proceed compared with your most recent project plan, and which risks (if any) were manifested and how were they managed.  Unlike previous reports, however, you cannot revise your plan and push tasks to the future.  Therefore, you must include a <strong>detailed summary</strong> of which originally-requested features were delivered, which were revised (with client approval) over the course of the project, and which could not be delivered.  If there is unfinished work in progress, clearly describe its location, status, and remaining tasks.  You should also note any takeaways from your final presentation and <strong>acceptance testing/deployment</strong>.</p>
+<h2 id="user-testing-and-feedback">User Testing and Feedback</h2>
+<p>You must conduct a user testing session with 3-5 participants (other than your team members and client) and include a summary of the results in your report. You should design 2-4 tasks that cover the use cases you modeled in your requirements analysis, and ask participants to complete these tasks using your system. Time bound each task. You should observe and record their interactions with the system, and ask them to provide feedback on their experience. Consider creating a simple survey to gather more structured feedback. You should summarize the results of this testing in your report, including any issues that were identified and any suggestions for improvement.</p>
+<h2 id="handover-package">Handover package</h2>
+<p>A software system is more than just the code itself.  Over the semester you produced a large body of work related to your project, and now is the time to edit and organize it to ensure it provides value to the client, users, and future maintainers.  For internal projects, the contents of your handover package should either be committed to your code repository or uploaded to its associated GitHub Wiki; for external projects (especially those not using Cornell’s GitHub), check with your client about how they’d like the package delivered.</p>
+<p>Every project is different, so the exact contents and format of the package are up to you.  What is important is that the contents are carefully edited and suitable for handing off to your client.  You may choose to collect most of these deliverables into a single document, or you may link to dedicated files from an index document (such as a wiki page).  Do not link to documents on Google Drive or other cloud services (unless they are owned by the client).</p>
+<p>For internal projects, your delivered code <em>must</em> be merged to the trunk branch; code on other branches will not be considered “delivered.”  (Do not push this off until the last minute—merge conflicts with other teams are possible and must be resolved.)  All GitHub issues related to delivered features should be closed.</p>
+<p>Aside from your code, your handover package should include at least the following:</p>
+<ul>
+<li>A comprehensive <strong>user’s manual</strong> documenting how to interact with your new capabilities in order to accomplish various tasks (i.e. each of the use cases you modeled)
+<ul>
+<li>Be sure to provide documentation for all user roles (e.g. reviewers, authors, administrators, etc.)</li>
+</ul>
+</li>
+<li>A comprehensive maintainer’s manual documenting <strong>system design</strong>, <strong>test facilities</strong>, and <strong>deployment procedure</strong>.  (When discussing test facilities, be specific about how future developers can run or reproduce your tests in order to avoid regressions.)  It would probably be helpful to include some documentation elements from your previous reports (revised for accuracy), such as:
+<ul>
+<li>Requirements analysis and specification</li>
+<li>Architectural diagrams</li>
+<li>Class diagrams</li>
+<li>Final user interface designs</li>
+<li>Style guide and developer workflow</li>
+<li>Test plan and results</li>
+</ul>
+</li>
+<li>A signed <strong>license agreement</strong>.  Internal project teams should either agree that your joint work can be published under the host application’s open-source license or that your contributions should remain private to this course.  External project teams should have reached an agreement with your client during the project planning phase (see <a href="copyright.html">copyright for external projects</a>).</li>
+</ul>
+<h2 id="demo-video">Demo Video</h2>
+<p>You must also prepare a short video (5-10 minutes) demonstrating the features you have delivered.  This video should be recorded in a staging environment (e.g., a laptop) and should be interactive (not pre-recorded).  This video should be a more polished version of the demonstration you gave during your final presentation, and it should be suitable for sharing with your client and other stakeholders.  Be sure to include a clear introduction and conclusion, and to walk through scenarios related to your feature’s use cases.  It should be hosted on platform with persistent access (e.g., Youtube), and the link should be included in your handover package. We will include this video on our course website.</p>
+
+
+    </main>
+    <hr />
+    <footer>
+    </footer>
+  </div>
+</body>
+</html>

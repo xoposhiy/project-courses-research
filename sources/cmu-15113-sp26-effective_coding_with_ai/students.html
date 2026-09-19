@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolios and Projects | 15-113 CMU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .student-card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #3a8f0a;
+            transition: all 0.2s ease;
+        }
+
+        .student-card:hover {
+            box-shadow: 0 6px 20px rgba(31, 80, 6, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .student-name a {
+            font-weight: 600;
+            font-size: 15px;
+            color: #1f5006;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        .student-name a:hover {
+            color: #2a6f08;
+            text-decoration: underline;
+            border-bottom: none;
+        }
+
+        .proj-list {
+            margin-top: 11px;
+            padding-top: 11px;
+            border-top: 1px solid #e8f8e8;
+            text-align: left;
+        }
+
+        .proj-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            margin-bottom: 7px;
+        }
+
+        .proj-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .proj-label {
+            flex-shrink: 0;
+            width: 7px;
+            height: 7px;
+            background: #3a8f0a;
+            border-radius: 50%;
+            margin-top: 5px;
+        }
+
+        .proj-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: #1f5006;
+            text-decoration: none;
+            border-bottom: none !important;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .proj-link:hover {
+            text-decoration: underline;
+            color: #2a6f08;
+            border-bottom: none !important;
+        }
+
+        #tooltip {
+            position: fixed;
+            display: none;
+            background: white;
+            border: 2px solid #3a8f0a;
+            border-radius: 8px;
+            padding: 12px 16px;
+            max-width: 320px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #2d3748;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .video-wrapper {
+            max-width: 720px;
+            margin: 32px auto;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            display: block;
+        }
+
+        .random-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1f5006 0%, #2a6f08 100%);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(31, 80, 6, 0.3);
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .random-btn:hover {
+            box-shadow: 0 6px 18px rgba(31, 80, 6, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .random-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div id="tooltip"></div>
+
+<header>
+    <div class="container">
+        <h1>CMU 15-113: Effective Coding with AI</h1>
+        <p class="subtitle">Spring 2026</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">&#8592; Course Home</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<div class="video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/MSJrWGHEhcU?si=dIfpWEv52azf0puK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<h2>Student Portfolios and Projects</h2>
+
+<p>
+    These portfolio websites and projects were built by the first-ever students of 15-113 during the Spring 2026 semester.  Hover over a project title to see its description, and click to watch their demo video.  Click on a name to view their full portfolio.<br>
+</p>
+
+<div style="margin: 32px 0 8px 0; display: flex; flex-wrap: wrap; gap: 12px;">
+    <button class="random-btn" onclick="goToRandom()">Take me to a random portfolio &#8594;</button>
+    <button class="random-btn" onclick="goToRandomProject()">Take me to a random project &#8594;</button>
+</div>
+<p><i>Note: Some links may be broken if the video has been removed, relocated, etc.</i></p>
+
+<div class="student-grid" id="student-grid"></div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>CMU 15-113: Effective Coding with AI | Spring 2026</p>
+        <p><strong>Carnegie Mellon University | School of Computer Science</strong></p>
+        <p style="margin-top: 12px;"><a href="index.html" style="color: #718096;">&#8592; Back to Course Home</a></p>
+    </div>
+</footer>
+
+<script>
+const students = [
+    {
+        name: "Anthony Lin", url: "https://althon199.github.io/al.github.io/",
+        p2: { title: "Natural Disaster Visualizer", desc: "Built a natural disaster visualizer using a globe. Maps out disaster data onto globe with cool visuals and designs.", video: "https://youtu.be/3dvxNwxeLdU" },
+        p3: { title: "Code City Visualizer", desc: "I built a Repository/Terminal Command visualizer. It visualizes repositories and terminal commands via a city.", video: "https://youtu.be/za62F2pzL7w" }
+    },
+    {
+        name: "Yudh Shukla", url: "https://yudhshukla.github.io/yudhshukla/",
+        p2: { title: "Interactive Biome Scanner", desc: "This expands my biome scanner project by adding a geoguessr-like component where users can click into a location, receive a streetview panorama, and guess the biome under a time limit. Users can still access weather data and freely explore the world's biomes, or they can use the \"drop me\" button to be randomly challenged with a streetview.", video: "https://youtu.be/-nyAkHmXZVQ" },
+        p3: { title: "Isometric City Simulator", desc: "City simulator with isometric 2.5D visuals.", video: "https://drive.google.com/drive/folders/18UL20-CSNoOnUfXoS3-pi9V9B9xzgylK?usp=sharing" }
+    },
+    {
+        name: "Sara Laman", url: "https://slaman24.github.io/",
+        p2: { title: "Thumbnail Connections Game", desc: "Inspired by The New York Times Connections Game, I created Thumbnail Connections! Instead of having to group words together into 4 categories, the user must group YouTube videos into 4 categories based on the thumbnail images and guess the category name that connects them.", video: "https://drive.google.com/file/d/1oHI14Nd43X-9wE_LWNyV_OmsvPjL4hN8/view?usp=sharing" },
+        p3: { title: "Drip Laundry App", desc: "For my capstone project, I decided to create an app for a start-up idea I had called Drip, a laundry service for college students that uses a peer-to-peer model similar to Uber and Airbnb. The app manages laundry orders between Wearers (user group who wants their laundry done) and Washers (user group who does laundry to earn profit).", video: "https://drive.google.com/file/d/1wTZ4PT8mp_cXAchTZgj9Ccpll17GY_XE/view?usp=sharing" }
+    },
+    {
+        name: "Rachael Chung", url: "https://rachaelchung.github.io/",
+        p2: { title: "Self-Texting Task Tracker", desc: "I built a productivity app for people who keep track of their tasks and todos by texting themselves. The app lets you simply write to yourself as if you are texting yourself in multiple chats, and parses through the data with AI to add things to a todo list and calendar view.", video: "https://youtu.be/HIlsmD10nZo" },
+        p3: { title: "Gamified Assignment Tracker", desc: "I built a gamified assignment tracker app. In this app there are three main features: a pomodoro timer and game where you can collect creatures while you are focused, an assignments tracker that can parse your syllabus, keep up with grades, and help you plan your week, and a chrome extension, for when you need to be on a different screen but focused.", video: "https://youtu.be/GLuyW74T6Yg" }
+    },
+    {
+        name: "Trey Brosnan", url: "https://treybrosnan.com/",
+        p2: { title: "AI Sleep Tracker", desc: "A sleep tracker that lets you record your sleep habits and gives you llm-generated insights.", video: "https://drive.google.com/file/d/1ec9vxOO9BKSsIpE0JKe5gmf11FsMjRSN/view?usp=sharing" },
+        p3: { title: "AI YouTube Narrator", desc: "An AI tool for making narration-style Youtube videos.", video: "https://drive.google.com/file/d/1NAesvrswzyU5AtfooJRRO-9UeThsHqxD/view?usp=sharing" }
+    },
+    {
+        name: "Sebastian Guevara", url: "https://bocanadas.github.io/",
+        p2: { title: "3D Office Physics Sandbox", desc: "A 3D physics sandbox built with Three.js and Cannon-es that is office themed where you can drag things around and turn gravity off.", video: "https://drive.google.com/file/d/1L58svgsCtLpdM7D_nwRO3rANPiirlluN/view?usp=sharing" },
+        p3: { title: "Polymarket Trade Monitor", desc: "A live feed of large Polymarket trades that flags insider/suspicious wallets and shows how much each bet actually moved the price.", video: "https://drive.google.com/file/d/1Pe-aD2_F15211IflxiPXW5jtZ2hI2sSj/view?usp=sharing" }
+    },
+    {
+        name: "Ivy Weng", url: "https://ivyflosvv.github.io/",
+        p2: { title: "AuraCast AI Podcast", desc: "AuraCast is a full-stack web application that transforms long-form eBooks into immersive, interactive, two-host AI podcasts. It parses texts into digestible chapters and utilizes the Gemini 1.5 Pro API alongside Edge-TTS to generate dynamic audio conversations that users can listen to, interrupt, and query in real-time.", video: "https://drive.google.com/file/d/13CtBw91PYPN6U7V46DyIpuIpM3un2ejX/view?usp=sharing" },
+        p3: { title: "GPS Photo Journal", desc: "A geographic journal phone app. Users pin photos and text to their current GPS location, kept private or shared with friends via invite codes. Built with Expo, React Native, Express, and Supabase.", video: "https://drive.google.com/file/d/1B_7GwXXffISd4gGCkMhX3jJw2BuiBADm/view?usp=sharing" }
+    },
+    {
+        name: "Jack Yu", url: "https://jackyudev.com",
+        p2: { title: "Pillulu Medication Manager", desc: "Pillulu is a web-app to help users search medications, ask AI about dosage/info, manage a pillbox, receive email reminders for when to take pills and when the pills will run out, and get a visualization on the past medical history.", video: "https://drive.google.com/file/d/13MRH2y44vkULWHUBJVf-0Ug0MpewWBRm/view?usp=sharing" },
+        p3: { title: "LitLab Research Workspace", desc: "LitLab is a beginner-friendly AI research workspace that helps new researchers build their own paper library, understand them, and integrate them into real research workflows. Web and mobile platforms are both supported.", video: "https://drive.google.com/file/d/1wRM0p4EewFdhcsK_m0XWOmdioipz-Ry1/view?usp=sharing" }
+    },
+    {
+        name: "Kaiwen Li", url: "https://kaiwenli2007.github.io/kli_create.github.io/",
+        p2: { title: "AI Auction Strategy Game", desc: "Interactive auction strategy game: 1 human vs 2 AI players. Read hidden gem signals, win key auctions, and optimize final value.", video: "https://drive.google.com/drive/folders/1IPVwCUPGomhpomXi3SuMKG9nloHd9zwj?usp=sharing" },
+        p3: { title: "Globe Era Spotify Playlists", desc: "A mobile app where you tap a country on an interactive 3D globe, pick a year, and get a Spotify playlist from that place and era.", video: "https://drive.google.com/drive/folders/1IPVwCUPGomhpomXi3SuMKG9nloHd9zwj?usp=sharing" }
+    },
+    {
+        name: "Anna Wang", url: "https://annawang22.github.io/",
+        p2: { title: "Gesture-Controlled Spotify", desc: "I built a web app that lets you control Spotify playback using hand gestures captured through your webcam. You hold up a gesture — pointing up to skip, a fist to pause, or an open palm to play — and the app uses a machine learning model to recognize it and send the corresponding command to Spotify.", video: "https://drive.google.com/file/d/1BJUCp8OcDh7RwKTe1HaHRNsLoobHCuf0/view?usp=sharing" },
+        p3: { title: "Workout Tracker App", desc: "A mobile workout tracker that lets users plan, schedule, and track their daily exercises (inspired by Things 3 and Strava).", video: "https://drive.google.com/file/d/1Wz9fy7XF2vckjZ0KyEajNIXgCPOQys7k/view?usp=sharing" }
+    },
+    {
+        name: "Kolja Hribar", url: "https://koljahribar.github.io",
+        p2: { title: "Multiplayer Russian Card Game", desc: "I have build a multiplayer Russian card game using Python, Flask and WebSockets. 2-5 players can join any room and start a game.", video: "https://drive.google.com/file/d/1XeAi3qRBQkuLXQEHMqhs6heyEEWIVF4C/view?usp=share_link" },
+        p3: { title: "Pitt Student Community Site", desc: "A community website for Pitt students with daily games, random daily facts and a matching tool for study abroad programs.", video: "https://drive.google.com/file/d/1trYekpPy2wvlYz5TSRzv5C6SKUeuann0/view?usp=share_link" }
+    },
+    {
+        name: "Arlene Chang", url: "https://arlene-c.github.io/",
+        p2: { title: "Weather-Based Outfit Recommender", desc: "I created a website that generates outfit recommendations based on the user's weather location, with features such as saving outfits into a collection and communicating with an AI chatbot assistant.", video: "https://drive.google.com/file/d/1uSw2Jr4kR9o0VEJfU53HoY1BMUDowLj1/view?usp=sharing" },
+        p3: { title: "ASL-English Translator", desc: "A two-way translation assistant between American Sign Language and English, focused on simple fingerspelling for now.", video: "https://drive.google.com/file/d/1oZdDoTt8wLeUdEUn7rBewUQ1RNsiEnqF/view?usp=sharing" }
+    },
+    {
+        name: "Ansh Gandhi", url: "https://anshgandhi.vercel.app/index.html",
+        p2: { title: "Contact Texting Tracker", desc: "I used an integration with Beeper desktop API, an application that allows me to sync multiple different texting platforms, to make a live tracker of when I last texted my contacts. It then allows me to set up a list of people I would like to keep in touch with and link them with chats that the website should track, and then tells me when was the last time I talked to them whenever I open the website.", video: "https://drive.google.com/file/d/1JBNS0obVpTs9YziMdJHC_izoEL73VI1y/view?usp=sharing" },
+        p3: { title: "Achilles Heel Chess", desc: "I created this version of Chess called Achilles Heel: Chess and then reprogrammed it into JS and then made it playable online.", video: "https://drive.google.com/file/d/1fSc4jaYwDfK0_pGAd6IKoow0RkcroQgt/view?usp=sharing" }
+    },
+    {
+        name: "Zhuohang Li", url: "https://khiankhun.github.io/",
+        p2: { title: "Data Analysis Studio", desc: "I use frontend and backend to build a data studio, users can ultilize this website to process data easily for some simple operation. The website contains data pre view, data filter, plot generation, rergresion calculation, and prediction calculation.", video: "https://youtu.be/rLYNeVDbOlQ" },
+        p3: { title: "CMU Course Recommender", desc: "I built a application about CMU course recommandation, especially, I designed the whole recommand algorithm.", video: "https://youtu.be/W9jN56Vcevg" }
+    },
+    {
+        name: "Eric Ochis", url: "https://eochis23.github.io/",
+        p2: { title: "Online Multiplayer Chess", desc: "I made an online chess app with multiplayer features and matchmaking.", video: "https://drive.google.com/file/d/1tCCfo60O7bGetnNxHgCCibTk8VRh5ULy/view?usp=sharing" },
+        p3: { title: "GNOME Window Annotator", desc: "I made a GNOME shell extension that lets you annotate windows!", video: "https://drive.google.com/file/d/1ZL4gp40buL6o7jOEGrWpqyEzHfnBjazQ/view?usp=sharing" }
+    },
+    {
+        name: "Ruize Ma", url: "https://raymaruize.github.io/me/",
+        p2: { title: "Student-Parent Check-In App", desc: "It is an app that helps asynchronous communication between high schoolers, especially ones in boarding school and their parents, especially when parents ask too many questions like: Have you eaten lunch? What have you eaten? How is your mood today? This tool helps high schoolers log what they eat and record their moods, while parents have read-only access.", video: "https://youtu.be/dJo8MXjhoOI" },
+        p3: { title: "Cocktail Ingredient Tracker", desc: "I built a cocktail pantry system to tell me what 1 or 2 ingredients I have and what I need to buy to create some other cocktails.", video: "https://youtu.be/pJ0lRbRKPWk" }
+    },
+    {
+        name: "Emmy Sumpter", url: "https://esump25.github.io/sumpterportfolio/",
+        p2: { title: "Wanderose AI Travel Planner", desc: "I have built Wanderose AI, which creates a travel itinerary and the current weather for the destination for the user based on their responses to a short quiz.", video: "https://drive.google.com/file/d/1mXbz_RF7XOB712nmkD2IVyD63ift67ru/view?usp=sharing" },
+        p3: { title: "Self-Care Day Planner", desc: "I have created an application to create the perfect self-care day for you, schedule it for you, and show you what others think.", video: "https://drive.google.com/file/d/1eHnA5JHJe2LmpFbnWFI5IPjGqUyuxfcC/view?usp=sharing" }
+    },
+    {
+        name: "Rion Kurihara", url: "https://rionkuri22.github.io/",
+        p2: { title: "Digital Networking Card", desc: "I built a dynamic networking tool that replaces traditional business cards with a customizable digital alternative. Users choose exactly which contact details to share, such as their phone number, email, or LinkedIn, and present the recipient with a NFC card or a QR code which instantly opens the relevant app directly with pre drafted DM messages that include the context of the interaction.", video: "https://drive.google.com/drive/folders/1le_fiGcm8OdHeTpfTDXsjxH58qdsCR8Y?usp=sharing" },
+        p3: { title: "Hackathon Team Finder", desc: "A RAG-powered team-finding tool for hackathons.", video: "https://drive.google.com/drive/folders/1CiuUO4HI6zN3h11HattzCt7Owno2MbFh?usp=sharing" }
+    },
+    {
+        name: "Connor Choe", url: "https://conchoe.github.io/webpage.io/",
+        p2: { title: "Environmental Policy Map", desc: "I've built Our Land, a geospatial tracker that uses FastAPI and AI to strip the \"legalese\" from the Federal Register, filtering thousands of documents into a live map of environmental policy impacts. By layering these real-time alerts over National Park boundaries, it provides hikers and conservationists a clear, visual warning system for when industrial legislation encroaches on our protected wilderness.", video: "https://youtu.be/gSF9RsQhKbw" },
+        p3: { title: "Social Workout Tracker", desc: "I built a mobile workout tracking app where you can create splits, keep yourself on track, and track your progress. You can also view your friends progress and splits that other people have made and download them for you to use.", video: "https://youtu.be/fe6YhvJ7MCA" }
+    },
+    {
+        name: "Kai Shaw", url: "https://kaibeii.github.io/",
+        p2: { title: "Hand-Controlled Sand Game", desc: "A browser game where you control sand using your hand to kill wave based enemies using computer vision. Move your index finger in front of your webcam to generate wind and blow ASCII particles into approaching enemies. Pinch your fingers to focus the beam. Built with MediaPipe hand tracking, TypeScript, and the Web Audio API.", video: "https://drive.google.com/file/d/1bGnKJTSOU5flYtE3cvc0b2dn-X3GAwQm/view?usp=sharing" },
+        p3: { title: "Digital Wardrobe App", desc: "A digital wardrobe app that lets you take photos of your clothes and stores them. From that, you can generate outfits and save them.", video: "https://drive.google.com/file/d/1spoNXKuo-8_z_dnfiBxPUFjfzKkkHwWB/view?usp=sharing" }
+    },
+    {
+        name: "Manya Khemka", url: "https://mkhemka-svg.github.io/Manya-s-website.github.io/",
+        p2: { title: "Negotiation Practice Simulator", desc: "A web app that helps users prepare for single-issue negotiations by collecting key negotiation inputs, generating a strategy, letting users practice via an interactive negotiation simulator and saving runs. The app also shows a debrief with scoring and an offer-history chart.", video: "https://drive.google.com/drive/u/1/folders/1iRv0FrarzGTu_Mc-_codpMyCvFMGcB5l" },
+        p3: { title: "Group Travel Planner", desc: "An all in one travel app to make group travel planning simple and hassle-free.", video: "https://drive.google.com/drive/u/1/folders/1PO_YsQLHxY6zPg_Mmpe4AamyX0o61Xkd" }
+    },
+    {
+        name: "Ananya Shrimali", url: "https://ananyashrimali03.github.io/Portfolio/",
+        p2: { title: "Tartan Tuesday Admin App", desc: "CMU event's Tartan Tuesday Admin app where data entry and data management is a huge problem and also its hard to make decisions for upcoming days and years so this app uses ML and data analysis to inform better and efficient decisions and smoother data entry.", video: "https://drive.google.com/file/d/1hVuF_wAw-gWBerEMsUlzwKBr8-HMJ_Il/view?usp=drive_link" },
+        p3: { title: "Personality Music Recommender", desc: "A music recommendation taking the real time input from the local system and some personality intakes.", video: "https://drive.google.com/file/d/1kLRspQ67Gkc3BuExRkDp3kSae-Ex_b6Q/view?usp=drive_link" }
+    },
+    {
+        name: "Nikesh Patel", url: "https://nypatel1.github.io/github.io/",
+        p2: { title: "Riseva AI Tutoring System", desc: "I built a teacher-controlled AI tutoring system for schools called Riseva. Teachers create courses, configure how the AI teaches (approach, boundaries, objectives), and upload course materials if necessary, then students join via class codes and learn through a guided AI chatbot, with session analytics flowing back to teachers.", video: "https://drive.google.com/file/d/1rlcL_AMkovbuP5lNTi1ojDm77wYJ9azM/view?usp=sharing" },
+        p3: { title: "AI Posture Coach", desc: "A browser-based AI posture coach that uses your webcam to score your posture in real time and tracks it over sessions.", video: "https://drive.google.com/file/d/1UC0qXGLvW7Mt_Zj32SZSyakJuq68f9GY/view?usp=sharing" }
+    },
+    {
+        name: "Nolan Gormley", url: "https://nolangormley.github.io/15_113_website/",
+        p2: { title: "Strava Running Dashboard", desc: "A dashboard app to show off other APIs and tools that I have built in the last few weeks. Most importantly, an API where I attempt to make running workout recommendations based off of data I ingest from the Strava API.", video: "https://youtu.be/mSFBB3eVXJs?si=1RB62WMNACy6I9dV" },
+        p3: { title: "Race Training Planner", desc: "A website to ingest strava data and build a training block for your upcoming race.", video: "https://youtu.be/JR42xgaqALU?si=cMLjIZY3VOZ-AArK" }
+    },
+    {
+        name: "Richie Tran", url: "https://richietran.com/",
+        p2: { title: "Short Story Creator", desc: "A website where users can create shortform story content either with their own stories or trending stories from reddit.", video: "https://app.screencastify.com/watch/0xtrs7ahoEPuTsaFcaNR?checkOrg=3e0f2ecf-d29f-4a99-b591-8ab1c79e8629" },
+        p3: { title: "Website Annotation Extension", desc: "Chrome extension that you can use to annotate different websites and keep track of all your highlights and notes.", video: "https://app.screencastify.com/watch/Gb8Vx6v6zOFdINu18o54?checkOrg=3e0f2ecf-d29f-4a99-b591-8ab1c79e8629" }
+    },
+    {
+        name: "Jiao Deng", url: "https://jia-o.github.io/jiao/",
+        p2: { title: "Interactive Digital Library", desc: "My project is a digial library where users can interactively get readings based on a theme.", video: "https://drive.google.com/file/d/1sIRLn38pD2lXv1jLgza_9px9TINIWkFV" },
+        p3: { title: "Gesture-Controlled Spotify", desc: "My project allows you to control Spotify playback and data through hand gestures using your webcam.", video: "https://drive.google.com/file/d/1yn9OsYToIFpbJ16RD_BVwMDYt7SzvMR6/view?usp=sharing" }
+    },
+    {
+        name: "Vikram Oberai", url: "https://codinggenius14.github.io/",
+        p2: { title: "Research Paper Explorer", desc: "Research Explore Full Stack Web app that allows users to save, remove, and search papers and also receive recommendations on papers they would be interested in.", video: "https://app.screencastify.com/watch/LSg45YTQXAv2o5q9lMFA?checkOrg=1748d9f4-7d27-49a3-a766-ad14f8e6f910" },
+        p3: { title: "Focus Chrome Extension", desc: "Chrome extension to stay focused on work sites and not get side tracked until you have finished a work session.", video: "https://app.screencastify.com/watch/0PXm5MsfEnKrsyZS3AFq?checkOrg=9aa05db2-2025-44ae-bdf1-122b6736e1ca" }
+    },
+    {
+        name: "Christopher Owad", url: "https://c-owad.github.io/",
+        p2: { title: "Protein-Ligand Visualizer", desc: "Displays proteins and a plethora of ligands already bound to binding sites. Users can click them to learn a bunch about them.", video: "https://drive.google.com/file/d/1fGeeT1KCOBzD8EwG9xh_RyJuUgFUP6dj/view?usp=sharing" },
+        p3: { title: "RPG Typing Game", desc: "A typing test game with both a standard mode and an RPG mode which allows you to play against enemies that are trying to out-type you.", video: "https://drive.google.com/file/d/1ZUx7wifWtUtTq9RoJQ3_by5PIVAS_IOk/view?usp=sharing" }
+    },
+    {
+        name: "Thomas Zhao", url: "https://solllllz.github.io/github.io/",
+        p2: { title: "All-in-One Productivity Hub", desc: "A personal productivity hub that unifies your Google Calendar, Gmail, Gradescope assignments, and Spotify into a single dashboard with a built in pomodoro timer and clean UI/UX.", video: "https://drive.google.com/file/d/1oc6Vwbcy0Jqy5NVclNmhzeveKOb5GDr_/view?usp=sharing" },
+        p3: { title: "Crowdsourced AI Mosaic", desc: "I created a living, crowd-sourced art installation where human experience becomes the highlight. Each response is transformed by AI into a unique artwork, displayed as a jagged shard in an ever-growing mosaic. You can zoom into each shard to explore that human experience more.", video: "https://drive.google.com/file/d/1IzurQT8AW5_fcvycOsMdvVnE5AqxN9oW/view?usp=sharing" }
+    },
+    {
+        name: "Nicholas Weng", url: "https://nickopenguin500.github.io/",
+        p2: { title: "Gesture GitHub Explorer", desc: "A touchless way to explore github profiles through github's API and computer vision. You can navigate the website using only hand gestures (and the camera) while viewing summaries of projects on github.", video: "https://youtu.be/MRgly5YnVnM?si=avRhp6-3-LvE6A25" },
+        p3: { title: "2D Multiplayer Shooter", desc: "2D multiplayer PvPvE shooter game.", video: "https://www.youtube.com/watch?v=AwEeTfXCGOc" }
+    },
+    {
+        name: "Fiona Shi", url: "https://fionashj18.github.io/",
+        p2: { title: "Computer Vision RPS", desc: "Rock-Paper-Scissors using computer vision. You could play with AI or send a link to a friend to play with them. There is a 3-2-1 countdown and it will keep track of the scores for you.", video: "https://youtu.be/WypP9bIi0aA" },
+        p3: { title: "Lecture Slide Flashcards", desc: "I built an app that generates flash cards from lecture slides.", video: "https://youtu.be/_HMQ6lS7F1I" }
+    },
+    {
+        name: "Ethan Vo", url: "https://evo-sudo.github.io/",
+        p2: { title: "Ranked Pokemon Guesser", desc: "I made a ranked guessing pokemon game where anyone who plays the game can make a user and track their point ranking. The game starts with a silhouette of a pokemon which they then can use their hp points to get hints of the type, description, or generation and each wrong guess is -10 hp and each player starts with 100.", video: "https://youtu.be/MA_ixOp_wfU" },
+        p3: { title: "Deceptive Reaction Game", desc: "I made a deceptive reaction based game off of my mobile app idea.", video: "https://www.youtube.com/@EthanVo-o9x" }
+    },
+    {
+        name: "Rishon Baiju", url: "https://rbaiju15.github.io/rishba15.github.io//",
+        p2: { title: "AI Job Application Tracker", desc: "A job application tracker that organizes applications deliverables, notes, etc. Features include an interview prep assistant AI and an analytics dashboard to help keep track of applications.", video: "https://drive.google.com/file/d/13XAzrrGXvq_5_V2Et5nF5Uivi0xjhIM2/view?usp=drive_link" },
+        p3: { title: "FSAE Steering Calculator", desc: "A complete steering effort calculator for an FSAE vehicle with complex plotting features.", video: "https://drive.google.com/file/d/1d39CjUoW4syf_-mffLsCN4BLSGLvWux8/view?usp=sharing" }
+    },
+    {
+        name: "Linbo Gong", url: "https://linbo271828-cell.github.io/github.io/",
+        p2: { title: "Portfolio Risk Analyzer", desc: "I built a full-stack portfolio risk app that computes and visualizes professional risk metrics and rebalancing suggestions, plus an authenticated Portfolio Monitor that saves portfolios and stores server-computed snapshots in PostgreSQL. It also includes Portfolio Detective (SEC filing event attribution with abnormal-return impact scoring) and a backtesting engine with periodic rebalancing and transaction cost modeling.", video: "https://drive.google.com/file/d/120Q8otqg6WRr8RJGvZeL12Tg9SP5aDeK/view?usp=sharing" },
+        p3: { title: "Deep Hedging Webapp", desc: "Built a full-stack deep hedging research webapp run locally.", video: "https://drive.google.com/file/d/12MBQsxLZ1n-I50IFptynJ-2CtYYo9Ycp/view?usp=sharing" }
+    },
+    {
+        name: "Anish Saha", url: "https://anishsaha458.github.io/-anishsaha458-.github.io/",
+        p2: { title: "Audio Visual Generator", desc: "A full stack web application that creates visual aesthetics from audio files.", video: "https://drive.google.com/file/d/1MUWcjwLgjdHRxraDkxAw6hX0k2cQw5-7/view?usp=sharing" },
+        p3: { title: "Image Text Recognition", desc: "A technique to recognize text from an image.", video: "https://drive.google.com/file/d/1MUWcjwLgjdHRxraDkxAw6hX0k2cQw5-7/view?usp=sharing" }
+    },
+    {
+        name: "Nabila Sharif", url: "https://nabilasharif22.github.io/nabilasharif.github.io/",
+        p2: { title: "AI Expert Debate Simulator", desc: "It is a web application in which two artificial intelligence models impersonate real academic experts and debate a user-selected topic. The system alternates responses between two AI models, and users can jump in to change the direction of the conversation.", video: "https://drive.google.com/file/d/1Br13BTd9Cam7S6I1exOOzIod0RBMoJQQ/view?usp=sharing" },
+        p3: { title: "Research Paper Visualizer", desc: "An app that takes a research paper, segments and parses text using an ML algorithm, sends output to an LLM that returns a JSON file that creates nodes for diagrams to visualize what is going in the paper.", video: "https://drive.google.com/file/d/18XIL-UTA1mz_zgK-9kbEMHAyn6HPUTwe/view?usp=sharing" }
+    },
+    {
+        name: "Victor Norton", url: "https://victornorton.github.io/",
+        p2: { title: "Web Trivia Quiz", desc: "A trivia quiz on a webpage.", video: "https://drive.google.com/file/d/1O-E3T743cS6HfAg4rMZxXhy6wVQmuSFv/view?usp=sharing" },
+        p3: { title: "Particle System Visualization", desc: "An interactive visualization of interacting particle systems.", video: "https://drive.google.com/drive/folders/1f6Vy6Pr3yjzF2FYZNp3hnSjTTDzV2_-e?usp=sharing" }
+    },
+    {
+        name: "Jorge Castano", url: "https://jorgecastano1.github.io/Portfolio_Website",
+        p2: { title: "Audio Frequency Visualizer", desc: "An audio visualizer that pulls frequency bands from a raw audio file and creates an interactive visual. A FastAPI database is implemented using SQLite that allows users to save and rename presets.", video: "https://drive.google.com/file/d/1oSVpGvG4oFZF5ucBOciS_yzr8eJbo1Ny/view?usp=drive_link" },
+        p3: { title: "NBA Data Visualization", desc: "NBA data visualization for 2020-2026 regular seasons.", video: "https://drive.google.com/file/d/13F3UII4pgcfRM_H9qLg37FYWYYZY01a7/view?usp=drive_link" }
+    },
+    {
+        name: "Yixian Wang", url: "https://yixianw.github.io/HW1-Portfolio/",
+        p2: { title: "AI Job Matching Tool", desc: "I built an upgraded job matching tool that allows users to upload their own resumes, save interesting roles, and identify skill gaps across jobs. It moves beyond simple matching to help users understand where they can improve to better align with target roles like product marketing and strategy.", video: "https://drive.google.com/file/d/1qDhgic6pVBJioQWaK6k6JbcLeIDBsdu3/view?usp=sharing" },
+        p3: { title: "AI Travel Planner", desc: "An AI-powered travel itinerary planner that generates personalized day-by-day trip schedules with Google Maps visualization and packing lists based on freeform user input.", video: "https://drive.google.com/file/d/1eO1Kip00RBcGLlvz7gD34UWt6iW_xmXU/view?usp=sharing" }
+    },
+    {
+        name: "Alex Moser", url: "https://ajmoser1.github.io/",
+        p2: null,
+        p3: { title: "Fraternity Alumni Network", desc: "A social networking site for attaining referrals from fraternity alumni.", video: "https://drive.google.com/file/d/1pusUFztp7Z9qchEEj68fkNkEM1rG99Oa/view?usp=sharing" }
+    },
+    {
+        name: "William Chen", url: "https://williamchen0301-sh.github.io/website2/",
+        p2: null,
+        p3: { title: "Pop Mart Probability Calculator", desc: "A device for calculating the probability in Pop Mart Pop Up Events.", video: "https://drive.google.com/file/d/1dO7a2JamRDm3dniVLyf1AKzBZCeyq-s3/view?usp=sharing" }
+    },
+];
+
+const tooltip = document.getElementById('tooltip');
+
+function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function projRow(proj, label) {
+    if (!proj) return '';
+    return `<div class="proj-row">
+        <span class="proj-label"></span>
+        <a href="${proj.video}" target="_blank" rel="noopener" class="proj-link" data-desc="${esc(proj.desc)}">${esc(proj.title)}</a>
+    </div>`;
+}
+
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function posTooltip(e) {
+    const pad = 14;
+    let x = e.clientX + pad;
+    let y = e.clientY + pad;
+    if (x + tooltip.offsetWidth > window.innerWidth - 8) x = e.clientX - tooltip.offsetWidth - pad;
+    if (y + tooltip.offsetHeight > window.innerHeight - 8) y = e.clientY - tooltip.offsetHeight - pad;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+}
+
+function bindTooltips() {
+    document.querySelectorAll('.proj-link').forEach(el => {
+        el.addEventListener('mouseenter', e => {
+            tooltip.textContent = el.dataset.desc;
+            tooltip.style.display = 'block';
+            posTooltip(e);
+        });
+        el.addEventListener('mousemove', posTooltip);
+        el.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+    });
+}
+
+function render() {
+    const grid = document.getElementById('student-grid');
+    grid.innerHTML = shuffle(students).map(s => {
+        const projects = projRow(s.p2, 'P2') + projRow(s.p3, 'P3');
+        const projSection = projects ? `<div class="proj-list">${projects}</div>` : '';
+        return `<div class="student-card">
+            <div class="student-name"><a href="${s.url}" target="_blank" rel="noopener">${s.name}</a></div>
+            ${projSection}
+        </div>`;
+    }).join('');
+    bindTooltips();
+}
+
+function goToRandom() {
+    const s = students[Math.floor(Math.random() * students.length)];
+    window.open(s.url, '_blank', 'noopener');
+}
+
+function goToRandomProject() {
+    const videos = students.flatMap(s => [s.p2, s.p3]).filter(p => p).map(p => p.video);
+    window.open(videos[Math.floor(Math.random() * videos.length)], '_blank', 'noopener');
+}
+
+render();
+</script>
+
+</body>
+</html>

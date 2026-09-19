@@ -1,0 +1,120 @@
+[] CMU 17-316/616: AI Tools for Software Development
+
+Home
+
+Overview
+
+Syllabus
+
+Teamwork Practices
+
+Staff
+
+Assignments
+
+Assignments
+
+Reflection 1
+
+Reflection 2
+
+Reflection 3
+
+Reflection 4 Reflection 4
+
+On This Page
+
+-  Submission
+  -  Learning Goals
+  -  The task
+  -  AI Constraints
+-  Grading
+  -  Rubric
+
+Reflection 5
+
+Reflection 6
+
+Project
+
+Project
+
+-  Project 1 Requirements Engineering
+-  Project 2 Development Specifications
+-  Project 3 Frontend Development
+-  Project 4 Backend Development
+-  Project 5 Testing
+-  Project 6 Deployment
+-  Project 7 Final Demo + Postmortem
+
+On This Page
+
+-  Submission
+  -  Learning Goals
+  -  The task
+  -  AI Constraints
+-  Grading
+  -  Rubric
+
+Homework 4: Backend Development Reflection Essay¶
+
+100 points
+Due on Gradescope Tuesday, October 21, 11:59pm
+This homework is to be done individually.
+
+Submission¶
+
+Submit this assignment as a PDF file to Gradescope.
+
+If you prepare the response in some other software (like Tex, Word, or
+Google Docs), please export as PDF before submitting.
+
+Learning Goals¶
+
+Reflect on your experience doing user discovery, creating user stories,
+or create development specifications using LLMs.
+
+The task¶
+
+Write a 400-550 word essay on a reflection question of your choice from
+this Google Sheet. Up to 3 class members may choose the same reflection
+question. Write your name down in the Sheet next to the question you
+have chosen.
+
+Write your essay.
+
+Good essays have concrete examples, e.g., it did x but I expected y in
+the context of z. Bad essays are vague and employ generic sentiments,
+like "I like it!", or "It’s helpful.".
+
+Be sure to write down your name, Andrew ID, and the reflection question
+that you chose to answer at the top of the page.
+
+AI Constraints¶
+
+You should not use any AI, GenAI, or LLM to write this essay. You may
+use any tool you wish to proofread your essay for grammar, but do not
+use any tool that creates or changes the meaning of what you have
+written.
+
+Note: You will be on the hook for understanding and defending the
+opinions you write in these reflection essays during in-class
+activities. You must understand and buy into the contents of your essay
+at the time you turn it in.
+
+Grading¶
+
+This homework is worth 100 points.
+
+Rubric¶
+
+You will receive points for accomplishing the following:
+
+1.  Name, Andrew ID, and reflection question are written at the top of
+    the page: 5 pts.
+2.  Essay is between 400-550 words. 10 pts.
+3.  Essay answers your reflection question. 20 pts.
+4.  Essay contains meaningful reflections that derive from your personal
+    experience in this class. 65 pts.
+
+[] Back to top

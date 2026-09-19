@@ -1,0 +1,97 @@
+Course homepage (Spring 2026)
+
+Course structure
+
+We are building a new version of 5150. So, the course maybe undergoing
+some structural changes over the course of the semester. Please be
+patient with us, and don't be alarmed if you see some changes in the
+course schedule, project structure, or policies. We will communicate any
+such changes well in advance.
+
+[Laptop power button]
+
+Welcome to the homepage for Cornell's Master's-level course on software
+engineering! The majority of materials used in the course will be
+available on this publicly-accessible website. We also have a Canvas
+site for FERPA-protected content and services.
+
+This course provides an introduction to the practical problems of
+specifying, designing, building, testing, deploying, and maintaining
+reliable software systems. The emphasis is on team-based development
+integrating with moderately large, existing systems. Topics include
+design patterns, issue tracking, version control, code review,
+dependency management, continuous integration, and release management.
+As a central part of the course, student teams will add large features
+to real software systems, following an agile development process.
+
+See Cornell’s class roster for meeting times and locations (note that
+the description on the roster may be out-of-date; the synopsis above is
+accurate for this semester's offering). Lectures will be delivered
+exclusively in person except during university-mandated periods of
+virtual instruction.
+
+Prerequisites
+
+CS 5150 is a 4-credit project-based course at the Master’s level. We
+assume knowledge of object-oriented programming & data structures and
+proficiency in an object-oriented language such as Java, C++, or Python.
+But beyond those hard skills, we also assume sufficient maturity to
+design, implement, and debug large program features (thousands of lines
+of code) in the context of even larger systems and to learn new
+programming languages and tools as necessary. In Cornell’s undergraduate
+curriculum, CS 3110 and CS 4410/4414 should provide adequate
+preparation. It will be helpful for some team members to have experience
+with web frontend technologies (HTML/CSS/JavaScript).
+
+Strong time-management and teamwork skills are also essential. Students
+must be capable of collaborating effectively with their peers and
+resolving conflicts to maintain healthy team dynamics. Plan to spend
+considerable time outside of lecture hours working with your team
+towards self-imposed milestones.
+
+The language of instruction will be English, and clear English will be
+expected for deliverables such as presentations and documentation.
+
+Course Staff
+
+[...]
+
+Instructor
+
+Saikat Dutta
+
+[...]
+
+TA
+
+Joonhwan Yoo
+
+[...]
+
+TA
+
+Junkai Huang
+
+[...]
+
+TA
+
+Stephen Shen
+
+[...]
+
+TA
+
+Kabir Anirudh Samsi
+
+[...]
+
+TA
+
+Harsh Patel
+
+[...]
+
+TA
+
+Kaitlyn Lu

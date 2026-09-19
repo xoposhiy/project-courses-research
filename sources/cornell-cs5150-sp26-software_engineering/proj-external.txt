@@ -1,0 +1,50 @@
+External project requirements
+
+This semester we are not allowing “greenfield” projects; your project
+must involve enhancing a pre-existing system. Here are a few constraints
+to keep in mind:
+
+- The project must be worked on exclusively by a team of 4-5 students
+  currently enrolled in CS 5150 (closely consulting with the client, of
+  course).
+  - Other parties may certainly contribute to the same codebase
+    throughout the semester (this is realistic), but development that
+    falls under the scope of the “project” must be managed and performed
+    by a CS 5150 team.
+- The client must commit to regular meetings with the development team
+  (at least once per 3-week session; weekly is even better). They should
+  understand their “client role” (they know what they want and can say
+  whether or not they’re getting it).
+  - You may not be your own client. Nor may your client have a conflict
+    of interest that could compromise the fair assessment of anyone on
+    the team (no significant others, no other CS 5150 students, etc.)
+- The client must score the team for the client meetings, presentations,
+  and the final deliverable using the resources shared by instructor.
+  For each sprint, the client must score the teams within three days of
+  the end of the sprint. Otherwise, the team will lose points. For
+  external clients, the team is responsible following up with them about
+  these steps. The course staff will not be able to do this for you. Of
+  course, the course staff is happy to provide any required information
+  and answer any questions.
+- The task must involve adding new capabilities to an existing system of
+  moderate complexity. How many authors have contributed to the existing
+  code, and roughly how many lines of backend and test code already
+  exist?
+  - If the project involves building a new service to interact with
+    others in a system, a better metric might be the number of services
+    you’ll need to interface with and the size of their APIs.
+  - As a rule of thumb, the existing code/context should be several
+    times larger than what your project proposes to add.
+- The existing system should have tests that can be run in an automated
+  way (or else you will need to add such a testing capability and
+  include that in your project scope).
+- In most cases, projects should involve a user interface component and
+  some persistent state. (Writing a function library would not make a
+  good project for the purposes of this class.)
+- The basic requirements of the project should be known (informally)
+  ahead of time. Conducting research and inventing new algorithms are to
+  be avoided—these tasks are very difficult to estimate and can block
+  the whole project.
+- The course staff must have permission to view the source code, and
+  teams must contribute to the code via a version control system (Git is
+  strongly preferred).

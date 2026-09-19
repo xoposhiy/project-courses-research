@@ -1,0 +1,106 @@
+Copyright for external projects
+
+As Cornell students, you own the copyright on the software that you
+write in CS 5150. However, external clients must be allowed to use and
+extend the software that you create for their project. Therefore, you
+must agree either to transfer your copyright to the client or to grant
+your client an unrestricted license to use your work.
+
+Agreements should be signed and dated by all student developers and by
+an authorized member of the client’s organization. Here are two examples
+of agreements from previous years.
+
+Example 1: students maintain copyright
+
+Client: Cornell University Library
+
+Non-exclusive reproduction, modification, and distribution license
+
+The following is an agreement between the individuals listed at the end
+of this agreement, hereinafter referred to as the Authors, and the
+Cornell University Library, hereinafter referred to as the Library,
+concerning the Cornell University Library iPhone App and its source code
+developed by the Authors as part of a CS5150 project during Fall
+semester, 2009, hereinafter referred to as the Work.
+
+Authors’ Grant of Rights
+
+1.  Subject to the terms and conditions of this license, the Authors
+    grant to the Library for the duration of the copyright of the Work
+    the non-exclusive royalty-free world-wide right to reproduce,
+    modify, adapt, prepare derivative works, distribute, publish,
+    transmit, perform and display publicly the Work, or any portion of
+    it, in any language and in any form in any medium, now known or
+    hereafter developed, including print, digital, hypertext, CD-ROM, or
+    any other medium.
+2.  Under this non-exclusive royalty-free license, the Library is free
+    to sell or give copies of the Work and any derivatives made from the
+    Work.
+3.  The Library can also license others to use or modify the Work,
+    provided all such sublicenses are limited to non-commercial uses.
+4.  The Work is a joint work of copyright and this non-exclusive
+    royalty-free license will be valid if signed by at least one member
+    of the team.
+
+Authors’ Ownership of Copyright and Reservation of Rights
+
+1.  The Authors will maintain copyright in the Work. Should they wish to
+    commercialize the Work, they are free to do so.
+2.  The Library will keep intact the copyright notice for the work and,
+    to the extent reasonably practicable, a credit identifying the use
+    of the Work in any adaptations.
+3.  Copyright in any adaptations or improvements made to the Work by
+    Cornell University shall belong to Cornell University and may only
+    be included in the new versions made by the Authors with the
+    Library’s permission.
+
+Authors’ Warranties and Disclaimer
+
+1.  Authors offer the work as-is and make no representations or
+    warranties of any kind concerning the work, express, implied,
+    statutory or otherwise, including, without limitation, warranties of
+    title, merchantability, fitness for a particular purpose, or the
+    absence of latent or other defects, accuracy, or the presence of
+    absence of errors, whether or not discoverable.
+2.  If the Work contains material for which you do not hold copyright,
+    you represent that you have obtained the unrestricted permission of
+    the copyright owner to grant the Library the rights required by this
+    license, and that such third-party owned material is clearly
+    identified and acknowledged within the Work.
+
+[Signatures]
+
+Example 2: joint authorship
+
+Client: Cornell Law School, Legal Information Institute
+
+The undersigned agree to the following:
+
+1.  That all code, documentation and other copyright-protected material
+    produced in the course of this CS5150 project (Project Material)
+    shall be understood by all to be the work of joint authors and not
+    as a work made for hire;
+
+2.  That the joint authors shall include all the undersigned, the CS5150
+    students working on the project and Thomas R. Bruce;
+
+3.  That despite joint authorship there will be no duty on the part of
+    the student authors, individually or as a group, to account for any
+    return on subsequent commercial use or development of the Project
+    Material;
+
+4.  That, in contrast, should Thomas R. Bruce or the Legal Information
+    Institute realize royalties or other direct financial return from
+    licensing any of the Project Material there will be a duty to
+    account to the other joint authors for any such revenue net of
+    costs;
+
+5.  and That the undersigned will use care to assure that the Project
+    Material does not incorporate code covered by copyright and licensed
+    on terms that are inconsistent with unlimited noncommercial
+    distribution.
+
+6.  There is no Warranty; however Developers will do their best to
+    fulfill requirements, but have no legal duties to do so.
+
+[Signatures]

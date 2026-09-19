@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><script src="/courses/CS5150/2026sp/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=courses/CS5150/2026sp/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Project plan (CS 5150 Spring 2026)</title>
+  <style>
+    .w-33-md {
+      display: block;
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .w-33-md {
+        width: 33%;
+      }
+      .w-33-md.float-end {
+        margin-left: 12px;
+        margin-bottom: 12px;
+      }
+      .w-33-md.float-start {
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+    }
+    .card{
+      margin: 10px;
+    }
+    .icons a {
+      margin: 0 10px 0 0;
+    }
+    .card img {
+      padding: 5px;
+      padding-top: 15px;
+    }
+    a.nav-link.active {
+      background-color: #e9ecef;
+    }
+    .alert-imp {
+      background-color: orange;
+    }
+    .header{
+      border-bottom: 1px solid #a3a1a1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="display-4 text-center">CS 5150: Software Engineering (Spring 2026)</h1>
+    </header>
+    <nav class="nav nav-fill">
+      
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/">About</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/schedule.html">Schedule</a>
+      
+      <a class="nav-link active" href="/courses/CS5150/2026sp/projects.html">Projects</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/references.html">References</a>
+      
+      <a class="nav-link" href="/courses/CS5150/2026sp/syllabus.html">Syllabus</a>
+      
+    </nav>
+    <hr />
+    <main>
+      
+<h1 class="display-5">Project plan</h1>
+<p>Every software engineering project needs a written development plan.  There are many potential components of such a plan, and the plan will evolve over the course of the project.  For CS 5150, your initial plan will likely run about 10 pages.  It should include the following <em>mandatory</em> sections:</p>
+<ul>
+<li>Name of project (should be descriptive, yet succinct; no “code names”).</li>
+<li>Client name and affiliation.</li>
+<li>List of team members (including NetIDs), identifying point of contact and any specialized team roles (if any).</li>
+<li>List of contributing team members. This should include all team members that contributed in developing the project plan (in class or out of class). Members who did not contribute to the plan will miss out on credit for this assignment.</li>
+<li>Description of task to be undertaken, scope of task, including preliminary requirements analysis and final deliverables. Clearly identify what is <em>in</em> and <em>out</em> of scope for the project. Consider different viewpoints of each feature you plan to implement (e.g., user, system, client).</li>
+<li>Preliminary architecture.  What existing systems will you interface with?  Will your work be largely self-contained (e.g. a plugin component or service), or will it extensively modify existing code?  Are there known technical requirements? (e.g., deployment infrastructure, existing frameworks). Point to code repository locations that might be modified as/if applicable.</li>
+<li>Development methodology and outline plan, showing schedule of principal activities, milestones, and deliverables. Please present as a table with dates, activities in each milestone, and deliverables. You may use a Gantt chart or other visual representation if you prefer, but please also include a textual table.  Identify who is responsible for each deliverable.  (You will provide more detailed schedules in later reports.)</li>
+<li>Coordination plan.  How will you provide visibility to the client? How will the team communicate and conduct regular planning and reviews?  How will requirements, risks, and issues be tracked? Responsibilities of individual team members, if any?</li>
+<li>Risk analysis.  What could go wrong (e.g., technical challenges, resource limitations, usability concerns), and what is your plan to reduce, mitigate, monitor, and respond?</li>
+<li>(For external projects only) Discussion of business considerations, including assignment of copyright, licensing terms, and any non-disclosure agreements.</li>
+<li>Integration plan: How will your work integrate with the existing systems &ndash; how will it be integrated, tested, and deployed? Mention a target date in milestones for completing integration.</li>
+<li>Feasibility analysis: What are the constraints affecting the project? (e.g., time, budget). Are the requirements likely to be met within these constraints (i.e., does your schedule close), given the risks?  Should the project go ahead?
+<ul>
+<li>You are allowed to recommend that a project <em>not</em> proceed if your analysis suggests that it is not likely to be feasible.  But try to work with your client to reduce scope if your analysis trends that way.</li>
+</ul>
+</li>
+</ul>
+<p>The following sections are typically found in professional project plans but are not expected in CS 5150 teams’ initial plans, as we will not have covered the relevant topics in lecture yet):</p>
+<ul>
+<li>Development process / quality plan.  Beyond the high-level development methodology, this would include requirements imposed on the source code, including style guides, static analysis, peer review, test coverage, and branch management.  Some of these will be dictated by the course.</li>
+<li>Dependability, safety, and security plans.  If you have non-functional requirements in these areas, you will write such a plan after we have covered the relevant material.</li>
+</ul>
+<p>For reference, here are some initial plans from past CS 5150 projects (published with their authors’ permission).  They are very different in style and address an older set of section requirements, but each is an effective report.</p>
+<ul>
+<li><a href="https://www.cs.cornell.edu/courses/cs5150/2020sp/docs/Feasibility1.pdf">Reference statistics for Olin Library</a></li>
+<li><a href="https://www.cs.cornell.edu/courses/cs5150/2020sp/docs/Feasibility2.pdf">Mapping app for geo-referenced library materials</a></li>
+<li><a href="sample-report2025.pdf">Report on MedSimAI project, Spring 2025</a></li>
+</ul>
+<h2 id="in-class-activity">In-Class Activity</h2>
+<p>We will devote the lecture time on <strong>Thursday, February 5, 2026</strong> to working on your project plans in class.  Please come prepared with an outline of your plan and any questions you have.  You will have time to work with your team and get feedback from the instructor and TAs. We expect all team members to attend this session. For external projects, you can either invite your client to attend or schedule a separate meeting with your client to review your plan. However, you are expected to submit your plan by the deadline below regardless of whether your client attends the in-class activity.</p>
+<h2 id="submission-instructions">Submission Instructions</h2>
+<p>Please submit your project plan as a PDF file to the course Canvas site (see &ldquo;Project Plan&rdquo; assignment via Gradescope) by <strong>Thursday, February 5, 2026</strong> end of class.</p>
+
+
+    </main>
+    <hr />
+    <footer>
+    </footer>
+  </div>
+</body>
+</html>

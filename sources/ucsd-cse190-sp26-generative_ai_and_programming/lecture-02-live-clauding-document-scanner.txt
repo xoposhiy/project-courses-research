@@ -1,0 +1,788 @@
+Unit 2: Document Scanner
+
+In the first unit, we talked about how LLMs make previously challenging
+tasks involving the semantics of text tractable and cheap. The
+interpretive abilities of GenAI systems continue to impress in domains
+beyond plain text-based understanding -- next we will revisit the
+capabilities we can expect from our programs in working with rich
+documents and images.
+
+People have a broad range of PDFs, images, presentations, spreadsheets,
+and so on in their workflows. Until now, working with documents in these
+formats required tools like:
+
+- Specialized parsers and editors for each file format
+- Models trained for a specific task (e.g. OCR or “optical character
+  recognition”, recognizing faces or people in images)
+
+While tools like these are still useful, many use cases can be served by
+sending files to a LLM and having it extract structured data. ChatGPT
+and Claude explicitly advertise this feature, for example, and
+applications are showing up to summarize notes, do professional
+workflows like quotes and billing, people talk about using ChatGPT to
+review their tax returns, and it's clear that AI systems can do basic
+image recognition and text extraction tasks.
+
+------------------------------------------------------------------------
+
+Motivating Example: Track Spending on Paper Receipts
+
+What if we wanted to track our spending (on groceries, clothes, etc),
+but we mostly have paper receipts, not digital transactions? It would be
+useful to have a scanning app that can take photos of our receipts and
+recover structured data from them, and then put the user in the loop to
+correct errors and provide guidance on categorization.
+
+[Receipt Scanner Example]
+
+  Q: What mistakes do you see in the above structured data?
+
+       Data Source         LLM Processing                          User Review           Downstream
+     ┌──────────────┐      ┌──────────────┐                       ┌──────────────┐      ┌──────────────┐
+     │              │      │              │                       │              │      │              │
+     │  photos /    │─────▶│  extract     │──────────────────────▶│  verify /    │─────▶│  store /     │
+     │  scans /     │      │  structured  │   structured output   │  correct     │      │  aggregate / │
+     │  PDFs        │      │  data        │   (items, totals,     │              │      │  visualize   │
+     │              │      │              │    dates, ...)        └──────┬───────┘      └──────────────┘
+     └──────────────┘      └──────────────┘                              │
+                                  ▲                                      │
+                                  │          user corrections,           │
+                                  └──────────  categories, metadata ─────┘
+
+------------------------------------------------------------------------
+
+Outline
+
+1.  Mixed-media APIs: passing images and PDFs alongside text
+2.  Working with an agent: pushing back on defaults, keeping project
+    context, and building the system at a pace you can internalize
+3.  Types as design: using types to structure abstractions and
+    communication with an agent
+4.  Putting the user in the loop: corrections and categories feeding
+    back into extraction
+
+Mixed-media Queries
+
+Modern models support mixes of text, images, and other inputs. Passing
+images directly with a request is broadly available:
+
+- OpenAI: Giving a model images as input
+- Claude: Base64-encoded image example
+- Gemini: Passing inline image data
+
+Similar APIs exist for documents like PDFs (Gemini docs), and even
+speech, audio, and video.
+
+Documents and images are an extremely broad category of data, ranging
+from candid photos to cartoons to artwork to structured data like
+receipts (above) to academic papers and more. Each application that
+works with documents semantically likely picks a subset and either looks
+for or imposes some structure on them.
+
+For these notes, we're going to focus on a particular kind of structured
+document: images of paper receipts like the one above. We will build a
+web application, targeted at fairly general users, for doing this.
+
+We will make a few assumptions; a truly mass-market app would probably
+need to generalize these eventually. In particular, we'll assume a
+US/English context, so expect $USD on receipts, and no language options.
+We'll build it as a web application that could eventually make its way
+into a phone app.
+
+------------------------------------------------------------------------
+
+Outline
+
+1.  ~~Mixed-media APIs: passing images and PDFs alongside text~~ [done]
+2.  Working with an agent: pushing back on defaults, keeping project
+    context, and building the system at a pace you can internalize
+3.  Types as design: using types to structure abstractions and
+    communication with an agent
+4.  Putting the user in the loop: corrections and categories feeding
+    back into extraction
+
+Starting from Scratch with an Agent
+
+Let's start from an empty directory, and just the discussion above to
+guide us. My current favorite coding assistant is Claude Code; I'm
+curious what progress we can make quickly, and what decision points come
+up.
+
+  Q: What are some decisions you expect to have to make?
+
+There are a few strategies we could use for working with the agent. We
+could just write a short sentence saying what we want:
+
+That's a lot of decisions to make! Also, Claude doesn't always give us
+the same options; small changes in what we say produce different
+reactions:
+
+  Q: What are some differences? How might they affect the long-term
+  trajectory of the app?
+
+  Q: Which of the mentioned tools have you heard of? Which haven't you
+  heard of?
+
+  Q: How do these responses make you feel?
+
+The prompt we gave is a good one for getting a sense of the landscape of
+the application. However, it's a bad one for having Claude do work. In
+particular I'm extremely suspicious of “Let me know and I'll get
+building” in the second interaction -- I am nowhere near ready to
+“build” all of that!
+
+One thing we have done with this interaction is learned that we need to
+think about a few things. We may not have thought of these, or maybe we
+did, depending on our experience as developers of this kind of
+application.
+
+- The frontend (the stuff that runs in the user's browser)
+- The backend (the stuff that runs on a server somewhere)
+- The storage (the place where user data is persisted on disk)
+- The GenAI part (the Image -> ReceiptData function)
+
+As an engineer, my preference is to try to build things incrementally.
+This is what Claude is hinting at with the “MVP” in the first
+interaction (jargon meaning “Minimum Viable Product”). I tend to find it
+useful to work on components I know well, and then for anything I don't
+know, see how it connects to the component I understand well.
+
+Given where we are situated in this class, we can assume we know
+something about building the GenAI part: we need to set up API tokens,
+make API calls to a model with prompts and responses, think about
+evaluation and test inputs, and so on. We can keep in mind that this
+will be in the context of a larger application as we do that.
+
+So let's proceed with that in mind:
+
+Two things happened here:
+
+1.  I made a choice to use a JavaScript-focused implementation
+    (TypeScript). This is a bit of a matter of taste: I have experience
+    with it, I like static types, but also it's useful in the context of
+    this class to show that even if you were more comfortable with
+    Python, Claude is perfectly comfortable with TypeScript.
+2.  Claude rushed into trying to set up a whole TypeScript project,
+    ending on a prompt to run npm init, which is the setup command for
+    creating a Node.js project. I'm not ready for that!
+
+Pushing Back
+
+So, I decided to tell Claude that it should not do this anymore!
+
+    ❯ I would like to know more about what you're going to do
+      and why. Can you write out the plan for this part to a
+      receipt-design.md file?
+
+    ⏺ Write(receipt-design.md)
+      ⎿  Wrote 81 lines to receipt-design.md
+          1 # Receipt Parser — Design
+         … +71 lines (ctrl+o to expand)
+
+      Recalled 1 memory, wrote 3 memories (ctrl+o to expand)
+    ⏺ Written to receipt-design.md. The highlights:
+
+      - Claude vision + tool use to extract structured receipt
+      data in one step [...]
+      Take a look and let me know if you'd like to change
+      anything before I start building.
+
+    ❯ What memories did you just write?
+
+    ⏺ I saved one feedback memory: "Explain before coding" — a
+      note that you want me to present the design and reasoning
+      before jumping into implementation, based on you stopping
+      me when I started running commands without explaining.
+
+    ❯ Oh interesting. Can you put that in Claude.md?
+
+      Searched for 1 pattern (ctrl+o to expand)
+
+    ⏺ Write(CLAUDE.md)
+      ⎿  Wrote 3 lines to CLAUDE.md
+          1 # Project Guidelines
+          2
+          3 - Present the design and rationale before jum
+            ping into code. For any non-trivial piece of
+            work, explain the approach and get buy-in bef
+            ore implementing.
+
+    ⏺ Now I'll remove the memory version since CLAUDE.md is the
+      better home for it — it's loaded automatically and doesn't
+       need the memory system.
+     ⏺ Bash(rm
+          /Users/joe/.claude/projects/-Users-joe-src-receipt-sca
+          nner-demo/memory/feedback_explain_before_coding.md)
+      ⎿  Done
+
+      Recalled 1 memory, wrote 1 memory (ctrl+o to expand)
+
+    ⏺ Done. The guideline is now in CLAUDE.md at the project
+      root and the memory entry has been cleaned up.
+
+There's a few things that just happened, mostly having to do with my
+workflow preferences. You might have different ones, but you should have
+some. Coding agents come with defaults that push us along a particular
+workflow – you do not have to and should not accept this default without
+questioning it.
+
+Here's what happened and why I did it:
+
+1.  I asked it to save the design to a file rather than just having it
+    in chat. Now I can commit and push the design, more easily share it
+    with teammates, refer to it in a new session, etc.
+2.  I had it save the design file in the repository. Claude has its own
+    notion of state (I've seen it make plan files in ~/.claude). For
+    some workflows that is probably good... but if I code on another
+    computer (or my teammate does), we and our agents benefit from
+    access to it.
+3.  I pushed back on Claude's bias towards implementing. Not only do I
+    not want it to do so here, but I don't want it to do so in general
+    on this project! One thing that is cool is that Claude picked up on
+    my pushback without me writing a separate message: in other
+    interactions I've had to say more explicitly “I don't like it when
+    you prompt me to generate code right away. Remember this
+    preference.”
+4.  I noticed (paying attention to the output) that Claude saved it to a
+    “memory” and asked about it. Now, I really dislike how memories get
+    configured! Memories are stored in state local to the user, again in
+    something like ~/.claude/projects/.../memory/.... As an engineer, I
+    want (most of) my settings to be per-project and version controlled,
+    not per-machine or per-user.
+5.  I pointed this out to Claude and it moved it for me and
+    “admitted” that CLAUDE.md was a better place for it! My take on this
+    line—“CLAUDE.md is the better home for it”—is not that Claude
+    “thinks” this is “globally true” or anything (if it did it wouldn't
+    have put it in a memory). Rather, it's agreeing with me; these tools
+    tend towards agreeing with us because
+
+- it would be way more frustrating if they didn't
+- different programmers do have preferences and good arguments that
+  conflict, so the tool follows your lead, and
+- likely some indirect effects of it making us feel good and continue to
+  use the product
+
+  Q: Have you used memories or CLAUDE.md or the equivalent for your
+  favorite agent?
+
+  Q: Have you ever felt “rushed along” by your coding agent?
+
+  Q: What other strategies have you used to manage design documents with
+  your coding agent?
+
+Building, Designing, and Learning, with Claude
+
+This is a place where programming assignments, despite their many
+virtues, don't really capture the experience of “owning” a product.
+
+With that useful setup work done, let's move on to building this
+application. As we do so, we're going to be reflective about what we are
+getting out of the agent, and where we should be pushing back.
+
+When I work on a new project, I find that I do a lot of learning about
+the system I'm building. One of the best ways to develop that
+understanding is to build incrementally. Claude listed a lot of things
+we need – persistent storage, a frontend, a backend, the AI subsystem
+for parsing, and so on. Some of these we may understand better than
+others. Let's build one at a time; I'm going to start with the AI
+subsystem, and then later build the user experience on top of it.
+
+Notice that I'm not trying to fully engage with the broad design file
+yet. It's useful context, but I want to build one step at a time.
+
+  Q: What's a good prompt to move forward with that? What information is
+  the agent likely to ask for in a followup?
+
+Let's try something:
+
+This churns for a while and produces a running starting point.
+
+A few things to notice:
+
+- I provided the sample code for using the TritonAI stuff, and the docs
+  page for the models
+- I didn't provide a ton of information about what I wanted out of
+  the CLI. I could have done a lot more work to spec this out! But also
+  it's useful to see something working (e.g. can these vision APIs do
+  what I want with a receipt?)
+
+Along the way:
+
+- I provided a sample image (similar to the one in the screenshot above)
+  to test on when prompted by Claude. I just copy-pasted a photo I had
+  of a receipt in my house.
+- Claude got error messages relating to the model. I realized I had
+  given out-of-date model information and 401 errors came back. Claude
+  itself went and used the discovery API on TritonAI by itself, and
+  figured out which models should be used.
+- For now it chose claude-opus, which is rather self-serving of
+  Anthropic 🙃, and is fairly expensive. We may want to revisit this.
+- Claude got TypeScript error messages. It had not included some
+  dependencies (like dotenv) and it made a few small errors about
+  JavaScript/TypeScript setup. It fixed them and rewrote code.
+
+We should take a moment to acknowledge how impressive this is! My sample
+was in Python, I asked it to adapt it to TypeScript and test it out, and
+it generated a running example. It took about 2-3 minutes. I'm a
+reasonably competent typist (though I'm not winning any words per minute
+awards) and at least a median tool user, and getting something like this
+set up takes me much more than 2-3 minutes!
+
+Of course, along the way Claude made a ton of design decisions without
+consulting us. It picked a system prompt, picked default categories for
+items on receipts, picked data representations for items, and more.
+
+  Q: What should we do next?
+
+  Q: Look at the commit Claude made. What is a design decision you agree
+  with? One you don't agree with?
+
+My choice was to next do some work on eval. I want to know where the
+good and bad receipt parsing is. If you're interested, here's a long-ish
+capture where I go through that (for a more casual reading, you don't
+have to look at the whole thing):
+
+The summary was this:
+
+- I had a handful of personal receipts to use as eval data
+- The Opus model is fairly trustworthy – a good way to make test data
+  was for me to run the script with opus and check the difference to the
+  receipt myself.
+- api-mistral-small-3.2-2506 made more mistakes, but is dramatically
+  cheaper and faster. So my general strategy is to get
+  close-to-ground-truth data with opus, and then eval that data against
+  other models
+- The definition of a “match” is tricky: models are non-deterministic
+  and sometimes return a string like "YOGURT STRAW BANAN" vs
+  "6 Pack Yogurt Straw Banana" or other variations. I went back and
+  forth with Claude on different choices of fuzzy string matching to get
+  something plausible
+- It seems unlikely the models will usefully get the human item name
+  that a user wants, and noise is inevitable. Receipts have line items
+  for things like bottle deposits or discounts, weird abbreviations like
+  VNYANDARC (which refers to vineyard for a bottle of wine), and more.
+  We can improve this long tail with prompting and smart logic, but this
+  kind of thing is where the user comes in.
+
+You can see the relevant changes at this commit
+
+------------------------------------------------------------------------
+
+Outline
+
+1.  ~~Mixed-media APIs: passing images and PDFs alongside text~~ [done]
+2.  ~~Working with an agent: pushing back on defaults, keeping project
+    context, and building the system at a pace you can internalize~~
+    [done]
+3.  Types as design: using types to structure abstractions and
+    communication with an agent
+4.  Putting the user in the loop: corrections and categories feeding
+    back into extraction
+
+A User Interface
+
+We know the AI part of the system can be made to work; there's more eval
+to do, we probably want to try more cameras and stores and scan images
+with more junk in the background, etc, but it's plausible. Next we can
+build an application around this. We could make a lot of decisions about
+how we want to do that. We could build an app (like installable via the
+app store), a standalone program (like with an installer .exe or .dmg),
+a web application, and more.
+
+Implementing a Server
+
+Probably the greatest virtue of the application approaches is they sort
+of assume the use of the user's filesystem. The advantage of a web
+application is its relative ubiquity and ease of testing and, well, Joe
+is an experienced web developer.
+
+I'm choosing a web application here, but the other options are fine and
+come with their own tradeoffs. We will want a server that stores
+persistent data and a pile of JavaScript on the frontend that can talk
+to and render the information stored in the server. I have a strong
+preference for starting from data definitions, so let's do that:
+
+  Q: What do you think about the proposed schema?
+
+I see one thing wrong immediately: it's super bad practice to store
+money as floating point! We never want to do arithmetic on prices and
+see a price like 0.6000000001. Standard best practice is to store a
+whole number of cents as an integer. This is a clear place where
+averaging over all the code has probably given Claude a bad completion.
+Let's see how it reacts!
+
+Notice that Claude is quick to agree with us calling it out. We can
+actually convince Claude of many things if we try. A useful (wrong, but
+useful) mental model is that it's giving the most likely autocomplete of
+a developer who is quite competent across a breathtaking array of
+technologies, but exists only to help you write stuff. That completion
+includes “you're right!” when you tell it about a well-known programming
+pattern.
+
+Also, Claude is being pushy, saying “start building” again. That's
+annoying. Let's tell it not to be, and that we'd like to think about the
+design. Only then do we want to go on.
+
+Below we make that update to the config and then look at the planned
+spec. Our goal is to get to the request handling part of a web server
+and the database that stores the data. My goal here is to get to the
+point where I can talk about types. By that I mean TypeScript types and
+database schemas that have field names, relations, and so on.
+
+  Q: What do you think of the types shown in the editor at the end? Are
+  they what you expected? What questions do you have about them?
+
+Personally, I'm wondering which of these are storage types and which of
+these are logical or operational types. As in, will all three of these
+get stored in the database? They were put in db.ts. I also want to go
+further and see where the types will be used. Before code gets
+generated, this really helps me get a picture of what is going to go
+where.
+
+I also tell Claude to clean up the interface. I want my TODOs and plans
+and other things in files, not in transient session state in Claude's
+UI.
+
+The strings in `app.get/put` describe URL patterns (“routes” often) and
+an associated handler with `req`uest data and a place to send a
+`res`ponse.
+
+Here we are getting to some sketches of code. I again want to know what
+the story is with types. Generally I need type-level data to think about
+abstractions, what data goes where, and so on. So I'm consistent about
+asking Claude for it. In particular I want to know what kinds of data I
+can expect to see (and autocomplete in my own editor!) on the requests,
+and what should go back in each response.
+
+So I prompt for that, and end up learning a lot about the API in the
+process:
+
+  Q: Describe the kind of error I was worried about with incremental
+  edits. What's an example of what it would look like to make that
+  mistake and accidentally delete stuff?
+
+  Q: Is what Claude said about the middle type parameter accurate? How
+  would you know?
+
+There's some deliberate learning and engineering happening here:
+
+- It's quite easy for programming with generic request and response
+  objects to degenerate into programming against loose JSON-like
+  structures. I'd like to get from the HTTP types into better checked
+  types as soon as possible.
+- The types help me talk about abstraction boundaries, AND should help
+  Claude talk about them as well. If we keep using the same types for
+  different functions, etc, it's literally fewer tokens than trying to
+  think about a JSON schema over and over. And we can more easily write
+  these type names into documentation, etc.
+- I was honestly not sure how TypeScript and Express interact. I've done
+  some Express programming (the library that sets up the routes and the
+  req/res pairs), but never typed. So I was legitimately learning what
+  that API does. I know that TypeScript types in many places document
+  assumptions rather than enforcing a type, so that wasn't surprising to
+  me (though it may be to you!), and I wanted to think about where those
+  boundaries are in this code.
+
+In cases like these it's helpful for me to not be passive – Claude's
+default choices are not the ones I want. I'm still saving a lot of time
+and typing (I never opened a docs page for Express, for example). I'm
+thinking a little bit about if I can clean up these types at all, what
+validation will look like, what zod is, and so on. Those are all good
+things for me to think about to learn more about the system I'm
+building.
+
+Overall I think I grok what's going on, so I'm happy moving on.
+
+Here I have a useful conversation about logic and representation, and
+the type-based thinking helps me out a lot. I am very skeptical of
+Claude's choice to implement receipt update as “delete and re-add
+everything.” That just seems wrong and like it will eventually break
+some relationship between database tables, end up being very inefficient
+in a large batch update someday, etc. So I push back, and we decide that
+the receipt items can have their own notion of identity.
+
+This back and forth made me think that I can probably be doing something
+to prompt Claude that I care deeply about good design at every step.
+Things feel a bit prototype-y to me here, and like the vibe is “get it
+working”.
+
+Then we start doing a bit of API design – what should an “edit” to a
+receipt look like? We settle on a standard operator-based update
+description, where the receipt updates can give a set of `ItemAdd |
+ItemUpdate | ItemDelete` operations that describe what to change. This
+is a huge improvement, opens up possibilities of having undo later (if
+we persist the changes), makes the API more flexible and allows just
+referring to small, specific edits rather than reconstructing the whole
+receipt every time, etc.
+
+  Q: Have you ever seen operations expressed in a datatype like this
+  before?
+
+This is an instance of the Command Pattern
+
+So now we have a decent sense of two components' types:
+
+- The request handlers, which get HTTP requests from the user
+  (presumably their browser, but also testable from the command-line or
+  from programs), and respond with JSON
+- The db functions, which will store and retrieve things from the
+  database, and so some work to apply logic around updates
+
+There seems to be a sensible place from which to get some code down. One
+observation I'd like to make – this point is often where, as a student,
+you would get the "specification" as a programming assignment writeup
+with type signatures and start filling in "implementation". Look at how
+much work we've done (and the course staff for your courses have likely
+done) to decide all of this! What gets a type, what interface will work
+well or be error prone, what technology to use, and so on. A useful
+analogy for students who are experiencing this shift to agent-based
+coding is that if you can write a high-quality programming assignment
+writeup, you can probably write reasonable specs for agents.
+
+Those skills have always been important, but now they are central.
+
+  Q: As you watch, think about this: What were some other options for
+  how to refactor parseReceipt to accept the Buffer rather than a path?
+
+As Claude goes through the implementation, I have some coaching to do.
+
+- Because of the signature parseReceipt(imagePath, model) API we set up
+  for extraction, Claude aims for a path-based input. This requires
+  saving to a temp file (which this multer library, which I just learned
+  about, handles). But that's annoying, I would rather not save a file
+  just to read it back into memory one step later. I have to nudge
+  Claude to think this through, and we do an API update to make it
+  reasonable to pass this through.
+- I get a little testy with Claude because it seemingly ignored some of
+  my remarks about memories and Claude.md earlier, so I make it listen
+  to me. I also try to tone down the empty praise.
+
+With this, we have an implementation that's worth testing. I want to
+move on to writing enough tests to make sure this all runs, then we can
+hook it up to a browser-based frontend.
+
+More learning about the available APIs. Also we add a new API endpoint
+for testing that we have a pretty good argument is good for our future
+selves as well – we can send receipts as JSON data to create them
+instead of just parsing them. Claude makes a good point that we may want
+a manual receipt-input interface, so the endpoint is just generally
+useful.
+
+I'm very happy that Claude is writing this test code and not me. I've
+written a lot of test code like this in my life and... I see no major
+personal loss in never doing it again. I can see what it's doing, I know
+how to add more tests as we go along, I appreciate the confidence that
+everything runs, and feel good about moving on.
+
+The commit we made
+
+It's worth taking a bit of time to do some cleanup and write a few more
+tests. I want to keep the design document up to date, and make sure we
+test the various flavors of update at least a little bit before moving
+on:
+
+Implementing a Frontend
+
+We now have all the logic for parsing and storing receipts exposed
+through a web server. We've made a number of technology decisions and
+have basic tests in place to make sure we can do all the receipt work
+programmatically. Next is to build the user interface. I go into this
+with an attitude of keeping things simple; mainly I want to see how to
+connect a frontend with incremental user corrections to the
+infrastructure we have.
+
+This is an interesting case where my experience directly comes into
+play, and Claude missed what I think was a straightforward, good idea.
+IndexedDB is a standard feature in browsers for storing reasonable-sized
+data (hundreds of MB), so it's a natural choice rather than storing
+images in memory and losing them on page navigation. Of course, this is
+a place where I have particular expertise, so I can see missing this
+(and maybe it will cause problems later that I don't know about).
+
+This is one of those cases where a non-expert would have “unknown
+unknowns” – there was no indication there were options other than the
+ones Claude suggested. This suggests that in situations where we're
+unhappy with Claude's suggestions, it can be worth pushing back (“are
+you sure there's no other way?”), talking to experts, doing some
+external research, or asking it in a fresh session to try and get a
+broader perspective.
+
+Some weird things happened with the UI in this clip (I think I
+misunderstood what file was being presented either due to scroll or the
+layered combination of terminal stuff I have running to record) so there
+are some blips.
+
+The relevant part is at the end – I noticed that Claude had duplicated
+the receipt types from the server to the client code. While it may at
+some point make sense for them to differ, it might never make sense and
+it certainly is a blatant duplication now. I was confused at first and
+thought they may have actually differed on nullability, but they were
+effectively identical. This kind of housekeeping is important – the more
+duplication the more chance there is for drift, the more context is
+taken up with refactors or field additions, etc. This is a place where a
+principle that applies to human understanding of code matters for the
+agent as well!
+
+One thing that was nice in the ensuing series of edits and builds
+(clipped out because there's not much to see in the recording, just lots
+of flashing diffs and error messages and confirmations) is that Claude
+figured out the import/build details of sharing the types.ts file across
+the server and client. Those details were almost certainly going to be
+boring and frustrating and derail my design and coding thought
+processes, and instead I stayed pretty focused.
+
+With that refactoring tip Claude went ahead and implemented and then I
+let it start up some “Vite” servers and test them. I realized I had no
+idea what was going on and asked for a bit more clarification and some
+help with the logistics of running and testing myself:
+
+At this point I run npm run dev myself and visit the app in a browser.
+
+I noticed a few things, like no ability to delete items and some bad
+scroll behavior. At this point, we are into a test-refine-design
+workflow on the user experience. We can apply the same kinds of thinking
+to adding new features, checking them against a solid type-based design,
+getting feedback, and so on.
+
+[Scanner Demo]
+
+------------------------------------------------------------------------
+
+Outline
+
+1.  ~~Mixed-media APIs: passing images and PDFs alongside text~~ [done]
+2.  ~~Working with an agent: pushing back on defaults, keeping project
+    context, and building the system at a pace you can internalize~~
+    [done]
+3.  ~~Types as design: using types to structure abstractions and
+    communication with an agent~~ [done]
+4.  Putting the user in the loop: corrections and categories feeding
+    back into extraction
+
+Putting the User in the Loop
+
+So far, the categories are just a hardcoded string that Claude picked
+for us. Let's add the ability for users to change them, and then have
+them become a part of the prompt going forward.
+
+  Q: Pick some of the 1-6 options Claude gave us and come up with a
+  response – a followup question, a refinement, or a disagreement. Don't
+  agree with all 6. Any overall design reactions.
+
+These are interesting! This is a moment where I feel like I'm actually
+co-designing. Typically the design space of user interfaces is pretty
+wide open, and it's nice to think through a number of ideas related to
+how this is going to work. Items 3, 4, and 5 are interesting because
+they are the backend data consistency issues that are directly a
+consequence of the user interface I proposed.
+
+I don't have any major objections, this seems like a right way to go (at
+this point there's almost certainly no the right way to go). I proceed
+by giving pretty minor point-by-point feedback, and have some new ideas
+along the way:
+
+I have a moment of doubt – shouldn't we give Categories an identity and
+not have these strings all around? For better or worse I'm mollified by
+Claude's confidence that it will be an easy fix later.
+
+But I also have the idea that we can lean on the LLM to generate the
+initial set of categories. At least for what I want to build (and learn
+about) this is interesting because we impose basically no app structure
+on the categories and let them be determined solely by the model and the
+user working together through the interface we give them.
+
+In the next clip I just let Claude cook for a bit. I'm scanning the code
+step-by-step, and thanks to the Claude.md I set up, I'm getting fairly
+step by step code. I don't have a lot of comments for this code; it does
+more or less what I expect. I don't plan to find any new major
+abstractions here.
+
+There's definitely some work that can be done in the future around the
+dynamic prompt generation. It's still very string-template-y. But what
+Claude does for now with putting in the helpers learnCategory and
+buildSystemPrompt(knownCategories) is about what I'd try at first, and
+does abstract out where the categories are. I do have some concern that
+the type Category was changed to the type string in a ReceiptItem, which
+is a sort of loss. There may be some type design we can do to make
+Category mean “string that is one from this list”, but given that we
+want to let the LLM generate some of these, a static guarantee becomes
+very tricky.
+
+If I really wanted to experiment, I may try to parameterize over some
+kind of category-collection strategy to make it easier to experiment
+(just unioning over existing ReceiptItem categories; in the future
+including other users' suggestions to seed the system, having different
+seed sets depending on what kind of receipt it is). That feels like
+premature abstraction, and I'm super interested in getting to the user
+interface, because I want to understand the look and feel. So I enjoy
+the wonders of code creation getting me there:
+
+Now I want to get some UI code going. I redescribe the combo box, but
+the whole idea is in context so it's just the reasonable next step. More
+payoff from our good design discussion earlier; the space of reasonable
+completions of code given all the guidance we've given is pretty narrow
+here!
+
+I have more or less no comments on this code at first. I noticed that
+there was an opportunity for a helper with the repeated configuration of
+the fetching code (it keeps repeating application/json and some other
+config parameters). That could be cleaned up. I just made a mental note;
+I probably should have added it to the real TODOs so I don't forget that
+there's a refactoring opportunity. However, focus matters, too, and I
+want to test a UI. Here's how my first test looked:
+
+[Categories]
+
+See the annoyance? I actually made a few categories, but when the
+combobox opens the starting filter text is always the pre-assigned
+category (in this case "Groceries").
+
+  Q: Make a UI suggestion for what to do that would be better.
+
+And this gets us to a much happier version where we can categorize
+interactively with the combobox immediately showing the options we can
+choose from.
+
+[Categories]
+
+I really drove towards getting the user interface going here. My next
+steps would probably be to work with the interface a bit, and then use
+that as an opportunity to revisit the code that's there and refactor as
+I added new features and cleaned up workflows. This part of testing and
+design needs a person; I'm not sure I would trust the LLM to navigate
+the application and give feedback, though I'm sure someone is working on
+just that!
+
+There are plenty of UI improvements to think about from here that I do
+think will need a human eye (the application is, after all, built to
+help humans):
+
+- A big one is showing aggregate information across categories as a
+  separate page per-category (brainstormed with Claude but not
+  implemented)
+- Thinking about getting “item names” that are user friendly: for
+  example aggregating items to the name “Milk” or “Eggs” independent of
+  brand name, and getting those categorized
+- Avoiding duplicate uploads
+- Doing better reporting of per-unit prices vs. overall price for a line
+  item
+- General styling and look+feel improvements
+- and more!
+
+Bonus: Login and Authentication
+
+In class last Thursday, we talked about how to use Claude when you don't
+know something. I didn't quite go to “making a device driver” or
+something really substantially outside my expertise; that might be for
+another week.
+
+However, I did want to think about user accounts and login. I also have
+wanted to learn how passkeys work for a while, and think they have a
+great security model. This cast shows how I used Claude to learn about
+and think through adding user accounts, but also learning about passkeys
+and relating them to my understanding of auth.
+
+I don't have a lot of narrative notes beyond sharing some of my thought
+process via the cast.
+
+Happy hacking!

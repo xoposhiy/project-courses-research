@@ -1,0 +1,158 @@
+[] CMU 17-316/616: AI Tools for Software Development
+
+Home
+
+Overview
+
+Syllabus
+
+Teamwork Practices
+
+Staff
+
+Assignments
+
+Assignments
+
+-  Reflection 1
+-  Reflection 2
+-  Reflection 3
+-  Reflection 4
+-  Reflection 5
+-  Reflection 6
+
+Project
+
+Project
+
+Project 1 Requirements Engineering
+
+Project 2 Development Specifications Project 2 Development
+Specifications
+
+On This Page
+
+-  Learning Goals
+-  Project Context
+-  Deliverables
+-  Turn-in Instructions
+
+Project 3 Frontend Development
+
+Project 4 Backend Development
+
+Project 5 Testing
+
+Project 6 Deployment
+
+Project 7 Final Demo + Postmortem
+
+On This Page
+
+-  Learning Goals
+-  Project Context
+-  Deliverables
+-  Turn-in Instructions
+
+Project 2: Development Specification¶
+
+Learning Goals¶
+
+- Learn how to translate user stories into a structured development
+  specification.
+- Learn how to guide an LLM to generate architecture diagrams, class
+  diagrams, flow charts, and other technical artifacts.
+- Learn how to critically assess risks, interfaces, and technologies
+  when planning software implementation.
+
+Project Context¶
+
+In Project 1, you performed user discovery and created user stories with
+the help of LLMs. In Project 2, you will take three of those stories and
+expand them into a complete development specification (dev spec). This
+spec should serve as a blueprint for how you would build the product. By
+the end of this milestone, you will have a concrete technical plan,
+informed by your interviews, user stories, and the practices we’ve
+learned in class.
+
+Your dev spec will also be a test of how effectively you can collaborate
+with LLMs on technical writing, while still applying your own
+engineering judgment.
+
+Deliverables¶
+
+Choose 3 user stories from your user stories in P1 and have an LLM
+expand them into dev specs. Your team must produce a spec for each of
+the 3 that includes the following sections with enough detail that you
+(or someone else) could implement it:
+
+1.  Header
+2.  Architecture Diagram
+    1.  Specify where the components run (e.g., client, server, cloud,
+        etc.).
+    2.  Specify which information flows between components.
+3.  Class Diagram
+4.  List of Classes
+5.  State Diagrams
+6.  Flow Chart
+7.  Development Risks and Failures
+8.  Technology Stack
+9.  APIs
+10. Public Interfaces
+11. Data Schemas
+12. Security and Privacy
+13. Risks to Completion
+
+Two of the three user stories should be independent of one another,
+however, the all dev specs must reflect that they are implemented in the
+same application.
+
+The third user story must be dependent on one of other two, i.e., the
+stories are intertwined somehow (e.g., one implements a shared text
+editor and the other implements a way to make text in that editor bold).
+Practically for this assignment, the third user story's dev spec may
+require you to make modifications to the dependent user story's dev spec
+in order to add it to the plan.
+
+We noticed that it's easy for the LLM to create inconsistencies between
+the sections in the dev spec. For example, there may be more classes
+shown in the class diagram than described in the List of Classes. That's
+something you'll have to look for and fix before turning in your
+assignment.
+
+------------------------------------------------------------------------
+
+Turn-in Instructions¶
+
+Please turn in a single document that contains these parts:
+
+1.  The three user stories from P1 that you chose to expand into a dev
+    spec, listed at the beginning of your document.
+    1.  Add the user stories to GitHub and turn in the links to each
+        user story.
+2.  First dev spec document containing all the sections above. Each
+    section should have rationale to justify your decisions. After each
+    section, copy-paste the chat log showing your prompts and the LLM’s
+    responses.
+    1.  Commit this dev spec into your GitHub repo and turn in the link
+        to it.
+3.  Second dev spec document containing all the sections above. Each
+    section should have rationale to justify your decisions. After each
+    section, copy-paste the chat log showing your prompts and the LLM’s
+    responses.
+    1.  Commit this dev spec into your GitHub repo and turn in the link
+        to it.
+4.  Third dev spec document (this is the one dependent on one of the
+    previous two user stories) containing all the sections above. Each
+    section should have rationale to justify your decisions. After each
+    section, copy-paste the chat log showing your prompts and the LLM’s
+    responses.
+    1.  Add an explanation of how the other user story's dev spec was
+        modified to accommodate this user story's features.
+    2.  Commit this dev spec into your GitHub repo and turn in the link
+        to it.
+5.  A 1–2 paragraph reflection on how useful the LLM was in helping you
+    create the dev specs, and what parts required the most human
+    correction/reprompting.
+
+[] Back to top

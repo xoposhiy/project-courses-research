@@ -1,0 +1,42 @@
+Midpoint presentation
+
+You should be meeting regularly with your client throughout the
+semester, getting feedback on your requirements modeling, UI designs,
+etc. But CS 5150 also requires two formal presentations attended by both
+your client and a member of the course staff. The midpoint presentation
+must be given around the end of second sprint.
+
+Your presentation time is limited to 5-7 minutes, of which at least 1-2
+minutes should be reserved for questions (you should expect, and
+encourage, interruptions by the audience, as client understanding and
+feedback is critical to a successful project). All members of each team
+must be present. Every team member must present a portion of at least
+one of the two formal presentations. Be sure to come prepared and
+rehearsed and to practice good presentation etiquette.
+
+The following topics would be appropriate for the midpoint presentation:
+
+- Confirm agreement on scope and goals
+  - What have you agreed to deliver? How is “success” defined?
+- Summary of progress so far
+  - Review understanding of requirements
+  - Show system-level designs, user interface mock-ups, and/or working
+    code
+  - Review results of user studies and user testing
+  - Raise technical hurdles and blockers (in detail appropriate for
+    client)
+- Discuss remaining plan to complete and deliver project
+  - Changes since feasibility study
+  - Unexpected events and impact of risks
+  - Updated schedule (tip: work backwards from delivery)
+
+For external projects, if your client cannot come to class, please
+co-ordinate with the instructor to setup a meeting time outside class
+hours. Your instructor and client must be present during the meeting.
+
+We will share a link on canvas to sign up for presentation slots. You
+must upload your presentation slides to the shared drive by end of day
+before presentation day with the name
+“[TEAM_ID]_midpoint_presentation.pptx” OR add a link to the slides in
+the sign up sheet. To reduce the switching time, we will use the same
+laptop for all presentations.

@@ -1,0 +1,221 @@
+CMSC 398Z - Effective use of AI coding assistants and agents
+
+Fall 2025, Fridays, 2-4pm, IRB 2207, organized by Bill Pugh and Derek
+Willis.
+
+PREREQUISITE: Minimum grade of C- in CMSC320 or CMSC330; and permission
+of CMNS-Computer Science department.
+
+Weekly Notes and downloads
+
+All of the weekly notes and project downloads are now hosted on github.
+Weekly notes include references and links for each class, as well as
+links to readings and learning logs to be completed by the following
+week.
+
+- Class notes for Dec 12th
+- Class notes for Dec 5th
+- Class notes for Nov 21st
+- Class notes for Nov 14th
+- Class notes for Nov 7th
+- Class notes for Oct 31st
+- Class notes for Oct 24th
+- Class notes for Oct 17th
+  - Web site for Oct 17th class
+- YouTube playlisy of course videos
+- Zulip site for course
+- Github link for all downloads
+- Class notes for Oct 10th
+- Class notes for Oct 3rd
+  - Web site for Oct 3rd class
+- Class notes for September 26th
+- Class notes for September 19th
+- Class notes for September 12th
+- Class notes for September 5th
+
+Course description
+
+Covers how to effectively use AI coding tools to develop software. The
+course will look at the tools and techniques used by engineers at
+companies like Google and Microsoft to develop production-quality code,
+as well as techniques to vibe code and quickly generate interactive
+visualizations and proof-of-concepts. The course will cover using
+chatbots, AI-powered IDEs such as VSCode with Copilot and command line
+tools such as Claude code. Many of these tools can automatically invoke
+build systems, run test cases, and fix errors. Most programming in the
+course will be done in Python, which is the language best supported by
+AI coding assistants. We will also cover Simon Willison's LLM tool,
+which allows writing simple Python programs that query LLMs and interact
+with databases, structured data extraction, and semantic search.
+
+As the class and format are new, we are unsure of the speed it will take
+us to work through the material, so no dates are given as to when we
+will get to a particular topic. This entire field is changing very fast.
+Best practices and available tools change month by month. At the start
+of the semester, the agenda for the end of the semester is tentative and
+may change significantly by November.
+
+The first class will be the only class that is primarily lecture.
+Expectations are that students will read/watch material and do exercises
+and surveys for each class before the scheduled time. Most weeks, much
+of the 2-hour window for class will be more like a discussion section or
+hackathon, with students discussing projects and readings around each
+table and doing pair coding.
+
+There will be assigned readings for each week and a survey and learning
+log for students to complete. It is expected that most or all of the
+required work on programming tasks can be completed during class.
+
+Topics
+
+Details of course topics and planned readings provided here. High level
+list of topics:
+
+- Intro & Purpose
+- Setting the stage. Quickly getting up to speed on
+  - Python
+  - VSCode
+  - csv files, dataframes and databases
+  - json
+  - markdown
+  - git basics
+- Using GitHub Copilot in VSCode
+- Building software that uses LLMs
+  - Simon’s PyCon course on Building software on top of Large Language
+    Models
+  - Structured output & constrained generation
+  - Security and prompt injection
+- When AI generated code passes all test cases, what else matters?
+  - Maintainability
+  - Software architecture, API design
+  - Efficiency and scalability
+  - Security
+  - Solving the right problem
+- Other coding models (Claude Code, Gemini)
+- Using AI tools with continuous integration, commit hooks, code reviews
+- Vibe coding, and environments that allow you to use AI to create and
+  deploy web applications
+- Asynchronous coding agents and AI code reviews
+
+Student expectations
+
+A guiding principle for this course is that the best way to learn these
+skills is to spend productive time using them, discussing your
+experiences with others and hearing what experiences others had with
+them. For that time to be productive, students need to have a way to get
+unstuck when they encounter glitches. Rather than depend solely upon
+office hours for that, we will expect that other students will generally
+be able to help students get unstuck.
+
+All instructor provided course material will be open to anyone. In order
+to get the most out of the course, the following are the expectations
+for class:
+
+- Students should bring a laptop to class on which they can work on
+  projects in class. Students will need to install software such as
+  python and VS Code on their laptops.
+- Students will sign up for services such as Copilot Pro, Open AI,
+  Gemini, Claude and Cursor. Many of these are free for students, or
+  have a free trial period. Students might find it useful to plan to pay
+  for several months of service at $20/month over the course of the
+  semester.
+- Some of these services might allow the provider to use your data to
+  improve their services. For example, Gemini Code Assist for
+  individuals, which is free, allows Google to use data from your use of
+  Code Assist to provide, improve, and develop Google products and
+  services and machine learning technologies.
+  - My advice is not to worry about that for your use of AI tools in
+    this class, where you are not expected to be using them on your $1B
+    start-up idea or anything sensitive. If you prefer, paid accounts
+    generally allow you to opt out of any data sharing.
+
+Creating a supportive environment
+
+Students share a responsibility for the course’s learning environment.
+Creating a cohesive online learning community requires learners to
+support and assist each other. To craft an open and interactive online
+learning environment, communication has to be conducted in a
+professional and courteous manner at all times, guided by common sense,
+collegiality and basic rules of etiquette.
+
+This course involves more interaction with other students than you may
+have had in any other CMSC course. Sharing and receiving feedback from
+others is a skill you can continue to develop and improve over your
+entire lifetime. Even at companies like Apple and Google it is a skill
+that employees are provided mentorship on. If you find challenges in
+general, or working with a particular person challenging, please reach
+out to the instructors. Don't wait until it becomes such a significant
+problem. If you find an individual unhelpful or challenging to work
+with, we will take that information confidentially and see if we can
+find ways to provide mentoring and feedback that doesn't require
+escalation outside of the course. Of course, if a more significant
+problem arises, we will handle that through standard campus reporting
+mechanisms.
+
+But also, if you feel that a particular student has been exceptionally
+helpful in allowing you to master the material in this course, please
+let us know. We will be looking to identify some heroes who have been
+particularly helpful to others in the course and find a way to recognize
+them.
+
+Grading
+
+It is expected that students will be able to complete their learning log
+writing assignment and preparation for the next class in two hours of
+work between classes. Participation in class activities is a significant
+portion of the course grade, and cannot be accomplished without
+attendance at each class. Details of grading
+
+Disclosures
+
+Companies and individuals working in this space are eager to attract
+individuals, particularly students, to use their tools and resources,
+and many provide some level of free access to students, or perhaps
+everyone. We have made selections of tools and resources for this class,
+but other than working well at this point in time to serve the goals of
+this class, our use should not be considered as a recommendation of
+which tools and resources are better. Nothing said in this course should
+be considered investment advice.
+
+Bill Pugh: I own stock in a number of tech companies including Google,
+Apple and Microsoft. I've worked at Google and Apple, my brother works
+on Copilot at Microsoft, and I have friends everywhere.
+
+Derek Willis: Several former colleagues from my time in journalism now
+work at tech companies, including Anthropic, and Simon Willison, whose
+software and materials are referenced in this course, is a longtime
+friend who provides me with access to a cloud service he runs for a side
+project of mine. I’m also part of a team working on AI-assisted
+journalism tools through a grant from the Scripps Howard Foundation.
+
+Policies
+
+- At the end of the semester visit the CourseEvalUM website to complete
+  your course evaluations.
+- UMD Web Accessibility
+- Course-Related Policies and Resources for Undergraduate Students
+- TLTC’s Accessibility and Accommodations page
+  - Since there are no graded assignments or exams, there may not be a
+    need for ADS accommodations. But if you have questions or concerns,
+    please contact the instructors.
+  - Please try to attend all classes, and show up promptly.
+    Participation in class is a key element of how you will get value
+    out of the course. We understand there may be times when you cannot
+    attend, but more than one unexcused absence may impact your grade.
+    Policy on excused absences
+  - UMD’s Student Academic Support Services website
+- Class conduct reporting, including Mandatory Reporting - See this page
+  for discussions of how to report problems with class conduct. Issues
+  with other students can be reported to instructors, that web page
+  provides ways to report on issues with the instructors. If issues with
+  other students are reported to the instructors, they may be required
+  by mandatory reporting policies to forward concerns to appropriate
+  campus organizations.
+  - If you wish to speak with someone confidentially, please contact one
+    of UMD’s confidential resources, such as CARE to Stop Violence
+    (located on the Ground Floor of the Health Center) at 301-741-3442
+    or the Counseling Center (located at the Shoemaker Building) at
+    301-314-7651.
+  - You may also seek assistance or supportive measures from UMD’s Title
+    IX Coordinator, Angela Nastase, by calling 301-405-1142, or emailing
+    titleIXcoordinator@umd.edu.

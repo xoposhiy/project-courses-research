@@ -1,0 +1,430 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+iP: GradingtP: Expectations
+
+tP (team project): Overview 
+
+Outcomes
+
+The high-level learning outcome of the team project (tP):
+
+Can contribute production quality SE work to a small/medium brownfield
+software project
+
+Accordingly, the tP is structured to resemble a non-trivial real-life
+brownfield software project in which you will,
+
+1.  conceptualize and implement enhancements to a given product, and,
+2.  have it ready to be continued by future developers
+
+The focus of the tP is to learn the following aspects:
+
+1.  ~~coding~~ (taken for granted, not focused on specifically)
+2.  working in a team
+3.  process/workflow
+4.  documentation
+5.  scheduling and tracking project progress, meeting delivery deadline
+6.  quality assurance
+
+Direction
+
+The tP uses a generic application called AddressBook-Level3 (AB3) (from
+https://se-education.org) as the starting point.
+
+[]
+
+The final product is to be targeted at users who can type fast, and
+prefer typing over mouse/voice commands. Therefore, typed user commands
+are the primary mode of input.
+
+Admin tP Constraints → Constraint-Typing-Preferred
+
+Admin tP Constraints → Recommendation-CLI-First
+
+Direction 1: Evolve Evolve into a more powerful or more optimized
+contact management app. Some examples:
+
+- Contact managing optimized for a specific type of user. e.g.,
+  - a sales person managing client contacts (can be further optimized
+    for the product/service type e.g., insurance, loans, real estate,
+    etc.)
+  - a teacher/tutor managing students (can be further optimized to a
+    specific course or type of teaching)
+  - a secretary of an organization managing member details
+  - an event organizer managing participants
+- Manage more entity types related to contacts e.g., Tasks allocated to
+  contacts, loans given, grades, etc.
+  Note: the contacts should still remain the primary focus, even if
+  there are other things being managed e.g., an address book app that is
+  optimized for a user who lends out money to those contacts (not a loan
+  management app).
+- Introduce relationships between contacts e.g., members of a team
+- Make existing general features really strong, worthy of a real product
+  e.g.,
+  - make the commands more natural, easier to type/remember, allow
+    aliases, etc.
+  - make the search feature more powerful (e.g, fuzzy search)
+  - tweak the GUI to be more useful (e.g., highlight the contact
+    added/edited
+  - provide GUI alternatives to CLI commands where appropriate)
+- Add more general features e.g.,
+  - import/export data from other formats
+  - archive old data
+  - more help: guided tours, tool tips, tip of the day etc.
+  - stats, analytics, visualizations
+  - undo/redo
+  - result preview (i.e., show what would happen if the current command
+    is executed)
+- Internal improvements e.g., refactor the current design/implementation
+  to make it better in some way
+
+pros: less changes to existing code at the start of the project (i.e.,
+progress will be smoother at the start), can result in a more mature
+product with deeper features as the product functionality will be moving
+forward from the start.
+cons: less flexibility in product design.
+
+~~Direction 2: Morph Morph AB3 in any direction you wish.~~
+
+This direction is not available this semester, as it has been observed
+to increase tP workload beyond what students anticipate when making this
+choice (e.g., 40-50% more work than strictly needed by the tP). Besides,
+it is less brownfield than direction 1.
+
+~~pros: more flexibility in the project direction.
+cons: more changes to the existing code at the start while you are still
+not very familiar with the codebase, morphing is less common in real
+projects (compared to direction 1).~~
+
+Note that creating a novel/unique/interesting product will NOT earn you
+extra marks in this course. While those qualities are important in real
+world projects, and we do allow you room to go in those directions in
+this course, they are not the focus of this course (there are other
+courses such as CS3216, CS3217 that focus on those aspects). Focus your
+energy on creating a solid product at a high quality level, which
+actually take a lot more energy than you might realize at first. Go for
+novelty/uniqueness/interesting etc. only if you have energy to spare and
+can do so without compromising the quality. For example, a bland
+feature/product implemented well will score more marks than a novel
+product that is buggy, even if the novel features were harder to
+implement.
+
+Target User & Value Proposition
+
+You are expected to:
+
+- Define a very specific target user profile.
+  We require you to narrow down the target user profile as opposed to
+  trying to make it as general as possible. Here is an example of
+  progressively narrowing down target user: anybody → teachers →
+  university teachers → tech-savvy university teachers → instructors of
+  course CS____.
+  Be careful not to contradict given project constraints when defining
+  the user profile e.g., the target user should still prefer typing to
+  mouse actions.
+
+Narrow down only to the extent you intend to optimize: The narrowing
+down the target user should be tied to an intention (and the
+feasibility) to optimize the application to that 'narrowed down' target
+user. For example, it doesn't make sense to narrow down the target user
+to NUS students if the application will not be optimized to NUS students
+specifically (i.e., the app can be used irrespective of which university
+the user is from).
+
+FAQ Why the need to narrow down the user profile?
+
+------------------------------------------------------------------------
+
+FAQ How narrow can we make the target market?
+
+------------------------------------------------------------------------
+
+- Define a clear value proposition that matches the target user profile
+  i.e., what problem does the product solve? how does it make the user's
+  life easier?
+  You should also define the scope clearly i.e., boundary beyond which
+  the app will not help e.g., the app will manage contact details of a
+  small number of JC-level students (which means the there is no support
+  for managing large number of students or primary/adult students, and
+  will only manage contact details -- not other details such as grades).
+- Aim to optimize the product to the chosen target users Although you
+  should not decide specific features yet, keep in mind that eventually
+  you should optimize the product for the chosen target user i.e.,
+  add/tweak features that are especially/only applicable for target
+  users (to make the app especially attractive to them).
+  - Example 1: If the product targets CS2103/T instructors, there can be
+    features that are applicable to them only, such as the ability to
+    see a link to a student's project on GitHub
+
+  - Example 2: If your app manages contacts, you can optimize its
+    features based on,
+
+    - the profession of the target user e.g., doctors, salesmen,
+      teachers, etc.
+    - the nature/scale of contacts e.g., huge number of contacts (for HR
+      admins, user group admins), mostly incomplete contacts, highly
+      volatile contact details, contacts become inactive after a
+      specific period (e.g., contract employees)
+    - what users do with the contacts e.g., organize group events, share
+      info, do business, do analytics
+
+    Your project will be graded based on how well the features match the
+    target user profile and how well the features fit-together.
+
+iP: GradingtP: Expectations
+
+tP (team project): Overview ‎
+
+Outcomes‎ Direction‎ Target User & Value Proposition‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

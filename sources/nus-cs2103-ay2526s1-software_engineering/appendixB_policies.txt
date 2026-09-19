@@ -1,0 +1,790 @@
+This site is from a past semester! The current version will be here when
+the new semester starts.
+
+CS2103/T 2025 Aug-Nov
+
+- Schedule
+  - Full Timeline
+  - Week 1 [Mon, Aug 11th]
+  - Week 2 [Mon, Aug 18th]
+  - Week 3 [Mon, Aug 25th]
+  - Week 4 [Mon, Sep 1st]
+  - Week 5 [Mon, Sep 8th]
+  - Week 6 [Mon, Sep 15th]
+  - Week 7 [Mon, Sep 29th]
+  - Week 8 [Mon, Oct 6th]
+  - Week 9 [Mon, Oct 13th]
+  - Week 10 [Mon, Oct 20th]
+  - Week 11 [Mon, Oct 27th]
+  - Week 12 [Mon, Nov 3rd]
+  - Week 13 [Mon, Nov 10th]
+- Textbook
+- Admin Info
+  - Course Overview
+  - Using this Website  1
+  - Course Expectations  2
+  - Course Structure
+    - Course Briefing Videos  3
+    - Weekly Schedule  3
+    - Weekly Briefings  3
+    - Tutorials  2
+  - Instructors  4
+  - Textbooks  2
+  - Programming Language  2
+  - Standards/Conventions  2
+  - Individual Project (iP)
+    - iP (Individual Project): Overview  2
+    - iP: Week 2  2
+    - iP: Week 3  2
+    - iP: Week 4  2
+    - iP: Week 5  2
+    - iP: Week 6  1
+    - iP: Week 7  4
+    - iP: Week 8  1
+    - iP: Grading  2
+  - Team Project (tP)
+    - tP (team project): Overview  2
+    - tP: Expectations  2
+    - tP: Timeline  3
+    - tP: Constraints  2
+    - tP: Forming Teams  2
+    - tP Week 3: Kickoff  2
+    - tP Week 4: Set Direction  3
+    - tP Week 5: Gather Requirements  2
+    - tP Week 6: Define the MVP  2
+    - tP Week 7: Practice Iteration → v1.1  2
+    - tP Week 8: First Feature Increment → v1.2  3
+    - tP Week 9: MVP → v1.3  2
+    - tP Week 10: Alpha Version → v1.4  2
+    - tP Week 11: Release Candidate → v1.5  2
+    - tP Week 12: Public Release → v1.6  3
+    - tP Week 13: Post-Release Tasks  2
+    - tP: Deliverables  2
+    - tP: Practical Exam Dry Run  2
+    - tP: Practical Exam  2
+    - tP: Grading  2
+    - tP: Supervision/Guidance  2
+  - Peer Evaluations  2
+  - Tools  3
+  - Exams  2
+  - Participation Marks  2
+  - Grade Breakdown  2
+  - Appendices
+    - Apdx A: Course Principles  4
+    - Apdx B: Course Policies  1
+    - Apdx C: FAQ  1
+    - Apdx D: Getting Help  2
+    - Apdx E: Using GitHub  1
+    - Apdx F: Handling Team Issues  4
+    - Apdx G: Troubleshooting Tips  4
+- Dashboards
+  -  Participation dashboard
+  - [] Forum Dashboard
+
+    ------------------------------------------------------------------------
+
+     iP dashboards:
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     tP dashboards:
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Project Links
+  -  Individual Project (iP):
+  -  Individual Project Info
+  -  iP Upstream Repo
+  -  iP Showcase
+  -  iP Progress Dashboard
+  - [] iP Comments dashboard
+  -  iP Code Dashboard
+
+    ------------------------------------------------------------------------
+
+     Team Project (tP):
+  -  Team Project Info
+  -  tP Upstream Repo (AB3)
+  -  Team List
+  -  tP Progress Dashboard
+  - [] tP Comments Dashboard
+  -  tP Code Dashboard
+  -  tP Code Dashboard (Functional Code Only)
+  -  tP Code Dashboard (Feature Freeze Period Only)
+- Forum
+- Other Links
+  -  Report Bugs
+  -  Forum
+  -  Instructors
+  -  Announcements
+  -  Files (handouts, submissions etc.)
+  -  Tutorial Schedule
+  -  MS Teams link
+  -  Git Learning Trail
+  -  Java Coding Standard
+  -  Git Conventions
+  -  UML Reference Sheet
+  -  Exam Reference Sheet
+
+- 
+
+Admin info
+
+- Course Overview
+
+- Using this Website  1
+
+- Course Expectations  2
+
+- Course Structure
+
+  - Course Briefing Videos  3
+
+  - Weekly Schedule  3
+
+  - Weekly Briefings  3
+
+  - Tutorials  2
+
+- Instructors  4
+
+- Textbooks  2
+
+- Programming Language  2
+
+- Standards/Conventions  2
+
+- Individual Project (iP)
+
+  - iP (Individual Project): Overview  2
+
+  - iP: Week 2  2
+
+  - iP: Week 3  2
+
+  - iP: Week 4  2
+
+  - iP: Week 5  2
+
+  - iP: Week 6  1
+
+  - iP: Week 7  4
+
+  - iP: Week 8  1
+
+  - iP: Grading  2
+
+- Team Project (tP)
+
+  - tP (team project): Overview  2
+
+  - tP: Expectations  2
+
+  - tP: Timeline  3
+
+  - tP: Constraints  2
+
+  - tP: Forming Teams  2
+
+  - tP Week 3: Kickoff  2
+
+  - tP Week 4: Set Direction  3
+
+  - tP Week 5: Gather Requirements  2
+
+  - tP Week 6: Define the MVP  2
+
+  - tP Week 7: Practice Iteration → v1.1  2
+
+  - tP Week 8: First Feature Increment → v1.2  3
+
+  - tP Week 9: MVP → v1.3  2
+
+  - tP Week 10: Alpha Version → v1.4  2
+
+  - tP Week 11: Release Candidate → v1.5  2
+
+  - tP Week 12: Public Release → v1.6  3
+
+  - tP Week 13: Post-Release Tasks  2
+
+  - tP: Deliverables  2
+
+  - tP: Practical Exam Dry Run  2
+
+  - tP: Practical Exam  2
+
+  - tP: Grading  2
+
+  - tP: Supervision/Guidance  2
+
+- Peer Evaluations  2
+
+- Tools  3
+
+- Exams  2
+
+- Participation Marks  2
+
+- Grade Breakdown  2
+
+- Appendices
+
+  - Apdx A: Course Principles  4
+
+  - Apdx B: Course Policies  1
+
+  - Apdx C: FAQ  1
+
+  - Apdx D: Getting Help  2
+
+  - Apdx E: Using GitHub  1
+
+  - Apdx F: Handling Team Issues  4
+
+  - Apdx G: Troubleshooting Tips  4
+
+Apdx A: Course PrinciplesApdx C: FAQ
+
+Apdx B: Course Policies 
+
+- Policy on admin questions
+
+- Policy on following instructions
+
+- Policy on grading smaller/larger teams : OPTIONAL
+
+- Policy on project work distribution
+
+- Policy on absence due to valid reasons (e.g. MC, LOA, University
+  events) : OPTIONAL
+
+- Policy on email response time
+
+- Policy on tech help
+
+- Policy on publishing submissions : OPTIONAL
+
+- Policy on plagiarism
+
+- Policy on reuse
+
+- Policy on feedback for project work
+
+- Policy on help from outsiders
+
+- Policy on deadline extensions : OPTIONAL
+
+Policy on admin questions 
+
+All admin questions should be sent to the course email
+cs2103@comp.nus.edu.sg or posted in the forum. This way, the person in
+charge of that admin detail will answer you.
+
+Do not ask admin questions from tutors (in person or via other means) as
+tutors are prohibited from answering admin questions.
+
+FAQ Why are tutors not allowed to answer admin questions?
+
+------------------------------------------------------------------------
+
+Examples of admin questions:
+
+- What happens if I don't submit by the deadline?
+- How is this graded?
+- Can I use X instead of Y for the project?
+- Where can I find details about [some aspect of the course]?
+
+Policy on following instructions 
+
+When working with others, especially in a large class such as CS2103/T,
+it is very important that you adhere to standards, policies, and
+instructions imposed on everyone. Not doing so creates unnecessary
+headaches for everyone and puts your work attitude in a negative light.
+That is why we penalize repeated non-compliance of instructions. On the
+other hand, we do understand that we all are liable to make mistakes.
+That is why we only penalize repeated or frequent mistakes.
+
+Policy on grading smaller/larger teams : OPTIONAL
+
+As most of the work is graded individually, team sizes of 4/5/6 are not
+expected to affect your grade. For example, while managing larger teams
+is harder, larger teams have more collective know-how, which can cancel
+each other. However, we give some special consideration when grading
+3-person teams.
+
+Policy on project work distribution 
+
+As most of the work is graded individually, it is OK to do less or more
+than equal share in your project team.
+
+Admin tP → Expectations: from each student
+
+Policy on absence due to valid reasons (e.g. MC, LOA, University events) : OPTIONAL
+
+- a)
+  An occasional absence or two will not affect your marks, as the
+  marking scheme already has built-in buffers to absorb such occasional
+  absences/lapses. If you miss a briefing/tutorial/task for a valid
+  reason (e.g., MC, LOA, official university event, officially
+  representing NUS in a competition), just do your best to catch up.
+- b)
+  Let us know only if you failed to earn full marks for participation
+  due to such a reason (or if you feel you are at risk of not earning
+  full marks), in which case we will consider giving an alternative
+  avenue to earn marks missed due to the absences.
+  Detail of participation marks calculation is here.
+- c)
+  Normally, there is no need to inform us (e.g., the tutor) of such
+  absences or the reason, although you are welcome to.
+  No need to send us your MC (it is best not to share your health
+  information with others, unless necessary), but keep a copy of it
+  safely, in case we ask for it later, in relation to (b) given above.
+
+Policy on email response time 
+
+Normally, the prof will respond within 24 hours if it was an email sent
+to the prof or a forum post directed at the prof. If you don't get a
+response within that time, please feel free to remind the prof. It is
+likely that the prof did not notice your post or the email got stuck
+somewhere.
+
+Similarly, we expect you to check email regularly and respond to emails
+written to you personally (not mass email) promptly.
+
+Email etiquette: ALWAYS respond to direct emails
+
+Not responding to a personal email is a major breach of professional
+etiquette (and general civility). Imagine how pissed off you would be if
+you met the prof along the corridor, said 'Hi prof, good morning' and
+the prof walked away without saying anything back. Not responding to a
+personal email is just as bad. Always take a few seconds to at least
+acknowledge such emails. It doesn't take long to type "Noted. Thanks"
+and hit 'send'.
+
+The promptness of a reply is even more important when the email is
+requesting you for something that you cannot provide. Imagine you wrote
+to the prof requesting a reference letter and the prof did not respond
+at all because he/she did not want to give you one; You'll be quite
+frustrated because you wouldn't know whether to look for another prof or
+wait longer for a response. Saying 'No' is fine and in fact a necessary
+part of professional life; but saying nothing is not acceptable. If you
+didn't reply, the sender will not even know whether you received the
+email.
+
+------------------------------------------------------------------------
+
+Policy on tech help 
+
+Do not expect your tutor to code or debug for you. We strongly
+discourage tutors from giving technical help directly to their own teams
+because we want to train you in troubleshooting tech problems
+yourselves. Allowing direct tech help from tutors transfers the
+troubleshooting responsibility to tutors.
+
+It is ok to ask for help from classmates even for assignments, even from
+other teams, as long as you don't copy from others and submit as your
+own. The preferred way for this is to ask in the forum rather than
+privately, as (1) it gives others an opportunity to benefit as well (2)
+the teaching team can confirm the accuracy of the help you are
+receiving.
+
+We encourage you to give tech help to each other, but do it in a way
+that the other person learns from it.
+
+Related: [Admin: Appendix D: Getting Help]
+
+Admin Appendix D: How to get Help in CS2103/T
+
+------------------------------------------------------------------------
+
+Policy on publishing submissions : OPTIONAL
+
+The source code are publicly available and are available for reuse by
+others without any restrictions. Is publishing submissions unfair to the
+author? We don't think so. If you were the first to think of something
+your peers are willing to adopt later, that means you are already ahead
+of them and they are unlikely to earn more marks by adopting your ideas.
+
+Policy on plagiarism 
+
+We encourage sharing, but you should share with everyone in the class,
+not just a selected group. That is,
+
+- You are not allowed to share individual assignments with classmates
+  directly.
+- You are not allowed to share project-related things with other teams
+  directly.
+
+If you submit code (or adopt ideas) taken from elsewhere (you can even
+reuse each other's work), you need to comply with our reuse policy.
+
+Detection:
+
+- Detecting plagiarism in code is quite easy. You are not fooling anyone
+  by reordering code or renaming methods/variables.
+- As all your work is publicly visible on GitHub, sooner or later
+  somebody will notice the plagiarism.
+
+Penalties: NUS policy dictates that all plagiarism cases are to be
+reported, and to be handled centrally (i.e., at school and university
+level) and not by course lecturers. Hence, the penalty will be
+determined by the personnel handling the investigation at
+faculty/university level.
+
+Policy on reuse 
+
+Scope: The policies on reuse apply to all project deliverables that are
+normally expected to be your own work (i.e., code, code comments,
+documentation, diagrams, images, etc.) unless stated otherwise.
+
+Reuse is encouraged. However, note that reuse has its own costs (such as
+the learning curve, additional complexity, usage restrictions, and
+unknown bugs). Furthermore, you will not be given credit for work done
+by others. Rather, you will be given credit for reusing work done by
+others.
+
+- You are allowed to reuse work from your classmates or past students,
+  subject to following conditions:
+  - The work has been shared publicly by us or the authors.
+  - You clearly give credit to the original author(s).
+- You are allowed to reuse code from external sources, subject to
+  following conditions:
+  - You clearly give credit to the original author/source.
+  - You do not violate the license under which the work has been
+    released. Please do not use 3rd-party images/audio in your software
+    unless they have been specifically released to be used freely. Just
+    because you found it in the Internet does not mean it is free for
+    reuse.
+- Always get permission from us before you reuse third-party libraries.
+  Please post your 'request to use 3rd party library' in our forum. That
+  way, the whole class get to see what libraries are being used by
+  others.
+  - Our approval is given based on compliance with the course.
+    Compliance with the license of the reused software is entirely your
+    responsibility. While we don't anticipate such a case, any liability
+    from improper reuse of a third-party library is to be borne by the
+    person who reused it (i.e., not NUS).
+  - Once a 3rd party library has been approved for one student/team, it
+    can be used freely by others without asking for approval again.
+
+Keep track of code reuse If you reuse/adapt code from elsewhere, cite
+the source in code immediately. Otherwise you will not remember the
+source of code reuse later. Not citing the original source can land you
+in trouble for plagiarism.
+
+FAQ: Can I use code generated by AI tools (e.g., Copilot, ChatGPT)?
+Answer: We don't explicitly prohibit you from using those tools, but we
+strongly discourage you from using them in a way that hinders your
+learning. For example,
+
+-  Good Use a tool such as GitHub co-pilot to increase the productivity
+  of writing code (e.g., auto-complete the next bit of code).
+-  Good Write the required code yourself, and then, use the tool to
+  generate alternative implementations, compare, and use that experience
+  to improve your own coding skills.
+-  Good When troubleshooting/debugging, use a tool to help you locate
+  the problem.
+-  Bad Give the problem description to the tool and get it to generate
+  the code for you, use it directly in your submission, and claim it as
+  your own.
+
+Other caveats:
+
+- Using such tools can result in your code being same as others in the
+  class. If such code was flagged for plagiarism, "It was generated by a
+  tool" will not be a valid excuse. Therefore, if you use (possibly with
+  minor changes) a non-trivial code snippet generated by a tool (e.g.,
+  an entire method), it is safer to acknowledge in the code as a case of
+  code reuse.
+- Those tools sometimes can confidently give you the wrong answer. So,
+  have a healthy level of scepticism about the accuracy of the code
+  generated by such tools.
+
+Automated plagiarism checks ahead! We'll be using automated plagiarism
+checks to detect uncredited reuses of content from other CS2103 tP's
+i.e., tP's done by other teams in this batch and all previous batches.
+These checks will be done after the final submissions. The cases
+detected will be verified and reported to the university administration
+for disciplinary action. As you know, NUS enforces a penalty of F grade
+for the entire course (with no option to S/U or withdraw from the
+course) for plagiarism offenses.
+
+Giving credit for reused work
+
+Given below are how to give credit for things you reuse from elsewhere.
+These requirements are specific to this course i.e., not applicable
+outside the course (outside the course, you should follow the rules
+specified by your employer and the license of the reused work)
+
+If you used a third party library:
+
+- Individual project (iP): Mention in the README file (under the
+  Acknowledgements section)
+- Team project (tP):
+  - Mention in the Developer Guide (under the Acknowledgements section)
+  - Mention in Project Portfolio Page if the library has a significant
+    relevance to the features you implemented.
+
+If you reused code snippets found on the Internet e.g., from
+StackOverflow answers or
+referred code in another software or
+referred project code by current/past student:
+
+- If you read the code to understand the approach and implemented it
+  yourself, mention it as a comment
+  Example:
+
+      //Solution below inspired by https://stackoverflow.com/a/16252290
+      {Your implementation of the reused solution here ...}
+
+          
+          Copy
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+          
+          Wrap Text
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+
+- If you copy-pasted code from elsewhere but modified it significantly,
+  mention it as a comment
+  Example:
+
+      //Solution below adapted from https://stackoverflow.com/a/16252290
+      {Your implementation of the reused solution here ...}
+
+          
+          Copy
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+          
+          Wrap Text
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+
+- If you copy-pasted a non-trivial code block (possibly with minor
+  modifications renaming, layout changes, changes to comments, etc.),
+  also mark the code block as reused code (using @@author tags with the
+  -reusedsuffix)
+  Format:
+
+      //@@author {yourGithubUsername}-reused
+      //{Info about the source...}
+
+      {Reused code (possibly with minor modifications) here ...}
+
+      //@@author
+
+          
+          Copy
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+          
+          Wrap Text
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+
+  Example of reusing a code snippet (with minor modifications):
+
+      persons = getList()
+      //@@author johndoe-reused
+      //Reused from https://stackoverflow.com/a/34646172
+      // with minor modifications
+      Collections.sort(persons, new Comparator<CustomData>() {
+          @Override
+          public int compare(CustomData lhs, CustomData rhs) {
+              return lhs.customInt > rhs.customInt ? -1 : 0;
+          }
+      });
+      //@@author
+      return persons;
+
+          
+          Copy
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+          
+          Wrap Text
+          
+          
+
+          
+            
+          
+
+
+          
+          
+          
+
+Giving credit for reused images (and other media assets): Ideally, the
+source should be credited where the asset appears. For example, if you
+reused an image in your GUI, you can credit the source where a
+screenshot of the GUI showing that image appears first in your user
+guide. In addition, you can also acknowledge the sources in your GitHub
+project's landing page (e.g., README.md)
+
+Giving credit to AB3 code: If your team project code follows a design
+similar to AB3, that doesn't mean you need to credit AB3 -- this is
+because a brownfield project is expected to follow existing code/design
+where possible, in the interest of consistency. This type of reuse need
+not be acknowledged/credited specifically.
+
+Giving credit to AB4 code: If you reused any code from AB4, cite it as
+you would cite reuse from any other external source.
+
+Giving credit for reusing from course materials (e.g., course textbook,
+tutorials, instructional resources from se-education.org) is not
+required, although you are welcome to do so. Reason: Those materials
+were created by the teaching team for you to use/reuse.
+
+Reuse within the team (e.g., reusing code written by a team member) need
+not be mentioned explicitly. However, you should factor in such reuse
+when you estimate effort contributed by each team member.
+
+Reuse of documentation (e.g., reusing a UG/DG section) is no different
+from code reuse. Such reuse should be credited as well.
+
+Citing the use of AI-generated/assisted work (e.g., using GitHub Copilot
+for project work):
+
+- If the use of the tool was localized into a few places (e.g., used it
+  to write a few methods/classes only), cite its use in comments near
+  where you used it.
+- If the use was more widespread (e.g., used it as an auto-complete tool
+  during most of your coding), cite the usage (i.e., which tool, who
+  used it, the extent of use) in the following location instead (i.e.,
+  no need to cite in code comments):
+  - iP: in the README file
+  - tP: in the DG, under the Acknowledgements section
+
+Policy on feedback for project work 
+
+The teaching team will not give ad-hoc feedback on project work
+connected to a component yet to be graded. For example, if you were to
+ask your tutor for feedback on your individual or team project feature
+design, the tutor is not allowed to give feedback. Similarly, if you are
+faced with a design decision in your project, a tutor will not make that
+decision for you.
+
+FAQ Why are tutors not allowed to give feedback on project deliverables?
+
+------------------------------------------------------------------------
+
+FAQ Huh? If tutors are not giving feedback on project deliverables, how
+can we improve our project work?
+
+------------------------------------------------------------------------
+
+You can still use the course forum to seek feedback on a specific aspect
+of your project where a professor can answer the question in a general
+way that's not unfair to other teams (and other teams can benefit from
+the answer as well).
+Alternatively, you can send your question to cs2103@comp.nus.edu.sg.
+
+Policy on help from outsiders 
+
+In general, you are not allowed to involve outsiders in your project
+except your team members and the teaching team. However, It is OK to
+give your product to others for the purpose of getting voluntary user
+feedback. It is also OK to learn from others as long as they don't do
+your project work themselves.
+
+Policy on deadline extensions : OPTIONAL
+
+The ability to meet deadlines is a learning outcome of this course.
+Therefore, we do not normally extend course deadlines to accommodate
+those who missed the deadline, unless there are some extraordinary
+circumstances.
+
+However, weekly project deliverables without specific deadlines are
+flexible. You will not be penalized for missing them if you catch up
+within a few days.
+
+Apdx A: Course PrinciplesApdx C: FAQ
+
+Apdx B: Course Policies ‎
+
+Policy on admin questions ‎ Policy on following instructions ‎ Policy on
+grading smaller/larger teams : OPTIONAL‎ Policy on project work
+distribution ‎ Policy on absence due to valid reasons (e.g. MC, LOA,
+University events) : OPTIONAL‎ Policy on email response time ‎ Policy on
+tech help ‎ Policy on publishing submissions : OPTIONAL‎ Policy on
+plagiarism ‎ Policy on reuse ‎
+
+Giving credit for reused work‎
+
+Policy on feedback for project work ‎ Policy on help from outsiders ‎
+Policy on deadline extensions : OPTIONAL‎
+
+[Powered by [] MarkBind 6.0.3, generated on Thu, 18 Dec 2025, 2:07:17
+GMT+8]

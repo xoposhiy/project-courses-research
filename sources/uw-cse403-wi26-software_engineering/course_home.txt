@@ -1,0 +1,52 @@
+Welcome to CSE 403
+
+Software engineering goes beyond software development. It includes
+processes from defining a product to releasing and evolving that
+product. Software engineering requires strong technical skills, and also
+strong teamwork and communication skills. Get ready to learn software
+engineering principles first hand, improve your technical skills, and
+ship a product!
+
+Meetings
+
+- Lectures: Mon/Wed/Fri 12:30pm-1:20pm (CSE2 G10)
+- Team meetings: Tue 1:30pm-2:20pm (CSE2 G10)
+- Project meetings: Thu 1:30pm-2:20pm (CSE2 G10)
+
+Staff
+
+- Instructor: Gail Alverson (alverson@cs); OH: Mon/Wed 1:30-2:20pm in
+  CSE1 212 and by appt
+- TA: Graham Cobden (gycobden@cs)
+- TA: Medha Gupta (medhag2@cs)
+- TA: Hannah Potter (hkpotter@cs)
+- TA: Srimedha Thummala (st82@cs)
+- TA: Yixuan Wang (yixuan19@cs)
+  TAs hold office hours by appt; send email listing several times that
+  you are available
+
+Syllabus and Project
+
+- Syllabus - course description, format and policies
+- Course project - overview
+
+Communication
+
+- Course calendar
+  - Important source for calendar, lecture, section, and assignment
+    information
+- Canvas
+  - Assignment turn-in and grade database
+- Ed discussion
+  - For all class announcements, questions, and discussion with CSE 403
+    students and staff
+  - Please check Ed regularly and adhere to the discussion board
+    policies
+- Poll everywhere
+  - Polling and survey tool for student input, including during lectures
+- cse403- staff@cs
+  - For private questions to the CSE 403 staff, including instructor
+
+Credits: We gratefully acknowledge that parts of the course material
+have been adapted from material developed by staff of previous classes
+of CSE 403.

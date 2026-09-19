@@ -1,0 +1,289 @@
+CSE 403 project: Requirements & plan
+
+Overview
+
+Congratulations! Your pitch has been accepted by the venture
+capitalists, and you have attracted a talented engineering team to
+implement it. Now you will expand your pitch into a more complete plan.
+
+Work with your newly-assigned project team to establish a solid
+definition of your project from which to base a design and
+implementation. You will write a document that describes the goals of
+your project, its functional and non-functional requirements, and how
+your team plans to deliver it. This is the first iteration of a living
+document, and you’ll be asked to update it during the development cycle.
+
+Reminder: AI tools may not be used for content in your project document
+nor in other github docs (e.g., README, status reports, developer and
+user guides). Please see the course Syllabus for the class policy on
+using AI tools.
+
+Part 1 - GitHub setup
+
+1. Create your team’s GitHub repository
+
+Create a repository for your project on GitHub. Determine if you want to
+make your repo public or private. Make all team members contributors,
+give all staff members edit access. Plan to use one repo (vs multiple)
+for all your work.
+
+2. Add a top-level README.md file
+
+The top-level README should briefly describe the idea and goals of your
+project and explain the layout of the repository. It should link to your
+living document (which might be stored in the repository, or might be
+stored elsewhere).
+
+3. Add a folder and template for your weekly status report
+
+See the class project page for the content of the weekly status report,
+which should be collaboratively written. Make each week’s report its own
+file in a ‘Status reports’ folder in your repo, so that you can easily
+refer to past reports and track status. Create a template for use each
+week.
+
+4. Start tracking your project tasks by creating issues
+
+Managing issues or tasks or bugs is a very common feature of project
+management tools like GitHub. We highly recommend you use it for team
+coordination. Consider creating a github “Project” alongside your repo
+to leverage the scrum-style taskboard support. Project tasks can be
+simultaneously registered as issues.
+
+5. Start experimenting and setting up resources
+
+Next week’s milestone will have you finalize your system’s architecture
+and design, but start exploring, prototyping, and setting up resources
+now. For example, if your project requires setting up a web or SQL
+server, get started on this task and add relevant instructions and
+information to your Git repository.
+
+Review the article, About merge conflicts and Git conflict resolution
+tutorial. When merge conflicts come up later in the quarter, you will be
+happy that you did.
+
+Complete these tasks and include the link to your repo in your project
+document (described below).
+
+Part 2 - Project description and plan
+
+Create a shared living document. We recommend using a Google doc, MS
+Word doc, or Markdown doc in a shared repository. The majority of your
+technical writing will go in to this document. Use tables and bullets
+and diagrams when appropriate to capture the information and to make the
+document easy to read and update. When a milestone is due you will make
+a snapshot (PDF) of this document and upload it to Canvas.
+
+Produce the first version of your project document with the following
+sections.
+
+Title your document with the project name
+
+Provide a name, a brand, for your project. Often in 403, your project
+name will be the same as your product name. Your marketing team will
+want you to include this on all your deliverables.
+
+1. Team info (10%)
+
+Provide a concise summary of the project team and project artifacts.
+Specifically:
+
+- List each team member, their current role in the project and why they
+  were chosen for this role. If a team member’s role changes during the
+  quarter, remember to update this information.
+- Link to each project relevant artifact such as your git repo.
+- List communication channels/tools, expectations, and meeting plans
+  that will keep your team in sync.
+
+2. Product description (20%)
+
+Briefly describe your overall product and its purpose. Use your project
+proposal as a starting point. Revise it based on feedback you received
+so far and the input of your whole team. It is very typical that your
+project description at this point will have evolved from what was
+pitched last week.
+
+Additionally, add the following to this section:
+
+- 4+ major features you will implement (P0 and P1s).
+- 2+ stretch goals you hope to implement (P2s).
+
+The major features should constitute a minimal viable product (MVP).
+
+3. Use cases (functional requirements) (30%)
+
+Each team member must come up with and describe at least one formal use
+case of your product, following this template as described in class and
+the readings:
+
+0.  Goal
+1.  Actors
+2.  Triggers
+3.  Preconditions
+4.  Postconditions (success scenario)
+5.  List of steps (success scenario)
+6.  Extensions/variations of the success scenario
+7.  Exceptions: failure conditions and scenarios
+8.  Name of team member who created the use case
+
+Use cases should capture the unique features of your product. Do not
+focus on features common to products, such as logging into a service, or
+downloading a result file.
+
+Team members should review each others use cases for accuracy and
+quality.
+
+4. Non-functional requirements (10%)
+
+Describe at least three non-functional requirements of your product,
+e.g., related to scalability, usability, security and privacy, etc.
+
+5. External requirements (10%)
+
+In addition to the requirements stated above, the staff imposes the
+following requirements on your product:
+
+- The product must be robust against errors that can reasonably be
+  expected to occur, such as invalid user input.
+- The product must be installable by a user, or if the product is a
+  web-based service, the server must have a URL that others can use to
+  access it. If the product is a stand-alone application, you are
+  expected to provide a reasonable means for others to easily download,
+  install, and run it.
+- The software (all parts, including clients and servers) should be
+  buildable from source by others. If your product is a web-based
+  server, you will need to provide instructions for someone else setting
+  up a new server. Your system should be well documented to enable new
+  developers to make enhancements.
+- The scope of the project must match the resources (number of team
+  members) assigned.
+
+Make sure that these requirements are specialized to your project and
+included in your document; do not copy and paste the above requirements
+verbatim.
+
+6. Development process description (20%)
+
+Describe your quarter-long software development process.
+
+- Specify and justify the software toolset you will use.
+- Provide a preliminary schedule for your project with at least four
+  concrete milestones and deadlines for the quarter.
+- Specify and explain at least three major risks that could prevent you
+  from completing your project, and what is your mitigation plan.
+- Describe at what point in your process external feedback (i.e.,
+  feedback from customers outside your project team, including the
+  project manager) will be most useful and how you will get that
+  feedback.
+
+Submit
+
+1.  Export a PDF snapshot of your document named [project name]_m2.pdf
+    and submit it to Canvas.
+2.  Individually complete the form individual-status-and-contribution,
+    provided by your TA. This is a required part of each group milestone
+    assignment and contributes to your individual grade.
+
+Clarifications and FAQs
+
+What is a team member “role”?
+
+A role describes the part of the project (or a set of tasks) a team
+member is responsible for. You can refine these roles as you continue to
+work on your project and you are free to change them as you go forward.
+It is important, however, to justify your current decisions.
+
+Here are two examples for defining roles:
+
+1.  A typical web application project could have roles of: 2-3 backend
+    engineers, 1-2 frontend engineers, and 1-2 engineers in charge of UI
+    design (probably in addition to being frontend or backend
+    engineers).
+2.  A data analysis project could have roles of: 1-2 people responsible
+    for data collection and storage, 1-2 people responsible for data
+    analysis and visualization, and 1-2 people responsible for
+    infrastructure and automation.
+
+You may also want to consider if someone’s role includes running a daily
+scrum or driving schedule updates.
+
+How much should we say about the software toolset we will use?
+
+What programming languages, data sources, project trackers, and other
+tools will you use? What, if any, software components will you attempt
+to use “off the shelf” versus implementing them from scratch? Explain
+why you chose these tools and languages, as well as why they are
+suitable for your project.
+
+It is OK to establish some of the answers during the requirements
+engineering stage and others during the design stage. It is also OK of
+some of these change as you continue working on the project.
+
+What should we consider in a preliminary schedule?
+
+Some ideas:
+
+- Consult the class calendar for dates of course milestone deliverables.
+  What needs to be done for and leading up to these?
+- Be specific with your functionality targets. For example, don’t just
+  say, beta release on day-x; say beta release on day-x that will
+  include a, b, and c functionality.
+- Consider a plan for each major area and when they’ll integrate. While
+  we expect you to work in an agile fashion, given our short quarter,
+  identifying some milestones that include integrated features is a good
+  way to make sure you’re on track for your delivery. The beta release,
+  for example, must include one feature that is connected from the front
+  end to the back end.
+
+What if we want to commercialize our project idea?
+
+Your group will collectively own its own work. If you think you may want
+to commercialize your project, you may want to consult early with a
+legal source. A resource on campus is Comotion. Most often, the main
+value of the CSE 403 project is to flesh out and test ideas, rather than
+to produce code that will live until commercialization.
+
+Be aware of software licenses on open source (or other) software that
+you may want to leverage in your project. Understanding the ownership of
+intellectual property is important, for your class use as well as should
+you want to commercialize your project in the future. The 403 course
+staff is here to help you understand this space.
+
+Any advice regarding writing?
+
+Plausibility, thoughtfulness, and level of detail will largely determine
+the score for this assignment. For example, generic or incomplete use
+cases often lead to deductions. You should choose and clearly describe
+substantial use cases that are important to the core functionality of
+your product. You should also list a reasonable set of steps in the
+various scenarios that can occur in these use cases. Make sure to not
+omit important steps or details. Make sure that the state of the system
+at the end of any path through the use case matches what the use case
+claimed is the final state.
+
+Your document must be clear and professional. This means it should be
+concisely written, with proper spelling and grammar, clear wording, and
+formatted with supporting structure to present your ideas clearly to the
+reader. We strongly encourage using tables or bulleted lists, and
+diagrams, to help organize the material in a format easier to read.
+
+Do not include the assignment instructions in your document. This can be
+very distracting. The document should be focused solely on your project
+specific information.
+
+You are developing a living document, which means you should expect
+change requests and iterations. Consider an organization that willq make
+this easier on yourselves over the quarter.
+
+Is there a minimum or maximum number of pages?
+
+No, grading focuses on completeness and proper writing (clarity and
+conciseness). As with all writing, technical or otherwise, you want to
+completely address each thing that needs to be addressed (in this case,
+requirements) clearly enough to be understandable. Do not pad your
+writeup. Express the information concisely and largely free of
+redundancy. (Use cross-references if necessary to avoid redundancy.)
+
+Can we use AI to create this document?
+
+No. Please see the AI policy in the course syllabus.

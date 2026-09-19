@@ -1,0 +1,127 @@
+Internal project options
+
+The following projects consist of adding features to the code review
+tools mentioned on the projects page. Some projects may not apply to
+certain tools (for example, if the tool already supports the proposed
+feature). These are examples of possible features; you may propose other
+features for other projects, subject to instructor approval.
+
+Multi-anchored comments
+
+Reviewers can add comments attached to a specific line of code. However,
+many kinds of comments apply to multiple lines of code (for example,
+they may suggest moving a line from one place to another, or they may
+spot the same defect in multiple files). The client would like users to
+be able to “link” a single comment to multiple locations in files in the
+review. This will reduce redundancy for authors responding to feedback
+without reducing thoroughness.
+
+When adding a new inline comment, the user should have the option to
+link to an existing comment in the review (possibly constrained to the
+same patchset/revision). When browsing comments, they should list and
+hyperlink to all file locations that link to them.
+
+It would also be nice if comments could reference a range of lines in a
+file rather than just a single line (this is already supported by Review
+Board).
+
+Comment on untouched files
+
+One of the trickiest parts of reviewing code is identifying changes that
+are necessary but absent from the submitted patch. Or sometimes it would
+be convenient to reference a pattern or bit of documentation that
+appears elsewhere in the codebase. Unfortunately, many code-review tools
+limit comments to files and lines that were affected by the patch. The
+client would like the ability to attach comments to other, currently
+unaffected lines and files.
+
+The first step is to support comments on files that are affected by the
+changeset under review, but attached to lines far away from those
+affected by the patch (this may already be supported by some code review
+tools). Next, users should have the ability to introduce additional
+files to the review (with zero changes) for the purpose of commenting on
+them. Given the number of files present in many codebases, the user
+interface for selecting the file deserves special attention.
+
+The review interface should clearly distinguish files that have no
+changes in a particular revision and are only referenced by comments.
+And when viewing such files (or viewing comments in changed files far
+away from the changes), the interface should show some context around
+the comment(s), then “collapse” other code in the file, as it does
+between changed regions.
+
+This capability may interact with the “multi-anchored comments” project.
+
+Reviewer read markers
+
+The client would like reviewers to have the ability to mark individual
+files (or even regions of files) as “read” at a particular revision of
+the review. This helps them keep track of changes they have already
+looked over.
+
+If a subsequent revision does not change a file that was marked as
+“read,” then that file should be shown as “tentatively read” in the new
+revision (if the file was changed, it should be marked as “unread”). The
+reviewer can change the status to “read” or “unread” (or back to
+“tentatively read”, if applicable) at any time. The history of all
+changes to a file’s read status (at a particular revision) should be
+recorded, and there should be a way to view that history in the UI.
+
+The review interface should show the user what proportion of the code
+under review they have read (and tentatively read) at each revision. If
+read markers are supported for regions within a file, then the file’s
+overall read status should be shown as a percentage.
+
+Read status should be stored separately for each reviewer. By default, a
+reviewer should only see their own read markers, but there should be a
+way to view other reviewers’ read status as well.
+
+Inline edits
+
+The client would like reviewers to be able to propose their own small
+changes to code under review (such as fixing minor typos or rewording a
+comment). The author would then have the ability to approve these
+suggestions, resulting in a new revision with the changes applied. In a
+merge-based review, this could create a new commit.
+
+An additional desired feature is an interface for approving suggested
+changes as a batch, creating only a single new revision (and allowing
+the author to customize the commit message for a merge-based review).
+
+The user interface needs to be very streamlined – it should be quicker
+to make small changes using this feature than for the author to upload
+changes made in their editor in response to a comment.
+
+Merge-based reviews
+
+Challenge project! This will likely be more difficult than the others.
+Volunteers only.
+
+Gerrit, in Google tradition, only supports reviewing single
+“changesets.” But developers who have used GitHub are used to reviewing
+“pull requests.” Pull requests allow authors to bundle several related
+changes together for collective review while still separating
+independent changes in different commits. They also allow reviewers to
+comment on what will become the commit history (suggesting different
+ways to split up the changes for ease of bisection, reverting, etc.).
+
+Supporting pull requests requires major changes to the core data model
+of Gerrit and would normally be well beyond the scope of a CS 5150
+project. However, a Gerrit maintainer actually proposed a
+proof-of-concept changeset supporting precisely this behavior; he even
+included design documentation! Unfortunately, that was back in 2019, and
+it was not merged. His work is described in this thread.
+
+The client would like Gerrit to support merge-based reviews (a.k.a. pull
+requests). While the client has strong opinions about how merge-based
+reviews should function, this project will start out as a feasibility
+exercise. The development team is asked to update the proof-of-concept
+branch to work with the contemporary Gerrit codebase (this requires
+resolving dozens of merge conflicts, performing code archaeology along
+the way). The team will then analyze the test coverage of the changes
+(improving it if necessary) and will demonstrate the capabilities to the
+client. The client will then suggest tweaks based on the time remaining.
+
+This work will be conducted in a separate branch to avoid interactions
+with other projects. If successful, merging these branches may be a task
+for a future semester.

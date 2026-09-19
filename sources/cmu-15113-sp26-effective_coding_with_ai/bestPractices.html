@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15-113 Student Wisdom: Best Practices for Coding with AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f7f1e6;
+    --paper-dim: #efe7d6;
+    --ink: #1e2a33;
+    --ink-soft: #40525d;
+    --ink-faint: #8a9099;
+    --teal: #0d5c63;
+    --teal-deep: #093f44;
+    --rust: #b4461f;
+    --rust-soft: #d67a4e;
+    --amber: #c58b2b;
+    --rule: #d6c7a8;
+    --card: #fbf6eb;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern", "liga", "onum";
+  }
+
+  /* ---------- Layout ---------- */
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 2.25rem 6rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  @media (min-width: 1020px) {
+    .page {
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  /* ---------- Header ---------- */
+  header.masthead {
+    padding: 4.5rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3rem;
+    grid-column: 1 / -1;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 1.25rem;
+    font-weight: 500;
+  }
+
+  h1.title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.4rem;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    color: var(--ink);
+  }
+
+  h1.title em {
+    font-style: italic;
+    color: var(--teal-deep);
+    font-weight: 500;
+  }
+
+  .standfirst {
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 40rem;
+    font-weight: 400;
+  }
+
+  .byline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--rule);
+    max-width: 40rem;
+  }
+
+  /* ---------- Nav (TOC) ---------- */
+  nav.toc {
+    display: none;
+  }
+
+  @media (min-width: 1020px) {
+    nav.toc {
+      display: block;
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      line-height: 1.9;
+    }
+
+    nav.toc .toc-label {
+      color: var(--teal);
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0.75rem;
+    }
+
+    nav.toc a {
+      display: block;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 0.15rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 0.75rem;
+      margin-left: -0.75rem;
+      transition: all 0.15s;
+    }
+
+    nav.toc a:hover {
+      color: var(--rust);
+      border-left-color: var(--rust-soft);
+    }
+
+    nav.toc .toc-group {
+      margin-top: 1.1rem;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  /* ---------- Main content ---------- */
+  main.content {
+    min-width: 0;
+  }
+
+  section.assignment, section.overview, section.summary {
+    margin-bottom: 4rem;
+    scroll-margin-top: 2rem;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 2.15rem;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin: 0 0 0.25rem;
+    font-variation-settings: "opsz" 100;
+    color: var(--teal-deep);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  h2 .hw-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--rust);
+    background: var(--paper-dim);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    align-self: center;
+  }
+
+  h2 .hw-title {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.5rem;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 2rem 0 0.6rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36;
+  }
+
+  h3.section-heading {
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    font-weight: 500;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+    margin-top: 2.5rem;
+  }
+
+  p { margin: 0 0 1rem; }
+
+  /* ---------- "What was the assignment" card ---------- */
+  .brief {
+    background: var(--card);
+    border-left: 3px solid var(--teal);
+    padding: 1.25rem 1.5rem 0.5rem;
+    margin: 1.25rem 0 2rem;
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+
+  .brief .brief-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 0.5rem;
+    display: block;
+    font-weight: 500;
+  }
+
+  /* ---------- Stat strip ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+    gap: 0.5rem;
+    margin: 1.5rem 0 2rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.9rem 0;
+  }
+
+  .stat {
+    padding: 0.25rem 0.5rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .stat:first-child { border-left: none; }
+
+  .stat .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.2rem;
+  }
+
+  .stat .value {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--rust);
+    line-height: 1.1;
+    font-variation-settings: "opsz" 36;
+  }
+
+  .stat .value .over {
+    color: var(--ink-faint);
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-left: 0.1rem;
+  }
+
+  /* ---------- Pull quote ---------- */
+  blockquote.pull {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: var(--teal-deep);
+    border-left: 3px solid var(--rust);
+    padding: 0.25rem 0 0.25rem 1.3rem;
+    margin: 1.7rem 0 1.7rem 0;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  blockquote.pull .attrib {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-top: 0.6rem;
+    font-weight: 400;
+  }
+
+  /* ---------- Representation bar ---------- */
+  .rep-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+  }
+
+  .rep-bar .dots {
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  .rep-bar .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--paper-dim);
+    border: 1px solid var(--rule);
+  }
+
+  .rep-bar .dot.on {
+    background: var(--rust);
+    border-color: var(--rust);
+  }
+
+  /* ---------- Theme list ---------- */
+  .theme {
+    margin: 1.6rem 0 2rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .theme h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .theme p {
+    margin: 0 0 0.7rem;
+  }
+
+  .theme .evidence {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.5;
+    padding-left: 0.6rem;
+    border-left: 2px solid var(--paper-dim);
+    margin-left: 0;
+    margin-top: 0.3rem;
+  }
+
+  /* ---------- Minor observation (single mention) ---------- */
+  .minor {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    padding-left: 1rem;
+    border-left: 2px dotted var(--rule);
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+
+  /* ---------- Tools strip per assignment ---------- */
+  .tools-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  .tool-chip {
+    padding: 0.22rem 0.55rem;
+    border-radius: 3px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    letter-spacing: 0.03em;
+  }
+
+  .tool-chip .pct {
+    color: var(--rust);
+    font-weight: 500;
+    margin-left: 0.3rem;
+  }
+
+  /* ---------- Figures ---------- */
+  figure {
+    margin: 2.5rem 0;
+    padding: 1.75rem 1.5rem 1.4rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+
+  figure .fig-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 500;
+    margin: 0 0 0.3rem;
+  }
+
+  figure .fig-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    color: var(--ink);
+  }
+
+  figure figcaption {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.5;
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- Heatmap ---------- */
+  .heatmap {
+    display: grid;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: 115px repeat(9, 1fr);
+    gap: 2px;
+    min-width: 600px;
+  }
+
+  .hm-cell {
+    padding: 0.5rem 0.2rem;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    color: var(--ink);
+  }
+
+  .hm-row-label {
+    font-size: 0.78rem;
+    text-align: left;
+    padding: 0.5rem 0.4rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .hm-col-label {
+    font-size: 0.68rem;
+    text-align: center;
+    padding: 0.4rem 0.1rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    writing-mode: horizontal-tb;
+  }
+
+  /* ---------- Metric lines chart ---------- */
+  svg.line-chart {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+  }
+
+  /* ---------- Summary big cards ---------- */
+  .practice {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .practice .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--rust);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .practice h3.practice-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.5rem;
+    color: var(--teal-deep);
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36;
+  }
+
+  .practice p {
+    margin: 0 0 0.6rem;
+  }
+
+  .practice .origin {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 0.5rem;
+  }
+
+  /* ---------- Divider ---------- */
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 3rem 0;
+    border: none;
+    position: relative;
+  }
+
+  .divider::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--paper);
+    padding: 0 0.75rem;
+    color: var(--rust);
+    font-size: 0.85rem;
+  }
+
+  /* ---------- Responsive tweaks ---------- */
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    .page { padding: 0 1.2rem 4rem; }
+    header.masthead { padding: 2.5rem 0 2rem; }
+    figure { padding: 1.2rem 1rem; }
+    h2 { font-size: 1.7rem; }
+    blockquote.pull { font-size: 1.1rem; padding-left: 1rem; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; color: black; font-size: 11pt; }
+    nav.toc { display: none; }
+    .page { grid-template-columns: 1fr; padding: 0; max-width: none; }
+    section.assignment { page-break-inside: avoid; }
+    figure { page-break-inside: avoid; background: white; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">15-113 · Effective Coding with AI · Spring 2026</p>
+    <h1 class="title">Best Practices and Lessons Learned</h1>
+    <h2 class="title">...from the first pioneers of 15-113 Effective Coding with AI</h2>
+<br>
+    <p class="standfirst">A report distilled from student surveys after each assignment, including the techniques, tools, and tough lessons that emerged as the class moved from browser-chatbot HTML prompts to full agentic workflows.</p>
+    <p class="byline">Based on <strong>~320 free-response comments</strong> across nine post-assignment surveys (Project&nbsp;1, HW&nbsp;2, HW&nbsp;3, HW&nbsp;4, Project&nbsp;2, HW&nbsp;6, HW&nbsp;7, HW&nbsp;8, HW&nbsp;9). Claims are labelled by how well they are represented in the data. Descriptions of each assignment are drawn from the published course writeups where available, and otherwise from the survey question text and students' own descriptions of what they did.</p>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-label">Contents</div>
+    <a href="#preface">Preface</a>
+    <div class="toc-group">Part one · assignments</div>
+    <a href="#project1">Project 1 · Portfolio</a>
+    <a href="#hw2">HW2 · Crossy Road</a>
+    <a href="#hw3">HW3 · Explore an API</a>
+    <a href="#hw4">HW4 · Frontend + Backend</a>
+    <a href="#project2">Project 2 · Creative web app</a>
+    <a href="#hw6">HW6 · Databases / SQL</a>
+    <a href="#hw7">HW7 · Code handoff</a>
+    <a href="#hw8">HW8 · Agentic dev</a>
+    <a href="#hw9">HW9 · Phone apps</a>
+    <div class="toc-group">Part two · summary</div>
+    <a href="#tool-evolution">The tool evolution</a>
+    <a href="#best-practices">Best practices</a>
+  </nav>
+
+  <main class="content">
+
+    <section class="overview" id="preface">
+      <h2><span class="hw-title">An important note from Mike</span></h2>
+      <p>Hi everyone!  First, thanks for all of your tremendous effort over these last 14 weeks.  It's been an honor to pilot this new course alongside you all, and you've made such wonderful things!</p>
+      <p>We also have <b>so much insight</b> from all of you, and we're finally close to being able to synthesize those into a set of student-driven best practices that you can carry forward, and that other students will benefit from in future semesters.</p>
+      <p>This document is a first attempt at summarizing your insight from 15-113 Spring 2026.  It's still <i>somewhat</i> incomplete because your capstone is due after the final class where we'll present this, but we'll update it with your feedback from that project as soon as we have it.  In the meantime, it's important to note that aside from this first section, this preliminary report is <b>mostly generated with Claude Opus 4.7, with subsequent manual revisions</b>.  I've made a reasonable attempt to make sure that it's aligned in its representation of the assignments and your comments, and to make sure that it's not inventing quotes or making unfounded conclusions, but one should still approach these conclusions with a somewhat critical eye.  I'll be writing my <i>own</i> summary of this semester in the coming weeks, which I'll of course share with you, and <i>everything</i> in that document will be carefully validated.  At the moment I agree with essentially all of the conclusions in his report, but especially where AI is concerned, we know that <b>transparency is always best!</b></p>
+    </section>
+
+    <section class="overview" id="overview">
+      <h2><span class="hw-title">How to read this report</span></h2>
+      <p class="subtitle">A short legend before we dive in.</p>
+
+      <p>Each section below covers one assignment, in chronological order. The structure for every section is the same:</p>
+
+      <p><strong>The brief.</strong> A short description of what the assignment asked for, drawn from the published course writeup where available.</p>
+
+      <p><strong>A stat strip.</strong> Averages from the Likert-style questions on the survey. "Satisfaction" and "Understanding" are on a 1–7 scale; "No-bugs confidence" and, where asked, "Challenge" are on a 1–5 scale.</p>
+
+      <p><strong>Themes from the class.</strong> The substantive advice that showed up in the free-response field, clustered into themes. Each theme is tagged with how well it's represented in the data:</p>
+
+      <div class="theme">
+        <h4>Example theme
+          <span class="rep-bar">
+            <span class="dots">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span>
+            </span>
+            Dominant
+          </span>
+        </h4>
+        <p>A <strong>dominant</strong> theme (5 dots) shows up in roughly a third or more of the comments on that assignment. A <strong>strong</strong> theme (4 dots) is the plurality view but doesn't swamp everything else. A <strong>common</strong> theme (3 dots) is clearly repeated. <strong>Some</strong> (2 dots) means a handful of students said it. <strong>One student</strong> (1 dot) flags an observation worth sharing even if only one person raised it.</p>
+      </div>
+
+      <p>When perspectives genuinely conflict, both are shown with their own representation tags. Where a quote is used, the student identifier and assignment are cited as <code style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--teal)">[S## · HW#]</code> so the instructor can trace responses back to the original survey.</p>
+    </section>
+
+    <section class="assignment" id="project1">
+      <h2><span class="hw-tag">Project 1</span><span class="hw-title">Personal Portfolio Website</span></h2>
+      <p class="subtitle">Week 1–2 · first major assignment · most students' first-ever website</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>Build and deploy a professional portfolio website with an About section, a Projects section, and contact info. Responsive design, live on GitHub&nbsp;Pages, AI usage documented in code comments. Students were steered toward browser-based chat tools (ChatGPT, Claude, Gemini) rather than IDE integrations, specifically so they would <em>notice the limitations</em> of that workflow.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">42</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">5.3<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood code</p><p class="value">4.4<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">No-bugs confidence</p><p class="value">3.8<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Can update later</p><p class="value">4.3<span class="over">/5</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Gemini <span class="pct">31%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">26%</span></span>
+        <span class="tool-chip">Claude <span class="pct">26%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">10%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">5%</span></span>
+      </div>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Ask the AI to produce a plan before any code, and read the plan.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <!-- <p>The most consistent advice on Project 1 was to treat the AI as an architect first and a coder second. Students who asked for plans, outlines, or section-by-section strategies before letting the model write anything reported smoother work and cleaner code.</p> -->
+        <p class="evidence">"Having the AI make plans for large features is helpful." [S31 · P1] · "Get AI to give you their plan before telling it to execute it." [S43 · P1] · "Using an AI tool to plan out your project first." [S1 · P1] · "When using GitHub Copilot, I found using Plan Mode first and then switching over to Agent Mode to be very effective." [S37 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>When the chat gets muddied (accumulates bad context), start a new one.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>Several students independently concluded that chats accumulate bad context, requiring a fresh chat to continue.</p>
+        <p class="evidence">"Refreshing the chat helps not muddy the code — don't just keep prompting, and safe often." [S2 · P1] · "Starting a new chat even with the same model fixes problems." [S39 · P1] · "Try start new conversation if the current one won't be able to give what you want." [S42 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Specificity pays, <em>but</em> a minority got better results by loosening the reins.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong, with a genuine counter-view</span>
+        </h4>
+        <p>Most students said detailed, explicit prompts yielded the best output: telling the model exactly what to change, what <em>not</em> to change, and where.</p>
+        <p class="evidence">"Ask for one change (or group of very similar changes) at a time." [S45 · P1] · "When prompting, specify what need to be changed and what don't need to be changed. Giving sample is generally helpful." [S35 · P1] · "You need to be pretty specific about what u want or it will give you a really simply result." [S26 · P1]</p>
+        <p>Some argued the opposite: hand over aesthetic judgement and let the model surprise you.</p>
+        <p class="evidence">"AI performed better the less specific I was, and the more 'free rein' it had to complete a task." [S24 · P1] · "Classmate prompted it to do more general things rather than specific and let AI take more control of the design." [S41 · P1] · "It was easier to use AI in an open-ended way to start and for design features." [S18 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Feed concrete references.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>Visual references and links to inspiration websites outperformed pure text descriptions, especially for layout and style.</p>
+        <p class="evidence">"If you want to combine multiple pieces for inspiration, rather than describing it in the prompt, actually provide the sources you want to combine (the link of a cool hackathon website with the link of a cool portfolio you saw)." [S15 · P1] · "Make a sketch in Figma and then tell LLM to make a website that looks like the sketch really helps a lot." [S32 · P1] · "Use AI to view other websites and then generate the format and slowly prompt new elements onto the page." [S5 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Verify everything: the model will confabulate.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>Hallucinated details (especially personal info, instructions, and small styling choices) showed up often enough that several students made "check its output" a standing rule.</p>
+        <p class="evidence">"Check anything that it writes because it really likes to make things up." [S17 · P1] · "It remembered everything, even from previous prompts. When I made my first skeleton of the website, it had information about me I didn't explicitly write in." [S33 · P1] · "I often had to walk the AI through issues I was facing. It had difficulty finding its own bugs when they were not described in a lot of detail." [S25 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Ask for explanations so you understand what's being shipped.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Treating the assistant as a learning resource was a recurring recommendation.</p>
+        <p class="evidence">"When prompting, emphasize that you want to understand why we're changing certain code and what certain code does for us implementing our desired feature." [S21 · P1] · "Asking AI to make the code readable to beginners is a good way to learn." [S40 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>IDE-integrated tools beat the browser window, when you can use them.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>A small but vocal group found the browser-chat workflow the course prescribed frustrating compared to IDE integrations they already knew.</p>
+        <p class="evidence">"Using Claude Code in the IDE was way better than using the browser version." [S8 · P1] · "Using cursor, it is very powerful." [S4 · P1] · "The live preview extension worked well with GitHub copilot, enabling you to directly select elements on your website and let AI modify it." [S36 · P1] · "Use vs code extensions it makes the work flow a lot easier." [S28 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Try to solve it yourself before pasting the error in.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student</span>
+        </h4>
+        <p>Advice worth highlighting even though only one student voiced it this assignment (the pattern returns later in the semester):</p>
+        <p class="evidence">"Always try to solve an error first before copying into the prompt. Even if you just spend 20 seconds looking at it, you will learn a lot more." [S22 · P1]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Model choice matters; credit / rate limits will bite you.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Different models excel at different things, and free-tier rate limits surprise people mid-deadline.</p>
+        <p class="evidence">"The model you use really makes a huge difference." [S34 · P1] · "Claude is good for good ui design." [S29 · P1] · "GitHub Copilot is very convenient but the credits are gobbled up really quick." [S14 · P1] · "Putting in a contact form is relatively easy with AI — Gemini specific." [S12 · P1]</p>
+      </div>
+
+      <blockquote class="pull">
+        "AI is better suited for iterating and optimizing after an MVP is designed, rather than creating everything from scratch. The key is that you must have your own ideas first, it shouldn't be completely handed over to AI."
+        <span class="attrib">[S44 · Project 1]</span>
+      </blockquote>
+    </section>
+
+    <section class="assignment" id="hw2">
+      <h2><span class="hw-tag">HW 2</span><span class="hw-title">Crossy Road</span></h2>
+      <p class="subtitle">Week 3 · "Core prompting strategies" · building a playable 2D (or, if brave, 3D) game</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>After a lecture series on prompting strategies (naive prompting, plan-adjust-execute, detailed prompts, "Tetris three ways"), students were given <strong>one hour</strong> to prompt their way to as much of a Crossy-Road-style game as they could, with a follow-up discussion to see which strategies yielded the most progress.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">41</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">4.4<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">2.9<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">3.6<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">No-bugs confidence</p><p class="value">2.2<span class="over">/5</span></p></div>
+      </div>
+
+      <p style="font-style: italic; color: var(--ink-soft);">The metrics should be read against the one-hour clock. This has the <strong>lowest bug-confidence score all semester</strong> (2.2/5), but that is partly an artifact of students shipping genuinely unfinished work. Many reflections explicitly mention running out of time before they could debug what the AI produced. The advice that came out of this assignment is, accordingly, dominated by how to extract maximum useful output from an AI under time pressure.</p>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Gemini <span class="pct">44%</span></span>
+        <span class="tool-chip">Claude <span class="pct">34%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">34%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">7%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">7%</span></span>
+      </div>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Work incrementally. Small prompts, one feature at a time, MVP first.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span> Dominant</span>
+        </h4>
+        <p>Students who asked the model to build the whole game in one shot ended the hour with output too big to debug; students who asked for one segment at a time (player movement, then a lane of traffic, then the score display) got something playable within the time budget and felt they understood what they had.</p>
+        <p class="evidence">"Prompting it to complete segments of the game rather than fixing all the mistakes at once." [S5 · HW2] · "Control small and important parts without letting it jump into making the whole thing." [S17 · HW2] · "Start simple, and add more features incrementally." [S31 · HW2] · "Do not let AI generate too much content in one time, and care about the in-context surrounding." [S27 · HW2] · "Giving it bullet points of what features to implement at the start got me a great initial product." [S9 · HW2] · "I think building from simpler ideas and then constructing larger ideas would be a good approach." [S23 · HW2] · "Creating a simple plan first and then adding features." [S41 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Don't let AI write one giant file. Ask for multiple files.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Two independent students landed on the same specific tactic: force modularity at prompt time.</p>
+        <p class="evidence">"Don't create crossy road all in one file." [S3 · HW2] · "Tell AI to separate the code in multiple files — I think this makes understanding the logic of the code easier." [S40 · HW2] · "Telling AI to write code in a specific structure helps with debugging." [S36 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Screenshots and sketches work better than words for UI bugs.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some, strongly held</span>
+        </h4>
+        <p>When something looked wrong, students who uploaded a screenshot of the broken thing got fixes faster than students who tried to describe the bug in text.</p>
+        <p class="evidence">"Taking screenshots of bad UI components and uploading them to the AI was super useful." [S22 · HW2] · "Give screenshots are powerful for AI to recreate." [S35 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>One AI writes the prompt, another AI writes the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>A two-model workflow appeared for the first time and will recur in later assignments.</p>
+        <p class="evidence">"Using an AI to write a prompt for another AI." [S33 · HW2] · "I tried this process where I asked Gemini for prompts and planning while giving prompts to Claude. The process itself was less buggy, I think I encountered less bugs than I would have if I just prompted myself, but it took much longer than my peers to get to the same point." [S24 · HW2]</p>
+        <p>Student S24's note is important: the quality was better, but the <em>speed</em> was worse. This tradeoff matters.</p>
+      </div>
+
+      <div class="theme">
+        <h4>When a bug won't go away, switching models doesn't always help. Sometimes you need to read the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Sometimes re-prompting or swapping to a different chatbot, can dig a deeper hole instead of escaping the current one.</p>
+        <p class="evidence">"AI is really bad with sticking with small changes you made, such as using pythonRound and not round." [S7 · HW2] · "I had to actually tell the AI to fix itself for it to fix itself." [S10 · HW2] · "Turning towards another model when there's a bug doesn't necessarily help fix it I think you need to manually debug it." [S29 · HW2] · "AI struggled with listening to specific prompts in my crossy road game. Even with multiple, repeated prompts, it was difficult to debug and change as I had to repeatedly play the game to find the bugs." [S38 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Environment / library issues ate more time than code did.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>The AI is not always aware of your Python version or OS. Several students hit wall after wall over package setup, and one explicitly called out that LLMs struggle with system-level requirements.</p>
+        <p class="evidence">"AI struggles to understand system requirements. I spent a lot of time struggling because pygame could not work with Python 3.14 and I ended up having to revert to 3.13." [S13 · HW2] · "Downloading libraries was a nightmare for some reason." [S14 · HW2] · "Having your AI model interfaced with your hardware in order to ensure proper portability. Say 'I want this to be able to play from an html page' and then ensuring that the proper libraries are installed and configured for this task." [S21 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Different models have different quirks, even on the same prompt.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some, nuanced</span>
+        </h4>
+        <p>The most interesting observations came from students who ran the same assignment through different tools and compared:</p>
+        <p class="evidence">"I compared the output of both chatgpt and gemini and I found that chatgpt took longer and tried to create something more sophisticated while gemini was alot quicker however took alot of prompts to get a product but it made less mistakes." [S20 · HW2] · "Different models still have similar ideas of what features to add, such as an eagle that ends the game when the player doesn't move for a while. Different models also had common issues with player locations and moving platforms." [S18 · HW2] · "Even the same model creates very different problems and outputs." [S39 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>"Ask" mode before "Agent" mode, when the IDE supports it.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student</span>
+        </h4>
+        <p>A specific IDE-workflow tip that anticipates the agentic-development assignments later:</p>
+        <p class="evidence">"Use 'ask' mode before 'agent' mode really helps." [S32 · HW2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Rate limits and Pro tiers become real and brutal when you're on a clock.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Students hit model caps during iterative game-building for the first time this assignment, and with a one-hour budget, each minute spent waiting on a throttled response was material.</p>
+        <p class="evidence">"Claude is very very slow and has a tendency to max out quickly." [S2 · HW2] · "Using pro versions is much more helpful. The free version of Claude was not very helpful." [S4 · HW2] · "If you fix small details all the time, most of your time is going to go for you to wait for the model's output." [S15 · HW2]</p>
+      </div>
+
+      <blockquote class="pull">
+        "Implementation with LLMs requires a lot of playing/working with the project."
+        <span class="attrib">[S28 · HW2]</span>
+      </blockquote>
+    </section>
+
+    <section class="assignment" id="hw3">
+      <h2><span class="hw-tag">HW 3</span><span class="hw-title">Explore an API</span></h2>
+      <p class="subtitle">Week 4 · first contact with authentication, keys, and external data</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>Find a public API that interests you; build a small Python script, game, or web widget that fetches data from it and does something interactive. Write a README explaining how the API is called, a prompt log, and a short demo video. API keys must be kept out of the repo (environment variables or <code>.gitignore</code>'d config). <em>"Prioritize a thoughtful implementation that does something interesting and more complex than just getting and printing data."</em></p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">39</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">5.1<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">3.5<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">3.9<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">No-bugs confidence</p><p class="value">3.0<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">vs. Project 1 difficulty</p><p class="value">3.2<span class="over">/5</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Gemini <span class="pct">51%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">36%</span></span>
+        <span class="tool-chip">Claude <span class="pct">26%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">23%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">10%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">8%</span></span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin-top: -0.5rem;">First assignment where IDE-integrated tools crossed 30% collectively; also the first appearance of Antigravity.</p>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Two-model workflow: brainstorm and plan with one, implement with another.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>The pattern that appeared tentatively in HW2 got clearer here: students split "what should I build" from "now build it."</p>
+        <p class="evidence">"Planning with Claude / chat / Gemini and using cursor and antigravity to write actual code." [S4 · HW3] · "It was useful for me to develop a plan and brainstorm features with one AI model first, gaining ideas for the project itself. Then implementing with a new AI and incorporating those details in the description helped refine it I think." [S38 · HW3] · "Use general AI like gpt to certain idea and do brainstorm, and use codex or cursor to code and implement the ideas." [S27 · HW3]</p>
+        <p>One dissent is worth recording:</p>
+        <p class="evidence">"It's hard for me to use different ai when I do one project. The logic of different AI is different. I can't intergrade the idea from different AI tools." [S44 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Start with a simple, clear idea: don't go with the flow.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>This is essentially the "incremental / MVP first" advice from HW2, but with a new twist: students warned each other against aimless drift when there's no strong starting vision.</p>
+        <p class="evidence">"Having a clear idea / vision was very important. I went with the flow too hard and my project was just very random." [S43 · HW3] · "Start from a simple idea and then build up." [S23 · HW3] · "Implementing code step by step to avoid major bugs." [S20 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Be very specific, because the AI can't read your mind.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>Several students ran into precise phrasing traps, where the same ambiguous English generated wildly different projects.</p>
+        <p class="evidence">"For more developed projects, if you don't clearly specify what you mean AI won't be able to do it. It can't read my mind like I thought it would." [S3 · HW3] · "Be very specific when trying to add the api in the project." [S5 · HW3] · "I found that when I would phrase something with 'I want a project that does X so that I can learn Y while building it' I would receive a literal learning module app, rather than an interactive project that would teach concepts by working through the project." [S21 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Feed the AI the actual API documentation, or a URL.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>A concrete technique that multiple students credited for easier integration:</p>
+        <p class="evidence">"It felt good to first ask ai to find a database with well define api documentation." [S11 · HW3] · "Make AI read parts of the api file." [S36 · HW3] · "Ask AI to deeply explain the process of executing the AI, which clarified a lot of things in the code, methods and my understanding of an API." [S9 · HW3]</p>
+        <p>Plus a related finding about model recency:</p>
+        <p class="evidence">"I find Google Gemini had some really great recent APIs that I could not only use, but recognized were beginner friendly. It was more updated than things I found in older lists." [S24 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>When the prompt loop gets stuck, read the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>The HW2 lesson that re-prompting doesn't always work was stated even more crisply here:</p>
+        <p class="evidence">"Once there's a bug, it doesn't go away with just prompting you need to read the code to figure it out to be more specific on prompting." [S29 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Screenshots / example pages work for UI, color palettes for style.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Same show-don't-tell principle as Project 1, applied to HW3 contexts:</p>
+        <p class="evidence">"Attaching screenshots really helps the AI with design." [S31 · HW3] · "Its often useful to provide the AI model with an example website interface to model your own of off." [S40 · HW3] · "It's really good have a color palette to start with, and tell LLM a specific style you want (eg. Pixel), otherwise it's going to make it too 'AI-like'." [S32 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Don't trust the AI to handle secrets correctly by default.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Given that this was the first assignment with API keys, it's notable that the warning came from students who had <em>almost</em> been burned:</p>
+        <p class="evidence">"AI is not very specific in what to do to not push an api key unless you tell it explicitly." [S18 · HW3] · "Don't trust that AI tools will persist environment variables correctly." [S22 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>AI-in-IDE is better at debugging than browser chat.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student</span>
+        </h4>
+        <p class="evidence">"AI built in in your IDE can be better at debugging." [S35 · HW3]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Miscellaneous observations worth carrying forward.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student each</span>
+        </h4>
+        <p class="minor">"At the very least, ChatGPT is quite familiar with Streamlit, a very cool tool for creating easily launch-able websites. I did not even ask it to use it but it automatically did so and performed quite well." [S13 · HW3]</p>
+        <p class="minor">"AI not good at giving terminal related instructions." [S39 · HW3]</p>
+        <p class="minor">"Jetbrains Junie choked trying to do it." [S19 · HW3]</p>
+      </div>
+    </section>
+
+    <section class="assignment" id="hw4">
+      <h2><span class="hw-tag">HW 4</span><span class="hw-title">Frontend + Backend</span></h2>
+      <p class="subtitle">Week 5 · "Server-side development" · two things that have to talk to each other</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>Build an application with a separate backend and frontend, deploy it, and make the two halves actually talk to each other in production. From the survey questions, students were asked whether they tested the backend locally before deploying. From the responses, it's clear the deployment stack included Render, Vercel, PythonAnywhere, Supabase, and a range of APIs (including Google Maps and Google Calendar). Students found it <strong>more challenging than HW3</strong> (mean 3.8/5 on the comparison scale).</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">37</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">4.8<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">3.8<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">3.6<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">No-bugs confidence</p><p class="value">2.8<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">vs. HW3 difficulty</p><p class="value">3.8<span class="over">/5</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Gemini <span class="pct">51%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">32%</span></span>
+        <span class="tool-chip">Claude <span class="pct">27%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">14%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">11%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">8%</span></span>
+      </div>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Run separate chats (or agents) for frontend, backend, and data.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>When a project has cleanly separable concerns, give each one its own context window.</p>
+        <p class="evidence">"For a project like this, split your work into multiple chats. I had the backend, frontend, game logic and architect chats. Every time you switch, you must tell it the current state of the project." [S15 · HW4] · "I found starting with the backend and then moving on to the frontend (once the backend was working) was a good workflow for this assignment." [S37 · HW4] · "It helps to have your AI model break down the process for which it should implement each of the frontend and backend, and then implement them. So it has more direction." [S11 · HW4]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Plan with one LLM, implement with another: now with explicit hand-offs.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>The brainstorm-then-build pattern got sharper and more specific about <em>what</em> to pass between models:</p>
+        <p class="evidence">"Have one llm generate a step by step plan and then give that plan to another llm to implement it." [S4 · HW4] · "Sometimes I'd ask Claude to generate the best cursor prompts for me. Don't underestimate an AI's ability to write prompts." [S45 · HW4] · "I recommend building ideas with GPT/Gemini and coding with codeX/ Cursor." [S27 · HW4]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Deployment is its own beast. Free-tier hosts will surprise you.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>This was the first time deployment itself (not the code) was the main source of student frustration. Render spinning down on free tiers came up repeatedly, as did the Vercel serverless model forcing code changes after local work had already succeeded.</p>
+        <p class="evidence">"Render shuts down every time I leave it unattended for several minutes, making it very hard to generate results consistently." [S34 · HW4] · "Render went to sleep often." [S6 · HW4] · "It was challenging to deploy render since it takes a while." [S26 · HW4] · "So when using Vercel vs local testing I can't have a server.js file and that forced me to change a couple of things after finally getting everything to be stable after local testing." [S14 · HW4] · "From my conversation with [REDACTED] I found that some APIs are more specific on how you should display your API key. I also found that using a tool like uptime robot to decrease the amount of time to load the page was useful for demonstration." [S21 · HW4]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Test the backend locally and with curl before deploying.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some, hard-won</span>
+        </h4>
+        <p>The clearest version of this lesson came from a student who didn't do it and paid for it:</p>
+        <p class="evidence">"Manually check your API calls using Curl on the host server. I ran into a long problem with pythonanywhere denying SMTP requests, but the AI code ate the logs." [S22 · HW4]</p>
+        <p>"The AI code ate the logs" (i.e., the generated code swallowed error information instead of surfacing it). A good concrete reminder that AI-written error handling can hide the very information you need to debug.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Database, auth, and cross-service config are where AI stops being helpful.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>When a bug lives <em>outside</em> the code (in a database schema, in Supabase dashboard settings, in Google Cloud key restrictions), AI assistance gets much weaker.</p>
+        <p class="evidence">"I found setting up supabase to be challenging at first as I couldn't have Ai do it automatically for me. So when I ran into issues with the data storage I couldn't just prompt GitHub copilot to fix the issue as the errors weren't in the code but rather in the way I set up my tables in supabase." [S5 · HW4] · "It's harder when it involves jumping between different services, especially for the database configuration part." [S32 · HW4] · "Setting up auth and database was tricky and AI wasn't super helpful." [S31 · HW4] · "Google Maps APIs force you to expose your API key on the front end source code because it's required to make direct requests to Google's services." [S8 · HW4]</p>
+      </div>
+
+      <div class="theme">
+        <h4>The AI won't tell you if what you're asking is feasible. You have to check.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>A failure mode students hadn't really seen before: the model confidently tries an approach that cannot work in the environment they're in.</p>
+        <p class="evidence">"One thing I found challenging is AI not determining if my request is feasible before trying to implement." [S3 · HW4] · "For some reason, AI (or at least Gemini) really doesn't want to suggest that you do something to find the available API models. The error message I was giving Gemini had to do with models, and it included a function I could call to check available models. Gemini never suggested I run that even when none of the models it suggested were working." [S18 · HW4]</p>
+      </div>
+
+      <div class="theme">
+        <h4>When a library fights you, swap libraries or swap models.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Concrete tactics for getting unstuck:</p>
+        <p class="evidence">"Sometimes when the AI struggles with debugging when using a specific setup, it helps to change the external library or modules used in the code." [S36 · HW4] · "Switching between models to cope with running out of credits." [S16 · HW4] · "It seems to be much easier to get AI to work with Javascript for the backend rather than Python, perhaps because it was trained on that more?" [S17 · HW4]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Understand the <em>platforms</em> you're gluing together, not just the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p class="evidence">"Honestly, the hardest part for me was understanding how ports worked and how to run things locally. Otherwise, I found AI to be pretty helpful in understanding how the backend should connect to the front end. It just struggled to tell me why." [S24 · HW4] · "Sometimes, when I read AI responses, some words are like hyperlink, I can read it but do not know what it represents for. So I spent more time to understand these professional nouns name." [S27 · HW4]</p>
+      </div>
+
+      <blockquote class="pull">
+        "For a project like this, split your work into multiple chats. Backend, frontend, game logic, and architect chats. Every time you switch, you must tell it the current state of the project."
+        <span class="attrib">[S15 · HW 4]</span>
+      </blockquote>
+    </section>
+
+    <section class="assignment" id="project2">
+      <h2><span class="hw-tag">Project 2</span><span class="hw-title">Creative Web App</span></h2>
+      <p class="subtitle">The mid-semester project · ~5–6 hours of new work · first self-directed scope since Project 1</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>Design and implement a creative, portfolio-ready web app using AI effectively in the process. Must include at least one of: frontend-backend communication, thoughtful third-party API usage with secure keys, a database, substantial data analysis or visualization, rich interactivity, or computer vision / ML. Deliverables include a deployed app, a public repo, a README, a prompt log, a demo video, and a midpoint check-in. A specific instruction: <em>"you'll need to write or substantially modify at least some of your code, so be careful not to just vibe-code until it's too complicated for you to grasp."</em> This is the first project that combined everything from the first four homeworks into a single scoped deliverable; the heavy agentic and SPEC-driven work (HW8, HW9) was still to come.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">30</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">5.2<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">4.4<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">4.4<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Bug confidence</p><p class="value">3.4<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Challenge</p><p class="value">3.6<span class="over">/5</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Gemini <span class="pct">47%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">40%</span></span>
+        <span class="tool-chip">Claude <span class="pct">40%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">37%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">13%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">7%</span></span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin-top: -0.5rem;">The first assignment where an IDE-integrated agent (Cursor) sat in the top tier alongside the browser chatbots. Four tools pulled at roughly equal share; students were experimenting hard.</p>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Use multiple AI models deliberately, for what each is best at.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>The multi-model workflow had been emerging in quieter form since HW3 and HW4; Project 2 is where it got articulated cleanly. S38's version is worth treating as the class's working definition of the practice:</p>
+        <blockquote class="pull">
+          "Using multiple AI models helped with splitting up tasks; for example using ChatGPT to brainstorm and get ideas then using Claude for a majority of the code and Gemini to debug certain parts. This helped with the model limits and balancing my AI usage, though one downside is that it might not pick up where you left off for other models."
+          <span class="attrib">[S38 · Project 2]</span>
+        </blockquote>
+        <p>Related:</p>
+        <p class="evidence">"I found it really helpful to plan with cursor, but still found it better to get actual code with Claude over cursor." [S24 · P2] · "Using multiple families of ai models really helps." [S20 · P2] · "Switched from Gemini to claude." [S16 · P2] · "I recommend building ideas with GPT/Gemini and coding with codeX/ Cursor." (carry-over tactic from HW3/HW4, applied again here by multiple students.)</p>
+      </div>
+
+      <div class="theme">
+        <h4>Feed the AI documentation and links, not just descriptions.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>A direct carry-forward from HW3: <em>pointing the AI at real sources</em> consistently outperforms asking it to remember.</p>
+        <p class="evidence">"AI is very good when you give it documents to reference such as API documentation." [S1 · P2] · "It helps so much to paste the link to the website for unique APIs so that the AI can parse it to better understand the nuances and help you code." [S14 · P2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Understand the platforms, not just the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common (clearer than on HW4)</span>
+        </h4>
+        <p>Deployment pain continued; Project 2 brought an explicit diagnosis. The class's advice: if you can't explain the platform to a friend, you'll struggle when it fails.</p>
+        <p class="evidence">"You should understand the platforms that you are using to prevent repetitive debugging." [S29 · P2] · "One challenge was working with and understanding the supabase system I used. Also working between multiple platforms — GitHub, vercel, supabase." [S10 · P2] · "When you have to build product ready output having user challenges in mind, its hard to explain AI. It messes up the backend interlinking and fixing it step by step takes a lot of time." [S30 · P2] · "AI has not made setting up live websites easier yet." [S22 · P2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Sometimes the right answer is to read the docs yourself.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some (but quoted unanimously)</span>
+        </h4>
+        <p>By Project 2, students had hit situations where AI's help was <em>actually slowing them down</em> relative to reading the source.</p>
+        <p class="evidence">"It wasn't the best to use AI to teach me how to make API calls since it would try to give me the answer many times, so I probably should've read the documentation myself." [S7 · P2] · "I found that Gemini was particularly helpful when I was creating my Python/Flask backend and provided very detailed explanations of the code." [S37 · P2] <em>— the inverse example, where AI-as-tutor worked.</em></p>
+      </div>
+
+      <div class="theme">
+        <h4>Free-tier limits bite: for models and for APIs.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p class="evidence">"Free tier APIs really has a lot of limitations…" [S34 · P2] · "Free APIs for making graphs and visualizing data are challenging to use." [S35 · P2] · "Sometimes it might be slower if youre running an ai backend on render than local because a lot of the time free tiers have limited processing like 0.1 cpu or somthing." [S28 · P2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>AI still struggles with cross-screen, cross-file consistency.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>A specific and persistent limitation for larger projects:</p>
+        <p class="evidence">"When there are multiple elements or layers of screens, AI isn't very good at applying formatting changes to all of them consistently." [S18 · P2] · "Antigravity was great but it often created a whole lot of files and folders with barely any code in them. Even now, I don't think I fully understand what each of them do..." [S39 · P2] · "Chat doesn't like to deviate from its own designs." [S6 · P2]</p>
+      </div>
+
+      <div class="theme">
+        <h4>The hardest part, for many, wasn't AI or code: it was the idea.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student (echoes HW3's S43)</span>
+        </h4>
+        <p class="evidence">"I think the hardest part of the project was finding something meaningful to make." [S4 · P2]</p>
+        <p>Worth noting that the project writeup itself pre-empts this: <em>"Having trouble coming up with an idea? Talk to an actual human! Maybe even our TAs!"</em></p>
+      </div>
+
+      <div class="theme">
+        <h4>Gemini is forming opinions across your chats: that's a design hazard.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student</span>
+        </h4>
+        <p class="evidence">"Gemini started thinking I had the same preferences for the code it wrote for this project and other things, even when I said I didn't (like not leaving any comments, which is for Google Sheets formulas)." [S17 · P2]</p>
+        <p>Memory across sessions is helpful, <em>except</em> when it isn't. Something to be aware of as models build up user-specific context.</p>
+      </div>
+    </section>
+
+    <section class="assignment" id="hw6">
+      <h2><span class="hw-tag">HW 6</span><span class="hw-title">Databases / SQL</span></h2>
+      <p class="subtitle">A database-backed app: the class's <em>favourite</em> assignment by satisfaction and understanding</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>Build an application backed by a database (SQLite features prominently in responses), with meaningful CRUD operations and search/filter features. This is the first assignment where student comments start to explicitly celebrate how much they <em>understood</em> what they built, and the numbers back them up.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">35</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">5.3<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">5.0<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">4.8<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">No-bugs confidence</p><p class="value">3.6<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Challenge</p><p class="value">2.6<span class="over">/5</span></p></div>
+      </div>
+
+      <p style="font-style: italic; color: var(--ink-soft);">Across the whole semester, HW6 has the <strong>highest "how much did you read the code"</strong> score (5.0/7) <em>and</em> the <strong>highest "how much do you understand"</strong> score (4.8/7). It's also the least challenging of the four assignments from HW6 onward (2.6 vs. 2.7 on HW7, 2.8 on HW8, 3.3 on HW9).</p>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Gemini <span class="pct">43%</span></span>
+        <span class="tool-chip">Claude <span class="pct">37%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">31%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">23%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">9%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">6%</span></span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin-top: -0.5rem;">Notably more browser-chat-heavy than Project 2 was: Cursor actually <em>drops</em> from 37% to 23% here, and the themes below are rich with comments about using AI as a <em>tutor</em> for SQL rather than as an agent that writes it for you.</p>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Plan first: incrementally, with the AI writing docstrings or scaffolding you then fill in.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>The "plan first" theme that started in Project 1 reached its most mature form here. The standout technique, described by S5, is the one the class should carry forward:</p>
+        <p class="evidence">"I found using Claude to explain the project and create a plan by initializing all the functions with doctrings and then using GitHub copilot to read each functions doctoring and implement it worked very well." [S5 · HW6]</p>
+        <p>Several students said similar things in different words:</p>
+        <p class="evidence">"When you tell AI how to incrementally build it becomes really easy." [S3 · HW6] · "Starting small is the way to go." [S29 · HW6] · "Working through the steps in order, as suggested, was very helpful." [S9 · HW6] · "By prompting AI with smaller tasks and telling them what to do exactly, they tend to give more stable codes." [S35 · HW6] · "Detailed specs are really important here." [S20 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Separate CRUD operations into separate prompts.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>A specific modularity tactic for this assignment shape:</p>
+        <p class="evidence">"I found that separating the different CRUD operations across different prompts was most effective." [S37 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>The "DHH sandwich": AI plans → you write → AI reviews.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student (but the best single framework in the survey)</span>
+        </h4>
+        <p>Only one student articulated this, highlighted here because it directly explains <em>why</em> HW6 scored so well on understanding:</p>
+        <p class="evidence">"One really helpful thing I learned from this homework was how effective a framework I learned from David Hanson (DHH) is. Essentially, I had AI help generate my plan for a manually coded feature, then gave it my best shot without the AI's help, then gave it all the code I wrote and had it comment on it. This way, I really understood the code from the start, and any edits/improvements the AI suggested, I actually could directly understand why it was making those changes, because I knew how it impacted the lines around it." [S13 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>AI is noticeably weaker at database-related changes that ripple.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Database logic is often touched from many code paths, and AI fails to propagate one change to all of them.</p>
+        <p class="evidence">"AI seems to be noticeably worse at noticing how changes with a database might require changes in the rest of a program than it is for non-database related changes." [S17 · HW6] · "Generative ai is usually bad at sql so it takes a lot of prompt refining." [S12 · HW6] · "Database has more dependencies so it's less easy for ai or just agent to work on." [S42 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>AI became a genuine learning tool for SQL this time.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common (very positive tone)</span>
+        </h4>
+        <p>This is the assignment where appreciation for AI as a <em>tutor</em> showed up most often and most positively.</p>
+        <p class="evidence">"AI was a useful learning tool this time around. It was able to explain everything to me clearly and could communicate well why things were the way they were." [S24 · HW6] · "One thing I found challenging was the unorthodox structure of SQLite, but Claude and the documentation was helpful to understand it." [S45 · HW6] · "One thing that was helpful was uploading docs about SQL for ChatGPT." [S1 · HW6] · "I think the structure of this assignment made me interact more meaningfully with the code. I liked the involvement I had with this assignment." [S21 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Know what you're committing to git.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student (worth passing along)</span>
+        </h4>
+        <p class="evidence">"It's about time to have a talk about what should be tracked in git. Your db likely shouldn't be unless you have a good reason to." [S22 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Watch out when the tool tries to go beyond the assignment.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Multiple students using Cursor / Antigravity ran into the opposite of the HW2 problem: the agent wants to do <em>too much</em>.</p>
+        <p class="evidence">"First time using Cursor and it went well. But it was always trying to do more and more, wasn't perfect for a assignment testing your fundamentals." [S15 · HW6] · "Antigravity is too good. I'm hooked." [S39 · HW6]</p>
+      </div>
+
+      <div class="theme">
+        <h4>AI still can't reliably read designs from unclear descriptions.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p class="evidence">"AI can have issues with formatting." [S18 · HW6] · "Description on UI is difficult understanding for AI." [S27 · HW6] · "AI is getting better at generating UI based on pictures." [S14 · HW6] <em>— suggesting screenshots remain the fix.</em></p>
+      </div>
+
+      <blockquote class="pull">
+        "I found using Claude to explain the project and create a plan by initializing all the functions with doctrings and then using GitHub copilot to read each function's docstring and implement it worked very well."
+        <span class="attrib">[S5 · HW 6]</span>
+      </blockquote>
+    </section>
+
+    <section class="assignment" id="hw7">
+      <h2><span class="hw-tag">HW 7</span><span class="hw-title">Code Handoff</span></h2>
+      <p class="subtitle">Build the start of a game in phase 1; inherit someone <em>else's</em> half-finished code in phase 2</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>In phase 1, students picked a game to start (Pacman and tower defense come up repeatedly in responses, alongside other arcade-style projects). In phase 2 they swapped code with a classmate and had to fix, finish, or extend what they received. The survey asked three unusual things: what did <em>you</em> do to make your code easier to inherit, what made the inherited code <em>easier</em> to work with, and what made it <em>harder</em>. Those three questions together surface the class's collective wisdom on "leaving code for someone else to finish," which is one of the most underrated skills in AI-assisted development.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">33</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">4.4<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">3.8<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">3.7<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">No-bugs confidence</p><p class="value">2.8<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Challenge</p><p class="value">2.7<span class="over">/5</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Claude <span class="pct">42%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">36%</span></span>
+        <span class="tool-chip">Gemini <span class="pct">24%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">18%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">18%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">12%</span></span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin-top: -0.5rem;">Cursor climbs back to 36% (near its Project 2 high) while Gemini and ChatGPT both drop by roughly half. This is the first assignment where the IDE-agent share clearly exceeds the browser-chat share, as the handoff structure of the assignment rewards being inside the editor.</p>
+
+      <h3 class="section-heading">Themes: what students did for the next person</h3>
+
+      <div class="theme">
+        <h4>A detailed README with a to-do list is the single highest-leverage thing you can leave behind.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span> Dominant</span>
+        </h4>
+        <p>This was the overwhelming consensus. The phrase "READMEs with a to-do list" or close paraphrases appear in well over a third of responses. The key refinement: don't just say what you did; list what's <em>left</em>.</p>
+        <p class="evidence">"Yes I tried to clearly state in the read me the features that have already been implemented and created a list of future steps clearly defining what needs to be finished." [S5 · HW7] · "I created a guide document explaining the code and what additions or pieces are missing. I also added very in depth notes and comments throughout the code making it a very clear structure and understandable at most levels." [S10 · HW7] · "Yes, I put in the details in README.md including how to test locally, what functions are there now, what's the project's structure, and suggestions for the future dev." [S32 · HW7] · "Made a detailed README with all details of desired product and to do list." [S39 · HW7] · "I left some specific features out and listed them as starting points." [S45 · HW7] · "I unfortunately was not able to get as much done as I would have like during phase 1 because of a prompt timeout, so I added a to-do list in my reader to help give my partner a starting point." [S37 · HW7]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Ask AI to write meaningful comments as it writes the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>The companion to a good README is good in-line commentary, and students were explicit about prompting the AI to produce it.</p>
+        <p class="evidence">"I asked the AI to write comments in the code. Specifically for tower defense, I asked it to make a clean way to add more tower classes and to tell me how." [S24 · HW7] · "I added documentation throughout the code with comments to explain what each part was doing." [S1 · HW7] · "I explained what features I'd implemented in the readme and made sure my comments were informative and placed wherever needed." [S7 · HW7] · "Made sure to comment all the functions." [S28 · HW7] · "I made a Documentation.me file that explains every code files' usage and purpose." [S47 · HW7]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Architect for extension: split into files and functions that future work can slot into.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>The students who had thought explicitly about <em>extension points</em> came out ahead.</p>
+        <p class="evidence">"Generated and reviewed a nice readme, tried to use best practice packages and break things into separate functions/files." [S31 · HW7] · "I tried to build a very basic but thorough implementation of a basic tower defense game so that the person could easily build upon it." [S4 · HW7] · "I asked [the AI] to make a clean way to add more tower classes and to tell me how." [S24 · HW7]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Document the prompts you used.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student (worth copying)</span>
+        </h4>
+        <p class="evidence">"I documented my prompts, known issues and things to add, the goal of the app, and made sure the AI coded in a readable way." [S18 · HW7]</p>
+        <p>The inheritor doesn't just need your code; they benefit from knowing <em>how it got to this state</em>.</p>
+      </div>
+
+      <div class="theme">
+        <h4>A meta-note: "phases" in the README help the next AI as much as the next person.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student</span>
+        </h4>
+        <p class="evidence">"I included a plan in the read me with all the 'phases' I had planned for my game for AI to build incrementally." [S40 · HW7]</p>
+        <p>This prefigures the SPEC.md work of HW8 and HW9.</p>
+      </div>
+
+      <h3 class="section-heading">Themes: what made <em>inheriting</em> code easier or harder</h3>
+
+      <div class="theme">
+        <h4>Brief free-text advice from inheritors, consolidated.</h4>
+        <p>The class broadly agreed: <strong>clarity of README, quality of comments, and modular file structure</strong> made inherited code workable. The inverse made it painful. Specific items students called out as making their job easier or harder (paraphrased, because these came from many short responses across two survey questions):</p>
+        <ul style="padding-left: 1.2rem; margin-top: 0.4rem;">
+          <li><strong>Easier:</strong> Clear README with file-by-file explanation; a to-do list of remaining work; inline comments near complex logic; consistent naming; a running deployed demo to sanity-check behavior.</li>
+          <li><strong>Harder:</strong> Large single files, cryptic variable names (the <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--teal)">qp</code>-for-"question points" complaint recurs in HW8), no comments at all, unstated assumptions about the environment, features described in the README that weren't actually implemented.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="assignment" id="hw8">
+      <h2><span class="hw-tag">HW 8</span><span class="hw-title">Agentic Development</span></h2>
+      <p class="subtitle">Write a <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--teal-deep)">SPEC.md</code>, then let the agents build from it</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>The explicit structural shift: instead of live conversational prompting, students wrote a <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--teal)">SPEC.md</code> document describing the intended software (acceptance criteria and all) and then handed that spec to one or more agents (IDE-based, like Cursor or GitHub Copilot in agent mode) to build, review, and fix. The survey asked about both the <em>spec-writing</em> step and the <em>agent-wrangling</em> step separately, and students rated spec-writing as the harder of the two (3.3/5 vs. 2.5/5 for agent-wrangling). The recommendation score for agentic development for similar-complexity projects was moderately positive: 4.5/7.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">33</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">4.9<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">3.2<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">3.6<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Bug confidence</p><p class="value">3.0<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Spec hard?</p><p class="value">3.3<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Agents hard?</p><p class="value">2.5<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Recommend</p><p class="value">4.5<span class="over">/7</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">GitHub Copilot <span class="pct">52%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">30%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">18%</span></span>
+        <span class="tool-chip">Claude <span class="pct">15%</span></span>
+        <span class="tool-chip">Gemini <span class="pct">15%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">6%</span></span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin-top: -0.5rem;">The biggest tool shift of the semester: GitHub Copilot doubles from 18% on HW7 to <strong>52% here</strong>. Collectively, over 80% of the class used an IDE-integrated agentic tool on this assignment.</p>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>A detailed SPEC.md pays off: but getting it right takes judgement.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span> Dominant, with real nuance</span>
+        </h4>
+        <p>The most common single claim on HW8: the quality of the spec determined the quality of everything downstream.</p>
+        <p class="evidence">"I found that making the spec very detailed from the start helped me to be able to save time later and led to a more desirable output." [S37 · HW8] · "Thoroughness and creativity go a long way in the SPEC.md file. Prompting precisely is incredible important." [S45 · HW8] · "AI works best when you outline a specific plan. It is extremely helpful for them to have the structure built up and only having to fill in the gap." [S35 · HW8] · "AI, like humans, work best when they have plans and are able to organize their own work flow." [S34 · HW8] · "The more specific at first, the easier it gets later." [S42 · HW8]</p>
+        <p>But the class also identified a concrete failure mode: <em>too much</em> specificity doesn't improve results, it boxes the agent in. One of the best pieces of writing in the whole dataset:</p>
+        <blockquote class="pull">
+          "I found I had to strike a balance between specificity and freedom in my spec. If given too much specificity, the AI could not do its job and the benefit of time saving was removed. If I wasn't specific enough, fixes to the code later on would no longer be simple syntax/functionality changes, but rather fundamental structural changes that the AI is not as good with."
+          <span class="attrib">[S13 · HW8]</span>
+        </blockquote>
+        <p>Underspecify deliberately when you'll want to iterate later.</p>
+        <p class="evidence">"It was good at producing the result I described, but it might be helpful to be a little vague with the spec and fix the app later, for time's sake." [S17 · HW8] · "If you don't have something specific to say, don't write it in the plan." [S29 · HW8]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Acceptance criteria are read literally. Everything not listed will be skipped.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common</span>
+        </h4>
+        <p>A specific, technical thing about the SPEC.md format that students learned the hard way:</p>
+        <p class="evidence">"The acceptance criteria was taken very seriously and features mentioned elsewhere were not implemented." [S7 · HW8] · "AI is very strict about what counts as passing the acceptance criteria." [S18 · HW8] · "I found it a little challenging to get the agent to follow what was outlined in the spec.md rather than doing its own thing." [S10 · HW8]</p>
+        <p>Practical implication: if you want something, put it in the acceptance criteria, not in a paragraph somewhere else.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Design the user flow <em>before</em> writing the spec.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some (pointed)</span>
+        </h4>
+        <p>Some students got to the end of a spec and realized the <em>design</em> was the missing step all along:</p>
+        <p class="evidence">"Designing is an important step we may miss in this way if we want to control the design. I think it should come before writing the spec cleanly. When I realized after completing the spec, I would've made a better spec if i spent time on designing the user flow better." [S30 · HW8] · "I noticed that basic technical understanding is helpful and even necessary for a good spec. I failed to specify file structure. I hope I can obtain enough knowledge about architecture to be able to do so in future projects though." [S39 · HW8]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Use AI to help draft the spec itself.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Several students (one with a slight "I know this wasn't really allowed but…" caveat) pointed out that the SPEC.md itself is a document an LLM can help scaffold.</p>
+        <p class="evidence">"I know this wasnt really allowed but have an llm brainstorm and write a general skeleton for spec md helped alot actually and helped it to be alot more detailed." [S20 · HW8] · "Asking chat what would be useful to include in spec.md made that step a lot easier." [S40 · HW8]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Conversational → agentic is a reasonable progression.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common (predictive of later HWs)</span>
+        </h4>
+        <p>The best summary of the meta-workflow:</p>
+        <p class="evidence">"I think going from conversational to an agentic build might be the best strategy for building with ai." [S4 · HW8] · "With projects that spans multiple files or have bigger complexity, I think using agentic development is a really good starting point and I think writing the spec out actually really helps with organizing your thoughts for what exact functionalities you want versus just going with the flow in increments in conversational AI." [S38 · HW8]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Spawn a new agent when context / code quality deteriorates.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>Students hit context-window rot differently than in previous assignments; the agentic build ran long enough that context started breaking down.</p>
+        <p class="evidence">"I found it very challenging to read and understand the code that the AI wrote. I had to create a new agent so that it could fix all the shitty named variables across the project. e.g. using variable name qp for 'question points' it becomes very hard to read when working with a large file." [S8 · HW8] · "The context is too short for a chat window, if we are plan to do a huge project, agent may not read SPEC to stop the whole project." [S27 · HW8] · "Try different agents." [S23 · HW8] · "I would try using different models to help AI unstuck itself." [S14 · HW8] · "Agents don't share memories." [S36 · HW8]</p>
+      </div>
+
+      <div class="theme">
+        <h4>The real danger of agentic development: you stop reading the code.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some (the most important critique)</span>
+        </h4>
+        <p>This is the single most self-aware observation in the entire HW8 dataset, and echoes through HW9 as well. It's worth quoting at length:</p>
+        <p class="evidence">"I found this way of working caused me to not read my code at all. The only reason I understand what's happening at all is because I am fluent in Python. Spec to project was trivially easy, and I thought the finding bugs like this to be more efficient, but maybe in retrospect now, I would've preferred finding the bugs myself through physical testing rather than just trusting the bug existed and then trusting the AI solved it." [S24 · HW8]</p>
+        <p class="evidence">"I did not like that it wasn't as conversational. a lot of the commits and file generation was kind of lost on me." [S12 · HW8]</p>
+        <p>The drop in the "how much of the code did you read" score (5.0 on HW6 → 3.2 here) is the data signature of this concern.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Writing a SPEC.md in a single 45-minute window felt too short.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some (instructor-actionable)</span>
+        </h4>
+        <p class="evidence">"Writing the Spec in only 45 mins was difficult to encompass everything." [S6 · HW8] · "When writing the SPEC, I was constantly thinking what I was missing." [S15 · HW8] · "Writing SPEC was hard." [S3 · HW8]</p>
+      </div>
+    </section>
+
+    <section class="assignment" id="hw9">
+      <h2><span class="hw-tag">HW 9</span><span class="hw-title">Phone Apps</span></h2>
+      <p class="subtitle">Agentic development, but on a new platform (Expo / React Native / Android Studio)</p>
+
+      <div class="brief">
+        <span class="brief-label">The brief</span>
+        <p>From the survey questions and responses, HW9 is "HW8's lessons on a phone app." SPEC.md was optional but most students wrote one (23 of 30). Tools mentioned in responses: Expo, React Native, Android Studio, plus the same agentic build tools (Cursor, Copilot) carried over from HW8. Students rated this the <strong>most challenging assignment of the semester</strong> (3.3/5) and had the <strong>lowest understanding scores</strong> of any assignment (3.0/7). It's the hardest thing the class had done.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="label">Responses</p><p class="value">30</p></div>
+        <div class="stat"><p class="label">Satisfaction</p><p class="value">4.4<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Read code</p><p class="value">2.9<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Understood</p><p class="value">3.0<span class="over">/7</span></p></div>
+        <div class="stat"><p class="label">Bug confidence</p><p class="value">2.8<span class="over">/5</span></p></div>
+        <div class="stat"><p class="label">Challenge</p><p class="value">3.3<span class="over">/5</span></p></div>
+      </div>
+
+      <h3 class="section-heading">Tools the class reached for</h3>
+      <div class="tools-strip">
+        <span class="tool-chip">Claude <span class="pct">40%</span></span>
+        <span class="tool-chip">Cursor <span class="pct">40%</span></span>
+        <span class="tool-chip">Gemini <span class="pct">27%</span></span>
+        <span class="tool-chip">GitHub Copilot <span class="pct">20%</span></span>
+        <span class="tool-chip">Antigravity <span class="pct">13%</span></span>
+        <span class="tool-chip">ChatGPT <span class="pct">13%</span></span>
+      </div>
+
+      <h3 class="section-heading">Themes</h3>
+
+      <div class="theme">
+        <h4>Platform setup was harder than coding.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>The single most repeated complaint on HW9 isn't about AI at all; it's about tooling. Expo, Android Studio, the live-reload loop, the emulator.</p>
+        <p class="evidence">"Setting up expo and having the live updates work was a bit difficult at first." [S41 · HW9] · "The most difficult part was setting up the expo and the novelty of tools working with. The agentic part and prototyping and testing was not that difficult." [S15 · HW9] · "The actual coding part was easier for AI than figuring out the setup." [S18 · HW9] · "Just getting Android Studio to work." [S14 · HW9] · "Make the application run is hard for me." [S44 · HW9] · "It was quite challenging to go through the tutorials and learn how to develop an app for the first time." [S45 · HW9] · "Making a phone app was so different than making a web app — i was very surprised." [S12 · HW9]</p>
+      </div>
+
+      <div class="theme">
+        <h4>SPEC.md still earns its keep: focus it on an MVP.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span> Strong</span>
+        </h4>
+        <p>Carried forward from HW8, with a new emphasis on scoping the spec tightly:</p>
+        <p class="evidence">"Spec is the most important thing you can do with your time." [S13 · HW9] · "Writing a good spec made the process very easy, I spent most of my time thinking about the design of the app and writing the spec." [S4 · HW9] · "I found that writing a very very detail spec.md was generally extremely useful." [S1 · HW9] · "When writing the spec, focus on an MVP first." [S31 · HW9] · "The SPEC.md helps give clear instructions to the agents." [S5 · HW9] · "The spec file was really helpful." [S26 · HW9]</p>
+        <p>A counter-voice (represented, but unusual) questioned its value on this assignment:</p>
+        <p class="evidence">"For this one the spec.md is less useful for completing it." [S42 · HW9]</p>
+        <p>And a caution: writing a spec for a domain you don't understand (mobile) is harder than writing one for a domain you do.</p>
+        <p class="evidence">"I found it quite challenging to write a spec when I already wasn't entirely sure how things were working. Like I knew I needed to use a camera function, but had no idea how to write that into my spec other than literally and hope that is made enough sense." [S24 · HW9]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Plan + build + review: one agent builds, another agent reviews.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span> Common (the most mature workflow described)</span>
+        </h4>
+        <p>S30's description is essentially the end-state workflow this course was trying to surface, stated crisply:</p>
+        <blockquote class="pull">
+          "I made a plan after spec using cursor ai's plan mode and created a detailed plan first and then asked one agent to build and other to review. It got done in 3-4 agent prompts."
+          <span class="attrib">[S30 · HW9]</span>
+        </blockquote>
+        <p>Related specifics:</p>
+        <p class="evidence">"Asking non-agentic model for specific debugging and then pasting its response into agentic model is helpful." [S29 · HW9] · "Having agent actually be able to test the output so that it can find and fix bugs on its own." [S39 · HW9] · "Adding rules to cursor is quite helpful." [S17 · HW9]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Managing agent context is now a recurring design problem.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p>S8's comment here is useful because it names an issue that will get larger, not smaller, as projects scale:</p>
+        <p class="evidence">"I found it challenging that as the code base grew the usage for each agent became higher and higher. I would keep spinning up new agents in order to combat this but this doesn't seem sustainable once you have a large enough code base with enterprise code." [S8 · HW9]</p>
+      </div>
+
+      <div class="theme">
+        <h4>"You stop reading the code": the HW8 warning returns.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> Some</span>
+        </h4>
+        <p class="evidence">"This might just be me, but whenever I write a SPEC or write something agentically, I naturally never look that deep into the code." [S3 · HW9]</p>
+      </div>
+
+      <div class="theme">
+        <h4>Mobile-specific asides worth sharing.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student each</span>
+        </h4>
+        <p class="minor">"It might be more efficient to have a website demo running first, with backend (database, apis, etc) all configured, than start everything from scratch on a mobile dev." [S32 · HW9]</p>
+        <p class="minor">"If you ever need custom icons, typically the ai generated ones arent the best." [S28 · HW9]</p>
+        <p class="minor">"3D graphics is still really hard for Gen-AI." [S6 · HW9]</p>
+      </div>
+
+      <div class="theme">
+        <h4>An honest admissions worth sharing.
+          <span class="rep-bar"><span class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span> One student each</span>
+        </h4>
+        <p class="minor">"I found it challenging to improve and figure out where to better the human interaction and ux capabilities and features of the app." [S10 · HW9]</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="summary" id="tool-evolution">
+      <h2><span class="hw-title">How the class's toolkit shifted</span></h2>
+      <p class="subtitle">Two pictures that tell the semester's story at a glance.</p>
+
+      <p>The same students, surveyed across nine assignments, didn't just get better at writing prompts; <em>what they were prompting</em> changed. Project 1 was done in a browser tab; by HW9 most of the class was inside an agentic IDE. The two figures below trace that transition, assignment by assignment.</p>
+
+      <figure>
+        <p class="fig-label">Figure 1</p>
+        <p class="fig-title">Tool adoption by assignment (share of students naming each tool as one of the most useful)</p>
+        <div class="heatmap">
+<div class="heatmap-grid">
+<div></div>
+<div class="hm-col-label">Project 1</div>
+<div class="hm-col-label">HW 2</div>
+<div class="hm-col-label">HW 3</div>
+<div class="hm-col-label">HW 4</div>
+<div class="hm-col-label">Project 2</div>
+<div class="hm-col-label">HW 6</div>
+<div class="hm-col-label">HW 7</div>
+<div class="hm-col-label">HW 8</div>
+<div class="hm-col-label">HW 9</div>
+<div class="hm-row-label">ChatGPT</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.55); color:white;">26%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.68); color:white;">34%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.71); color:white;">36%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.64); color:white;">32%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.77); color:white;">40%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.63); color:white;">31%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.43); color:var(--ink);">18%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.43); color:var(--ink);">18%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.35); color:var(--ink);">13%</div>
+<div class="hm-row-label">Claude</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.55); color:white;">26%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.68); color:white;">34%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.55); color:white;">26%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.57); color:white;">27%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.77); color:white;">40%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.72); color:white;">37%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.80); color:white;">42%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.38); color:var(--ink);">15%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.77); color:white;">40%</div>
+<div class="hm-row-label">Gemini</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.63); color:white;">31%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.83); color:white;">44%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.94); color:white;">51%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.94); color:white;">51%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.88); color:white;">47%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.81); color:white;">43%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.52); color:var(--ink);">24%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.38); color:var(--ink);">15%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.57); color:white;">27%</div>
+<div class="hm-row-label">GitHub Copilot</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.30); color:var(--ink);">10%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.26); color:var(--ink);">7%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.51); color:var(--ink);">23%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.32); color:var(--ink);">11%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.26); color:var(--ink);">7%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.29); color:var(--ink);">9%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.43); color:var(--ink);">18%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.95); color:white;">52%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.46); color:var(--ink);">20%</div>
+<div class="hm-row-label">Cursor</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.23); color:var(--ink);">5%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.26); color:var(--ink);">7%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.30); color:var(--ink);">10%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.37); color:var(--ink);">14%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.72); color:white;">37%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.51); color:var(--ink);">23%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.71); color:white;">36%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.61); color:white;">30%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.77); color:white;">40%</div>
+<div class="hm-row-label">Antigravity</div>
+<div class="hm-cell" style="background:var(--paper); color:var(--ink-faint);">·</div>
+<div class="hm-cell" style="background:var(--paper); color:var(--ink-faint);">·</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.27); color:var(--ink);">8%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.27); color:var(--ink);">8%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.35); color:var(--ink);">13%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.24); color:var(--ink);">6%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.34); color:var(--ink);">12%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.24); color:var(--ink);">6%</div>
+<div class="hm-cell" style="background:rgba(13, 92, 99, 0.35); color:var(--ink);">13%</div>
+</div>
+        </div>
+        <!-- <figcaption>Three things jump out when the columns are in their correct chronological order. First, Project 2 is where Cursor makes its biggest single jump (from 14% on HW4 to 37%); but it doesn't stick: adoption dips again on HW6 (a SQL-learning assignment where students gravitated back to browser chatbots as tutors) before climbing steadily to 40% by HW9. Second, GitHub Copilot sits in the low teens for most of the semester and then <strong>more than doubles to 52% on HW8</strong> (the agent-mode features were specifically what the agentic-development assignment wanted). Third, browser chatbots (ChatGPT / Claude / Gemini) don't disappear; they peak on Project 2 and HW6 and only collapse during the agentic arc (HW7–HW9), as students moved the bulk of their work inside the editor.</figcaption> -->
+      </figure>
+
+      <figure>
+        <p class="fig-label">Figure 2</p>
+        <p class="fig-title">Student-reported satisfaction, understanding, and code-reading across the semester (1–7 scale)</p>
+        <svg class="line-chart" viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart of student satisfaction, understanding, and code-reading over time">
+<style>
+.axis { stroke: #d6c7a8; stroke-width: 1; }
+.gridline { stroke: #efe7d6; stroke-width: 1; }
+.tick-label { font-family: "JetBrains Mono", monospace; font-size: 10px; fill: #8a9099; }
+.x-label { font-family: "JetBrains Mono", monospace; font-size: 10px; fill: #40525d; text-anchor: middle; }
+.legend-label { font-family: "Source Serif 4", serif; font-size: 13px; fill: #1e2a33; }
+.series { fill: none; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.point { stroke: #fbf6eb; stroke-width: 2; }
+</style>
+<line class="gridline" x1="50" y1="248.3" x2="740" y2="248.3"/>
+<text class="tick-label" x="44" y="251.8" text-anchor="end">2</text>
+<line class="gridline" x1="50" y1="204.7" x2="740" y2="204.7"/>
+<text class="tick-label" x="44" y="208.2" text-anchor="end">3</text>
+<line class="gridline" x1="50" y1="161.0" x2="740" y2="161.0"/>
+<text class="tick-label" x="44" y="164.5" text-anchor="end">4</text>
+<line class="gridline" x1="50" y1="117.3" x2="740" y2="117.3"/>
+<text class="tick-label" x="44" y="120.8" text-anchor="end">5</text>
+<line class="gridline" x1="50" y1="73.7" x2="740" y2="73.7"/>
+<text class="tick-label" x="44" y="77.2" text-anchor="end">6</text>
+<line class="gridline" x1="50" y1="30.0" x2="740" y2="30.0"/>
+<text class="tick-label" x="44" y="33.5" text-anchor="end">7</text>
+<line class="axis" x1="50" y1="30" x2="50" y2="292"/>
+<line class="axis" x1="50" y1="292" x2="740" y2="292"/>
+<line class="gridline" x1="50.0" y1="30" x2="50.0" y2="292"/>
+<text class="x-label" x="50.0" y="308">Project</text>
+<text class="x-label" x="50.0" y="322">1</text>
+<line class="gridline" x1="136.2" y1="30" x2="136.2" y2="292"/>
+<text class="x-label" x="136.2" y="308">HW</text>
+<text class="x-label" x="136.2" y="322">2</text>
+<line class="gridline" x1="222.5" y1="30" x2="222.5" y2="292"/>
+<text class="x-label" x="222.5" y="308">HW</text>
+<text class="x-label" x="222.5" y="322">3</text>
+<line class="gridline" x1="308.8" y1="30" x2="308.8" y2="292"/>
+<text class="x-label" x="308.8" y="308">HW</text>
+<text class="x-label" x="308.8" y="322">4</text>
+<line class="gridline" x1="395.0" y1="30" x2="395.0" y2="292"/>
+<text class="x-label" x="395.0" y="308">Project</text>
+<text class="x-label" x="395.0" y="322">2</text>
+<line class="gridline" x1="481.2" y1="30" x2="481.2" y2="292"/>
+<text class="x-label" x="481.2" y="308">HW</text>
+<text class="x-label" x="481.2" y="322">6</text>
+<line class="gridline" x1="567.5" y1="30" x2="567.5" y2="292"/>
+<text class="x-label" x="567.5" y="308">HW</text>
+<text class="x-label" x="567.5" y="322">7</text>
+<line class="gridline" x1="653.8" y1="30" x2="653.8" y2="292"/>
+<text class="x-label" x="653.8" y="308">HW</text>
+<text class="x-label" x="653.8" y="322">8</text>
+<line class="gridline" x1="740.0" y1="30" x2="740.0" y2="292"/>
+<text class="x-label" x="740.0" y="308">HW</text>
+<text class="x-label" x="740.0" y="322">9</text>
+<path class="series" d="M 50.0 145.3 L 136.2 178.0 L 222.5 166.7 L 308.8 178.9 L 395.0 144.8 L 481.2 126.1 L 567.5 174.1 L 653.8 179.3 L 740.0 203.4" stroke="#0d5c63"/>
+<path class="series" d="M 50.0 103.8 L 136.2 141.8 L 222.5 115.2 L 308.8 124.3 L 395.0 107.3 L 481.2 102.5 L 567.5 142.7 L 653.8 122.6 L 740.0 142.2" stroke="#b4461f"/>
+<path class="series" d="M 136.2 209.0 L 222.5 182.0 L 308.8 170.6 L 395.0 144.8 L 481.2 117.3 L 567.5 171.5 L 653.8 194.2 L 740.0 210.3" stroke="#c58b2b" stroke-dasharray="1 3.5" stroke-linecap="round"/>
+<circle class="point" cx="50.0" cy="145.3" r="4" fill="#0d5c63"/>
+<circle class="point" cx="136.2" cy="178.0" r="4" fill="#0d5c63"/>
+<circle class="point" cx="222.5" cy="166.7" r="4" fill="#0d5c63"/>
+<circle class="point" cx="308.8" cy="178.9" r="4" fill="#0d5c63"/>
+<circle class="point" cx="395.0" cy="144.8" r="4" fill="#0d5c63"/>
+<circle class="point" cx="481.2" cy="126.1" r="4" fill="#0d5c63"/>
+<circle class="point" cx="567.5" cy="174.1" r="4" fill="#0d5c63"/>
+<circle class="point" cx="653.8" cy="179.3" r="4" fill="#0d5c63"/>
+<circle class="point" cx="740.0" cy="203.4" r="4" fill="#0d5c63"/>
+<circle class="point" cx="50.0" cy="103.8" r="4" fill="#b4461f"/>
+<circle class="point" cx="136.2" cy="141.8" r="4" fill="#b4461f"/>
+<circle class="point" cx="222.5" cy="115.2" r="4" fill="#b4461f"/>
+<circle class="point" cx="308.8" cy="124.3" r="4" fill="#b4461f"/>
+<circle class="point" cx="395.0" cy="107.3" r="4" fill="#b4461f"/>
+<circle class="point" cx="481.2" cy="102.5" r="4" fill="#b4461f"/>
+<circle class="point" cx="567.5" cy="142.7" r="4" fill="#b4461f"/>
+<circle class="point" cx="653.8" cy="122.6" r="4" fill="#b4461f"/>
+<circle class="point" cx="740.0" cy="142.2" r="4" fill="#b4461f"/>
+<circle class="point" cx="136.2" cy="209.0" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="222.5" cy="182.0" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="308.8" cy="170.6" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="395.0" cy="144.8" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="481.2" cy="117.3" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="567.5" cy="171.5" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="653.8" cy="194.2" r="3.2" fill="#c58b2b"/>
+<circle class="point" cx="740.0" cy="210.3" r="3.2" fill="#c58b2b"/>
+<g transform="translate(60, 42)">
+<line x1="0" y1="4" x2="22" y2="4" stroke="#b4461f" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="11" cy="4" r="4" fill="#b4461f" stroke="#fbf6eb" stroke-width="2"/>
+<text class="legend-label" x="30" y="8">Satisfaction</text>
+<line x1="130" y1="4" x2="152" y2="4" stroke="#0d5c63" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="141" cy="4" r="4" fill="#0d5c63" stroke="#fbf6eb" stroke-width="2"/>
+<text class="legend-label" x="160" y="8">Understanding</text>
+<line x1="282" y1="4" x2="304" y2="4" stroke="#c58b2b" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1 3.5"/>
+<circle cx="293" cy="4" r="3.2" fill="#c58b2b"/>
+<text class="legend-label" x="312" y="8">How much code was read</text>
+</g>
+</svg>
+        <!-- <figcaption>With the assignments in correct chronological order, a very clean pattern emerges. All three measures rise together through the first five assignments, <strong>peak at HW6</strong> (satisfaction 5.3, understanding 4.8, code-reading 5.0 — the highest values the class ever reached), and then fall together across the three agentic-workflow assignments that end the semester. The gap between the red line (how happy students were with the result) and the gold line (how much of the code they actually read) widens visibly on HW8 and HW9, and several students named this gap in their comments — "I naturally never look that deep into the code." Understanding on HW9 (3.03 on a 7-point scale) is the lowest the class recorded all year. That is the data signature of a pattern worth naming in next year's course.</figcaption> -->
+      </figure>
+    </section>
+
+    <section class="summary" id="best-practices">
+      <h2><span class="hw-title">What to tell next year's class</span></h2>
+      <p class="subtitle">Twelve practices the class earned by doing. Ordered from highest-evidence and latest-stage first.</p>
+
+      <p>What follows is a synthesis of the assignment-by-assignment themes above, weighted toward the later work where agentic tools and larger projects stressed the class's methods most. Each practice is tagged with where in the semester the strongest evidence for it came from.</p>
+
+      <div class="practice">
+        <div class="num">1</div>
+        <div>
+          <h3 class="practice-title">Write a detailed plan: ideally a SPEC.md, before any code.</h3>
+          <p>This is the most consistently-reinforced habit in the entire dataset. On Project 1 it was "have AI make a plan before it executes." On Project 2 it was "plan with Cursor, then code with Claude." By HW6 it was Claude writing function docstrings that GitHub Copilot then filled in. By HW8 it was a full SPEC.md with acceptance criteria. By HW9, students were calling the spec "the most important thing you can do with your time."</p>
+          <p>The important refinement from the end of the semester: <strong>match the specificity of the spec to how much you want the AI to decide</strong>. Too vague and downstream fixes become structural, which AI handles badly. Too detailed and the agent boxes itself in (and you've done the work of writing the code in English instead of Python). Acceptance criteria are read <em>literally</em>; if something isn't there, it won't ship.</p>
+          <p class="origin">Strongest on · Project 2 · HW 6 · HW 8 · HW 9</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">2</div>
+        <div>
+          <h3 class="practice-title">Use multiple models deliberately, for what each one is best at.</h3>
+          <p>By the time Project 2 arrived (just past the halfway mark), roughly four tools were being used by roughly the same fraction of the class, because students had learned to use them <em>together</em> rather than choose between them. The cleanest articulation came from a Project 2 response: <em>"ChatGPT to brainstorm and get ideas, Claude for a majority of the code, and Gemini to debug certain parts."</em> Cursor-for-planning plus Claude-for-coding was another common split that persisted through the later assignments.</p>
+          <p>Practical hazards: different models have different conventions (variable names, framework choices, code style) and won't always agree; and none of them share memory across sessions. If it matters, pass the earlier model's output into the next one's prompt rather than hoping it'll pick up where the other left off.</p>
+          <p class="origin">Strongest on · HW 3 · HW 4 · Project 2 · HW 8</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">3</div>
+        <div>
+          <h3 class="practice-title">Move into IDE-integrated agentic tools by mid-semester.</h3>
+          <p>The clearest data story of the course: Cursor adoption rises from 5% on Project 1 to 37% on Project 2, dips briefly on the database assignment, then climbs to 40% by HW9, and over 80% of students used at least one IDE-integrated agent on HW8. Browser chatbots are a legitimate starting point (they are genuinely simpler and better for reading, explaining, and learning); but large projects with multiple files, databases, deployment, or phone-app tooling are where the editor integration earns its keep.</p>
+          <p>A specific pattern worth naming: <strong>Plan Mode first, then Agent Mode</strong>. Several students across P1, HW2, and HW9 independently arrived at this as their go-to workflow in Cursor / GitHub Copilot.</p>
+          <p class="origin">Strongest on · Project 2 · HW 7 · HW 8 · HW 9</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">4</div>
+        <div>
+          <h3 class="practice-title">Separate concerns. One chat (or agent) per module.</h3>
+          <p>S15's HW4 description is the template: <em>"Backend, frontend, game logic, and architect chats. Every time you switch, you must tell it the current state of the project."</em> Applied to HW6 this meant each CRUD operation in its own prompt. Applied to HW2 it meant multiple files rather than one monster file. Applied to HW7 it became a design principle for what to <em>leave</em> for the next person.</p>
+          <p>The cognitive load of keeping one clean context per concern is real, but much less than the cognitive load of debugging a single giant AI-written file.</p>
+          <p class="origin">Strongest on · HW 2 · HW 4 · HW 6 · HW 7</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">5</div>
+        <div>
+          <h3 class="practice-title">Build incrementally. Get to an MVP before you get fancy.</h3>
+          <p>Present in some form on every assignment. The concrete advice: ask for one feature, one function, or one "change of similar kind" at a time. The prompt "build me a Crossy Road game" produced debugging nightmares; the prompt "add a scoring display to the top bar" got used and reused. For specs (HW8/9), "focus the MVP in the SPEC" is the same principle applied upstream.</p>
+          <p class="origin">Strongest on · HW 2 · HW 6 · HW 9 · every assignment</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">6</div>
+        <div>
+          <h3 class="practice-title">Keep reading the code.</h3>
+          <p>The single most self-aware piece of advice from the late semester, named directly by multiple students on HW8 and HW9: agentic development creates a strong temptation to skim or skip the code entirely. The gap between Figure 2's satisfaction line (how happy you are) and its code-reading line (how much you actually read) on HW8–HW9 is the visual signature of this problem.</p>
+          <p>The HW6 counter-pattern (read the code, understand it, catch bugs through physical testing rather than trusting the AI's fixes blindly) is why HW6 scored highest on every understanding-related metric all year. The course's own advice applies: <em>"don't just vibe-code until it's too complicated for you to grasp."</em></p>
+          <p class="origin">Strongest on · Project 2 · HW 6 · HW 8 · HW 9</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">7</div>
+        <div>
+          <h3 class="practice-title">Document for the next person and for the next you.</h3>
+          <p>HW7 made this concrete: a clean README, a to-do list of remaining work, inline comments on non-obvious logic, modular file structure, and (one student added) a log of the prompts you used to get here. A sibling HW9 observation: "phases" in the README help the next <em>agent</em> as much as the next person. Students who inherited code with these things called them life-savers; students who inherited code without them did not use gentle language.</p>
+          <p class="origin">Strongest on · HW 7 · HW 9</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">8</div>
+        <div>
+          <h3 class="practice-title">Feed the AI concrete references, not descriptions.</h3>
+          <p>Screenshots of broken UI beat text descriptions of the bug. Sketches in Figma beat paragraphs about layout. Links to the actual API documentation beat asking the model to remember what the API looks like. Example websites pasted in beat vibe-based style descriptions. This one pays dividends from P1 through P2 and gets only more valuable the more niche or recent the thing you're asking about.</p>
+          <p class="origin">Strongest on · Project 1 · HW 2 · HW 3 · Project 2</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">9</div>
+        <div>
+          <h3 class="practice-title">When the chat gets stuck, start a new one.</h3>
+          <p>Context accumulates; eventually it sours. Multiple students across Project 1, HW8, and HW9 independently arrived at "spin up a new chat" or "spawn a new agent" as their most-used debugging move. The HW8 version includes "new agent to clean up the variable names the first agent left behind." The reverse of this practice (prompting harder inside the same polluted context) rarely works.</p>
+          <p class="origin">Strongest on · Project 1 · HW 8 · HW 9</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">10</div>
+        <div>
+          <h3 class="practice-title">Before pasting an error, spend 20 seconds reading it.</h3>
+          <p>S22's framing on Project 1 stayed true all semester: <em>"Even if you just spend 20 seconds looking at it, you will learn a lot more."</em> HW4's version ("manually check your API calls with curl: the AI code ate the logs") is the same principle in a scarier context: when AI-written error handling swallows the error, the only path forward is to step outside the loop and look for yourself.</p>
+          <p class="origin">Strongest on · Project 1 · HW 2 · HW 3 · HW 4</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">11</div>
+        <div>
+          <h3 class="practice-title">Understand the platforms, not just the code.</h3>
+          <p>Deployment ate more time than coding on HW4 and Project 2. Render spinning down on free tiers, Vercel forcing serverless-shaped code, Supabase table settings that aren't visible to the AI, Expo setup for phone apps; these are the places the AI stopped being useful and the student had to know what was happening. The Project 2 advice is worth taping to a wall: <em>"Understand the platforms that you are using to prevent repetitive debugging."</em></p>
+          <p class="origin">Strongest on · HW 4 · Project 2 · HW 9</p>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="num">12</div>
+        <div>
+          <h3 class="practice-title">Guard your secrets and your rate limits.</h3>
+          <p>API keys don't end up in <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--teal)">.gitignore</code> unless you tell the AI explicitly to put them there (HW3). Free-tier credits on Copilot, Claude, Gemini, and Render all ran out mid-assignment for someone in the class. The students who survived this unscathed tended to switch models when they hit a wall rather than keep pushing the same one, and tended to check what was in their commit history before pushing.</p>
+          <p class="origin">Strongest on · HW 3 · HW 4 · Project 2 · HW 6</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--teal-deep); letter-spacing: -0.01em; margin-top: 2.5rem;">One closing thought</h3>
+
+      <p>There is a through-line in the second-half comments that is less tactical than the twelve practices above, and it's worth stating plainly: <strong>the students who learned the most were the ones who refused to let the AI think for them.</strong> The Project 2 reminder that sometimes the right answer is to read the documentation yourself. The DHH sandwich from HW6 (AI plans, you write, AI critiques). The SPEC.md balance-point from HW8 (specific enough to constrain, loose enough to leave judgement to the model). The HW9 warning that you'll "naturally never look that deep into the code" if you're not careful.</p>
+
+      <p>Future cohorts will inherit more capable tools; the heatmap above will look even more shifted toward agentic modes next year. The advice that will age best isn't about any specific tool; it's about <em>keeping a hand on the steering wheel</em> while the AI does more of the typing.</p>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>

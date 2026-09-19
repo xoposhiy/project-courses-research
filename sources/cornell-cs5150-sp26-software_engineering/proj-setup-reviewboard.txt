@@ -1,0 +1,261 @@
+Setup: Review Board
+
+Review Board publishes official setup instructions on their Getting
+Started page (their wiki also covers special steps for Mac users running
+on Apple Silicon/M1). For CS 5150, you will work on Review Board in the
+following way:
+
+- Use upstream versions of Djblets and RBTools (if you think you need to
+  modify code in these repositories, notify the instructor).
+- Clone the release-6.0.2 tag of the Review Board repository and use it
+  as a starting point for your project. You may follow the version
+  compatibility rules for the “in development” branch (in particular,
+  the oldest version of Python you need to support is 3.7).
+- Create an internally-hosted Review Board repository for your team on
+  Cornell’s GitHub server and share it with the course staff: blp73,
+  jxc6, pj257, sd977, and yy2282.
+
+Quick Start
+
+Here are some streamlined instructions for getting Review Board running
+in a development environment running a Debian-based Linux distribution
+(tested on Ubuntu 20.04, whose system Python is version 3.8) or on a
+macOS system.
+
+1.  Install required system packages (several of these are missing from
+    the official documentation and are not installed as part of
+    setup.py):
+
+    Linux:
+
+        sudo apt-get install git patch gettext-base libffi-dev libssl-dev nodejs npm libsasl2-dev python3-dev python3-venv libldap2-dev python3-mysqldb python3-svn python3-subvertpy
+
+    macOS (install Homebrew if necessary):
+
+        brew install git gpatch libffi openssl node npm libsasl2 python python3 gettext openldap
+
+2.  Create a directory to store your code in. This example creates a
+    cs5150/rb folder in your home directory, but you may store it
+    elsewhere if you wish.
+
+        mkdir -p ~/cs5150/rb
+
+3.  Create a virtual environment. The following instructions inherit the
+    system Python installation, which is usually not recommended (but
+    can be a big time-saver on an up-to-date host platform). Unlike the
+    official instructions, this only sets up a single Python version to
+    test with; this is okay as long as compatibility testing is part of
+    your continuous integration pipeline (which we hope will be the case
+    for CS 5150’s repository in the near future).
+
+        python3 -m venv --system-site-packages ~/cs5150/rb-venv
+
+        # Run this every time you start work in a new shell
+        source ~/cs5150/rb-venv/bin/activate
+
+    The ~/cs5150/rb-venv argument is the folder where your virtual
+    environment is saved; you may move this elsewhere if you like.
+    Remember to run the activate command every time you start work in a
+    new shell.
+
+4.  Install Djblets dependency (from upstream):
+
+        cd ~/cs5150/rb
+        git clone --branch release-4.x https://github.com/djblets/djblets.git
+        pip install setuptools
+        cd djblets && ./setup.py develop
+
+5.  Have one team member do this step. First, clone and set up the
+    desired version of Review Board.
+
+        cd ~/cs5150/rb
+        git clone --branch release-6.0.2 https://github.com/reviewboard/reviewboard.git
+        cd reviewboard
+
+    Then on the Cornell GitHub, have one group member create a new empty
+    repository, making sure not to initialize the repository with a
+    README. The following steps assume this repository is hosted at
+    https://github.coecis.cornell.edu/blp73/reviewboard. You should
+    modify the commands to reflect the URL of your own repository.
+
+    Change the origin remote to this new empty repository and push the
+    current state of the cloned repository.
+
+        git remote set-url origin git@github.coecis.cornell.edu:blp73/reviewboard.git
+        git checkout -b main
+        git push -u origin main
+
+6.  Once the Cornell-hosted repository is created, all group members can
+    clone this repository and set it up.
+
+        cd ~/cs5150/rb
+        git clone https://github.coecis.cornell.edu/blp73/reviewboard
+        cd reviewboard
+        ./setup.py develop
+        ./contrib/internal/prepare-dev.py
+
+7.  Install RBTools (from upstream). By installing rbt in your
+    virtualenv, you will be able to create and update reviews on your
+    Review Board instance.
+
+        cd ~/cs5150/rb
+        git clone https://github.com/reviewboard/rbtools.git
+        cd rbtools && make
+
+8.  Start your Review Board server:
+
+        cd ~/cs5150/rb/reviewboard
+        ./contrib/internal/devserver.py
+
+    Visit http://localhost:8080/ in your web browser and you should see
+    Review Board running. To stop the server, type Ctrl+C in the
+    terminal where you started it.
+
+Testing
+
+Run Python unit tests:
+
+    cd ~/cs5150/rb/reviewboard
+    ./tests/runtests.py
+
+See Running Python Tests with Nose for official documentation regarding
+tests, including how to generate coverage reports.
+
+Unfortunately, Review Board’s tests (like its code) require additional,
+undocumented Python dependencies; we have tried to include them in the
+system packages above.
+
+To run JavaScript tests, start the dev server and visit
+http://localhost:8080/js-tests/. See Running JavaScript Unit Tests for
+more information.
+
+Administration
+
+Add a repository
+
+Before you can create a review, you must associate your code’s
+repository with Review Board. For simplicity, we’ll assume that the
+repository is a local Git clone on your dev machine. Beware: in this
+tutorial, we’ll use the same clone as both the “remote” (what Review
+Board’s server considers to be the centralized copy) and as a working
+copy (what RBTools looks at to post changes); this is not representative
+of production usage, but the flags we pass to rbt avoid any confusion.
+
+To associate a new repository with Review Board, start the development
+server and visit it in your web browser, select “Log in” (top-right),
+and log in using the credentials you chose during prepare-dev.py. Then
+open the user menu (top-right) and select “Admin”. In the left sidebar,
+under “Manage”, click the green ‘+’ next to “Repositories” (note: you
+may need to disable your ad blocker for Review Board’s admin pages to
+work properly).
+
+For this tutorial, we assume you have cloned the “scrambler” repository
+from the CS 5150 GitHub organization to ~/cs5150/scrambler. First, you
+must run rbt setup-repo to generate a .reviewboardrc repository
+configuration file. Commit this file to the master branch of your
+repository that you want to add to ReviewBoard (in this case,
+scrambler). More details can be found in the documentation here. So on
+the “Add Repository” page, enter “Scrambler” for the Name, leave Hosting
+service as “(None - Custom Repository)”, and select “Git” as the
+Repository type. Enter /home/<username>/cs5150/scrambler/.git as the
+Path, then click “Save” (note: the .git subdirectory may be hidden by
+your file browser, but it does exist). The next page should indicate
+that your repository was added successfully.
+
+Create a review
+
+To create a code review, you must first change some code. In your
+scrambler repository, create a new branch
+(git checkout -b my_first_review), modify a file, then commit it
+(git commit -a). To exercise Review Board’s multi-commit support, go
+ahead and make another change and commit it as well.
+
+Now, within your scrambler checkout, ensure that your rb-venv virtualenv
+is activated, then run the following command (entering your Review Board
+credentials if prompted):
+
+    rbt post --server http://localhost:8080 --tracking-branch master
+
+Back in your web browser, go to “My Dashboard” and select “All” under
+“Outgoing”; you will see your review labeled as a “Draft”. In order to
+publish it, you must first assign a reviewer, and to ensure that the
+reviewer is independent of the author, you need to create another user.
+
+Register a new user
+
+Open a separate web browser (or a private/incognito window, or a
+separate browser profile) and visit your Review Board server. Select
+“Register” (top-right) and create a new user (e.g. reviewer).
+
+Now return to your original web browser (logged in with your admin
+account), open your draft review, and enter your new user next to
+“People” under “Reviewers”. On the top of the page you there should be a
+message that says “This review request is a draft. Be sure to publish
+when finished.”; click the “Publish” button to publish it. Refresh your
+dashboard in your second web browser, and the review should appear under
+“Incoming”.
+
+Updating a review
+
+In your scrambler checkout, make another change to the code and commit
+it to your my_first_review branch. Then run:
+
+    rbt post --server http://localhost:8080 --tracking-branch master -u
+
+Visit the review in your original web browser and select “Publish
+changes”.
+
+Style guide
+
+While Review Board’s setup is rather finicky (common among Python
+projects, which rarely capture their dependencies accurately), its
+developer guides are quite thorough. You should read all relevant guides
+before starting your own development.
+
+- Writing and Maintaining Clean Code
+- Writing Good Change Descriptions
+- Keeping Commit Histories Clean
+- Writing Codebase Documentation
+- Writing Unit Tests
+- Adding Feature Flags
+- Accessibility Standards and Tools
+- Security Best Practices
+- Python Coding Style Guide
+- JavaScript Coding Style Guide
+- CSS/LessCSS Component Style Guide
+
+Unfortunately, there does not appear to be an official configuration for
+a style-checking or reformatting tool, so you will be responsible for
+enforcing style guidelines during code review.
+
+Documentation
+
+Supposedly, the following commands will generate HTML documentation in
+each subdirectory’s _build folder:
+
+    cd ~/cs5150/rb/reviewboard/docs/codebase && make html
+    cd ~/cs5150/rb/reviewboard/docs/manual && make html
+
+However, no list of dependencies is given, and the configuration appears
+to be incompatible with the current version of Sphinx (sadly, this kind
+of situation is quite common with Python-based projects; we recommended
+Gerrit for a reason…). You must document your project (for both
+developers and users), and your client must be able to generate your
+documentation, so you will need to provide robust instructions for
+getting this working.
+
+Virtualization
+
+A good way to avoid headaches during setup and to improve consistency is
+to use virtualized development environments—virtual machines or
+containers that are pre-configured for developing, testing, and running
+a particular project. A popular tool for managing virtual dev
+environments is Vagrant.
+
+Python projects often suffer from version incompatibilities and
+undesirable interactions with the host system, making virtual dev
+environments highly appealing. Unfortunately, the npm tool (as used by
+Review Board) does not work on VirtualBox shared filesystems, and
+VirtualBox does not run at all on Macs with Apple Silicon. Therefore, we
+cannot provide the class with pre-configured virtual dev environments at
+this time.

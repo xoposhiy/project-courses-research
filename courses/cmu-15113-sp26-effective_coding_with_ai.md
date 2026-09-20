@@ -31,21 +31,31 @@ Deadlines for the larger projects are fixed, and extensions are granted only for
 
 > "Due dates are firm to allow for presentations and peer review." — [Course archive, Spring 2026](https://www.cs.cmu.edu/~mdtaylor/113/S26/), "Late Policy".
 
+### Prompting exercise
+
+#### 4. One-hour build with a chosen prompting strategy, then class debrief
+
+Each student gets exactly one hour to build as much of one given game as possible with AI, after a lecture that shows three prompting strategies on the same game (naive prompting, plan-adjust-execute, detailed prompts). The student picks a strategy and the tools, logs the prompts, and stops when the timer ends. Full points are given for a thoughtful hour and a prompt log, not for how complete the game is. The next week staff show the most successful submissions and compare which strategy worked best with which model, so the class learns from the spread of results instead of from one recommended method.
+
+> "Decide what prompting strategy you will use (for example, maybe one of the three from Monday's lecture)" — [HW2: Crossy Road](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw2.html), "Detailed Instructions".
+
+> "Next week we'll share some of the submissions that were most successful within their hour. We'll focus on which prompting strategies worked best for a given AI model or tool" — [HW2: Crossy Road](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw2.html), "Next week...".
+
 ### AI use policy
 
-#### 4. AI policy built on disclosure, not banning tools
+#### 5. AI policy built on disclosure, not banning tools
 
 Instead of banning specific AI tools, the course requires students to document significant AI use, explain AI-generated code in their own words, and test and modify what the AI produces rather than copy it unchanged. Violations are about hiding or misrepresenting AI use, not about using AI itself.
 
 > "Philosophy: Transparency and learning over restriction." — [Course archive, Spring 2026](https://www.cs.cmu.edu/~mdtaylor/113/S26/), "AI Usage Policy".
 
-#### 5. Standing right to orally verify any submission
+#### 6. Standing right to orally verify any submission
 
 At any time, staff can ask a student to explain any part of their submitted code, describe how they built it, or discuss trade-offs and alternatives they did not take. This is a general policy that applies to every deliverable in the course, not only to a scheduled presentation, so a student must be ready to defend any submitted work on short notice.
 
 > "The instructor may ask you to explain any part of your submitted code, your process for creating it, or possible trade-offs and alternatives." — [Course archive, Spring 2026](https://www.cs.cmu.edu/~mdtaylor/113/S26/), "AI Usage Policy".
 
-#### 6. Collaboration test: can they redo it alone afterward
+#### 7. Collaboration test: can they redo it alone afterward
 
 Students may discuss ideas, debug together, and review each other's code, but one student may not simply hand another the finished answer. The course gives a concrete test for the difference: collaboration is acceptable only if the helped student could recreate the work alone afterward, without notes or the original.
 
@@ -53,25 +63,25 @@ Students may discuss ideas, debug together, and review each other's code, but on
 
 ### Process evidence
 
-#### 7. Required log of verbatim prompts, not summaries
+#### 8. Required log of verbatim prompts, not summaries
 
 Every deliverable that involves AI use must include a text file listing the AI tools used and the key prompts that shaped the work, and the file must contain the actual prompt text, not a paraphrase or a summary written after the fact. The requirement repeats across the whole term because staff found summaries hide what really happened during development.
 
 > "share your actual prompts, verbatim, and not just summaries (AI generated or otherwise)." — [HW9: Your First Mobile App](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw9.html), "What You Must Submit".
 
-#### 8. Process reflection written without AI help
+#### 9. Process reflection written without AI help
 
 After the larger AI-assisted projects, each student writes a short reflection on their own process, tool choices, and what changed compared to how they worked before the course, and this reflection must be written entirely without AI assistance. The rule keeps one deliverable in every project unmistakably the student's own analysis of their own work.
 
 > "Be honest and specific; there are no wrong answers here, but you must write this yourself, without AI." — [Project 3: The Capstone](https://www.cs.cmu.edu/~mdtaylor/113/S26/project3.html), "Reflection".
 
-#### 9. Grading checks documentation against the delivered code
+#### 10. Grading checks documentation against the delivered code
 
 Staff read each student's README and prompt log against the code actually submitted, and they lower a grade when the documentation is generic AI-generated text that does not match what was built. The rule targets a specific failure staff observed: a student pastes an early, AI-written draft of the documentation and never updates it to reflect the finished project.
 
 > "we've recently seen some really nonsensical ones that were clearly AI-generated at an early stage in the project, and do not reflect the code that was actually given to us." — [HW6: Build a Database App](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw6.html), "Grading".
 
-#### 10. Keep the assignment brief out of the AI's context
+#### 11. Keep the assignment brief out of the AI's context
 
 Students are told not to paste the assignment instructions into the AI as context before starting an assignment. The rule exists so students practice writing their own requirements and talking to the AI about what they want, instead of letting the staff-written brief do that thinking for them, because real project work will rarely come with such a precise specification already written.
 
@@ -79,19 +89,19 @@ Students are told not to paste the assignment instructions into the AI as contex
 
 ### Verification
 
-#### 11. Required in-person progress check-in mid-project
+#### 12. Required in-person progress check-in mid-project
 
 Partway through each larger project, every student must meet in person with a TA or the instructor to show their progress and get feedback before continuing. Missing this checkpoint costs graded points, separate from the credit for the finished project itself, so a student cannot skip feedback and only turn something in at the deadline.
 
 > "There will be one required in-person check-in (similar to what we did for Project 1) roughly halfway through the project so you can receive feedback and adjust direction." — [Project 2: Creative Web App](https://www.cs.cmu.edu/~mdtaylor/113/S26/project2.html), "What You Must Submit".
 
-#### 12. Short in-person presentation on how AI was used
+#### 13. Short in-person presentation on how AI was used
 
 After a project, a student gives a brief in-person presentation to a TA and a small group of peers, focused on the process used to build the work, specifically what the AI contributed and where it did not help. This presentation carries its own points on the grading rubric, separate from the quality of the finished project.
 
 > "Brief, informal 5-minute presentation to a TA and small group of peers focusing on the process used to create the website, how AI helped, and any areas where it did not." — [Project 1: Personal Portfolio Website](https://www.cs.cmu.edu/~mdtaylor/113/S26/project1.html), "Grading Rubric".
 
-#### 13. In-person oral exam on the final project
+#### 14. In-person oral exam on the final project
 
 For the capstone project, staff hold an oral exam in the final week where each student must show they understand and can explain what every part of their own code is responsible for. Unlike the shorter presentations after earlier projects, this exam happens after the project checkpoint and must take place in person rather than by video or text.
 
@@ -99,9 +109,15 @@ For the capstone project, staff hold an oral exam in the final week where each s
 
 > "These must be done in-person." — [Project 3: The Capstone](https://www.cs.cmu.edu/~mdtaylor/113/S26/project3.html), "What You Must Submit".
 
+#### 15. Some code must be written or substantially changed by the student
+
+In the capstone project, as in the project before it, the student must write or substantially change at least some of the code themselves, even though AI may generate the rest. The rule is stated next to the oral exam: the course tells students not to let AI build the project past the point where they can still explain it. The test the course gives is whether the student could discuss the project in a technical job interview without notes. If not, the student should either study the generated code or simplify the project.
+
+> "you'll also need to write or substantially modify at least some of your code, so be careful not to just vibe-code until it's too complicated for you to grasp." — [Project 3: The Capstone](https://www.cs.cmu.edu/~mdtaylor/113/S26/project3.html), "Assignment Overview".
+
 ### Code handoff exercise
 
-#### 14. Paired code handoff with a minimum code-retention rule
+#### 16. Paired code handoff with a minimum code-retention rule
 
 Each student spends about 30 minutes in class starting a small game, documents it, and stops; staff then send that unfinished repository to a different student, who spends one focused hour reading, understanding, and continuing it without starting over. A rule caps how much of the original code the second student may delete or comment out, so the exercise stays about working with someone else's code rather than replacing it.
 
@@ -109,27 +125,35 @@ Each student spends about 30 minutes in class starting a small game, documents i
 
 ### Specify-delegate-review workflow
 
-#### 15. Write the specification alone before the coding agent sees it
+#### 17. Write the specification alone before the coding agent sees it
 
 Before touching an AI coding agent, a student writes a detailed specification of the software to build, covering required behavior, data format, error cases, and a checklist of acceptance criteria, and this specification must be written without AI help. The course frames this step as the most important one, because a vague specification is expected to produce a poor result from the agent no matter how the agent is used afterward.
 
 > "Write this spec yourself, without AI assistance. The whole point of this assignment is to see how the quality of your planning affects the quality of the AI's output." — [HW8: The Agentic Build](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw8.html), "Detailed Instructions".
 
-#### 16. Hands-off agent build with every intervention logged
+#### 18. Hands-off agent build with every intervention logged
 
 Once the specification is written, the student hands it to a coding agent and lets it build with as little interference as possible, accepting the agent's file and command actions rather than directing each step. Any time the student does step in, to fix something, clarify something, or redirect the agent, that intervention must be written down in the prompt log, so the number and kind of interventions becomes part of the evidence of how well the specification worked.
 
 > "Track your interventions. If you do need to step in (to fix something, clarify something, or nudge it in a different direction), note each intervention in your log." — [HW8: The Agentic Build](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw8.html), "Detailed Instructions".
 
-#### 17. Independent code review from a fresh agent session
+#### 19. Independent code review from a fresh agent session
 
 After the agent finishes building, the student opens a brand-new chat session with the agent and asks it to review the code against the specification, without giving this second session any memory of the first session's conversation. Starting fresh keeps the reviewing agent from simply defending choices it already made as the builder, so the review is closer to an independent check.
 
 > "Open a new Copilot Chat session (click "+" to start fresh — this is important so the reviewer doesn't have the builder's context)." — [HW8: The Agentic Build](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw8.html), "Phase 3: The AI Review".
 
+#### 20. Reflection ties each agent intervention to a gap in the specification
+
+After the hands-off agent build, the student answers five fixed questions in a short reflection written without AI: what share of the acceptance criteria passed on the first try; why each intervention was needed and whether a better specification could have prevented it; whether the AI review found real bugs, missed problems, or raised false alarms; what to change in the specification next time; and when this plan-delegate-review workflow is better or worse than a conversation with the AI. The questions make the student judge their own specification and the AI review by the outcome, not by impression. The grading table says a specific and honest reflection can partly make up for missing features.
+
+> "Where did you intervene? [...] Why was the intervention needed? Could a better spec have prevented it?" — [HW8: The Agentic Build](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw8.html), "Reflection".
+
+> "How useful was the AI review? Did it catch real bugs? Did it miss anything important? Did it flag things that weren't actually problems?" — [HW8: The Agentic Build](https://www.cs.cmu.edu/~mdtaylor/113/S26/hw8.html), "Reflection".
+
 ### Continuous improvement
 
-#### 18. Recurring student survey turned into a public best-practices report
+#### 21. Recurring student survey turned into a public best-practices report
 
 After each assignment, staff survey the class about satisfaction, how much of the code they understood, and their AI workflow, and collect free-response advice. At the end of the course, staff publish these results as one report, grouping the recurring advice into themes and ranking how many students supported each one, so the practices a class discovers itself can carry over to the next cohort instead of being lost.
 

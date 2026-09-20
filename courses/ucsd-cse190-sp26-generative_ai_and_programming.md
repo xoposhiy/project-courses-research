@@ -101,25 +101,31 @@ The part of an application that calls a generative AI model to extract structure
 
 > "the data extraction part of the system should be separately testable [...] without starting up the whole program." — [A2: Document Scanner](https://ucsd-cse-115-215.github.io/sp26/assignments/doc-scanner-assignment.html), "Engineering and Testing".
 
-#### 14. Pass@k comparison across agent configurations
+#### 14. Late requirement change with a written account of design impact
+
+After the first submission and peer review of the document-scanner assignment, each team must pick one new requirement from a staff list that its design does not already meet, for example a version that no longer stores documents on the server, and implement it. The design document must then explain which existing parts of the design had to change and which did not, and the agent transcript for the change goes into the transcripts folder. The exercise tests whether the design made earlier can absorb a change it was not built for.
+
+> "explain what existing parts of your design had to change, and what didn't." — [A2: Document Scanner](https://ucsd-cse-115-215.github.io/sp26/assignments/doc-scanner-assignment.html), "New Requirements".
+
+#### 15. Pass@k comparison across agent configurations
 
 Students evaluating an agent must report a pass@k-style metric for a small evaluation set of scenarios and compare it across at least two different configurations of the same agent, such as different models, system prompts, toolsets, or guardrail policies, rather than reporting a single pass/fail number for one fixed setup.
 
 > "a table with pass@k metrics for at least two different agent configurations." — [A3: Agents](https://ucsd-cse-115-215.github.io/sp26/assignments/agent-assignment.html), "Metadata and Initial Submission".
 
-#### 15. LLM-as-judge scoring, spot-checked by hand
+#### 16. LLM-as-judge scoring, spot-checked by hand
 
 When a task has no single correct answer to compare against, such as judging a summary's quality or a tutoring reply's helpfulness, students are allowed to score it with another LLM call acting as judge, but are told to manually check the judge's verdicts on a handful of examples before trusting its scores at scale, because judges carry their own biases.
 
 > "one possible practical scorer is another LLM call — "LLM-as-judge". This is fine, but judges have their own biases and inconsistencies, so spot-check the judge's verdicts on a handful of examples before trusting it at scale." — [A3: Agents](https://ucsd-cse-115-215.github.io/sp26/assignments/agent-assignment.html), "Engineering and Testing".
 
-#### 16. Three-tier guardrail taxonomy for agent actions
+#### 17. Three-tier guardrail taxonomy for agent actions
 
 Every student-built agent must sort its own operations into three categories: actions it may take with no confirmation (reading data), actions that require the user to confirm first (editing code, posting publicly), and actions that are explicitly disallowed even if the agent's tools make them possible (fabricating a citation when a search returns nothing). Naming the disallowed category forces students to design a negative case, not just a happy path.
 
 > "An operation that your agent can take safely on its own with no user confirmation [...] An operation that requires user confirmation [...] An operation that is disallowed" — [A3: Agents](https://ucsd-cse-115-215.github.io/sp26/assignments/agent-assignment.html), "Requirements".
 
-#### 17. Grade "pending" plus an oral check-in interview
+#### 18. Grade "pending" plus an oral check-in interview
 
 Instead of giving a 0-4 score directly, staff may mark any assignment as "pending" for a given student, which means the student must come to a check-in interview and walk staff through their code, their design decisions, and what was AI-generated versus their own contribution, before a final grade is assigned.
 
@@ -127,13 +133,13 @@ Instead of giving a 0-4 score directly, staff may mark any assignment as "pendin
 
 ### Assessment
 
-#### 18. Independent grade floors for assignments and for reviews
+#### 19. Independent grade floors for assignments and for reviews
 
 The course has two separately graded components, assignment work and peer review/feedback work, and a student must reach the same percentage floor in both components to earn a given letter grade; scoring well in one component does not compensate for falling below the floor in the other.
 
 > "The two components of the course has a minimum achievement level to get an A, B, or C in the course. You must reach that achievement level in all of the categories." — [Syllabus and Logistics](https://ucsd-cse-115-215.github.io/sp26/index.html), "Grading".
 
-#### 19. Graded lecture participation via paper handouts
+#### 20. Graded lecture participation via paper handouts
 
 Each lecture has a paper handout with review questions that is collected during class; credit is given for any reasonable answer, and students may discuss the questions with people sitting near them, since the handout is meant to check engagement, not to test correctness.
 
@@ -149,4 +155,4 @@ No staff retrospective, survey summary, or outcome data for this Spring 2026 off
 
 Not reviewed: the other four lecture-notes pages (introduction, semantic text processing, agents, grounding) linked from the syllabus, the linked example repositories (BlueSky poetry detector, receipt scanner, git-bot), and the private Piazza forum. No search was made for a Fall offering or a prior-year version of this course.
 
-New in this course, not seen in the three already-processed courses (MIT 6.1040, Stanford CS146S, CMU 17-316): LLM-as-judge scoring with a required human spot-check (practice 15), the three-tier agent guardrail taxonomy (practice 16), the "pending" grade plus mandatory check-in interview (practice 17), independent grade floors across two separately graded course components (practice 18), and the outer-agent/sub-agent verification pattern with independent verifier rerun to guard against reward hacking (instructor observation).
+New in this course, not seen in the three already-processed courses (MIT 6.1040, Stanford CS146S, CMU 17-316): LLM-as-judge scoring with a required human spot-check (practice 16), the three-tier agent guardrail taxonomy (practice 17), the "pending" grade plus mandatory check-in interview (practice 18), independent grade floors across two separately graded course components (practice 19), and the outer-agent/sub-agent verification pattern with independent verifier rerun to guard against reward hacking (instructor observation).
